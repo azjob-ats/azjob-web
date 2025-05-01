@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */;
+@import "primeicons/primeicons.css";
+@import '@fontsource/ubuntu';
+@import 'primeflex/primeflex.scss';
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+// Aplica a fonte em todos os componentes do PrimeNG
+.p-component, .p-button, .p-menuitem-text {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+:root {
+    --p-inputtext-border-color:#ffffff00 !important;
+    --p-inputtext-color: #000 !important; 
+    --p-inputtext-filled-background: #cccccc  !important;
+    --p-inputtext-filled-focus-background:#fff !important;
+    --p-inputtext-border-radius:7px !important;
+    --p-inputtext-placeholder-color: #000 !important; 
+    --p-inputtext-focus-border-color: #000 !important; 
+  }
+
+  label {
+    font-weight: bold;
+  }
+  .container {
+    display: block;
+    margin: 8px;
+  }
+    body {
+      margin: 0;
+    }
