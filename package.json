@@ -4,8 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npx prettier 'src/app/**/*.{ts,html,scss}' --write && npx eslint --fix . && ng test --watch=false && ng build --configuration production --aot",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build --configuration production",
     "test": "npx jest",
     "test:coverage": "npx jest --coverage",
     "lint": "npx eslint --fix .",

@@ -10,7 +10,7 @@ import { environment } from './../environments/environment';
 })
 export class AppComponent {
   public title = 'azjob-web';
-  public ambiente = environment.apiUrl
+  public ambiente = environment.env;
   public value: string = '';
   public checked: boolean = false;
   public animations = ['fadein'];
