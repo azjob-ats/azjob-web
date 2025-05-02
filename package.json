@@ -11,6 +11,9 @@
     "format": "prettier --write \"src/**/*.{ts,js,json,html,scss}\"",
     "format:check": "prettier --check \"src/**/*.{ts,js,json,html,scss}\""
   },
+  "engines": {
+    "node": "22.0.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.0.1",
