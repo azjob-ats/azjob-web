@@ -12,14 +12,14 @@ import { Component } from '@angular/core';
   `,
 })
 export class AppComponent {
-  title = 'My App';
-  count = 0;
+  public title = 'My App';
+  public count = 0;
 
-  increment() {
+  public increment(): void {
     this.count++;
   }
 
-  reset() {
+  public reset(): void {
     this.count = 0;
   }
 }
@@ -56,9 +56,7 @@ describe('AppComponent (standalone)', () => {
     const button = fixture.nativeElement.querySelector('button');
     button.click();
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('p').textContent).toContain(
-      'Count: 1',
-    );
+    expect(fixture.nativeElement.querySelector('p').textContent).toContain('Count: 1');
   });
 
   it('deve resetar o count ao clicar no botão de reset', () => {
@@ -73,9 +71,7 @@ describe('AppComponent (standalone)', () => {
     fixture.detectChanges();
 
     expect(app.count).toBe(0);
-    expect(fixture.nativeElement.querySelector('p').textContent).toContain(
-      'Count: 0',
-    );
+    expect(fixture.nativeElement.querySelector('p').textContent).toContain('Count: 0');
   });
 
   it('deve incrementar múltiplas vezes', () => {
@@ -89,8 +85,6 @@ describe('AppComponent (standalone)', () => {
     fixture.detectChanges();
 
     expect(app.count).toBe(3);
-    expect(fixture.nativeElement.querySelector('p').textContent).toContain(
-      'Count: 3',
-    );
+    expect(fixture.nativeElement.querySelector('p').textContent).toContain('Count: 3');
   });
 });

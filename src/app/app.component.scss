@@ -1,13 +1,13 @@
 :host ::ng-deep {
-    .p-megamenu-item:not(.p-disabled) > .p-megamenu-item-content:hover{
-        background-color: #f5f5f5;
-        color: purple;
-    }
-    .p-megamenu-item-content{
-        color: purple;
-    }
+  .p-megamenu-item:not(.p-disabled) > .p-megamenu-item-content:hover {
+    background-color: #f5f5f5;
+    color: purple;
+  }
+  .p-megamenu-item-content {
+    color: purple;
+  }
 }
 
 .w-full {
-    width: 100% !important;
+  width: 100% !important;
 }

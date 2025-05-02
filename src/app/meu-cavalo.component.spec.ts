@@ -18,13 +18,13 @@ import { Observable, of } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   private http = inject(HttpClient);
-  users$!: Observable<any[]>;
+  public users$!: Observable<any[]>;
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.users$ = this.http.get<any[]>('/api/users');
   }
 
-  addUser() {
+  public addUser(): void {
     this.http.post('/api/users', { name: 'Novo Usuário' }).subscribe();
   }
 }

@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -29,7 +30,7 @@
       ],
       "@widget/*": [
         "src/app/widget/*"
-      ],
+      ]
     }
   },
   "angularCompilerOptions": {

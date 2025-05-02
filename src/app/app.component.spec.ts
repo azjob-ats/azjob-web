@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
   `,
 })
 export class AppComponent {
-  title = 'My App';
-  count = 0;
+  public title = 'My App';
+  public count = 0;
 
-  increment() {
+  public increment(): void {
     this.count++;
   }
 }
@@ -53,8 +53,6 @@ describe('AppComponent', () => {
 
     // Verifica se incrementou
     expect(app.count).toBe(1);
-    expect(fixture.nativeElement.querySelector('p').textContent).toContain(
-      'Count: 1',
-    );
+    expect(fixture.nativeElement.querySelector('p').textContent).toContain('Count: 1');
   });
 });

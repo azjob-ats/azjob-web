@@ -12,14 +12,14 @@ import { Component, signal } from '@angular/core';
   `,
 })
 export class AppComponent {
-  title = signal('My App');
-  count = signal(0);
+  public title = signal('My App');
+  public count = signal(0);
 
-  increment() {
-    this.count.update((c) => c + 1);
+  public increment(): void {
+    this.count.update(c => c + 1);
   }
 
-  reset() {
+  public reset(): void {
     this.count.set(0);
   }
 }
@@ -59,9 +59,7 @@ describe('AppComponent (with Signals)', () => {
 
     const app = fixture.componentInstance;
     expect(app.count()).toBe(1);
-    expect(fixture.nativeElement.querySelector('p').textContent).toContain(
-      'Count: 1',
-    );
+    expect(fixture.nativeElement.querySelector('p').textContent).toContain('Count: 1');
   });
 
   it('deve resetar o count', () => {
@@ -76,8 +74,6 @@ describe('AppComponent (with Signals)', () => {
     fixture.detectChanges();
 
     expect(app.count()).toBe(0);
-    expect(fixture.nativeElement.querySelector('p').textContent).toContain(
-      'Count: 0',
-    );
+    expect(fixture.nativeElement.querySelector('p').textContent).toContain('Count: 0');
   });
 });

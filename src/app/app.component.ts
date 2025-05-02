@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ImportsModule } from '@core/imports';
-
+import { environment } from './../environments/environment';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, ImportsModule],
@@ -10,6 +10,7 @@ import { ImportsModule } from '@core/imports';
 })
 export class AppComponent {
   public title = 'azjob-web';
+  public ambiente = environment.apiUrl
   public value: string = '';
   public checked: boolean = false;
   public animations = ['fadein'];

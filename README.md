@@ -120,6 +120,14 @@ to write only a commit title message to describe the changes made in all files f
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Configuring application environments
+
+You can choose which configuration to use with the `--configuration option.`
+
+```sh
+ng build --configuration debug
+```
+
 ### Comando para analisar e corrigir um arquivo específico
 
 `npx eslint --fix caminho/para/seu/arquivo.ts`.
