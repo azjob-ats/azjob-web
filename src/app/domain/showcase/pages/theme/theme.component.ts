@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
   imports: [ImportsModule, LoadingSpinnerDirective],
   templateUrl: './theme.component.html',
   styleUrl: './theme.component.scss',
-
 })
 export class ThemeComponent implements OnInit {
   public title = 'azjob-web';
@@ -34,22 +33,22 @@ export class ThemeComponent implements OnInit {
     element.classList.toggle('my-app-dark');
   }
 
-  formGroup!: FormGroup;
+  public formGroup!: FormGroup;
 
-  stateOptions: any[] = [
+  public stateOptions: any[] = [
     { label: 'Off', value: 'off' },
     { label: 'On', value: 'on' },
   ];
 
-  value!: any;
+  public value!: any;
 
-  paymentOptions: any[] = [
+  public paymentOptions: any[] = [
     { name: 'Option 1', value: 1 },
     { name: 'Option 2', value: 2 },
     { name: 'Option 3', value: 3 },
   ];
 
-  setLoad() {
+  public setLoad() {
     this.isLoading2 = !this.isLoading2;
 
     setTimeout(() => {

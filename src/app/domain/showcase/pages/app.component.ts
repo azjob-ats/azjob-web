@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-index',
-  template: `<router-outlet></router-outlet>`,
-  styles: [``],
+  template: '<router-outlet></router-outlet>',
+  styles: [''],
   imports: [RouterModule],
 })
 export class AppComponent {}

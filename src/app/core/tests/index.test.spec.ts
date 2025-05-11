@@ -102,7 +102,7 @@ describe('AppComponent (standalone)', () => {
     <p>Count: {{ count() }}</p>
   `,
 })
-export class AppComponent2 {
+export class App2Component {
   public title = signal('My App');
   public count = signal(0);
 
@@ -118,31 +118,31 @@ export class AppComponent2 {
 describe('AppComponent (with Signals)', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent2],
+      imports: [App2Component],
     }).compileComponents();
   });
 
   it('deve criar o componente', () => {
-    const fixture = TestBed.createComponent(AppComponent2);
+    const fixture = TestBed.createComponent(App2Component);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it('deve exibir o título', () => {
-    const fixture = TestBed.createComponent(AppComponent2);
+    const fixture = TestBed.createComponent(App2Component);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('My App');
   });
 
   it('deve começar com count em 0', () => {
-    const fixture = TestBed.createComponent(AppComponent2);
+    const fixture = TestBed.createComponent(App2Component);
     const app = fixture.componentInstance;
     expect(app.count()).toBe(0);
   });
 
   it('deve incrementar o count ao clicar', () => {
-    const fixture = TestBed.createComponent(AppComponent2);
+    const fixture = TestBed.createComponent(App2Component);
     const button = fixture.nativeElement.querySelector('button');
 
     button.click(); // incrementa
@@ -154,7 +154,7 @@ describe('AppComponent (with Signals)', () => {
   });
 
   it('deve resetar o count', () => {
-    const fixture = TestBed.createComponent(AppComponent2);
+    const fixture = TestBed.createComponent(App2Component);
     const app = fixture.componentInstance;
     const buttons = fixture.nativeElement.querySelectorAll('button');
 
@@ -181,7 +181,7 @@ describe('AppComponent (with Signals)', () => {
     <button (click)="addUser()">Adicionar Usuário</button>
   `,
 })
-export class AppComponent3 implements OnInit {
+export class App3Component implements OnInit {
   private http = inject(HttpClient);
   public users$!: Observable<any[]>;
 
@@ -194,7 +194,7 @@ export class AppComponent3 implements OnInit {
   }
 }
 
-describe('AppComponent3 (RxJS)', () => {
+describe('App3Component (RxJS)', () => {
   let httpClientMock: jest.Mocked<HttpClient>;
 
   beforeEach(() => {
@@ -203,7 +203,7 @@ describe('AppComponent3 (RxJS)', () => {
       post: jest.fn(),
     } as Partial<jest.Mocked<HttpClient>> as jest.Mocked<HttpClient>;
     TestBed.configureTestingModule({
-      imports: [AppComponent3, HttpClientModule],
+      imports: [App3Component, HttpClientModule],
       providers: [{ provide: HttpClient, useValue: httpClientMock }],
     });
   });
@@ -212,7 +212,7 @@ describe('AppComponent3 (RxJS)', () => {
     const fakeUsers = [{ name: 'João' }, { name: 'Maria' }];
     httpClientMock.get.mockReturnValue(of(fakeUsers));
 
-    const fixture = TestBed.createComponent(AppComponent3);
+    const fixture = TestBed.createComponent(App3Component);
     fixture.detectChanges();
 
     const liElements = fixture.nativeElement.querySelectorAll('li');
@@ -225,7 +225,7 @@ describe('AppComponent3 (RxJS)', () => {
     httpClientMock.get.mockReturnValue(of([]));
     httpClientMock.post.mockReturnValue(of({}));
 
-    const fixture = TestBed.createComponent(AppComponent3);
+    const fixture = TestBed.createComponent(App3Component);
     fixture.detectChanges();
 
     const button = fixture.nativeElement.querySelector('button');
@@ -247,7 +247,7 @@ describe('AppComponent3 (RxJS)', () => {
     <p>Count: {{ count }}</p>
   `,
 })
-export class AppComponent4 {
+export class App4Component {
   public title = 'My App';
   public count = 0;
 
@@ -260,34 +260,34 @@ export class AppComponent4 {
   }
 }
 
-describe('AppComponent4 (standalone)', () => {
+describe('App4Component (standalone)', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent4],
+      imports: [App4Component],
     }).compileComponents();
   });
 
   it('deve criar o componente', () => {
-    const fixture = TestBed.createComponent(AppComponent4);
+    const fixture = TestBed.createComponent(App4Component);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it('deve exibir o título na tag h1', () => {
-    const fixture = TestBed.createComponent(AppComponent4);
+    const fixture = TestBed.createComponent(App4Component);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('My App');
   });
 
   it('deve iniciar o count com 0', () => {
-    const fixture = TestBed.createComponent(AppComponent4);
+    const fixture = TestBed.createComponent(App4Component);
     const app = fixture.componentInstance;
     expect(app.count).toBe(0);
   });
 
   it('deve incrementar o count ao clicar no botão', () => {
-    const fixture = TestBed.createComponent(AppComponent4);
+    const fixture = TestBed.createComponent(App4Component);
     fixture.detectChanges();
     const button = fixture.nativeElement.querySelector('button');
     button.click();
@@ -296,7 +296,7 @@ describe('AppComponent4 (standalone)', () => {
   });
 
   it('deve resetar o count ao clicar no botão de reset', () => {
-    const fixture = TestBed.createComponent(AppComponent4);
+    const fixture = TestBed.createComponent(App4Component);
     const app = fixture.componentInstance;
 
     app.count = 5; // simula que o count já estava em 5
@@ -311,7 +311,7 @@ describe('AppComponent4 (standalone)', () => {
   });
 
   it('deve incrementar múltiplas vezes', () => {
-    const fixture = TestBed.createComponent(AppComponent4);
+    const fixture = TestBed.createComponent(App4Component);
     const app = fixture.componentInstance;
     const button = fixture.nativeElement.querySelector('button');
 
