@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
-import { customPreset } from './custom.preset';
+import { customPreset } from './core/theme/custom.preset';
 import { FilterMatchMode } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
         options: {
           prefix: 'p',
           darkModeSelector: '.my-app-dark',
-          cssLayer: false,
+          cssLayer: true,
         },
       },
       zIndex: {

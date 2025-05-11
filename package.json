@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production",
+    "build": "ng build",
     "test": "npx jest",
     "test:coverage": "npx jest --coverage",
     "lint": "npx eslint --fix .",
@@ -26,7 +26,6 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
-    "@fontsource/ubuntu": "^5.2.5",
     "@primeng/themes": "^19.0.10",
     "@types/jasmine": "4.3.1",
     "@types/node": "12.20.55",
