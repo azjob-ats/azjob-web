@@ -21,26 +21,17 @@
 
 .copy-btn.copied {
   background-color: #28a745;
-  /* Verde */
   color: #ffffff;
 }
 
 pre {
-  /* Permite quebra de linha */
-  white-space: pre-wrap;
-  /* Quebra a palavra */
-  word-wrap: break-word;
-
   background-color: #272a36;
   color: #000000;
   padding: 16px;
   border-radius: 8px;
   overflow-x: auto;
-
-
   margin-top: 7px;
   box-sizing: border-box;
-  /* Inclui padding no cálculo da largura */
 }
 
 ::ng-deep pre code {

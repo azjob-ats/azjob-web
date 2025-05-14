@@ -7,6 +7,8 @@ import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { MenuItem } from 'primeng/api';
+import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
+import { templete } from '@domain/showcase/pages/rendering/template';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +28,14 @@ export class HomeComponent {
   items: MenuItem[] | undefined;
 
   ngOnInit() {
+
+    const mapToMenuItems = (templates: iTemplateComponent[]): MenuItem[] => {
+      return templates.map((template) => ({
+        label: template.title,
+        routerLink: template.component.name,
+      }));
+    };
+
     this.items = [
       {
         label: 'Theme',
@@ -33,20 +43,7 @@ export class HomeComponent {
       },
       {
         label: 'Componentes',
-        items: [
-          {
-            label: 'Button',
-            routerLink: 'ButtonComponent'
-          },
-          {
-            label: 'Checkbox',
-            routerLink: 'CheckboxComponent'
-          },
-          {
-            label: 'Input',
-            routerLink: 'InputComponent'
-          }
-        ]
+        items: mapToMenuItems(templete),
       },
       {
         label: 'Typography',

@@ -1,13 +1,7 @@
-@for (item of templete; track $index) {
-    @if (item.component.name == templateRouterComponent) {
-        <app-template
-            [dynamicComponent]="item.component.componentRef"
-            [componentOption]="item.component.option"
-            [componentFormControl]="item.component.formControl"
-            [codeBlock]="item.codeBlock"
-            [componentDescription]="item.description"
-            [componentName]="item.title"
-        ></app-template>
-    }
+@for (item of templeted; track $index) {
+@if (item.component.name == templateRouterComponent) {
+<app-template [dynamicComponent]="item.component.componentRef" [componentOption]="item.component.option"
+    [componentFormControl]="item.component.formControl" [codeBlock]="item.codeBlock"
+    [componentDescription]="item.description" [componentName]="item.title"></app-template>
 }
-
+}

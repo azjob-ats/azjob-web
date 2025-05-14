@@ -7,6 +7,15 @@ import { TemplateComponent } from './pages/templates/template.component';
 import { RenderingComponent } from './pages/rendering/rendering.component';
 import { ThemeComponent } from './pages/theme/theme.component';
 import { TypographyComponent } from './pages/utilities/typography/typography.component';
+import { iTemplateComponent } from './interfaces/index.interface';
+import { templete } from '@domain/showcase/pages/rendering/template';
+
+const generateRoutes = (templates: iTemplateComponent[]): Routes => {
+  return templates.map(template => ({
+    path: template.component.name,
+    component: RenderingComponent,
+  }));
+};
 
 export const INDEX_ROUTES: Routes = [
   {
@@ -14,10 +23,8 @@ export const INDEX_ROUTES: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: ThemeComponent },
-      { path: 'ButtonComponent', component: RenderingComponent },
-      { path: 'CheckboxComponent', component: RenderingComponent },
-      { path: 'InputComponent', component: RenderingComponent },
+      ...generateRoutes(templete),
       { path: 'utilities/typography', component: TypographyComponent },
     ]
-  },
+  }
 ];
