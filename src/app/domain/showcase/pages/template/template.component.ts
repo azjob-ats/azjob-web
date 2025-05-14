@@ -5,12 +5,12 @@ import { LoadingSpinnerDirective } from '@widget/directives/loading-spinner.dire
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-theme',
+  selector: 'app-template',
   imports: [ImportsModule, LoadingSpinnerDirective],
-  templateUrl: './theme.component.html',
-  styleUrl: './theme.component.scss',
+  templateUrl: './template.component.html',
+  styleUrl: './template.component.scss',
 })
-export class ThemeComponent implements OnInit {
+export class TemplateComponent implements OnInit {
   public title = 'azjob-web';
   public ambiente = environment.env;
   public checked: boolean = false;

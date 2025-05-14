@@ -1,14 +1,10 @@
 import { Routes } from '@angular/router';
-import { ButtonComponent } from './pages/components/button/button.component';
-import { CheckboxComponent } from './pages/components/checkbox/checkbox.component';
-import { InputComponent } from './pages/components/input/input.component';
-import { HomeComponent } from './pages/home/home.component';
-import { TemplateComponent } from './pages/templates/template.component';
-import { RenderingComponent } from './pages/rendering/rendering.component';
-import { ThemeComponent } from './pages/theme/theme.component';
-import { TypographyComponent } from './pages/utilities/typography/typography.component';
+import { componentMap } from '@domain/showcase/configs/component-map.configs';
 import { iTemplateComponent } from './interfaces/index.interface';
-import { templete } from '@domain/showcase/pages/rendering/template';
+import { HomeComponent } from './pages/home/home.component';
+import { RenderingComponent } from './pages/rendering/rendering.component';
+import { TemplateComponent } from './pages/template/template.component';
+import { TypographyComponent } from './pages/utilities/typography/typography.component';
 
 const generateRoutes = (templates: iTemplateComponent[]): Routes => {
   return templates.map(template => ({
@@ -22,8 +18,9 @@ export const INDEX_ROUTES: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: '', component: ThemeComponent },
-      ...generateRoutes(templete),
+      { path: '', component: TemplateComponent },
+      { path: 'template', component: TemplateComponent },
+      ...generateRoutes(componentMap),
       { path: 'utilities/typography', component: TypographyComponent },
     ]
   }

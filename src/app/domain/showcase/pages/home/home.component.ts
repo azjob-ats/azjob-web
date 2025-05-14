@@ -8,7 +8,7 @@ import { MenuModule } from 'primeng/menu';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { MenuItem } from 'primeng/api';
 import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
-import { templete } from '@domain/showcase/pages/rendering/template';
+import { componentMap } from '@domain/showcase/configs/component-map.configs';
 
 @Component({
   selector: 'app-home',
@@ -38,12 +38,12 @@ export class HomeComponent {
 
     this.items = [
       {
-        label: 'Theme',
-        routerLink: '/showcase'
+        label: 'Template azjob',
+        routerLink: 'template'
       },
       {
-        label: 'Componentes',
-        items: mapToMenuItems(templete),
+        label: 'Components',
+        items: mapToMenuItems(componentMap),
       },
       {
         label: 'Typography',

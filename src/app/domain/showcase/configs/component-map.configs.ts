@@ -2,7 +2,7 @@ import { FormControl } from "@angular/forms";
 import { InputPrimaryComponent } from "@widget/components/input-primary/input-primary.component";
 import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
 
-export var templete: iTemplateComponent[] = [
+export var componentMap: iTemplateComponent[] = [
     {
         title: 'Input Text Primary',
         description: 'É um componente gráfico que permite ao usuário insiram dados em um campo de texto. Ele é o princial componente de formulário.',

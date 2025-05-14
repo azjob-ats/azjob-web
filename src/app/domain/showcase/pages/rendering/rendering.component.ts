@@ -1,24 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, type OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { PageDocumentComponent } from '@domain/showcase/components/page-document/page-document.component';
 import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
-import { InputPrimaryComponent } from '@widget/components/input-primary/input-primary.component';
-import { TemplateComponent } from '../templates/template.component';
-import { templete } from '@domain/showcase/pages/rendering/template';
+import { componentMap } from '@domain/showcase/configs/component-map.configs';
 
 @Component({
   selector: 'app-rendering',
-  imports: [CommonModule, TemplateComponent],
+  imports: [CommonModule, PageDocumentComponent],
   templateUrl: './rendering.component.html',
   styleUrl: './rendering.component.scss'
 })
 export class RenderingComponent implements OnInit {
-
   public templateRouterComponent: string = '';
-
-
-  public templeted: iTemplateComponent[] = templete
+  public templeted: iTemplateComponent[] = componentMap
 
   constructor(private router: ActivatedRoute) { }
   ngOnInit(): void {
