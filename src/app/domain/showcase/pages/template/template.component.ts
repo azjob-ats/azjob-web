@@ -28,9 +28,6 @@ export class TemplateComponent implements OnInit {
     this.formGroup = new FormGroup({
       value: new FormControl('on'),
     });
-
-    const element: any = document.querySelector('html');
-    element.classList.toggle('my-app-dark');
   }
 
   public formGroup!: FormGroup;
