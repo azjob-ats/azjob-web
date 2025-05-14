@@ -2,6 +2,11 @@
 @import 'spacing.scss';
 @import 'radius.scss';
 
+body {
+  display: block;
+  margin: 0px;
+}
+
 * {
   font-family: $font-family-Roboto;
   font-size: var(--body-font-size-default);
@@ -10,8 +15,10 @@
 }
 
 .box {
-  padding-top: $space-default;;
-  padding-bottom: $space-default;;
+  padding-top: $space-default;
+  ;
+  padding-bottom: $space-default;
+  ;
   border-radius: $radius-medium;
   margin: $space-default;
 }
@@ -94,4 +101,9 @@ input {
 
 .pi-spin {
   animation-duration: 1s;
+}
+
+.custom-icon {
+  font-family: 'Material Symbols Rounded';
+  font-size: 48px;
 }

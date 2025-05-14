@@ -1,0 +1,44 @@
+h1 {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 0px !important;
+  line-height: 0.5 !important;
+  ;
+}
+
+.template-container {
+  margin-bottom: 1rem !important;
+}
+
+.code-section {
+  margin-bottom: 3rem;
+}
+
+.try-yourself {
+  margin-bottom: 25px !important;
+}
+
+.dynamic-component {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 30px !important;
+}
+
+.json-container {
+  margin-top: 7px;
+  background-color: #272a36;
+  padding: 15px;
+  border-radius: 8px;
+  color: #ffffff;
+  white-space: pre-wrap;
+  font-weight: bold;
+}

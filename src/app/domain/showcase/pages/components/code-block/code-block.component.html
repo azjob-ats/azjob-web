@@ -1,0 +1,6 @@
+<div class="code-container">
+  <button class="copy-btn" [class.copied]="isCopied" (click)="copyCode()">
+    {{ copyLabel }}
+  </button>
+  <pre><code [class]="'language-' + language">{{ formattedCode }}</code></pre>
+</div>

@@ -1,0 +1,75 @@
+.code-container {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #44475a;
+  color: #f8f8f2;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.copy-btn:hover {
+  background-color: #6272a4;
+}
+
+.copy-btn.copied {
+  background-color: #28a745;
+  /* Verde */
+  color: #ffffff;
+}
+
+pre {
+  /* Permite quebra de linha */
+  white-space: pre-wrap;
+  /* Quebra a palavra */
+  word-wrap: break-word;
+
+  background-color: #272a36;
+  color: #000000;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+
+
+  margin-top: 7px;
+  box-sizing: border-box;
+  /* Inclui padding no cálculo da largura */
+}
+
+::ng-deep pre code {
+  font-family: "Mitr", sans-serif !important;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: start;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-shadow: 0 -.1em .2em #000;
+}
+
+::ng-deep pre code .token {
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Mitr", sans-serif !important;
+  text-shadow: 0 -.1em .2em #000;
+}
+
+::ng-deep pre code .token.keyword,
+::ng-deep pre code .token.function,
+::ng-deep pre code .token.string {
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Mitr", sans-serif !important;
+  text-shadow: 0 -.1em .2em #000;
+}

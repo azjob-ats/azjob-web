@@ -1,0 +1,10 @@
+.showcase {
+  display: flex;
+  flex-direction: row; 
+  padding: 20px;
+}
+
+.showcase .content {
+  flex-grow: 1;
+}
+
