@@ -26,6 +26,9 @@ export class PageDocumentComponent {
   @Input() public componentDescription: string = '';
   @Input() public componentPath: string = '';
   @Input() public componentCode: string = '';
+  @Input() public showButtonReset: boolean = true;
+  @Input() public showRequired: boolean = true;
+  @Input() public showDisabled: boolean = true;
   @Input() public dynamicComponent!: Type<any>;
   @ViewChild('dynamicComponent', { read: ViewContainerRef, static: true }) public container!: ViewContainerRef;
 

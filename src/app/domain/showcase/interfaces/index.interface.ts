@@ -19,5 +19,8 @@ export interface iTemplateComponent {
   description: string;
   codeBlock: iCodeBlock[];
   component: iComponentConfig;
+  showButtonReset: boolean;
+  showDisabled: boolean;
+  showRequired: boolean
 }
 

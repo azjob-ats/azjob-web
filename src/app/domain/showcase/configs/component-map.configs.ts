@@ -4,6 +4,9 @@ import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface'
 
 export var componentMap: iTemplateComponent[] = [
     {
+        showButtonReset: true,
+        showDisabled: true,
+        showRequired: true,
         title: 'Input Text Primary',
         description: 'É um componente gráfico que permite ao usuário insiram dados em um campo de texto. Ele é o princial componente de formulário.',
         codeBlock: [
@@ -28,13 +31,16 @@ export var componentMap: iTemplateComponent[] = [
             formControl: new FormControl(''),
             option: {
                 title: 'Nome',
-                erroFill: "Por favor, insira um nome válido.",
+                erroFill: "O nome deve ter no mínimo 2 caracteres.",
                 erroRequired: "O seu nome é obrigatório.",
                 minLength: 2,
             }
         }
     },
     {
+        showButtonReset: true,
+        showDisabled: true,
+        showRequired: true,
         title: 'Input Text Secondary',
         description: 'É um componente gráfico que permite ao usuário insiram dados em um campo de texto. Ele é o princial componente de formulário.',
         codeBlock: [

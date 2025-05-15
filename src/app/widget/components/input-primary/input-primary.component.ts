@@ -18,6 +18,7 @@ import { InputIconModule } from 'primeng/inputicon';
           id="nome"
           pSize="large"
           class="w-full"
+          [formControl]="formControl"
           [disabled]="isDisabled"
           #nome
         />
@@ -33,6 +34,12 @@ import { InputIconModule } from 'primeng/inputicon';
           </p-button>
         </p-inputicon>
       </p-iconfield>
+      <small class="err-small" *ngIf="formControl.hasError('required') && formControl.touched">
+        {{ erroRequired }}
+      </small>
+      <small class="err-small" *ngIf="formControl.hasError('minlength') && formControl.touched">
+        {{ erroFill }}
+      </small>
   `,
   styles: [``],
   standalone: true,

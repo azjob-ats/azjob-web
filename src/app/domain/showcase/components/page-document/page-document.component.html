@@ -15,9 +15,10 @@
             <div #dynamicComponent></div>
         </div>
         <div class="controls">
-            <button pButton label="Reset" icon="pi pi-refresh" (click)="reset()"></button>
-            <button pButton label="Disable" icon="pi pi-ban" (click)="toggleDisable()"></button>
-            <button pButton label="Required" icon="pi pi-exclamation-triangle" (click)="toggleRequired()"></button>
+            <button *ngIf="showButtonReset" pButton label="Reset" icon="pi pi-refresh" (click)="reset()"></button>
+            <button *ngIf="showDisabled" pButton label="Disable" icon="pi pi-ban" (click)="toggleDisable()"></button>
+            <button *ngIf="showRequired" pButton label="Required" icon="pi pi-exclamation-triangle"
+                (click)="toggleRequired()"></button>
         </div>
         <h3>Estado do compomente</h3>
         <div class="json-container" appJsonHighlight [jsonData]="componentState"></div>

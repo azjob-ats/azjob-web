@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 @Component({
   imports: [RouterModule],
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+  template: '<router-outlet></router-outlet> <a href="/showcase/InputPrimaryComponent">showcase</a>',
 })
 export class AppComponent implements OnInit {
-  public ngOnInit(): void {}
+  public ngOnInit(): void { }
 }
