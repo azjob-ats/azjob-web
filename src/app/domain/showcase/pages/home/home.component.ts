@@ -44,7 +44,18 @@ export class HomeComponent {
       {
         label: 'Components',
         items: mapToMenuItems(componentMap),
-      }
+      },
+      {
+        label: 'PrimeNG 19',
+        url: 'https://primeng.org/installation',
+        target: '_blank'
+      },
+      {
+        label: 'PrimeFlex(Layout/Grid/Spacing)',
+        url: 'https://primeflex.org/installation',
+        target: '_blank'
+      },
+
     ]
   }
 }
