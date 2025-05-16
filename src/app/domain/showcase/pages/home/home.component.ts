@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterModule, Routes } from '@angular/router';
-import { ListboxModule } from 'primeng/listbox';
-import { MenubarModule } from 'primeng/menubar';
-import { MenuModule } from 'primeng/menu';
-import { PanelMenuModule } from 'primeng/panelmenu';
-import { MenuItem } from 'primeng/api';
-import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
+import { RouterModule } from '@angular/router';
 import { componentMap } from '@domain/showcase/configs/component-map.configs';
+import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
+import { MenuItem } from 'primeng/api';
+import { ListboxModule } from 'primeng/listbox';
+import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 @Component({
   selector: 'app-home',
@@ -44,11 +44,7 @@ export class HomeComponent {
       {
         label: 'Components',
         items: mapToMenuItems(componentMap),
-      },
-      {
-        label: 'Typography',
-        routerLink: 'utilities/typography'
-      },
+      }
     ]
   }
 }

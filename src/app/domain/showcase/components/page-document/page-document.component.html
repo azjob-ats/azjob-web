@@ -23,4 +23,65 @@
         <h3>Estado do compomente</h3>
         <div class="json-container" appJsonHighlight [jsonData]="componentState"></div>
     </section>
+
+    <section *ngIf="showProperties">
+        <h1>Properties</h1>
+        <p class="mb-1">Defines the input properties of the component.</p>
+        <p-table [columns]="colsProperties" [value]="properties" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template #header let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{ col.header }}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        @switch (col.field) {
+                        @case ('name') {
+                        <p-tag> {{ rowData[col.field] }}</p-tag>
+                        }
+                        @case ('default') {
+                        <h3>{{ rowData[col.field] }}</h3>
+                        }
+                        @default {
+                        {{ rowData[col.field] }}
+                        }
+                        }
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </section>
+    <section *ngIf="showEmitters">
+        <h1>Emitters</h1>
+        <p class="mb-1">
+            Defines emit that determine the behavior of the component based on a given condition or report the actions
+            that the component takes.
+        </p>
+        <p-table [columns]="colsEmitters" [value]="emitters" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template #header let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{ col.header }}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        @switch (col.field) {
+                        @case ('name') {
+                        <p-tag> {{ rowData[col.field] }}</p-tag>
+                        }
+                        @default {
+                        {{ rowData[col.field] }}
+                        }
+                        }
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </section>
 </div>

@@ -1,6 +1,5 @@
-@import '../style/typography.scss';
-@import 'spacing.scss';
-@import 'radius.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+$font-family-Roboto: "Roboto", sans-serif;
 
 body {
   display: block;
@@ -11,69 +10,6 @@ body {
   font-family: $font-family-Roboto;
   font-size: var(--body-font-size-default);
   font-weight: var(--body-font-weight-300);
-  line-height: var(--body-line-height);
-}
-
-.box {
-  padding-top: $space-default;
-  ;
-  padding-bottom: $space-default;
-  ;
-  border-radius: $radius-medium;
-  margin: $space-default;
-}
-
-.container {
-  display: block;
-  margin: 8px;
-}
-
-.text-small {
-  font-size: var(--body-font-size-default);
-  font-family: $font-family-Roboto;
-  font-weight: var(--body-font-weight-100);
-  letter-spacing: var(--body-letter-spacing);
-  line-height: var(--body-line-height);
-}
-
-
-.text-default {
-  font-size: var(--body-font-size-default);
-  font-family: $font-family-Roboto;
-  font-weight: var(--body-font-weight-bolder);
-  letter-spacing: var(--body-letter-spacing);
-  line-height: var(--body-line-height);
-}
-
-.text-medium {
-  font-size: var(--body-font-size-medium);
-  font-family: $font-family-Roboto;
-  font-weight: var(--body-font-weight-500);
-  letter-spacing: var(--body-letter-spacing);
-  line-height: var(--body-line-height);
-}
-
-.text-large {
-  font-size: var(--body-font-size-big);
-  font-family: $font-family-Roboto;
-  font-weight: var(--body-font-weight-bolder);
-  letter-spacing: var(--body-letter-spacing);
-  line-height: var(--body-line-height-big);
-}
-
-.text-large-big {
-  font-size: var(--body-font-size-xbig);
-  font-family: $font-family-Roboto;
-  font-weight: var(--body-font-weight-bolder);
-  letter-spacing: var(--body-letter-spacing);
-  line-height: var(--body-line-height);
-}
-
-.text-large-huge {
-  font-size: var(--body-font-size-huge);
-  font-family: $font-family-Roboto;
-  font-weight: var(--body-font-weight-bolder);
-  letter-spacing: var(--body-letter-spacing);
   line-height: var(--body-line-height);
 }
 

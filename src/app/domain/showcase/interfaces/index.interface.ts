@@ -14,6 +14,19 @@ export interface iComponentConfig {
   option: Object;
 }
 
+export interface Properties {
+  name: string;
+  type: string;
+  default: string;
+  description: string;
+}
+
+export interface Emitters {
+  name: string;
+  parameters: string;
+  description: string;
+}
+
 export interface iTemplateComponent {
   title: string;
   description: string;
@@ -21,6 +34,10 @@ export interface iTemplateComponent {
   component: iComponentConfig;
   showButtonReset: boolean;
   showDisabled: boolean;
-  showRequired: boolean
+  showRequired: boolean;
+  showProperties: boolean
+  showEmitters: boolean
+  properties: Properties[],
+  emitters: Emitters[]
 }
 

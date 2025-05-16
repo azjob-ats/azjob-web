@@ -7,6 +7,8 @@ export var componentMap: iTemplateComponent[] = [
         showButtonReset: true,
         showDisabled: true,
         showRequired: true,
+        showProperties: true,
+        showEmitters: false,
         title: 'Input Text Primary',
         description: 'É um componente gráfico que permite ao usuário insiram dados em um campo de texto. Ele é o princial componente de formulário.',
         codeBlock: [
@@ -35,12 +37,21 @@ export var componentMap: iTemplateComponent[] = [
                 erroRequired: "O seu nome é obrigatório.",
                 minLength: 2,
             }
-        }
+        },
+        properties: [{
+            name: 'title',
+            type: 'string',
+            default: 'null',
+            description: 'Label of the input',
+        }],
+        emitters: []
     },
     {
         showButtonReset: true,
         showDisabled: true,
         showRequired: true,
+        showProperties: true,
+        showEmitters: false,
         title: 'Input Text Secondary',
         description: 'É um componente gráfico que permite ao usuário insiram dados em um campo de texto. Ele é o princial componente de formulário.',
         codeBlock: [
@@ -69,6 +80,13 @@ export var componentMap: iTemplateComponent[] = [
                 erroRequired: "O seu nome é obrigatório.",
                 minLength: 2,
             }
-        }
+        },
+        properties: [{
+            name: 'title',
+            type: 'string',
+            default: 'null',
+            description: 'Label of the input',
+        }],
+        emitters: []
     },
 ]
