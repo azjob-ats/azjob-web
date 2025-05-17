@@ -96,7 +96,6 @@
   --p-form-field-float-label-invalid-color: var(--p-form-field-invalid-placeholder-color);
   --p-form-field-icon-color: var(--p-surface-400);
   --p-form-field-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05);
-  --p-text-color: var(--p-surface-700);
   --p-text-hover-color: var(--p-surface-800);
   --p-text-muted-color: var(--p-surface-500);
   --p-text-hover-muted-color: var(--p-surface-600);
@@ -139,6 +138,10 @@
   --p-navigation-submenu-icon-focus-color: var(--p-surface-500);
   --p-navigation-submenu-icon-active-color: var(--p-surface-500);
 
+  --p-text-color: #000;
+  --p-background-color: #fff !important;
+  --p-background-color-inverse: #000 !important;
+
   /* 
     Input Text
   */
@@ -147,7 +150,7 @@
   --p-inputtext-filled-background: var(--p-secondary-color) !important;
   --p-inputtext-filled-focus-background: var(--p-screen-color) !important;
   --p-inputtext-border-radius: 5px !important;
-  --p-inputtext-placeholder-color: var(--p-secondary-bold-color)!important;
+  --p-inputtext-placeholder-color: var(--p-secondary-bold-color) !important;
   --p-inputtext-focus-border-color: var(--p-primary-color) !important;
   --p-inputtext-background: var(--p-form-field-background);
   --p-inputtext-disabled-background: var(--p-form-field-disabled-background);
@@ -179,138 +182,139 @@
   /* 
     Toggle Button
   */
-    --p-togglebutton-padding: 0.625rem 1rem;
-    --p-togglebutton-border-radius: var(--p-content-border-radius);
-    --p-togglebutton-gap: 0.5rem;
-    --p-togglebutton-font-weight: 500;
-    --p-togglebutton-background: var(--p-secondary-bold-color);
-    --p-togglebutton-border-color: var(--p-secondary-bold-color);
-    --p-togglebutton-color: var(--p-primary-color);
-    --p-togglebutton-hover-color: var(--p-primary-color);
-    --p-togglebutton-checked-background: var(--p-highlight-background);
-    --p-togglebutton-checked-color: var(--p-screen-color);
-    --p-togglebutton-checked-border-color: var(--p-primary-color);
-    --p-togglebutton-disabled-background: var(--p-form-field-disabled-background);
-    --p-togglebutton-disabled-border-color: var(--p-form-field-disabled-background);
-    --p-togglebutton-disabled-color: #afb7bf;
-    --p-togglebutton-invalid-border-color: var(--p-form-field-invalid-border-color);
-    --p-togglebutton-focus-ring-width: var(--p-form-field-focus-ring-width);
-    --p-togglebutton-focus-ring-style: var(--p-form-field-focus-ring-style);
-    --p-togglebutton-focus-ring-color: var(--p-form-field-focus-ring-color);
-    --p-togglebutton-focus-ring-offset: var(--p-form-field-focus-ring-offset);
-    --p-togglebutton-focus-ring-shadow: var(--p-form-field-focus-ring-shadow);
-    --p-togglebutton-transition-duration: var(--p-form-field-transition-duration);
-    --p-togglebutton-sm-font-size: var(--p-form-field-sm-font-size);
-    --p-togglebutton-sm-padding: 0.5rem 0.75rem;
-    --p-togglebutton-lg-font-size: var(--p-form-field-lg-font-size);
-    --p-togglebutton-lg-padding: 0.75rem 1.25rem;
-    --p-togglebutton-icon-color: var(--p-primary-color);
-    --p-togglebutton-icon-hover-color: var(--p-primary-color);
-    --p-togglebutton-icon-checked-color: var(--p-screen-color);
-    --p-togglebutton-icon-disabled-color: #afb7bf;
-    --p-togglebutton-content-left: 0.25rem;
-    --p-togglebutton-content-top: 0.25rem;
-    --p-togglebutton-content-checked-background: transparent;
-    --p-togglebutton-content-checked-shadow: none;
-    --p-togglebutton-hover-background: var(--p-secondary-bold-color);
+  --p-togglebutton-padding: 0.625rem 1rem;
+  --p-togglebutton-border-radius: var(--p-content-border-radius);
+  --p-togglebutton-gap: 0.5rem;
+  --p-togglebutton-font-weight: 500;
+  --p-togglebutton-background: var(--p-secondary-bold-color);
+  --p-togglebutton-border-color: var(--p-secondary-bold-color);
+  --p-togglebutton-color: var(--p-primary-color);
+  --p-togglebutton-hover-color: var(--p-primary-color);
+  --p-togglebutton-checked-background: var(--p-highlight-background);
+  --p-togglebutton-checked-color: var(--p-screen-color);
+  --p-togglebutton-checked-border-color: var(--p-primary-color);
+  --p-togglebutton-disabled-background: var(--p-form-field-disabled-background);
+  --p-togglebutton-disabled-border-color: var(--p-form-field-disabled-background);
+  --p-togglebutton-disabled-color: #afb7bf;
+  --p-togglebutton-invalid-border-color: var(--p-form-field-invalid-border-color);
+  --p-togglebutton-focus-ring-width: var(--p-form-field-focus-ring-width);
+  --p-togglebutton-focus-ring-style: var(--p-form-field-focus-ring-style);
+  --p-togglebutton-focus-ring-color: var(--p-form-field-focus-ring-color);
+  --p-togglebutton-focus-ring-offset: var(--p-form-field-focus-ring-offset);
+  --p-togglebutton-focus-ring-shadow: var(--p-form-field-focus-ring-shadow);
+  --p-togglebutton-transition-duration: var(--p-form-field-transition-duration);
+  --p-togglebutton-sm-font-size: var(--p-form-field-sm-font-size);
+  --p-togglebutton-sm-padding: 0.5rem 0.75rem;
+  --p-togglebutton-lg-font-size: var(--p-form-field-lg-font-size);
+  --p-togglebutton-lg-padding: 0.75rem 1.25rem;
+  --p-togglebutton-icon-color: var(--p-primary-color);
+  --p-togglebutton-icon-hover-color: var(--p-primary-color);
+  --p-togglebutton-icon-checked-color: var(--p-screen-color);
+  --p-togglebutton-icon-disabled-color: #afb7bf;
+  --p-togglebutton-content-left: 0.25rem;
+  --p-togglebutton-content-top: 0.25rem;
+  --p-togglebutton-content-checked-background: transparent;
+  --p-togglebutton-content-checked-shadow: none;
+  --p-togglebutton-hover-background: var(--p-secondary-bold-color);
 
   /*
     Button
   */
-    .button-option.p-button {
-      color: var(--p-primary-color);
-      background: var(--p-secondary-color);
-      border: 0px;
-    }
+  .button-option.p-button {
+    color: var(--p-primary-color);
+    background: var(--p-secondary-color);
+    border: 0px;
+  }
 
-    .button-link-option.p-button {
-      color: var(--p-primary-color);
-      border: 0px;
-    }
+  .button-link-option.p-button {
+    color: var(--p-primary-color);
+    border: 0px;
+  }
 
-    .button-link-option.p-button:hover {
-      background: var(--p-secondary-color);
-    }
+  .button-link-option.p-button:hover {
+    background: var(--p-secondary-color);
+  }
 
-    .button-arrow-secondary.p-button {
-      color: var(--p-primary-color);
-      background: var(--p-secondary-color);
-      border: 0px;
-    }
+  .button-arrow-secondary.p-button {
+    color: var(--p-primary-color);
+    background: var(--p-secondary-color);
+    border: 0px;
+  }
 
-    .button-arrow-primary.p-button {
-      color: var(--p-primary-color);
-    }
+  .button-arrow-primary.p-button {
+    color: var(--p-primary-color);
+  }
 
-    .button-arrow-primary.p-button:hover {
-      color: var(--p-primary-color);
-      background-color: var(--p-screen-color);
-    }
-    
+  .button-arrow-primary.p-button:hover {
+    color: var(--p-primary-color);
+    background-color: var(--p-screen-color);
+  }
+
   /*
     Checkbox
   */
-    --p-checkbox-border-radius: var(--p-border-radius-sm);
-    --p-checkbox-width: 1.5rem;
-    --p-checkbox-height: 1.5rem;
-    --p-checkbox-background: var(--p-form-field-background);
-    --p-checkbox-checked-background: var(--p-primary-color);
-    --p-checkbox-checked-hover-background: var(--p-primary-color);
-    --p-checkbox-disabled-background: var(--p-form-field-disabled-background);
-    --p-checkbox-filled-background: var(--p-secondary-bold-color);
-    --p-checkbox-border-color: var(--p-secondary-bold-color);
-    --p-checkbox-hover-border-color: var(--p-secondary-bold-color);
-    --p-checkbox-focus-border-color: var(--p-secondary-bold-color);
-    --p-checkbox-checked-border-color: var(--p-primary-color);
-    --p-checkbox-checked-hover-border-color: var(--p-primary-color);
-    --p-checkbox-checked-focus-border-color: var(--p-primary-color);
-    --p-checkbox-checked-disabled-border-color: var(--p-form-field-border-color);
-    --p-checkbox-invalid-border-color: var(--p-form-field-invalid-border-color);
-    --p-checkbox-shadow: none;
-    --p-checkbox-focus-ring-width: var(--p-form-field-focus-ring-width);
-    --p-checkbox-focus-ring-style: var(--p-form-field-focus-ring-style);
-    --p-checkbox-focus-ring-color: var(--p-form-field-focus-ring-color);
-    --p-checkbox-focus-ring-offset: var(--p-form-field-focus-ring-offset);
-    --p-checkbox-focus-ring-shadow: var(--p-form-field-focus-ring-shadow);
-    --p-checkbox-transition-duration: var(--p-form-field-transition-duration);
-    --p-checkbox-sm-width: 1.25rem;
-    --p-checkbox-sm-height: 1.25rem;
-    --p-checkbox-lg-width: 1.75rem;
-    --p-checkbox-lg-height: 1.75rem;
-    --p-checkbox-icon-size: 1rem;
-    --p-checkbox-icon-color: var(--p-screen-color);
-    --p-checkbox-icon-checked-color: var(--p-screen-color);
-    --p-checkbox-icon-checked-hover-color: var(--p-screen-color);
-    --p-checkbox-icon-disabled-color: var(--p-form-field-disabled-color);
-    --p-checkbox-icon-sm-size: 0.75rem;
-    --p-checkbox-icon-lg-size: 1.25rem;
+  --p-checkbox-border-radius: var(--p-border-radius-sm);
+  --p-checkbox-width: 1.5rem;
+  --p-checkbox-height: 1.5rem;
+  --p-checkbox-background: var(--p-form-field-background);
+  --p-checkbox-checked-background: var(--p-primary-color);
+  --p-checkbox-checked-hover-background: var(--p-primary-color);
+  --p-checkbox-disabled-background: var(--p-form-field-disabled-background);
+  --p-checkbox-filled-background: var(--p-secondary-bold-color);
+  --p-checkbox-border-color: var(--p-secondary-bold-color);
+  --p-checkbox-hover-border-color: var(--p-secondary-bold-color);
+  --p-checkbox-focus-border-color: var(--p-secondary-bold-color);
+  --p-checkbox-checked-border-color: var(--p-primary-color);
+  --p-checkbox-checked-hover-border-color: var(--p-primary-color);
+  --p-checkbox-checked-focus-border-color: var(--p-primary-color);
+  --p-checkbox-checked-disabled-border-color: var(--p-form-field-border-color);
+  --p-checkbox-invalid-border-color: var(--p-form-field-invalid-border-color);
+  --p-checkbox-shadow: none;
+  --p-checkbox-focus-ring-width: var(--p-form-field-focus-ring-width);
+  --p-checkbox-focus-ring-style: var(--p-form-field-focus-ring-style);
+  --p-checkbox-focus-ring-color: var(--p-form-field-focus-ring-color);
+  --p-checkbox-focus-ring-offset: var(--p-form-field-focus-ring-offset);
+  --p-checkbox-focus-ring-shadow: var(--p-form-field-focus-ring-shadow);
+  --p-checkbox-transition-duration: var(--p-form-field-transition-duration);
+  --p-checkbox-sm-width: 1.25rem;
+  --p-checkbox-sm-height: 1.25rem;
+  --p-checkbox-lg-width: 1.75rem;
+  --p-checkbox-lg-height: 1.75rem;
+  --p-checkbox-icon-size: 1rem;
+  --p-checkbox-icon-color: var(--p-screen-color);
+  --p-checkbox-icon-checked-color: var(--p-screen-color);
+  --p-checkbox-icon-checked-hover-color: var(--p-screen-color);
+  --p-checkbox-icon-disabled-color: var(--p-form-field-disabled-color);
+  --p-checkbox-icon-sm-size: 0.75rem;
+  --p-checkbox-icon-lg-size: 1.25rem;
   /*
     Toggle Switch
   */
-    --p-toggleswitch-background: var(--p-secondary-bold-color);
-    --p-toggleswitch-disabled-background: #e0e8f0;
-    --p-toggleswitch-hover-background: var(--p-secondary-bold-color);
-    --p-toggleswitch-checked-background: var(--p-primary-color);
-    --p-toggleswitch-checked-hover-background: var(--p-primary-hover-color);
-    --p-toggleswitch-handle-background: var(--p-primary-color);
-    --p-toggleswitch-handle-disabled-background: #afb7bf;
-    --p-toggleswitch-handle-hover-background: var(--p-primary-color);
-    --p-toggleswitch-handle-checked-background: var(--p-screen-color);
-    --p-toggleswitch-handle-checked-hover-background: var(--p-screen-color);
-    --p-toggleswitch-handle-color: var(--p-surface-900);
-    --p-toggleswitch-handle-hover-color: var(--p-primary-color);
-    --p-toggleswitch-handle-checked-color: var(--p-primary-color);
-    --p-toggleswitch-handle-checked-hover-color: var(--p-primary-color);
-    .p-toggleswitch-slider {
-      box-shadow:  none
-    }
+  --p-toggleswitch-background: var(--p-secondary-bold-color);
+  --p-toggleswitch-disabled-background: #e0e8f0;
+  --p-toggleswitch-hover-background: var(--p-secondary-bold-color);
+  --p-toggleswitch-checked-background: var(--p-primary-color);
+  --p-toggleswitch-checked-hover-background: var(--p-primary-hover-color);
+  --p-toggleswitch-handle-background: var(--p-primary-color);
+  --p-toggleswitch-handle-disabled-background: #afb7bf;
+  --p-toggleswitch-handle-hover-background: var(--p-primary-color);
+  --p-toggleswitch-handle-checked-background: var(--p-screen-color);
+  --p-toggleswitch-handle-checked-hover-background: var(--p-screen-color);
+  --p-toggleswitch-handle-color: var(--p-surface-900);
+  --p-toggleswitch-handle-hover-color: var(--p-primary-color);
+  --p-toggleswitch-handle-checked-color: var(--p-primary-color);
+  --p-toggleswitch-handle-checked-hover-color: var(--p-primary-color);
+
+  .p-toggleswitch-slider {
+    box-shadow: none
+  }
 
   /* 
     Checkbox Button
   */
   --p-checkbox-disabled-background: #e0e8f0;
   --p-checkbox-checked-disabled-border-color: #e0e8f0;
-   --p-checkbox-icon-disabled-color: #afb7bf;
+  --p-checkbox-icon-disabled-color: #afb7bf;
 
   /*
     input
@@ -335,8 +339,8 @@
     border-color: #ffffff00;
   }
 
-  .p-inputtext { 
-    box-shadow:  none
+  .p-inputtext {
+    box-shadow: none
   }
 
   .input-icon-field {
@@ -346,6 +350,6 @@
   .select-custom::placeholder {
     color: black;
     font-size: 14px;
-    font-weight: bold; 
+    font-weight: bold;
   }
 }

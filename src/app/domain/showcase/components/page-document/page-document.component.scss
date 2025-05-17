@@ -55,7 +55,7 @@ p {
 }
 
 ::ng-deep th {
-  background-color: #ffffff00 !important;
+  background-color: transparent !important;
   border-bottom: 1px solid #ccc;
   padding-block: .75rem;
   padding-inline: 1rem;
@@ -64,18 +64,17 @@ p {
 }
 
 ::ng-deep .p-datatable-thead>tr>th {
-  background: #ffffff00 !important;
-  color: #000000 !important;
+  background: transparent !important;
+  color: var(--p-text-color) !important;
   font-weight: bold !important;
 }
 
 ::ng-deep .p-datatable-tbody>tr {
-  background: #ffffff00 !important;
-  color: #000000 !important;
+  background: transparent !important;
+  color: var(--p-text-color) !important;
 }
 
 .template-container {
-  margin-bottom: 1rem !important;
   background-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png),
     linear-gradient(45deg, rgba(0, 0, 0, 0.112), rgba(255, 255, 255, 0.129));
   background-blend-mode: multiply, screen;

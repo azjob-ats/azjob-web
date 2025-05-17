@@ -1,13 +1,15 @@
 @import '../color-tokens.scss';
 
 .my-app-dark {
+  --p-background-color: #000 !important;
+  --p-background-color-inverse: #fff !important;
   --p-accent-color: #ff2d57 !important;
   --p-primary-color: #ff2d57 !important;
   --p-secondary-color: #1e1e1e !important;
   --p-secondary-bold-color: #1e1e1e !important;
   --p-screen-color: #000 !important;
   --p-danger-color: #dc2626 !important;
-
+  --p-text-color: #fff;
 
   /*
     button accent(info)
@@ -46,7 +48,7 @@
   --p-button-primary-active-border-color: var(--p-sky-200);
   --p-button-primary-hover-color: var(--p-white-color);
   --p-button-primary-active-color: var(--p-white-color);
-  
+
 
   /*
     button primary arrow
@@ -63,12 +65,12 @@
     Input Text
   */
   --p-inputtext-border-color: var(--p-accent-color) !important;
-  --p-inputtext-color:  #ffffff !important;
+  --p-inputtext-color: #ffffff !important;
   --p-inputtext-filled-background: var(--p-secondary-color) !important;
   --p-inputtext-filled-focus-background: var(--p-screen-color) !important;
   --p-inputtext-border-radius: 5px !important;
-  --p-inputtext-placeholder-color: #9f9f9f!important;
-  --p-inputtext-focus-border-color:  var(--p-accent-color)  !important;
+  --p-inputtext-placeholder-color: #9f9f9f !important;
+  --p-inputtext-focus-border-color: var(--p-accent-color) !important;
   --p-inputtext-background: var(--p-form-field-background);
   --p-inputtext-disabled-background: var(--p-secondary-color);
   --p-inputtext-filled-hover-background: var(--p-secondary-color) !important;
@@ -98,11 +100,11 @@
   }
 
   input:disabled {
-    color:#9f9f9f;
+    color: #9f9f9f;
   }
-  
-  input:disabled::placeholder { 
-    color:#9f9f9f;
+
+  input:disabled::placeholder {
+    color: #9f9f9f;
   }
 
   .p-inputtext:enabled:focus-visible::placeholder {
@@ -118,7 +120,7 @@
   .select-custom::placeholder {
     color: #9f9f9f;
     font-size: 14px;
-    font-weight: bold; 
+    font-weight: bold;
   }
 
   /*
@@ -187,6 +189,6 @@
   }
 
   body {
-    background-color: #000;
+    background-color: var(--p-background-color);
   }
 }
