@@ -16,10 +16,6 @@ p {
   margin-bottom: 3rem;
 }
 
-.template-container {
-  margin-bottom: 1rem !important;
-}
-
 .code-section {
   margin-bottom: 3rem;
 }
@@ -76,4 +72,11 @@ p {
 ::ng-deep .p-datatable-tbody>tr {
   background: #ffffff00 !important;
   color: #000000 !important;
+}
+
+.template-container {
+  margin-bottom: 1rem !important;
+  background-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.112), rgba(255, 255, 255, 0.129));
+  background-blend-mode: multiply, screen;
 }
