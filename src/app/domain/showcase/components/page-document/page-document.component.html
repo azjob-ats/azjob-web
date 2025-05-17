@@ -20,8 +20,8 @@
             <button *ngIf="showRequired" pButton label="Required" icon="pi pi-exclamation-triangle"
                 (click)="toggleRequired()"></button>
         </div>
-        <h3>Estado do compomente</h3>
-        <div class="json-container" appJsonHighlight [jsonData]="componentState"></div>
+        <h3 *ngIf="showPanelStateComponent">Estado do compomente</h3>
+        <div *ngIf="showPanelStateComponent" class="json-container" appJsonHighlight [jsonData]="componentState"></div>
     </section>
 
     <section *ngIf="showProperties">

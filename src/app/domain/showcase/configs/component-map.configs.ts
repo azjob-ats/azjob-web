@@ -9,6 +9,7 @@ export var componentMap: iTemplateComponent[] = [
         showRequired: true,
         showProperties: true,
         showEmitters: false,
+        showPanelStateComponent: false,
         title: 'Input Text Primary',
         description: 'É um componente gráfico que permite ao usuário insiram dados em um campo de texto. Ele é o princial componente de formulário.',
         codeBlock: [
@@ -52,6 +53,7 @@ export var componentMap: iTemplateComponent[] = [
         showRequired: true,
         showProperties: true,
         showEmitters: false,
+        showPanelStateComponent: true,
         title: 'Input Text Secondary',
         description: 'É um componente gráfico que permite ao usuário insiram dados em um campo de texto. Ele é o princial componente de formulário.',
         codeBlock: [

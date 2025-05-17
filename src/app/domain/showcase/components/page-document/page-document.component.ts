@@ -38,6 +38,7 @@ export class PageDocumentComponent {
   @Input() public showDisabled: boolean = true;
   @Input() public showProperties: boolean = true;
   @Input() public showEmitters: boolean = true;
+  @Input() public showPanelStateComponent: boolean = true;
   @Input() public dynamicComponent!: Type<any>;
   @ViewChild('dynamicComponent', { read: ViewContainerRef, static: true }) public container!: ViewContainerRef;
   @Input() public properties: Properties[] = [];

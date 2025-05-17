@@ -35,8 +35,9 @@ export interface iTemplateComponent {
   showButtonReset: boolean;
   showDisabled: boolean;
   showRequired: boolean;
-  showProperties: boolean
-  showEmitters: boolean
+  showProperties: boolean;
+  showEmitters: boolean;
+  showPanelStateComponent: boolean;
   properties: Properties[],
   emitters: Emitters[]
 }
