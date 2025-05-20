@@ -1,13 +1,20 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 import { customPreset } from './core/theme/custom.preset';
 import { FilterMatchMode } from 'primeng/api';
+import { CustomTranslateModule } from '@domain/change-language/configs/translate-module-config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
@@ -58,5 +65,10 @@ export const appConfig: ApplicationConfig = {
     }),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    importProvidersFrom(
+      CustomTranslateModule,
+      NoopAnimationsModule,
+      BrowserAnimationsModule
+    ),
   ],
 };

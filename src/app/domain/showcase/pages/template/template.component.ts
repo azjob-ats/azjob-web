@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ImportsModule } from '@core/imports';
+import { SelectLangComponent } from '@domain/change-language/components/select-lang/select-lang.component';
+import { TranslateModule } from '@ngx-translate/core';
 import { LoadingSpinnerDirective } from '@widget/directives/loading-spinner.directive';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-template',
-  imports: [ImportsModule, LoadingSpinnerDirective],
+  imports: [ImportsModule, LoadingSpinnerDirective, TranslateModule, SelectLangComponent],
   templateUrl: './template.component.html',
   styleUrl: './template.component.scss',
 })
