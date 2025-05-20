@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run start:production ",
-    "start:production": "NODE_ENV=production ng serve",
-    "start:development": "NODE_ENV=development ng serve",
+    "start": "npm run start:prod",
+    "start:prod": "NODE_ENV=production ng serve",
+    "start:dev": "NODE_ENV=development ng serve",
     "build": "NODE_ENV=production ng build",
     "test": "npx jest",
     "test:coverage": "npx jest --coverage",
