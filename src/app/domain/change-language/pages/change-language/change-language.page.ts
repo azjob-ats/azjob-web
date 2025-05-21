@@ -5,8 +5,8 @@ import { LanguageService } from '@domain/change-language/services/language.servi
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageTranslatorService } from '@domain/change-language/services/language-translator.service';
 import { iSelection } from '@domain/change-language/interfaces/language.interface';
-import { LanguageMockservice } from '@domain/change-language/mocks/language.mock';
 import { RouterModule } from '@angular/router';
+import { LanguageApiMockservice } from '@domain/change-language/mocks/language.api.mock';
 
 @Component({
   selector: 'app-change-language',
@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./change-language.page.scss'],
   standalone: true,
   imports: [CommonModule, TranslateModule, ReactiveFormsModule, RouterModule],
-  providers: [LanguageMockservice, LanguageService, LanguageTranslatorService, TranslateService],
+  providers: [LanguageApiMockservice, LanguageService, LanguageTranslatorService, TranslateService],
 })
 export class ChangeLanguagePage implements OnInit {
   public num_folder: number = 2;

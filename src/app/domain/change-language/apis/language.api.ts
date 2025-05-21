@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { iLanguage } from '../interfaces/language.interface';
 
 @Injectable({ providedIn: 'root' })
-export class LanguageApiservice {
+export class LanguageApiService {
   public getAllLanguage(): Observable<iLanguage[]> {
     throw new Error('Method not implemented.');
   }

@@ -1,0 +1,6 @@
+export const MIN_CHARACTERS_PASSWORD = 8;
+export const MAX_CHARACTERS_PASSWORD = 16;
+export const MIN_LETTER_USER_NAME_FIRST = 3;
+export const MAX_LETTER_USER_NAME_FIRST = 30;
+export const MIN_LETTER_USER_NAME_LAST = 3;
+export const MAX_LETTER_USER_NAME_LAST = 30;

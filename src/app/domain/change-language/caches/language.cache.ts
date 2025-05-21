@@ -1,11 +1,11 @@
-/*import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AppState } from '@core/infra/store/interfaces/state.model';
 import { Observable, of } from 'rxjs';
-import { environment } from 'src/assets/environments/enviroment';
 import { iLanguage } from '../interfaces/language.interface';
 import { eLoadingState } from '@core/infra/store/enums/state.enum';
 import { TIME_1_SECOND } from '@shared/constants/time.constant';
 import { StoreService } from '@core/infra/store/services/store.service';
+import { environment } from 'src/environments/environment';
 
 type AppStateLang = AppState<iLanguage>;
 
@@ -66,4 +66,4 @@ export class LanguageCacheService {
     public delete(): Observable<boolean> {
         return this.store.delete();
     }
-}*/
+}

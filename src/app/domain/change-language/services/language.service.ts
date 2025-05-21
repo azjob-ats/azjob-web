@@ -1,13 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { Observable, switchMap, take, tap } from 'rxjs';
-import { LanguageMockservice } from '../mocks/language.mock';
-import { iLanguage } from '../interfaces/language.interface';
-import { LanguageCacheMockService } from '../mocks/language.cache.mock';
+import { LanguageApiMockservice } from '../mocks/language.api.mock';
+import { iLanguage } from '@domain/change-language/interfaces/language.interface';
+import { LanguageCacheService } from '../caches/language.cache';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
-  private api: LanguageMockservice = inject(LanguageMockservice);
-  private cache: LanguageCacheMockService = inject(LanguageCacheMockService);
+  private api: LanguageApiMockservice = inject(LanguageApiMockservice);
+  private cache: LanguageCacheService = inject(LanguageCacheService);
 
   public getAllLanguage(): Observable<iLanguage[]> {
     return this.api.getAllLanguage();

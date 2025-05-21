@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
-import { LanguageService } from './language.service';
+import { LanguageService } from '@domain/change-language/services/language.service';
 
 @Injectable({
   providedIn: 'root',

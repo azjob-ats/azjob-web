@@ -5,13 +5,13 @@ import { LanguageService } from '@domain/change-language/services/language.servi
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageTranslatorService } from '@domain/change-language/services/language-translator.service';
 import { iSelection } from '@domain/change-language/interfaces/language.interface';
-import { LanguageMockservice } from '@domain/change-language/mocks/language.mock';
+import { LanguageApiMockservice } from '@domain/change-language/mocks/language.api.mock';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-select-lang',
   imports: [CommonModule, TranslateModule, ReactiveFormsModule, RouterModule],
-  providers: [LanguageMockservice, LanguageService, LanguageTranslatorService, TranslateService],
+  providers: [LanguageApiMockservice, LanguageService, LanguageTranslatorService, TranslateService],
   templateUrl: './select-lang.component.html',
   styleUrl: './select-lang.component.scss',
 })
