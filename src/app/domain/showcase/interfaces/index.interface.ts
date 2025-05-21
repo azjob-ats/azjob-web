@@ -1,5 +1,5 @@
-import { Type } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { Type } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 export interface iCodeBlock {
   title: string;
@@ -10,7 +10,7 @@ export interface iCodeBlock {
 export interface iComponentConfig {
   name: string;
   componentRef: Type<any>;
-  formControl: FormControl
+  formControl: FormControl;
   option: Object;
 }
 
@@ -38,7 +38,6 @@ export interface iTemplateComponent {
   showProperties: boolean;
   showEmitters: boolean;
   showPanelStateComponent: boolean;
-  properties: Properties[],
-  emitters: Emitters[]
+  properties: Properties[];
+  emitters: Emitters[];
 }
-

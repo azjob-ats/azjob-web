@@ -10,18 +10,8 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-select-lang',
-  imports: [
-    CommonModule,
-    TranslateModule,
-    ReactiveFormsModule,
-    RouterModule
-  ],
-  providers: [
-    LanguageMockservice,
-    LanguageService,
-    LanguageTranslatorService,
-    TranslateService,
-  ],
+  imports: [CommonModule, TranslateModule, ReactiveFormsModule, RouterModule],
+  providers: [LanguageMockservice, LanguageService, LanguageTranslatorService, TranslateService],
   templateUrl: './select-lang.component.html',
   styleUrl: './select-lang.component.scss',
 })
@@ -30,9 +20,7 @@ export class SelectLangComponent implements OnInit {
   public selectEmpy = '';
   public default = '';
   public selections: iSelection[] = [];
-  private translationService: LanguageTranslatorService = inject(
-    LanguageTranslatorService
-  );
+  private translationService: LanguageTranslatorService = inject(LanguageTranslatorService);
   private translate: TranslateService = inject(TranslateService);
   private lang: LanguageService = inject(LanguageService);
 
@@ -41,8 +29,8 @@ export class SelectLangComponent implements OnInit {
     this.default = this.translationService.getDefaultLang();
 
     this.formControl.setValue(this.default);
-    this.lang.getAllLanguage().subscribe((res) => {
-      res.forEach((value) => {
+    this.lang.getAllLanguage().subscribe(res => {
+      res.forEach(value => {
         this.selections.push({
           description: value.language,
           cod: value.prefix,
@@ -59,5 +47,4 @@ export class SelectLangComponent implements OnInit {
     const value = (event.target as HTMLSelectElement).value;
     this.selected(value);
   }
-
 }

@@ -9,16 +9,18 @@ import { componentMap } from '@domain/showcase/configs/component-map.configs';
   selector: 'app-rendering',
   imports: [CommonModule, PageDocumentComponent],
   templateUrl: './rendering.component.html',
-  styleUrl: './rendering.component.scss'
+  styleUrl: './rendering.component.scss',
 })
 export class RenderingComponent implements OnInit {
   public templateRouterComponent: string = '';
-  public templeted: iTemplateComponent[] = componentMap
+  public templeted: iTemplateComponent[] = componentMap;
 
-  constructor(private router: ActivatedRoute) { }
+  constructor(private router: ActivatedRoute) {}
   ngOnInit(): void {
-    this.router.url.subscribe(params => {
-      this.templateRouterComponent = params[0].path;
-    }).unsubscribe()
+    this.router.url
+      .subscribe(params => {
+        this.templateRouterComponent = params[0].path;
+      })
+      .unsubscribe();
   }
 }

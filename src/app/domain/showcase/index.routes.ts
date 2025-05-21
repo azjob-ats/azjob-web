@@ -20,6 +20,6 @@ export const INDEX_ROUTES: Routes = [
       { path: '', component: TemplateComponent },
       { path: 'template', component: TemplateComponent },
       ...generateRoutes(componentMap),
-    ]
-  }
+    ],
+  },
 ];

@@ -22,7 +22,7 @@ interface Column {
     ButtonModule,
     TagModule,
     CodeBlockComponent,
-    JsonHighlightDirective
+    JsonHighlightDirective,
   ],
 })
 export class PageDocumentComponent {
@@ -40,14 +40,15 @@ export class PageDocumentComponent {
   @Input() public showEmitters: boolean = true;
   @Input() public showPanelStateComponent: boolean = true;
   @Input() public dynamicComponent!: Type<any>;
-  @ViewChild('dynamicComponent', { read: ViewContainerRef, static: true }) public container!: ViewContainerRef;
+  @ViewChild('dynamicComponent', { read: ViewContainerRef, static: true })
+  public container!: ViewContainerRef;
   @Input() public properties: Properties[] = [];
   @Input() public emitters: Emitters[] = [];
   public componentRef: any;
   public componentState = {
     value: '',
     disabled: false,
-    required: false
+    required: false,
   };
 
   colsProperties!: Column[];
@@ -56,28 +57,27 @@ export class PageDocumentComponent {
   public ngOnInit(): void {
     this.renderComponent(this.dynamicComponent);
 
-
     this.colsProperties = [
       { field: 'name', header: 'Name' },
       { field: 'type', header: 'Type' },
       { field: 'default', header: 'Default' },
-      { field: 'description', header: 'Description' }
-    ]
+      { field: 'description', header: 'Description' },
+    ];
 
     this.colsEmitters = [
       { field: 'name', header: 'Name' },
       { field: 'parameters', header: 'Parameters' },
-      { field: 'description', header: 'Description' }
-    ]
+      { field: 'description', header: 'Description' },
+    ];
   }
 
   public renderComponent(component: Type<any>) {
     this.container.clear();
     const componentRef = this.createComponent(component, {
       ...{ formControl: this.componentFormControl },
-      ...this.componentOption
+      ...this.componentOption,
     });
-    this.componentRef = componentRef
+    this.componentRef = componentRef;
 
     return componentRef;
   }
@@ -91,9 +91,9 @@ export class PageDocumentComponent {
       this.componentState = {
         value: componentRef.instance.formControl.value,
         disabled: componentRef.instance.isDisabled,
-        required: componentRef.instance.isRequired
-      }
-    })
+        required: componentRef.instance.isRequired,
+      };
+    });
     return componentRef;
   }
 

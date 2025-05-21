@@ -28,9 +28,8 @@ export class HomeComponent {
   items: MenuItem[] | undefined;
 
   ngOnInit() {
-
     const mapToMenuItems = (templates: iTemplateComponent[]): MenuItem[] => {
-      return templates.map((template) => ({
+      return templates.map(template => ({
         label: template.title,
         routerLink: template.component.name,
       }));
@@ -39,7 +38,7 @@ export class HomeComponent {
     this.items = [
       {
         label: 'Template azjob',
-        routerLink: 'template'
+        routerLink: 'template',
       },
       {
         label: 'Components',
@@ -48,15 +47,13 @@ export class HomeComponent {
       {
         label: 'PrimeNG 19',
         url: 'https://primeng.org/installation',
-        target: '_blank'
+        target: '_blank',
       },
       {
         label: 'PrimeFlex(Layout/Grid/Spacing)',
         url: 'https://primeflex.org/installation',
-        target: '_blank'
+        target: '_blank',
       },
-
-    ]
+    ];
   }
 }
-

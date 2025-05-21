@@ -4,15 +4,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DEFAULT_LANG } from '../constants/index.constant';
 
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http, './i18n/', '.json');
+  return new TranslateHttpLoader(http, './i18n/', '.json');
 }
 
 export const CustomTranslateModule = TranslateModule.forRoot({
-    loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-    },
-    defaultLanguage: DEFAULT_LANG,
-    useDefaultLang: true,
+  loader: {
+    provide: TranslateLoader,
+    useFactory: HttpLoaderFactory,
+    deps: [HttpClient],
+  },
+  defaultLanguage: DEFAULT_LANG,
+  useDefaultLang: true,
 });

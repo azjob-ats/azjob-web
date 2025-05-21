@@ -8,9 +8,7 @@ import { NavigationTabTitleService } from '@domain/change-language/services/navi
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent {
-  private titleService: NavigationTabTitleService = inject(
-    NavigationTabTitleService
-  );
+  private titleService: NavigationTabTitleService = inject(NavigationTabTitleService);
 
   public ngOnInit(): void {
     this.titleService.init();

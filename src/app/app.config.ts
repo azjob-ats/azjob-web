@@ -65,10 +65,6 @@ export const appConfig: ApplicationConfig = {
     }),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    importProvidersFrom(
-      CustomTranslateModule,
-      NoopAnimationsModule,
-      BrowserAnimationsModule
-    ),
+    importProvidersFrom(CustomTranslateModule, NoopAnimationsModule, BrowserAnimationsModule),
   ],
 };

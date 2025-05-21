@@ -1,47 +1,42 @@
-
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ImportsModule } from '@core/imports';
-import { ButtonModule } from 'primeng/button';
-import { IconFieldModule } from 'primeng/iconfield';
-import { InputIconModule } from 'primeng/inputicon';
 
 @Component({
   selector: 'app-input-primary',
   template: `
-      <label for="firstname">{{title}}</label>
-      <p-iconfield class="w-full">
-        <input
-          type="text"
-          pInputText
-          id="nome"
-          pSize="large"
-          class="w-full"
-          [formControl]="formControl"
+    <label for="firstname">{{ title }}</label>
+    <p-iconfield class="w-full">
+      <input
+        type="text"
+        pInputText
+        id="nome"
+        pSize="large"
+        class="w-full"
+        [formControl]="formControl"
+        [disabled]="isDisabled"
+        #nome
+      />
+      <p-inputicon *ngIf="nome.value" styleClass="inputIconTop">
+        <p-button
+          (click)="nome.value = ''"
+          [rounded]="true"
+          severity="primary"
+          styleClass="p-0"
           [disabled]="isDisabled"
-          #nome
-        />
-        <p-inputicon *ngIf="nome.value" styleClass="inputIconTop">
-          <p-button
-            (click)="nome.value = ''"
-            [rounded]="true"
-            severity="primary"
-            styleClass="p-0"
-            [disabled]="isDisabled"
-          >
-            <i class="pi pi-times" style="font-size: 10px; padding: 5px"></i>
-          </p-button>
-        </p-inputicon>
-      </p-iconfield>
-      <small class="err-small" *ngIf="formControl.hasError('required') && formControl.touched">
-        {{ erroRequired }}
-      </small>
-      <small class="err-small" *ngIf="formControl.hasError('minlength') && formControl.touched">
-        {{ erroFill }}
-      </small>
+        >
+          <i class="pi pi-times" style="font-size: 10px; padding: 5px"></i>
+        </p-button>
+      </p-inputicon>
+    </p-iconfield>
+    <small class="err-small" *ngIf="formControl.hasError('required') && formControl.touched">
+      {{ erroRequired }}
+    </small>
+    <small class="err-small" *ngIf="formControl.hasError('minlength') && formControl.touched">
+      {{ erroFill }}
+    </small>
   `,
-  styles: [``],
+  styles: [''],
   standalone: true,
   imports: [ImportsModule],
 })
@@ -82,13 +77,8 @@ export class InputPrimaryComponent {
       return;
     }
 
-    const existingValidators = this.formControl.validator
-      ? [this.formControl.validator]
-      : [];
-    this.formControl.setValidators([
-      ...existingValidators,
-      Validators.minLength(min),
-    ]);
+    const existingValidators = this.formControl.validator ? [this.formControl.validator] : [];
+    this.formControl.setValidators([...existingValidators, Validators.minLength(min)]);
     this.formControl.updateValueAndValidity();
   }
 
@@ -97,13 +87,8 @@ export class InputPrimaryComponent {
       return;
     }
 
-    const existingValidators = this.formControl.validator
-      ? [this.formControl.validator]
-      : [];
-    this.formControl.setValidators([
-      ...existingValidators,
-      Validators.maxLength(max),
-    ]);
+    const existingValidators = this.formControl.validator ? [this.formControl.validator] : [];
+    this.formControl.setValidators([...existingValidators, Validators.maxLength(max)]);
     this.formControl.updateValueAndValidity();
   }
 
@@ -128,18 +113,11 @@ export class InputPrimaryComponent {
   }
 
   private applyRequiredValidator(isRequired: boolean): void {
-    const existingValidators = this.formControl.validator
-      ? [this.formControl.validator]
-      : [];
+    const existingValidators = this.formControl.validator ? [this.formControl.validator] : [];
     if (isRequired) {
-      this.formControl.setValidators([
-        ...existingValidators,
-        Validators.required,
-      ]);
+      this.formControl.setValidators([...existingValidators, Validators.required]);
     } else {
-      this.formControl.setValidators(
-        existingValidators.filter((v) => v !== Validators.required)
-      );
+      this.formControl.setValidators(existingValidators.filter(v => v !== Validators.required));
     }
     this.formControl.updateValueAndValidity();
   }

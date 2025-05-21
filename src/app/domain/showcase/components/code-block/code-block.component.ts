@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-declare var Prism: any;
-declare var prettier: any;
-declare var prettierPlugins: any;
+import { Component, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
+declare let Prism: any;
+declare let prettier: any;
+declare let prettierPlugins: any;
 
 @Component({
   selector: 'app-code-block',
@@ -17,9 +17,7 @@ export class CodeBlockComponent implements OnChanges {
   protected copyLabel: string = 'Copy';
   protected isCopied: boolean = false;
 
-  public constructor(
-    private el: ElementRef
-  ) { }
+  public constructor(private el: ElementRef) {}
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes['componentCode'] || changes['language']) {
@@ -48,21 +46,24 @@ export class CodeBlockComponent implements OnChanges {
       }, 0);
     } catch (error) {
       console.error('Error formatting code:', error);
-      this.formattedCode = `/Error`;
+      this.formattedCode = '/Error';
     }
   }
 
   public copyCode(): void {
-    navigator.clipboard.writeText(this.formattedCode).then(() => {
-      this.isCopied = true;
-      this.copyLabel = 'Copied!';
+    navigator.clipboard
+      .writeText(this.formattedCode)
+      .then(() => {
+        this.isCopied = true;
+        this.copyLabel = 'Copied!';
 
-      setTimeout(() => {
-        this.isCopied = false;
-        this.copyLabel = 'Copy';
-      }, 1500);
-    }).catch(err => {
-      console.error('Error copying text: ', err);
-    });
+        setTimeout(() => {
+          this.isCopied = false;
+          this.copyLabel = 'Copy';
+        }, 1500);
+      })
+      .catch(err => {
+        console.error('Error copying text: ', err);
+      });
   }
 }

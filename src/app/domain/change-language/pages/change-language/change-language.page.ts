@@ -9,56 +9,44 @@ import { LanguageMockservice } from '@domain/change-language/mocks/language.mock
 import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-change-language',
-    templateUrl: './change-language.page.html',
-    styleUrls: ['./change-language.page.scss'],
-    standalone: true,
-    imports: [
-        CommonModule,
-        TranslateModule,
-        ReactiveFormsModule,
-        RouterModule
-    ],
-    providers: [
-        LanguageMockservice,
-        LanguageService,
-        LanguageTranslatorService,
-        TranslateService,
-    ],
+  selector: 'app-change-language',
+  templateUrl: './change-language.page.html',
+  styleUrls: ['./change-language.page.scss'],
+  standalone: true,
+  imports: [CommonModule, TranslateModule, ReactiveFormsModule, RouterModule],
+  providers: [LanguageMockservice, LanguageService, LanguageTranslatorService, TranslateService],
 })
 export class ChangeLanguagePage implements OnInit {
-    public num_folder: number = 2;
-    public formControl = new FormControl('');
-    public selectEmpy = '';
-    public default = '';
-    public selections: iSelection[] = [];
-    private translationService: LanguageTranslatorService = inject(
-        LanguageTranslatorService
-    );
-    private translate: TranslateService = inject(TranslateService);
-    private lang: LanguageService = inject(LanguageService);
+  public num_folder: number = 2;
+  public formControl = new FormControl('');
+  public selectEmpy = '';
+  public default = '';
+  public selections: iSelection[] = [];
+  private translationService: LanguageTranslatorService = inject(LanguageTranslatorService);
+  private translate: TranslateService = inject(TranslateService);
+  private lang: LanguageService = inject(LanguageService);
 
-    public ngOnInit(): void {
-        this.selectEmpy = this.translate.instant('AZJOB.TEST.OPTION_EMPY');
-        this.default = this.translationService.getDefaultLang();
+  public ngOnInit(): void {
+    this.selectEmpy = this.translate.instant('AZJOB.TEST.OPTION_EMPY');
+    this.default = this.translationService.getDefaultLang();
 
-        this.formControl.setValue(this.default);
-        this.lang.getAllLanguage().subscribe((res) => {
-            res.forEach((value) => {
-                this.selections.push({
-                    description: value.language,
-                    cod: value.prefix,
-                });
-            });
+    this.formControl.setValue(this.default);
+    this.lang.getAllLanguage().subscribe(res => {
+      res.forEach(value => {
+        this.selections.push({
+          description: value.language,
+          cod: value.prefix,
         });
-    }
+      });
+    });
+  }
 
-    public selected($event: string) {
-        this.translationService.changeLang($event);
-    }
+  public selected($event: string) {
+    this.translationService.changeLang($event);
+  }
 
-    onSelectionChange(event: Event) {
-        const value = (event.target as HTMLSelectElement).value;
-        this.selected(value);
-    }
+  onSelectionChange(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    this.selected(value);
+  }
 }
