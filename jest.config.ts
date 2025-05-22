@@ -1,6 +1,7 @@
 import type { Config } from 'jest';
 
 const config: Config = {
+  testMatch: ['**/*.spec.ts'],
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   collectCoverage: true, // Ativa a coleta de cobertura
