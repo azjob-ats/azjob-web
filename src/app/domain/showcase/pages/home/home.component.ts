@@ -25,9 +25,9 @@ import { PanelMenuModule } from 'primeng/panelmenu';
   ],
 })
 export class HomeComponent {
-  items: MenuItem[] | undefined;
+  public items: MenuItem[] | undefined;
 
-  ngOnInit() {
+  public ngOnInit() {
     const mapToMenuItems = (templates: iTemplateComponent[]): MenuItem[] => {
       return templates.map(template => ({
         label: template.title,

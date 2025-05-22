@@ -4,11 +4,11 @@ import { Directive, ElementRef, Input, OnChanges } from '@angular/core';
   selector: '[appJsonHighlight]',
 })
 export class JsonHighlightDirective implements OnChanges {
-  @Input() jsonData: any;
+  @Input() public jsonData: any;
 
-  constructor(private el: ElementRef) {}
+  public constructor(private el: ElementRef) {}
 
-  ngOnChanges(): void {
+  public ngOnChanges(): void {
     this.highlightJson();
   }
 

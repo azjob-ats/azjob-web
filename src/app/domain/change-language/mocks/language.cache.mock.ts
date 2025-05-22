@@ -16,15 +16,15 @@ export class LanguageCacheMockService {
   }
 
   public save(content: iLanguage): Observable<boolean> {
-    return of(true);
+    return of(content ? true : false);
   }
 
   public update(content: iLanguage): Observable<boolean> {
-    return of(true);
+    return of(content ? true : false);
   }
 
   public deletById(prefix: string): Observable<boolean> {
-    return of(true);
+    return of(prefix ? true : false);
   }
 
   public delete(): Observable<boolean> {

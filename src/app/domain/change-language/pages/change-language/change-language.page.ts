@@ -47,7 +47,7 @@ export class ChangeLanguagePage implements OnInit {
     this.translationService.changeLang($event);
   }
 
-  onSelectionChange(event: Event) {
+  public onSelectionChange(event: Event) {
     const value = (event.target as HTMLSelectElement).value;
     this.selected(value);
   }

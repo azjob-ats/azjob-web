@@ -51,8 +51,8 @@ export class PageDocumentComponent {
     required: false,
   };
 
-  colsProperties!: Column[];
-  colsEmitters!: Column[];
+  public colsProperties!: Column[];
+  public colsEmitters!: Column[];
 
   public ngOnInit(): void {
     this.renderComponent(this.dynamicComponent);
@@ -87,7 +87,7 @@ export class PageDocumentComponent {
     Object.assign(componentRef.instance, inputs);
     componentRef.changeDetectorRef.detectChanges();
 
-    componentRef.instance.formControl.valueChanges.subscribe((value: any) => {
+    componentRef.instance.formControl.valueChanges.subscribe(() => {
       this.componentState = {
         value: componentRef.instance.formControl.value,
         disabled: componentRef.instance.isDisabled,

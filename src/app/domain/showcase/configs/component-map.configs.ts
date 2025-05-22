@@ -2,7 +2,7 @@ import { FormControl } from '@angular/forms';
 import { InputPrimaryComponent } from '@widget/components/input-primary/input-primary.component';
 import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
 
-export var componentMap: iTemplateComponent[] = [
+export const componentMap: iTemplateComponent[] = [
   {
     showButtonReset: true,
     showDisabled: true,

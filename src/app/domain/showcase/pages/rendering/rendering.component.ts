@@ -15,8 +15,8 @@ export class RenderingComponent implements OnInit {
   public templateRouterComponent: string = '';
   public templeted: iTemplateComponent[] = componentMap;
 
-  constructor(private router: ActivatedRoute) {}
-  ngOnInit(): void {
+  public constructor(private router: ActivatedRoute) {}
+  public ngOnInit(): void {
     this.router.url
       .subscribe(params => {
         this.templateRouterComponent = params[0].path;

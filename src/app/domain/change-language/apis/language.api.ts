@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class LanguageApiService {
   private readonly baseUrl = `${environment.apiBaseUrl}/${environment.API.JOBS}`;
 
-  constructor(private http: HttpClient) {}
+  public constructor(private http: HttpClient) {}
 
   public getAllLanguage(): Observable<iLanguage[]> {
     throw new Error('Method not implemented.');
@@ -22,7 +22,7 @@ export class LanguageApiService {
     throw new Error('Method not implemented.' + prefix);
   }
 
-  getById(id: string) {
+  public getById(id: string) {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<iLanguage>(url);
   }

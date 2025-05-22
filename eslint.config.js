@@ -11,7 +11,7 @@ module.exports = [
   // Configuration for TypeScript files (*.ts)
   // =============================================
   {
-    files: ['**/*.ts'],
+    files: ['src/**/*.ts'],
     languageOptions: {
       parser: require('@typescript-eslint/parser'),
       parserOptions: {
