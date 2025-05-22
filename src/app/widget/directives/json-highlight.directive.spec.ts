@@ -41,7 +41,6 @@ describe('JsonHighlightDirective', () => {
 
     it('deve aplicar o destaque corretamente no JSON', () => {
         const html = preElement.nativeElement.innerHTML;
-        console.log(html);
         expect(html).toBeTruthy();
     });
 });
