@@ -7,6 +7,7 @@ import { LanguageTranslatorService } from '@domain/change-language/services/lang
 import { iSelection } from '@domain/change-language/interfaces/language.interface';
 import { RouterModule } from '@angular/router';
 import { LanguageApiMockservice } from '@domain/change-language/mocks/language.api.mock';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-change-language',
@@ -17,6 +18,7 @@ import { LanguageApiMockservice } from '@domain/change-language/mocks/language.a
   providers: [LanguageApiMockservice, LanguageService, LanguageTranslatorService, TranslateService],
 })
 export class ChangeLanguagePage implements OnInit {
+  public routes = environment.ROUTES;
   public num_folder: number = 2;
   public formControl = new FormControl('');
   public selectEmpy = '';

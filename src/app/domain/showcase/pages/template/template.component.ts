@@ -15,7 +15,6 @@ import { environment } from 'src/environments/environment';
 export class TemplateComponent implements OnInit {
   public title = 'azjob-web';
   public name = environment.APP_NAME;
-  public production = environment.production;
   public checked: boolean = false;
   public animations = ['fadein'];
   public animation = 'animation-duration: 75ms';

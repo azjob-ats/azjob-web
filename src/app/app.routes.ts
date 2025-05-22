@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
+import { environment } from 'src/environments/environment';
+const { ROUTES } = environment;
 
 export const routes: Routes = [
   {
-    path: 'showcase',
+    path: ROUTES.SHOWCASE.ROOT,
     loadComponent: () => import('./domain/showcase/pages/app.component').then(m => m.AppComponent),
     children: [
       {
@@ -13,7 +15,7 @@ export const routes: Routes = [
     data: { title: 'AZJOB.TEST.HOME' },
   },
   {
-    path: 'change-language',
+    path: ROUTES.CHANGE_LANGUAGE.ROOT,
     loadComponent: () =>
       import('./domain/change-language/pages/app.component').then(m => m.AppComponent),
     children: [
@@ -25,4 +27,8 @@ export const routes: Routes = [
     ],
     data: { title: 'AZJOB.TEST.HOME' },
   },
+  {
+    path: '**',
+    redirectTo: ROUTES.ERROR.NOT_FOUND
+  }
 ];

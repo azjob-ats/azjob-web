@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { iLanguage } from '../interfaces/language.interface';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({ providedIn: 'root' })
 export class LanguageApiService {
+  private readonly baseUrl = `${environment.apiBaseUrl}/${environment.API.JOBS}`;
+
+  constructor(private http: HttpClient) { }
+
   public getAllLanguage(): Observable<iLanguage[]> {
     throw new Error('Method not implemented.');
   }
@@ -14,5 +21,10 @@ export class LanguageApiService {
 
   public addLanguage(prefix: string): Observable<iLanguage> {
     throw new Error('Method not implemented.' + prefix);
+  }
+
+  getById(id: string) {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<iLanguage>(url);
   }
 }
