@@ -1,10 +1,20 @@
 @for (item of templeted; track $index) {
-@if (item.component.name == templateRouterComponent) {
-<app-page-document [dynamicComponent]="item.component.componentRef" [componentOption]="item.component.option"
-    [componentFormControl]="item.component.formControl" [codeBlock]="item.codeBlock"
-    [componentDescription]="item.description" [componentName]="item.title" [showButtonReset]="item.showButtonReset"
-    [showDisabled]="item.showDisabled" [showRequired]="item.showRequired" [showEmitters]="item.showEmitters"
-    [showProperties]="item.showProperties" [properties]="item.properties" [emitters]="item.emitters"
-    [showPanelStateComponent]="item.showPanelStateComponent"></app-page-document>
-}
+  @if (item.component.name == templateRouterComponent) {
+    <app-page-document
+      [dynamicComponent]="item.component.componentRef"
+      [componentOption]="item.component.option"
+      [componentFormControl]="item.component.formControl"
+      [codeBlock]="item.codeBlock"
+      [componentDescription]="item.description"
+      [componentName]="item.title"
+      [showButtonReset]="item.showButtonReset"
+      [showDisabled]="item.showDisabled"
+      [showRequired]="item.showRequired"
+      [showEmitters]="item.showEmitters"
+      [showProperties]="item.showProperties"
+      [properties]="item.properties"
+      [emitters]="item.emitters"
+      [showPanelStateComponent]="item.showPanelStateComponent"
+    ></app-page-document>
+  }
 }

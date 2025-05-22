@@ -1,4 +1,4 @@
-import { eStorageStrategy } from "@core/infra/storage/enums/storage.enum";
+import { eStorageStrategy } from '@core/infra/storage/enums/storage.enum';
 
 export const environment = {
   apiBaseUrl: 'https://api-dev.example.com',
@@ -13,7 +13,7 @@ export const environment = {
   API: {
     JOBS: 'jobs',
     USERS: 'users',
-    APPLICATIONS: 'applications'
+    APPLICATIONS: 'applications',
   },
   ROUTES: {
     ROOT: '',
@@ -44,11 +44,11 @@ export const environment = {
     ADMIN: {
       ROOT: 'admin',
       USERS: 'users',
-      SETTINGS: 'settings'
+      SETTINGS: 'settings',
     },
     ERROR: {
       NOT_FOUND: 'not-found',
       UNAUTHORIZED: 'unauthorized',
-    }
-  }
+    },
+  },
 };

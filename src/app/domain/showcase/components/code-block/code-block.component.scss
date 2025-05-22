@@ -35,7 +35,7 @@ pre {
 }
 
 ::ng-deep pre code {
-  font-family: "Mitr", sans-serif !important;
+  font-family: 'Mitr', sans-serif !important;
   white-space: pre-wrap;
   word-wrap: break-word;
   text-align: start;
@@ -46,14 +46,14 @@ pre {
   font-weight: 400;
   font-style: normal;
   letter-spacing: 1px;
-  text-shadow: 0 -.1em .2em #000;
+  text-shadow: 0 -0.1em 0.2em #000;
 }
 
 ::ng-deep pre code .token {
   font-weight: 400;
   font-style: normal;
-  font-family: "Mitr", sans-serif !important;
-  text-shadow: 0 -.1em .2em #000;
+  font-family: 'Mitr', sans-serif !important;
+  text-shadow: 0 -0.1em 0.2em #000;
 }
 
 ::ng-deep pre code .token.keyword,
@@ -61,6 +61,6 @@ pre {
 ::ng-deep pre code .token.string {
   font-weight: 400;
   font-style: normal;
-  font-family: "Mitr", sans-serif !important;
-  text-shadow: 0 -.1em .2em #000;
+  font-family: 'Mitr', sans-serif !important;
+  text-shadow: 0 -0.1em 0.2em #000;
 }

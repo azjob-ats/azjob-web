@@ -29,6 +29,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ROUTES.ERROR.NOT_FOUND
-  }
+    redirectTo: ROUTES.ERROR.NOT_FOUND,
+  },
 ];

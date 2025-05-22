@@ -11,13 +11,11 @@ export class TranslationStatusCodeService {
   private http = inject(HttpClient);
 
   public loadTranslations(): Observable<void> {
-    return this.http
-      .get<{ [key: string]: string }>('i18n/pt-BR.json')
-      .pipe(
-        map((data) => {
-          this.translations = data;
-        })
-      );
+    return this.http.get<{ [key: string]: string }>('i18n/pt-BR.json').pipe(
+      map(data => {
+        this.translations = data;
+      })
+    );
   }
 
   public getTranslation(key: eResponseStatusCode): string {

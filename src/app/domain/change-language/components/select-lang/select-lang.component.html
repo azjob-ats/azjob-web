@@ -1,6 +1,6 @@
 <select [formControl]="formControl" (change)="onSelectionChange($event)">
-    <option disabled value="">{{ selectEmpy }}</option>
-    <option *ngFor="let selection of selections" [value]="selection.cod">
-        {{ selection.description }}
-    </option>
+  <option disabled value="">{{ selectEmpy }}</option>
+  <option *ngFor="let selection of selections" [value]="selection.cod">
+    {{ selection.description }}
+  </option>
 </select>
