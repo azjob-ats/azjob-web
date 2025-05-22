@@ -17,7 +17,6 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { DatePickerModule } from 'primeng/datepicker';
 import { CarouselModule } from 'primeng/carousel';
-import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { ChartModule } from 'primeng/chart';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ChipModule } from 'primeng/chip';
@@ -121,7 +120,6 @@ import { DrawerModule } from 'primeng/drawer';
     CalendarModule,
     DatePickerModule,
     CarouselModule,
-    CascadeSelectModule,
     ChartModule,
     CheckboxModule,
     ChipModule,
@@ -226,7 +224,6 @@ import { DrawerModule } from 'primeng/drawer';
     CalendarModule,
     DatePickerModule,
     CarouselModule,
-    CascadeSelectModule,
     ChartModule,
     CheckboxModule,
     ChipModule,
@@ -316,4 +313,4 @@ import { DrawerModule } from 'primeng/drawer';
   ],
   providers: [],
 })
-export class ImportsModule {}
+export class ImportsModule { }

@@ -5,6 +5,9 @@ const config: Config = {
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   collectCoverage: true, // Ativa a coleta de cobertura
+  moduleNameMapper: {
+    '^@core/(.*)$': '<rootDir>/src/app/core/$1',
+  },
   collectCoverageFrom: [
     'src/app/**/*.ts', // Inclui todos os arquivos TypeScript dentro da pasta src/app
     '!src/app/**/*.module.ts', // Exclui arquivos de módulos
