@@ -7,11 +7,20 @@ const config: Config = {
   collectCoverage: true, // Ativa a coleta de cobertura
   moduleNameMapper: {
     '^@core/(.*)$': '<rootDir>/src/app/core/$1',
+    '^@shared/(.*)$': '<rootDir>/src/app/shared/$1',
+    '^@domain/(.*)$': '<rootDir>/src/app/domain/$1',
+    '^@widget/(.*)$': '<rootDir>/src/app/widget/$1',
   },
   collectCoverageFrom: [
     'src/app/**/*.ts', // Inclui todos os arquivos TypeScript dentro da pasta src/app
     '!src/app/**/*.module.ts', // Exclui arquivos de módulos
     '!src/app/**/*.mock.ts', // Exclui mocks, caso existam
+    '!src/app/**/*.enum.ts', // Exclui enum, caso existam
+    '!src/app/**/*.constant.ts', // Exclui constant, caso existam
+    '!src/app/**/*.configs.ts', // Exclui configs, caso existam
+    '!src/app/**/*.config.ts', // Exclui configs, caso existam
+    '!src/app/**/*.routes.ts', // Exclui routes, caso existam
+    '!src/app/**/*.preset.ts', // Exclui tema, caso existam
   ],
   coverageDirectory: 'coverage', // Pasta onde o relatório será salvo
   coverageReporters: [
