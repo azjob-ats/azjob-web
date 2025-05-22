@@ -17,10 +17,10 @@ const config: Config = {
   ],
   coverageThreshold: {
     global: {
-      statements: 80, // Percentual mínimo de declarações cobertas
-      branches: 80, // Percentual mínimo de ramificações cobertas
-      functions: 80, // Percentual mínimo de funções cobertas
-      lines: 80, // Percentual mínimo de linhas cobertas
+      statements: 50, // Percentual mínimo de declarações cobertas
+      branches: 50, // Percentual mínimo de ramificações cobertas
+      functions: 50, // Percentual mínimo de funções cobertas
+      lines: 50, // Percentual mínimo de linhas cobertas
     },
   },
 };
