@@ -5,7 +5,8 @@ import { iLanguage } from '../interfaces/language.interface';
 import { eLoadingState } from '@core/infra/store/enums/state.enum';
 import { TIME_1_SECOND } from '@shared/constants/time.constant';
 import { StoreService } from '@core/infra/store/services/store.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
+
 
 type AppStateLang = AppState<iLanguage>;
 
