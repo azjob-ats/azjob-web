@@ -6,6 +6,8 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   collectCoverage: true, // Ativa a coleta de cobertura
   moduleNameMapper: {
+    '^src/(.*)$': '<rootDir>/src/$1',
+    '^@env/(.*)$': '<rootDir>/src/environments/$1',
     '^@core/(.*)$': '<rootDir>/src/app/core/$1',
     '^@shared/(.*)$': '<rootDir>/src/app/shared/$1',
     '^@domain/(.*)$': '<rootDir>/src/app/domain/$1',
@@ -21,6 +23,7 @@ const config: Config = {
     '!src/app/**/*.config.ts', // Exclui configs, caso existam
     '!src/app/**/*.routes.ts', // Exclui routes, caso existam
     '!src/app/**/*.preset.ts', // Exclui tema, caso existam
+    '!src/app/domain/showcase/**/*.ts', // Exclui tema, caso existam
   ],
   coverageDirectory: 'coverage', // Pasta onde o relatório será salvo
   coverageReporters: [

@@ -30,6 +30,9 @@
       ],
       "@widget/*": [
         "src/app/widget/*"
+      ],
+      "@env/*": [
+        "src/environments/*"
       ]
     }
   },
