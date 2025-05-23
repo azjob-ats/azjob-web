@@ -7,6 +7,10 @@ const importPlugin = require('eslint-plugin-import');
 const prettier = require('eslint-plugin-prettier');
 
 module.exports = [
+  // Ignorar arquivos de teste
+  {
+    ignores: ['**/*.spec.ts'],
+  },
   // =============================================
   // Configuration for TypeScript files (*.ts)
   // =============================================
