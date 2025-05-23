@@ -24,6 +24,9 @@ const config: Config = {
     '!src/app/**/*.routes.ts', // Exclui routes, caso existam
     '!src/app/**/*.preset.ts', // Exclui tema, caso existam
     '!src/app/domain/showcase/**/*.ts', // Exclui tema, caso existam
+    '!src/app/domain/change-language/**/*.ts', // Exclui modulo change language, caso existam
+    '!src/app/core/**/*.ts', // Exclui modulo core, caso existam
+    '!src/app/**/*.d.ts', // Exclui env, caso existam
   ],
   coverageDirectory: 'coverage', // Pasta onde o relatório será salvo
   coverageReporters: [
