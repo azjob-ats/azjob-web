@@ -1,4 +1,4 @@
-@import '../color-tokens.scss';
+@use '../color-tokens' as *;
 
 :root {
   --p-transition-duration: 0.2s;

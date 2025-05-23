@@ -1,4 +1,4 @@
-@import '../color-tokens.scss';
+@use '../color-tokens' as *;
 
 .my-app-dark {
   --p-background-color: #000 !important;

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'primeflex/primeflex' as *;
-@import 'primeicons/primeicons.css';
-@import '../public/style/standard-class.scss';
-@import '../public/style/theme/light.scss';
-@import '../public/style/theme/dark.scss';
-@import '../public/style/breakpoints.scss';
+@use 'primeicons/primeicons.css';
+@use '../public/style/standard-class.scss' as *;
+@use '../public/style/theme/light.scss' as *;
+@use '../public/style/theme/dark.scss' as *;
+@use '../public/style/breakpoints.scss' as *;
