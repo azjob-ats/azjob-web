@@ -4,43 +4,43 @@ import { JsonHighlightDirective } from './json-highlight.directive';
 import { By } from '@angular/platform-browser';
 
 @Component({
-    standalone: true,
-    template: `<pre [jsonData]="data" appJsonHighlight></pre>`,
-    imports: [JsonHighlightDirective]
+  standalone: true,
+  template: '<pre [jsonData]="data" appJsonHighlight></pre>',
+  imports: [JsonHighlightDirective],
 })
 class TestComponent {
-    data = {
-        name: "John",
-        age: 30,
-        active: true,
-        address: null
-    };
+  public data = {
+    name: 'John',
+    age: 30,
+    active: true,
+    address: null,
+  };
 }
 
 describe('JsonHighlightDirective', () => {
-    let fixture: ComponentFixture<TestComponent>;
-    let component: TestComponent;
-    let preElement: DebugElement;
+  let fixture: ComponentFixture<TestComponent>;
+  let component: TestComponent;
+  let preElement: DebugElement;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [TestComponent]
-        });
-
-        fixture = TestBed.createComponent(TestComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-
-        preElement = fixture.debugElement.query(By.css('pre'));
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [TestComponent],
     });
 
-    it('deve criar a diretiva', () => {
-        const directiveInstance = preElement.injector.get(JsonHighlightDirective);
-        expect(directiveInstance).toBeTruthy();
-    });
+    fixture = TestBed.createComponent(TestComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
 
-    it('deve aplicar o destaque corretamente no JSON', () => {
-        const html = preElement.nativeElement.innerHTML;
-        expect(html).toBeTruthy();
-    });
+    preElement = fixture.debugElement.query(By.css('pre'));
+  });
+
+  it('deve criar a diretiva', () => {
+    const directiveInstance = preElement.injector.get(JsonHighlightDirective);
+    expect(directiveInstance).toBeTruthy();
+  });
+
+  it('deve aplicar o destaque corretamente no JSON', () => {
+    const html = preElement.nativeElement.innerHTML;
+    expect(html).toBeTruthy();
+  });
 });

@@ -14,7 +14,7 @@ describe('PasswordValidateUtil', () => {
         error: () => {
           fail('Não deveria falhar para senha com 8+ caracteres');
           done();
-        }
+        },
       });
     });
 
@@ -26,9 +26,11 @@ describe('PasswordValidateUtil', () => {
           done();
         },
         error: err => {
-          expect(err).toBe(`As recomendações básicas indicam que sua senha deve conter pelo menos ${MIN_CHARACTERS_PASSWORD} caracteres`);
+          expect(err).toBe(
+            `As recomendações básicas indicam que sua senha deve conter pelo menos ${MIN_CHARACTERS_PASSWORD} caracteres`
+          );
           done();
-        }
+        },
       });
     });
   });
@@ -43,7 +45,7 @@ describe('PasswordValidateUtil', () => {
         error: () => {
           fail('Não deveria falhar para senha com letra');
           done();
-        }
+        },
       });
     });
 
@@ -56,7 +58,7 @@ describe('PasswordValidateUtil', () => {
         error: err => {
           expect(err).toBe('Sua senha deve conter pelo menos uma letras');
           done();
-        }
+        },
       });
     });
   });
@@ -71,7 +73,7 @@ describe('PasswordValidateUtil', () => {
         error: () => {
           fail('Não deveria falhar para maiúscula');
           done();
-        }
+        },
       });
     });
 
@@ -84,7 +86,7 @@ describe('PasswordValidateUtil', () => {
         error: err => {
           expect(err).toBe('Sua senha deve conter pelo menos uma letras maiúscula');
           done();
-        }
+        },
       });
     });
   });
@@ -99,7 +101,7 @@ describe('PasswordValidateUtil', () => {
         error: () => {
           fail('Não deveria falhar para minúscula');
           done();
-        }
+        },
       });
     });
 
@@ -112,7 +114,7 @@ describe('PasswordValidateUtil', () => {
         error: err => {
           expect(err).toBe('Sua senha deve conter pelo menos uma letras minúscula');
           done();
-        }
+        },
       });
     });
   });
@@ -127,7 +129,7 @@ describe('PasswordValidateUtil', () => {
         error: () => {
           fail('Não deveria falhar para número');
           done();
-        }
+        },
       });
     });
 
@@ -140,7 +142,7 @@ describe('PasswordValidateUtil', () => {
         error: err => {
           expect(err).toBe('Sua senha deve conter pelo menos um numero');
           done();
-        }
+        },
       });
     });
   });
@@ -155,7 +157,7 @@ describe('PasswordValidateUtil', () => {
         error: () => {
           fail('Não deveria falhar para caractere especial');
           done();
-        }
+        },
       });
     });
 
@@ -168,7 +170,7 @@ describe('PasswordValidateUtil', () => {
         error: err => {
           expect(err).toBe('Sua senha deve conter pelo menos um catacter');
           done();
-        }
+        },
       });
     });
   });

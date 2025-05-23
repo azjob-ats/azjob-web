@@ -24,7 +24,7 @@ describe('LoadingService', () => {
 
   it('deve definir loading como false ao chamar stop()', () => {
     service.start(); // Primeiro ativa
-    service.stop();  // Depois desativa
+    service.stop(); // Depois desativa
     expect((service as any).loading()).toBeFalsy();
   });
 });

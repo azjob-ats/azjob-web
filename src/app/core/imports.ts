@@ -313,4 +313,4 @@ import { DrawerModule } from 'primeng/drawer';
   ],
   providers: [],
 })
-export class ImportsModule { }
+export class ImportsModule {}

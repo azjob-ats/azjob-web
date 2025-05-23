@@ -7,7 +7,6 @@ import { TIME_1_SECOND } from '@shared/constants/time.constant';
 import { StoreService } from '@core/infra/store/services/store.service';
 import { environment } from '@env/environment';
 
-
 type AppStateLang = AppState<iLanguage>;
 
 @Injectable({

@@ -57,7 +57,7 @@ describe('TypeObjectUtil', () => {
     });
 
     it('deve retornar "function" para funções', () => {
-      expect(TypeObjectUtil.getType(() => { })).toBe('function');
+      expect(TypeObjectUtil.getType(() => {})).toBe('function');
     });
 
     it('deve retornar "string", "number", "boolean" etc.', () => {

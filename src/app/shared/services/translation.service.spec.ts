@@ -30,7 +30,7 @@ describe('TranslationStatusCodeService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('deve carregar traduções e armazená-las', (done) => {
+  it('deve carregar traduções e armazená-las', done => {
     service.loadTranslations().subscribe(() => {
       expect((service as any).translations['NOTE.SUCCESS']).toBe('Operação realizada com sucesso');
       done();

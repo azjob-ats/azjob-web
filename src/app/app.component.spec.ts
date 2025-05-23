@@ -29,14 +29,14 @@ describe('AppComponenft', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent, RouterModule],
-      providers: [
-        { provide: NavigationTabTitleService, useValue: navigationTabTitleServiceMock },
-      ],
+      providers: [{ provide: NavigationTabTitleService, useValue: navigationTabTitleServiceMock }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
-    mockService = TestBed.inject(NavigationTabTitleService) as jest.Mocked<NavigationTabTitleService>;
+    mockService = TestBed.inject(
+      NavigationTabTitleService
+    ) as jest.Mocked<NavigationTabTitleService>;
   });
 
   it('should call init on NavigationTabTitleService during ngOnInit', () => {
@@ -45,6 +45,8 @@ describe('AppComponenft', () => {
   });
 
   it('should getLang return the correct language', () => {
-    expect(JSON.stringify(navigationTabTitleServiceMock.getLang())).toBe(JSON.stringify({ prefix: 'en-US' }));
+    expect(JSON.stringify(navigationTabTitleServiceMock.getLang())).toBe(
+      JSON.stringify({ prefix: 'en-US' })
+    );
   });
 });

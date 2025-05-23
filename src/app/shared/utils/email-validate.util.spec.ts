@@ -1,19 +1,18 @@
 import { EmailValidateUtil } from './email-validate.util';
-import { of, throwError } from 'rxjs';
 
 describe('EmailValidateUtil', () => {
   it('deve retornar true para um e-mail válido', done => {
     const email = 'teste@exemplo.com';
 
     EmailValidateUtil.isValidEmail(email).subscribe({
-      next: (result) => {
+      next: result => {
         expect(result).toBe(true);
         done();
       },
       error: () => {
         fail('Não deveria disparar erro para e-mail válido');
         done();
-      }
+      },
     });
   });
 
@@ -25,10 +24,10 @@ describe('EmailValidateUtil', () => {
         fail('Deveria disparar erro para e-mail inválido');
         done();
       },
-      error: (err) => {
+      error: err => {
         expect(err).toBe('Este e-mail não é valido');
         done();
-      }
+      },
     });
   });
 });
