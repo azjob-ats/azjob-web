@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run start:production",
+    "dev": "npm run start:development",
     "start:production": "NODE_ENV=production ng serve",
     "start:development": "NODE_ENV=development ng serve",
     "build": "NODE_ENV=production ng build",
