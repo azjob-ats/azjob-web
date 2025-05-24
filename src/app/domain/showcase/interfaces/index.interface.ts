@@ -1,13 +1,13 @@
 import { Type } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-export interface iCodeBlock {
+export interface CodeBlock {
   title: string;
   code: string;
   language: string;
 }
 
-export interface iComponentConfig {
+export interface ComponentConfig {
   name: string;
   componentRef: Type<any>;
   formControl: FormControl;
@@ -27,11 +27,11 @@ export interface Emitters {
   description: string;
 }
 
-export interface iTemplateComponent {
+export interface Template {
   title: string;
   description: string;
-  codeBlock: iCodeBlock[];
-  component: iComponentConfig;
+  codeBlock: CodeBlock[];
+  component: ComponentConfig;
   showButtonReset: boolean;
   showDisabled: boolean;
   showRequired: boolean;
@@ -40,4 +40,9 @@ export interface iTemplateComponent {
   showPanelStateComponent: boolean;
   properties: Properties[];
   emitters: Emitters[];
+}
+
+export interface Column {
+  field: string;
+  header: string;
 }

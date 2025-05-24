@@ -1,4 +1,4 @@
-export enum eResponseStatusCode {
+export enum ResponseStatusCode {
   EMAIL_ALREADY_IN_USE = 'email_already_in_use',
   USER_REGISTERED = 'user_registered',
   VERIFY_EMAIL = 'verify_email',

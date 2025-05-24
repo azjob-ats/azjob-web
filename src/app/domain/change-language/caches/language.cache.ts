@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { AppState } from '@core/infra/store/interfaces/state.model';
 import { Observable, of } from 'rxjs';
-import { iLanguage } from '../interfaces/language.interface';
-import { eLoadingState } from '@core/infra/store/enums/state.enum';
+import { Language } from '@domain/change-language/interfaces/language.interface';
+import { LoadingState } from '@core/infra/store/enums/state.enum';
 import { TIME_1_SECOND } from '@shared/constants/time.constant';
 import { StoreService } from '@core/infra/store/services/store.service';
 import { environment } from '@env/environment';
 
-type AppStateLang = AppState<iLanguage>;
+type AppStateLang = AppState<Language>;
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageCacheService {
-  public constructor(private store: StoreService<iLanguage>) {
+  public constructor(private store: StoreService<Language>) {
     this.app();
     setTimeout(() => {
       this.app();
@@ -23,7 +23,7 @@ export class LanguageCacheService {
   private app() {
     this.store.initialState({
       items: [],
-      callState: eLoadingState.INIT,
+      callState: LoadingState.INIT,
       storage: {
         encryptionKey: environment.payloadStorage.systemLanguage.encryptionKey,
         tableName: environment.payloadStorage.systemLanguage.tableName,
@@ -32,11 +32,11 @@ export class LanguageCacheService {
     });
   }
 
-  public results(): Observable<iLanguage[]> {
+  public results(): Observable<Language[]> {
     return this.store.results((state: AppStateLang) => state.items as any);
   }
 
-  public save(content: iLanguage): Observable<boolean> {
+  public save(content: Language): Observable<boolean> {
     this.store.save((state: AppStateLang) => ({
       ...state,
       items: [...state.items, content],
@@ -44,7 +44,7 @@ export class LanguageCacheService {
     return of(true);
   }
 
-  public update(content: iLanguage): Observable<boolean> {
+  public update(content: Language): Observable<boolean> {
     this.store.update((state: AppStateLang) => ({
       ...state,
       items: state.items.map(item => (item.prefix === content.prefix ? content : item)),

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { eResponseStatusCode } from '@shared/enums/response-status-code.enum';
+import { ResponseStatusCode } from '@shared/enums/response-status-code.enum';
 import { TranslationStatusCodeService } from './translation.service';
 
 describe('TranslationStatusCodeService', () => {
@@ -45,14 +45,14 @@ describe('TranslationStatusCodeService', () => {
     // Simula que as traduções já foram carregadas
     (service as any).translations = mockTranslations;
 
-    const result = service.getTranslation(eResponseStatusCode.SUCCESSFULLY_CREATED);
+    const result = service.getTranslation(ResponseStatusCode.SUCCESSFULLY_CREATED);
     expect(result).toBe('successfully_created');
   });
 
   it('deve retornar a chave original se não houver tradução', () => {
     (service as any).translations = mockTranslations;
 
-    const result = service.getTranslation(eResponseStatusCode.ERROR_GENERIC); // Suponha que essa não exista
-    expect(result).toBe(eResponseStatusCode.ERROR_GENERIC);
+    const result = service.getTranslation(ResponseStatusCode.ERROR_GENERIC); // Suponha que essa não exista
+    expect(result).toBe(ResponseStatusCode.ERROR_GENERIC);
   });
 });

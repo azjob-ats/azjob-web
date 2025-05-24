@@ -2,7 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { catchError, tap, throwError } from 'rxjs';
-import { DEFAULT_LANG } from '../constants/index.constant';
+import { DEFAULT_LANG } from '@domain/change-language/constants/index.constant';
 import { LanguageService } from '@domain/change-language/services/language.service';
 
 @Injectable({

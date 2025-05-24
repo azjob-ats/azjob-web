@@ -1,4 +1,4 @@
-export const enum eLoadingState {
+export const enum LoadingState {
   INIT = 'INIT',
   LOADING = 'LOADING',
   LOADED = 'LOADED',

@@ -1,19 +1,24 @@
 import { FormControl } from '@angular/forms';
 
-export interface iLanguage {
+export interface Language {
   language: string;
   prefix: string;
 }
 
-export interface iSelection {
+export interface Selection {
   description: string;
   cod: string;
 }
 
-export interface iSelectOption {
+export interface SelectOption {
   formControl: FormControl<any>;
   selectEmpy: string;
   requiredField: boolean;
   disableField: boolean;
-  selections: iSelection[];
+  selections: Selection[];
+}
+
+export interface LanguageDTO {
+  description: string;
+  cod: string;
 }

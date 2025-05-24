@@ -1,7 +1,7 @@
-import { eStorageStrategy } from '../enums/storage.enum';
+import { StorageStrategy } from '@core/infra/storage/enums/storage.enum';
 
-export interface iStorage {
+export interface Storage {
   tableName: string;
-  storageStrategy: eStorageStrategy;
+  storageStrategy: StorageStrategy;
   encryptionKey?: string;
 }

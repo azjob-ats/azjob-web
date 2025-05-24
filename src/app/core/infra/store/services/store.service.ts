@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { eStorageStrategy } from '@core/infra/storage/enums/storage.enum';
+import { StorageStrategy } from '@core/infra/storage/enums/storage.enum';
 import { BehaviorSubject, filter, map, Observable, of, startWith, switchMap, tap } from 'rxjs';
-import { AppState } from '../interfaces/state.model';
+import { AppState } from '@core/infra/store/interfaces/state.model';
 import { StorageLocalService } from '@core/infra/storage/services/storage-local.service';
 import { StorageSessionService } from '@core/infra/storage/services/storage-session.service';
 import { TypeObjectUtil } from '@shared/utils/type-object.util';
@@ -97,10 +97,10 @@ export class StoreService<T> {
       dataToStore = this.crypto.encrypt(dataToStore, state.storage.encryptionKey);
     }
 
-    if (state.storage.storageStrategy === eStorageStrategy.LOCAL_STORAGE) {
+    if (state.storage.storageStrategy === StorageStrategy.LOCAL_STORAGE) {
       this.storage.save(state.storage.tableName, dataToStore);
       return of(true);
-    } else if (state.storage.storageStrategy === eStorageStrategy.SESSION_STORAGE) {
+    } else if (state.storage.storageStrategy === StorageStrategy.SESSION_STORAGE) {
       this.session.save(state.storage.tableName, dataToStore);
       return of(true);
     }
@@ -111,10 +111,10 @@ export class StoreService<T> {
   private clearStorage(): Observable<boolean> {
     const state = this.stateStore.value;
     if (state) {
-      if (state.storage.storageStrategy === eStorageStrategy.LOCAL_STORAGE) {
+      if (state.storage.storageStrategy === StorageStrategy.LOCAL_STORAGE) {
         this.storage.delete(state.storage.tableName);
         return of(true);
-      } else if (state.storage.storageStrategy === eStorageStrategy.SESSION_STORAGE) {
+      } else if (state.storage.storageStrategy === StorageStrategy.SESSION_STORAGE) {
         this.session.delete(state.storage.tableName);
         return of(true);
       }
@@ -128,9 +128,9 @@ export class StoreService<T> {
     const { tableName, storageStrategy, encryptionKey } = currentState?.storage as any;
 
     let storedData: string | null = null;
-    if (storageStrategy === eStorageStrategy.LOCAL_STORAGE) {
+    if (storageStrategy === StorageStrategy.LOCAL_STORAGE) {
       storedData = localStorage.getItem(tableName);
-    } else if (storageStrategy === eStorageStrategy.SESSION_STORAGE) {
+    } else if (storageStrategy === StorageStrategy.SESSION_STORAGE) {
       storedData = sessionStorage.getItem(tableName);
     }
 

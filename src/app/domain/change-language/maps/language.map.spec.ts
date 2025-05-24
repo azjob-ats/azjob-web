@@ -1,10 +1,5 @@
-import { iLanguage } from '../interfaces/language.interface';
-import { LanguageMap } from './language.map';
-
-interface LanguageDTO {
-  description: string;
-  cod: string;
-}
+import { Language, LanguageDTO } from '@domain/change-language/interfaces/language.interface';
+import { LanguageMap } from '@domain/change-language/maps/language.map';
 
 describe('LanguageMap', () => {
   const dtoMock: LanguageDTO[] = [
@@ -12,7 +7,7 @@ describe('LanguageMap', () => {
     { description: 'Português', cod: 'PT' },
   ];
 
-  const entityMock: iLanguage[] = [
+  const entityMock: Language[] = [
     { language: 'Inglês', prefix: 'EN' },
     { language: 'Português', prefix: 'PT' },
   ];

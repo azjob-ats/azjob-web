@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { eResponseStatusCode } from '@shared/enums/response-status-code.enum';
+import { ResponseStatusCode } from '@shared/enums/response-status-code.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class TranslationStatusCodeService {
     );
   }
 
-  public getTranslation(key: eResponseStatusCode): string {
+  public getTranslation(key: ResponseStatusCode): string {
     return this.translations[`NOTE.${key}`] || key;
   }
 }

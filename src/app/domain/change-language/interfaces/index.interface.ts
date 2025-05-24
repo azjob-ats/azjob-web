@@ -1,5 +1,5 @@
-import { eIndex } from '../enums/index.enum';
+import { IndexDefault } from '@domain/change-language/enums/index.enum';
 
-export interface iIndex {
-  index: eIndex;
+export interface Index {
+  index: IndexDefault;
 }

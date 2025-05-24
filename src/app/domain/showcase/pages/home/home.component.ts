@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { componentMap } from '@domain/showcase/configs/component-map.configs';
-import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
+import { Template } from '@domain/showcase/interfaces/index.interface';
 import { MenuItem } from 'primeng/api';
 import { ListboxModule } from 'primeng/listbox';
 import { MenuModule } from 'primeng/menu';
@@ -28,7 +28,7 @@ export class HomeComponent {
   public items: MenuItem[] | undefined;
 
   public ngOnInit() {
-    const mapToMenuItems = (templates: iTemplateComponent[]): MenuItem[] => {
+    const mapToMenuItems = (templates: Template[]): MenuItem[] => {
       return templates.map(template => ({
         label: template.title,
         routerLink: template.component.name,

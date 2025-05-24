@@ -4,7 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { LanguageService } from '@domain/change-language/services/language.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageTranslatorService } from '@domain/change-language/services/language-translator.service';
-import { iSelection } from '@domain/change-language/interfaces/language.interface';
+import { Selection } from '@domain/change-language/interfaces/language.interface';
 import { RouterModule } from '@angular/router';
 import { LanguageApiMockservice } from '@domain/change-language/mocks/language.api.mock';
 import { environment } from 'src/environments/environment';
@@ -23,7 +23,7 @@ export class ChangeLanguagePage implements OnInit {
   public formControl = new FormControl('');
   public selectEmpy = '';
   public default = '';
-  public selections: iSelection[] = [];
+  public selections: Selection[] = [];
   private translationService: LanguageTranslatorService = inject(LanguageTranslatorService);
   private translate: TranslateService = inject(TranslateService);
   private lang: LanguageService = inject(LanguageService);

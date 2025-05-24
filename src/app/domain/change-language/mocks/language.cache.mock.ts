@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { iLanguage } from '../interfaces/language.interface';
+import { Language } from '@domain/change-language/interfaces/language.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageCacheMockService {
-  public results(): Observable<iLanguage[]> {
+  public results(): Observable<Language[]> {
     return of([
       {
         language: 'Inglês (Estados Unidos)',
@@ -15,11 +15,11 @@ export class LanguageCacheMockService {
     ]);
   }
 
-  public save(content: iLanguage): Observable<boolean> {
+  public save(content: Language): Observable<boolean> {
     return of(content ? true : false);
   }
 
-  public update(content: iLanguage): Observable<boolean> {
+  public update(content: Language): Observable<boolean> {
     return of(content ? true : false);
   }
 

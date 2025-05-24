@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, ComponentRef, Input, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Emitters, iCodeBlock, Properties } from '@domain/showcase/interfaces/index.interface';
+import {
+  Emitters,
+  CodeBlock,
+  Properties,
+  Column,
+} from '@domain/showcase/interfaces/index.interface';
 import { JsonHighlightDirective } from '@widget/directives/json-highlight.directive';
 import { ButtonModule } from 'primeng/button';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
+import { CodeBlockComponent } from '@domain/showcase/components/code-block/code-block.component';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
-interface Column {
-  field: string;
-  header: string;
-}
 
 @Component({
   selector: 'app-page-document',
@@ -28,7 +29,7 @@ interface Column {
 export class PageDocumentComponent {
   @Input() public componentOption: Object = {};
   @Input() public componentFormControl: FormControl | null = null;
-  @Input() public codeBlock: iCodeBlock[] = [];
+  @Input() public codeBlock: CodeBlock[] = [];
   @Input() public componentName: string = '';
   @Input() public componentDescription: string = '';
   @Input() public componentPath: string = '';

@@ -1,8 +1,8 @@
 import { FormControl } from '@angular/forms';
 import { InputPrimaryComponent } from '@widget/components/input-primary/input-primary.component';
-import { iTemplateComponent } from '@domain/showcase/interfaces/index.interface';
+import { Template } from '@domain/showcase/interfaces/index.interface';
 
-export const componentMap: iTemplateComponent[] = [
+export const componentMap: Template[] = [
   {
     showButtonReset: true,
     showDisabled: true,

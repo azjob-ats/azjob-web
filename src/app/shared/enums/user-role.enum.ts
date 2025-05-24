@@ -1,4 +1,4 @@
-export enum eUserRole {
+export enum UserRole {
   DELETE_ACCOUNT = 'delete_account',
   CHANGE_EMAIL_ACCOUNT = 'change_email_account',
   VALID_EMAIL_ACCOUNT = 'valid_email_account',
