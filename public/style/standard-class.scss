@@ -33,7 +33,7 @@ input {
   height: 50px;
 }
 
-.h-full {
+.custom-h-full {
   height: 52px !important;
 }
 
@@ -47,9 +47,22 @@ input {
 
 .custom-icon {
   font-family: 'Material Symbols Rounded';
-  font-size: 48px;
+}
+
+.rounded-icon {
+  font-family: 'Material Symbols Rounded';
+}
+
+.outlined-icon {
+  font-family: 'Material Symbols Outlined';
 }
 
 .bg-secondary {
   background-color: var(--p-secondary-color);
+}
+
+.lilita-one-regular {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
