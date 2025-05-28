@@ -1,0 +1,149 @@
+@use '../../../../../public/style/breakpoints.scss' as *;
+
+body {
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  flex-direction: column;
+  transition: all 0.4s ease;
+  width: 260px; //fixa fixo grande, em mobile fica 85px
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.sidebar .sidebar-header img {
+  width: 60px;
+}
+
+.sidebar-links {
+  list-style: none;
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 0;
+
+}
+
+.sidebar-links::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-links li a {
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 4px 0px 4px 5px;
+  margin: 0px 7px 7px 7px;
+  text-decoration: none;
+  transition: 0.2s ease;
+  color: var(--p-background-color-inverse);
+}
+
+.search-icon {
+  color: var(--p-background-color-inverse);
+  background: var(--p-secondary-color);
+  border-radius: 4px;
+}
+
+.sidebar-links li a:hover {
+  color: var(--p-background-color-inverse);
+  background: var(--p-secondary-color);
+  border-radius: 4px;
+}
+
+.user-account {
+  margin-top: auto;
+  padding: 1px 10px;
+  margin-left: -10px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.user-profile span {
+  font-size: 0.775rem;
+  font-weight: 600;
+}
+
+.user-detail {
+  div {
+    font-weight: 600;
+  }
+
+  margin-left: 5px;
+}
+
+.active {
+  color: var(--p-accent-color);
+}
+
+.hide-in-mobile {
+  display: initial
+}
+
+.desktop {
+  display: initial
+}
+
+.mobile {
+  display: none !important;
+}
+
+// Mobile (até 640px)
+@media (max-width: $mobile) {
+  .desktop {
+    display: none !important;
+  }
+
+  .mobile {
+    display: initial !important;
+  }
+
+  .sidebar {
+    width: 85px;
+    padding: 0.5rem;
+    border-right: 1px solid #ccc;
+  }
+
+  .sidebar-links li a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar-links li a:hover {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+// Tablet (641px até 1024px)
+@media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.001em)) {}
+
+// Desktop (1025px até 1440px)
+@media (min-width: $desktop) and (max-width: calc(#{$television} - 0.001em)) {}
+
+// Television (1441px+)
+@media (min-width: $television) {}

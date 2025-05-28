@@ -1,0 +1,106 @@
+<div class="mobile">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="col">
+                <img src="image/az-logo.png" alt="logo" />
+            </div>
+
+        </div>
+        <ul class="sidebar-links">
+            <li>
+                <div class="col">
+                    <a href="#" class="search-icon"><span class="outlined-icon text-3xl">search</span></a>
+                </div>
+            </li>
+            <li>
+                <div class="col">
+                    <a href="#" class="active">
+                        <span class="active rounded-icon text-3xl ">home</span>
+                    </a>
+                </div>
+
+            </li>
+            <li>
+                <div class="col">
+                    <a href="#"><span class="outlined-icon text-3xl">add_box</span></a>
+                </div>
+
+            </li>
+            <li>
+                <div class="col">
+                    <a href="#"><span class="outlined-icon text-3xl">rocket_launch</span></a>
+                </div>
+
+            </li>
+            <li>
+                <div class="col">
+                    <a href="#"><span class="outlined-icon text-3xl">rewarded_ads</span></a>
+                </div>
+
+            </li>
+            <li>
+                <div class="col">
+                    <a href="#"><span class="outlined-icon text-3xl">notifications</span></a>
+                </div>
+
+            </li>
+            <li>
+                <div class="col">
+                    <a href="#"><span class="outlined-icon text-3xl">more_horiz</span></a>
+                </div>
+
+            </li>
+        </ul>
+    </aside>
+</div>
+
+
+<div class="desktop">
+    <aside class="sidebar ">
+        <div class="sidebar-header">
+            <img src="image/az-logo.png" alt="logo" />
+            <div class="text-6xl font-bold lilita-one-regular">Job</div>
+            <span class="pb-5">©</span>
+        </div>
+        <ul class="sidebar-links">
+
+            <li>
+                <div class="col">
+                    <app-input-search [formControl]="formControl" title='Procurar'
+                        erroFill='O nome deve ter no mínimo 2 caracteres.' erroRequired='O seu nome é obrigatório.'
+                        [minLength]='2'></app-input-search>
+                </div>
+
+            </li>
+            <li>
+                <a href="#" class="active">
+                    <span class="active rounded-icon text-3xl ">home</span>
+                    <span class="active font-bold">Para Você </span>
+                </a>
+            </li>
+            <li>
+                <a href="#"><span class="outlined-icon text-3xl">add_box</span>Candidaturas</a>
+            </li>
+            <li>
+                <a href="#"><span class="outlined-icon text-3xl">rocket_launch</span>Minha Empresa</a>
+            </li>
+            <li>
+                <a href="#"><span class="outlined-icon text-3xl">rewarded_ads</span>Currículo</a>
+            </li>
+            <li>
+                <a href="#"><span class="outlined-icon text-3xl">notifications</span>Notificações</a>
+            </li>
+            <li>
+                <a href="#"><span class="outlined-icon text-3xl">more_horiz</span>Mais</a>
+            </li>
+        </ul>
+        <div class="user-account">
+            <div class="user-profile">
+                <div class="user-detail">
+                    <div>Empresa</div>
+                    <span>{{texty}}</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
