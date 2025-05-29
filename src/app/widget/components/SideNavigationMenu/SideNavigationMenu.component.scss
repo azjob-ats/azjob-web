@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
   flex-direction: column;
   transition: all 0.4s ease;
-  width: 260px; //fixa fixo grande, em mobile fica 85px
+  width: 260px;
 }
 
 .sidebar .sidebar-header {
@@ -123,20 +123,31 @@ body {
   }
 
   .sidebar {
-    width: 85px;
-    padding: 0.5rem;
-    border-right: 1px solid #ccc;
+    width: 60px;
+    padding: 0;
+    border-right: 1px solid var(--p-secondary-bold-color);
   }
 
   .sidebar-links li a {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   .sidebar-links li a:hover {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+
   }
+
+  .sidebar .sidebar-header img {
+    width: 35px;
+  }
+
+  .sidebar-links li a {
+    padding-left: 3px;
+    margin: 5px 5px 15px 12px;
+  }
+
 }
 
 // Tablet (641px até 1024px)
