@@ -18,14 +18,14 @@ body {
 
 .sidebar .sidebar-header {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: left;
   height: 40px;
   margin-top: 10px;
+  margin-left: 10px;
 }
 
 .sidebar .sidebar-header img {
-  width: 60px;
+  width: 40px;
 }
 
 .sidebar-links {
@@ -51,7 +51,7 @@ body {
   padding: 4px 0px 4px 5px;
   margin: 0px 7px 7px 7px;
   text-decoration: none;
-  transition: 0.2s ease;
+
   color: var(--p-background-color-inverse);
 }
 
@@ -100,54 +100,64 @@ body {
   color: var(--p-accent-color);
 }
 
-.hide-in-mobile {
-  display: initial
+.fade-in-delayed {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 500ms;
 }
 
-.desktop {
-  display: initial
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 .mobile {
-  display: none !important;
+  display: initial !important;
 }
 
-// Mobile (até 640px)
-@media (max-width: $mobile) {
-  .desktop {
-    display: none !important;
-  }
+.desktop {
+  display: initial !important;
+}
 
-  .mobile {
-    display: initial !important;
-  }
+.hidden {
+  display: initial !important;
+  @extend .fade-in-delayed
+}
 
+@mixin mobile-sidebar {
   .sidebar {
-    width: 60px;
-    padding: 0;
+    width: 55px;
     border-right: 1px solid var(--p-secondary-bold-color);
   }
 
   .sidebar-links li a {
-    width: 35px;
-    height: 35px;
-  }
+    font-size: 0;
 
-  .sidebar-links li a:hover {
-    width: 35px;
-    height: 35px;
+    .active {
+      font-size: 0;
+    }
 
   }
 
-  .sidebar .sidebar-header img {
-    width: 35px;
+  .lilita-one-regular {
+    color: #ffffff00;
   }
 
-  .sidebar-links li a {
-    padding-left: 3px;
-    margin: 5px 5px 15px 12px;
+  .hidden {
+    display: none !important;
   }
+}
 
+.mobile-mode {
+  @include mobile-sidebar;
+}
+
+
+
+// Mobile (até 640px)
+@media (max-width: $mobile) {
+  @include mobile-sidebar;
 }
 
 // Tablet (641px até 1024px)

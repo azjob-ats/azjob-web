@@ -1,68 +1,8 @@
-<div class="mobile">
+<div [class.mobile-mode]="isMobileMode">
     <aside class="sidebar">
-        <div class="sidebar-header">
+        <div class="sidebar-header flex align-items-center">
             <img src="image/az-logo.png" alt="logo" />
-        </div>
-        <ul class="sidebar-links">
-            <li>
-                <a href="#" class="search-icon">
-                    <span class="outlined-icon text-3xl">
-                        search
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="active">
-                    <span class="active rounded-icon text-3xl">
-                        home
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="outlined-icon text-3xl">
-                        add_box
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="outlined-icon text-3xl">
-                        rocket_launch
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="outlined-icon text-3xl">
-                        rewarded_ads
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="outlined-icon text-3xl">
-                        notifications
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="outlined-icon text-3xl">
-                        more_horiz
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </aside>
-</div>
-
-<div class="desktop">
-    <aside class="sidebar ">
-        <div class="sidebar-header">
-            <img src="image/az-logo.png" alt="logo" />
-            <div class="text-6xl font-bold lilita-one-regular">Job</div>
-            <span class="pb-5">©</span>
+            <span class="text-3xl font-bold lilita-one-regular">Job</span>
         </div>
         <ul class="sidebar-links">
 
@@ -92,10 +32,10 @@
                 <a href="#"><span class="outlined-icon text-3xl">notifications</span>Notificações</a>
             </li>
             <li>
-                <a href="#"><span class="outlined-icon text-3xl">more_horiz</span>Mais</a>
+                <a (click)="toggleMobile()"><span class="outlined-icon text-3xl">more_horiz</span>Mais</a>
             </li>
         </ul>
-        <div class="user-account">
+        <div class="user-account hidden">
             <div class="user-profile">
                 <div class="user-detail">
                     <div>Empresa</div>

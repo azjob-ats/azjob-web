@@ -20,6 +20,11 @@ import { InputSearchComponent } from '../input-search/input-search.component';
 export class SideNavigationMenuComponent implements OnInit {
   formControl = new FormControl('');
   texty = 'Copyright © 2025 azjob. All rights reserved'
+  isMobileMode = false;
+
+  toggleMobile() {
+    this.isMobileMode = !this.isMobileMode;
+  }
   ngOnInit(): void { }
 
 }
