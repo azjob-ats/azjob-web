@@ -27,7 +27,7 @@ export class AppComponent {
   public ngOnInit(): void {
     this.titleService.init();
 
-    const element: any = document.querySelector('html');
-    element.classList.toggle('my-app-dark');
+    //const element: any = document.querySelector('html');
+    //element.classList.toggle('my-app-dark');
   }
 }

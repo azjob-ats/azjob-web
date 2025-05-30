@@ -7,13 +7,13 @@ import { ImportsModule } from '@core/imports';
   template: `
       <p-iconfield class="w-full">
         <p-inputicon  styleClass="inputIconTop">
-          <i class="pi pi-search black" style="font-size: 20px; color: var(--p-background-color-inverse)"></i>
+          <i class="pi pi-search black  font-bold" style="font-size: 20px; color: var(--p-background-color-inverse)"></i>
         </p-inputicon>
         <input type="text" pInputText id="firstname" placeholder="Procurar" pSize="large" class="w-full" #firstname />
         <p-inputicon *ngIf="firstname.value" styleClass="inputIconTop">
           <p-button (click)="firstname.value = ''" [rounded]="true" severity="primary" styleClass="p-0"
             [disabled]="isDisabled">
-            <i class="pi pi-times" style="font-size: 10px; padding: 5px"></i>
+            <i class="pi pi-times" style="font-size: 10px; padding: 5px;"></i>
           </p-button>
         </p-inputicon>
       </p-iconfield>
@@ -25,7 +25,15 @@ import { ImportsModule } from '@core/imports';
       {{ erroFill }}
     </small>
   `,
-  styles: [''],
+  styles: [
+    `
+      input {
+        height: 40px;
+      }
+
+
+    `,
+  ],
   standalone: true,
   imports: [ImportsModule],
 })
