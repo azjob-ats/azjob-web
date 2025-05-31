@@ -50,8 +50,8 @@ export class HomeComponent {
         target: '_blank',
       },
       {
-        label: 'PrimeFlex(Layout/Grid/Spacing)',
-        url: 'https://primeflex.org/installation',
+        label: 'Wiki',
+        url: 'https://azjob-ats.github.io/azjob-web/',
         target: '_blank',
       },
     ];
