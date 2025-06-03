@@ -37,6 +37,15 @@ input {
   height: 52px !important;
 }
 
+.custom-size-small .pi {
+  font-size: 12px;
+}
+
+.custom-size-small {
+  width: 30px !important;
+  height: 30px !important;
+}
+
 .inputIconTop {
   top: 45% !important;
 }
@@ -65,4 +74,8 @@ input {
   font-family: "Lilita One", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+.cl-secondary-bold {
+  color: var(--p-secondary-bold-color);
 }

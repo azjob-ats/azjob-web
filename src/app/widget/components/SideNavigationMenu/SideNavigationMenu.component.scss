@@ -20,8 +20,8 @@ body {
   display: flex;
   justify-content: left;
   height: 40px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 0px;
+  margin-bottom: 20px;
   margin-left: 8px;
 }
 
@@ -68,28 +68,28 @@ body {
   border-radius: 4px;
 }
 
-.user-account {
+.header-menu {
   margin-top: auto;
   padding: 1px 10px;
   margin-left: -10px;
 }
 
-.user-profile {
+.header-detail {
   display: flex;
   align-items: center;
 }
 
-.user-profile h3 {
+.header-detail h3 {
   font-size: 1rem;
   font-weight: 600;
 }
 
-.user-profile span {
+.header-detail span {
   font-size: 0.775rem;
   font-weight: 600;
 }
 
-.user-detail {
+.header-detail {
   div {
     font-weight: 600;
   }
@@ -154,6 +154,31 @@ body {
   @include mobile-sidebar;
 }
 
+::ng-deep .p-drawer-mask {
+  background-color: transparent !important;
+}
+
+::ng-deep .p-drawer-left {
+  left: 55px;
+}
+
+::ng-deep .p-drawer {
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  transform: translate3d(0px, 0px, 0px);
+  position: fixed;
+  transition: transform 0.12s;
+  background: var(--p-background-color);
+  color: var(--p-primary-color);
+  border: 0;
+  border-right: 1px solid var(--p-secondary-bold-color);
+  box-shadow: none;
+}
+
+.opacity-less {
+  opacity: 0.9;
+}
 
 
 // Mobile (até 640px)

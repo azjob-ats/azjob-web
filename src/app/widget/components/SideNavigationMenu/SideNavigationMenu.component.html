@@ -1,27 +1,22 @@
 <div [class.mobile-mode]="isMobileMode">
-    <aside class="sidebar">
+    <aside class="sidebar z-5">
         <div class="sidebar-header flex align-items-center">
             <img src="image/az-logo.png" alt="logo" />
-            <span class="text-3xl font-bold lilita-one-regular">Job</span>
+            <span class="text-4xl font-bold lilita-one-regular">Job</span>
         </div>
         <ul class="sidebar-links">
-
-            <!--<li>
-                <div class="col">
-                    <app-input-search [formControl]="formControl" title='Procurar'
-                        erroFill='O nome deve ter no mínimo 2 caracteres.' erroRequired='O seu nome é obrigatório.'
-                        [minLength]='2'></app-input-search>
-                </div>
-            </li>-->
             <li>
                 <a href="#" class="search-icon">
                     <span class=" text-3xl">
                         <i class="pi pi-search black text-2xl font-bold"
-                            style="margin-left: 2px; color: var(--p-background-color-inverse)"></i>
-                    </span>Pesquisar</a>
+                            style="margin-left: 2px; color: var(--p-background-color-inverse)">
+                        </i>
+                    </span>
+                    Pesquisar
+                </a>
             </li>
             <li>
-                <a href="#" class="active">
+                <a class="active">
                     <span class="active rounded-icon text-3xl ">home</span>
                     <span class="active font-bold">Para Você </span>
                 </a>
@@ -39,12 +34,12 @@
                 <a href="#"><span class="outlined-icon text-3xl">notifications</span>Notificações</a>
             </li>
             <li>
-                <a (click)="toggleMobile()"><span class="outlined-icon text-3xl">more_horiz</span>Mais</a>
+                <a (click)="menuPlustoggle()"><span class="outlined-icon text-3xl">more_horiz</span>Mais</a>
             </li>
         </ul>
-        <div class="user-account hidden">
-            <div class="user-profile">
-                <div class="user-detail">
+        <div class="header-menu hidden">
+            <div class="header-detail">
+                <div>
                     <div>Empresa</div>
                     <span>{{texty}}</span>
                 </div>
@@ -52,3 +47,69 @@
         </div>
     </aside>
 </div>
+<p-drawer #drawerRef [(visible)]="visible" position="left" [modal]="true" [closable]="false"
+    [style]="{ width: '600px' }" (onHide)="aoClicarFora()" transitionOptions="500ms cubic-bezier(0, 0, 0.2, 1)"
+    [baseZIndex]="0" [dismissible]="true" [autoZIndex]="true">
+    <ng-template #header>
+        <div class="flex items-center align-items-center gap-2">
+            <p-button [disabled]="nodeSectionPositionCurrent > 0 ? false : true" (click)="backSectionPrevious()"
+                icon="pi pi-arrow-left" [rounded]="true" [text]="true" severity="primary"
+                styleClass="button-arrow-primary "
+                [class.opacity-less]="nodeSectionPositionCurrent > 0 ? false : true" />
+            <span class="font-bold">
+                {{ title }}
+            </span>
+        </div>
+        <p-button (click)="closeCallback($event)" icon="pi pi-times" [rounded]="true" severity="primary"
+            styleClass="custom-size-small">
+        </p-button>
+    </ng-template>
+    <div>
+        @if (preferencesMenuVisible) {
+        @for (section of preferencesMenuVisible.section; track section; let i = $index) {
+        @if (nodeSectionPositionCurrent == 0) {
+        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="chageNodeSection(i+1)">
+            <div class="col-11 m-0 p-0">
+                <div class="grid m-0">
+                    <div class="col-12 m-0 p-0">
+                        <div class="text-left pt-1 font-bold">{{ section.name }}</div>
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <div class="text-left p-0">{{ section.description }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 m-0 p-0">
+                <div class="flex justify-content-end align-items-center p-0 h-full">
+                    <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+                </div>
+            </div>
+        </div>
+        }
+        @if (nodeSectionPositionCurrent == i+1) {
+        @for (menu of section.menu; track $index) {
+        @if(section.name == title) {
+        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer">
+            <div class="col-11 m-0 p-0">
+                <div class="grid m-0">
+                    <div class="col-12 m-0 p-0">
+                        <div class="text-left pt-1 font-bold">{{ menu.name }}</div>
+                    </div>
+                    <div class="col-12 m-0 p-0">
+                        <div class="text-left p-0">{{ menu.description }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 m-0 p-0">
+                <div class="flex justify-content-end align-items-center p-0 h-full">
+                    <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+                </div>
+            </div>
+        </div>
+        }
+        }
+        }
+        }
+        }
+    </div>
+</p-drawer>
