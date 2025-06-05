@@ -1,6 +1,7 @@
 <div class="stepper-container">
     <div class="step-content">
-        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="selected('en-US')">
+        <div [class.bg-gray-50]="default == 'en-US'" class="flex hover:bg-gray-100 border-round p-2 cursor-pointer"
+            (click)="selected('en-US')">
             <div class="col-11 m-0 p-0">
                 <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
                     English
@@ -14,7 +15,8 @@
                 }
             </div>
         </div>
-        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="selected('pt-BR')">
+        <div [class.bg-gray-50]="default == 'pt-BR'" class="flex hover:bg-gray-100 border-round p-2 cursor-pointer"
+            (click)="selected('pt-BR')">
             <div class="col-11 m-0 p-0">
                 <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
                     Português
@@ -29,7 +31,8 @@
             </div>
         </div>
 
-        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="selected('es-CO')">
+        <div [class.bg-gray-50]="default == 'es-CO'" class="flex hover:bg-gray-100 border-round p-2 cursor-pointer"
+            (click)="selected('es-CO')">
             <div class="col-11 m-0 p-0">
                 <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
                     Español

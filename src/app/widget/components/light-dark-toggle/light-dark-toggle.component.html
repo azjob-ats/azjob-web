@@ -1,6 +1,7 @@
 <div class="stepper-container">
     <div class="step-content">
-        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="toggleDarkMode('dark')">
+        <div [class.bg-gray-50]="modo == 'dark'" class="flex hover:bg-gray-100 border-round p-2 cursor-pointer"
+            (click)="toggleDarkMode('dark')">
             <div class="col-11 m-0 p-0">
                 <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
                     Escuro
@@ -15,7 +16,8 @@
             </div>
         </div>
 
-        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="toggleDarkMode('light')">
+        <div [class.bg-gray-50]="modo == 'light'" class="flex hover:bg-gray-100 border-round p-2 cursor-pointer"
+            (click)="toggleDarkMode('light')">
             <div class="col-11 m-0 p-0">
                 <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
                     Claro
