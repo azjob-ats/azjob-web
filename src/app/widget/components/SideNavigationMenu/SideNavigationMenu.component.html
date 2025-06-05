@@ -5,8 +5,8 @@
             <span class="text-4xl font-bold lilita-one-regular">Job</span>
         </div>
         <ul class="sidebar-links">
-            <li>
-                <a href="#" class="search-icon">
+            <li class="cursor-pointer">
+                <a class="search-icon" (click)="goToToggle('search')">
                     <span class=" text-3xl">
                         <i class="pi pi-search black text-2xl font-bold"
                             style="margin-left: 2px; color: var(--p-background-color-inverse)">
@@ -22,94 +22,155 @@
                 </a>
             </li>
             <li>
-                <a href="#"><span class="outlined-icon text-3xl">add_box</span>Candidaturas</a>
+                <a><span class="outlined-icon text-3xl">add_box</span>Candidaturas</a>
             </li>
             <li>
-                <a href="#"><span class="outlined-icon text-3xl">rocket_launch</span>Minha Empresa</a>
+                <a><span class="outlined-icon text-3xl">rocket_launch</span>Minha Empresa</a>
             </li>
             <li>
-                <a href="#"><span class="outlined-icon text-3xl">rewarded_ads</span>Currículo</a>
+                <a><span class="outlined-icon text-3xl">rewarded_ads</span>Currículo</a>
             </li>
             <li>
-                <a href="#"><span class="outlined-icon text-3xl">notifications</span>Notificações</a>
+                <a><span class="outlined-icon text-3xl">notifications</span>Notificações</a>
             </li>
-            <li>
-                <a (click)="menuPlustoggle()"><span class="outlined-icon text-3xl">more_horiz</span>Mais</a>
+            <li class="cursor-pointer">
+                <a (click)="goToToggle('plus-preferences')"><span
+                        class="outlined-icon text-3xl">more_horiz</span>Mais</a>
             </li>
         </ul>
-        <div class="header-menu hidden">
+        <div class="header-menu hidden hover:bg-gray-100 border-round p-2 m-2 cursor-pointer"
+            (click)="op.toggle($event)">
             <div class="header-detail">
+                <img src="image/user-default.png" alt="Avatar do usuário" class="avatar" />
+
                 <div>
-                    <div>Empresa</div>
-                    <span>{{texty}}</span>
+                    <div class="user-name">Saulo McChelsom</div>
+                    <span class="user-role">{{ texty }}</span>
                 </div>
             </div>
         </div>
+        <p-popover #op>
+            <ul class="sidebar-links">
+                <li class="cursor-pointer" (click)="selectMember()">
+                    <a class="p-3">Informações da conta</a>
+                </li>
+                <li class="cursor-pointer" (click)="selectMember()">
+                    <a class="p-3">Log out {{ texty }}</a>
+                </li>
+            </ul>
+        </p-popover>
     </aside>
 </div>
+
 <p-drawer #drawerRef [(visible)]="visible" position="left" [modal]="true" [closable]="false"
     [style]="{ width: '600px' }" (onHide)="aoClicarFora()" transitionOptions="500ms cubic-bezier(0, 0, 0.2, 1)"
     [baseZIndex]="0" [dismissible]="true" [autoZIndex]="true">
     <ng-template #header>
+
         <div class="flex items-center align-items-center gap-2">
-            <p-button [disabled]="nodeSectionPositionCurrent > 0 ? false : true" (click)="backSectionPrevious()"
-                icon="pi pi-arrow-left" [rounded]="true" [text]="true" severity="primary"
-                styleClass="button-arrow-primary "
-                [class.opacity-less]="nodeSectionPositionCurrent > 0 ? false : true" />
-            <span class="font-bold">
-                {{ title }}
+            @if(currentStep
+            < 4){ <p-button [disabled]="currentStep > 0 ? false : true" (click)="goBack()" icon="pi pi-arrow-left"
+                [rounded]="true" [text]="true" severity="primary" styleClass="button-arrow-primary "
+                [class.opacity-less]="currentStep > 0 ? false : true" />
+            }
+
+
+            <span class="font-bold text-2xl">
+                @if(selectedMenu){
+                {{ selectedMenu.name }}
+                }@else{
+                {{ selectedSection?.name || menu.title}}
+                }
             </span>
         </div>
         <p-button (click)="closeCallback($event)" icon="pi pi-times" [rounded]="true" severity="primary"
             styleClass="custom-size-small">
         </p-button>
     </ng-template>
-    <div>
-        @if (preferencesMenuVisible) {
-        @for (section of preferencesMenuVisible.section; track section; let i = $index) {
-        @if (nodeSectionPositionCurrent == 0) {
-        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="chageNodeSection(i+1)">
-            <div class="col-11 m-0 p-0">
-                <div class="grid m-0">
-                    <div class="col-12 m-0 p-0">
-                        <div class="text-left pt-1 font-bold">{{ section.name }}</div>
+
+    <div class="stepper-container">
+        <!-- Etapa 1: Seções -->
+        <div *ngIf="currentStep === 0" class="step-content">
+            @for ( section of menu.section; track section; let i = $index) {
+            <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToSection(section)">
+                <div class="col-11 m-0 p-0">
+                    <div class="grid m-0">
+                        <div class="col-12 m-0 p-0">
+                            <div class="text-left pt-1 font-bold">{{ section.name }}</div>
+                        </div>
+                        <div class="col-12 m-0 p-0">
+                            <div class="text-left p-0">{{ section.description }}</div>
+                        </div>
                     </div>
-                    <div class="col-12 m-0 p-0">
-                        <div class="text-left p-0">{{ section.description }}</div>
+                </div>
+                <div class="col-1 m-0 p-0">
+                    <div class="flex justify-content-end align-items-center p-0 h-full">
+                        <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
                     </div>
                 </div>
             </div>
-            <div class="col-1 m-0 p-0">
-                <div class="flex justify-content-end align-items-center p-0 h-full">
-                    <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+            }
+        </div>
+
+        <!-- Etapa 2: Menus -->
+        <div *ngIf="currentStep === 1" class="step-content">
+            @for ( menu of selectedSection.menu; track $index) {
+            <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToMenu(menu)">
+                <div class="col-1 m-0 p-0">
+                    <div class="flex justify-content-center align-items-center p-0 h-full">
+                        <span class="outlined-icon text-3xl">{{menu.icon}}</span>
+                    </div>
+                </div>
+                <div class="col-10 m-0 p-0">
+                    <div class="grid m-0">
+                        <div class="col-12 m-0 p-0">
+                            <div class="text-left pt-1 font-bold">{{ menu.name }}</div>
+                        </div>
+                        <div class="col-12 m-0 p-0">
+                            <div class="text-left p-0">{{ menu.description }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 m-0 p-0">
+                    <div class="flex justify-content-center align-items-center p-0 h-full">
+                        <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div [hidden]="currentStep !== 2 && selectedMenu?.component" class="step-content">
+            <div #dynamicComponent></div>
+        </div>
+
+        <div *ngIf="currentStep === 2 && selectedMenu?.routerLink" class="step-content">
+            <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
+                [routerLink]="selectedMenu.routerLink.link">
+                <div class="col-11 m-0 p-0">
+                    <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
+                        {{ selectedMenu.routerLink.label }}
+                    </div>
+                </div>
+                <div class="col-1 m-0 p-0">
+                    <div class="flex justify-content-center align-items-center p-0 h-full">
+                        <span class="outlined-icon text-3xl">arrow_outward</span>
+                    </div>
                 </div>
             </div>
         </div>
-        }
-        @if (nodeSectionPositionCurrent == i+1) {
-        @for (menu of section.menu; track $index) {
-        @if(section.name == title) {
-        <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer">
-            <div class="col-11 m-0 p-0">
-                <div class="grid m-0">
-                    <div class="col-12 m-0 p-0">
-                        <div class="text-left pt-1 font-bold">{{ menu.name }}</div>
-                    </div>
-                    <div class="col-12 m-0 p-0">
-                        <div class="text-left p-0">{{ menu.description }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-1 m-0 p-0">
-                <div class="flex justify-content-end align-items-center p-0 h-full">
-                    <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
-                </div>
-            </div>
+
+
+        <div *ngIf="currentStep === 3 && this.selectedSection?.component" class="step-content">
+            <div #dynamicComponent></div>
         </div>
-        }
-        }
-        }
-        }
-        }
+
+        <div *ngIf="currentStep === 3 && this.selectedSection?.routerLink" class="step-content">
+            <h1>links</h1>
+        </div>
+
+        <div [hidden]="currentStep !== 4" class="step-content">
+            <div #dynamicComponent></div>
+        </div>
     </div>
 </p-drawer>

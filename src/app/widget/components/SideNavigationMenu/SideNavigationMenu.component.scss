@@ -20,8 +20,8 @@ body {
   display: flex;
   justify-content: left;
   height: 40px;
-  margin-top: 0px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 14px;
   margin-left: 8px;
 }
 
@@ -77,16 +77,31 @@ body {
 .header-detail {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
 }
 
-.header-detail h3 {
-  font-size: 1rem;
-  font-weight: 600;
+.user-name,
+.user-role {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
-.header-detail span {
-  font-size: 0.775rem;
-  font-weight: 600;
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-detail div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+  max-width: 170px;
+
 }
 
 .header-detail {
