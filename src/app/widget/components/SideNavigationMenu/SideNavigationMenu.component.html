@@ -1,6 +1,6 @@
 <div [class.mobile-mode]="isMobileMode">
     <aside class="sidebar z-5">
-        <div class="sidebar-header flex align-items-center">
+        <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="['/']">
             <img src="image/az-logo.png" alt="logo" />
             <span class="text-4xl font-bold lilita-one-regular">Job</span>
         </div>
@@ -117,8 +117,8 @@
             @for ( menu of selectedSection.menu; track $index) {
             <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToMenu(menu)">
                 <div class="col-1 m-0 p-0">
-                    <div class="flex justify-content-center align-items-center p-0 h-full">
-                        <span class="outlined-icon text-3xl">{{menu.icon}}</span>
+                    <div class="flex justify-content-start align-items-center p-0 h-full">
+                        <span class="outlined-icon text-2xl">{{menu.icon}}</span>
                     </div>
                 </div>
                 <div class="col-10 m-0 p-0">
@@ -146,7 +146,7 @@
 
         <div *ngIf="currentStep === 2 && selectedMenu?.routerLink" class="step-content">
             <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
-                [routerLink]="selectedMenu.routerLink.link">
+                (click)="linkClick(selectedMenu.routerLink, $event)">
                 <div class="col-11 m-0 p-0">
                     <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
                         {{ selectedMenu.routerLink.label }}

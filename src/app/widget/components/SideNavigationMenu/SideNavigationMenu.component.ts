@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ComponentRef, Type, ViewChild, ViewContainerRef, type OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
 import { FormControl } from '@angular/forms';
 import { Drawer, DrawerModule } from 'primeng/drawer';
@@ -68,6 +68,8 @@ export class SideNavigationMenuComponent implements OnInit {
   selectMember() {
     this.op.hide();
   }
+
+  constructor(private router: Router) { }
 
   steep = [
     {
@@ -214,9 +216,10 @@ export class SideNavigationMenuComponent implements OnInit {
               name: 'Sobre o App',
               description: 'Confira a versão atual da plataforma, data da última atualização e informações de Copyright',
               routerLink: {
-                label: 'Demonstração de componentes, funcionalidades ou páginas',
+                label: 'Demonstração de componentes, funcionalidades e páginas',
                 link: '/showcase',
                 target: '_blank',
+                closeMenu: false
               },
               component: null,
             },
@@ -236,6 +239,7 @@ export class SideNavigationMenuComponent implements OnInit {
             label: 'Log out @mcchelsom98268',
             link: '/logout',
             target: '_blank',
+            closeMenu: false
           },
           component: null,
           menu: null
@@ -334,5 +338,18 @@ export class SideNavigationMenuComponent implements OnInit {
 
     componentRef.changeDetectorRef.detectChanges();
     return componentRef;
+  }
+
+  public linkClick(link: any, event: Event) {
+
+    if (link.closeMenu) {
+      this.drawerRef.close(event);
+    }
+
+    if (link.target === '_blank') {
+      window.open(link.link, link.target);
+    } else {
+      this.router.navigate([link.link]);
+    }
   }
 }
