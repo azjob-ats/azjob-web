@@ -73,13 +73,11 @@
                 [rounded]="true" [text]="true" severity="primary" styleClass="button-arrow-primary "
                 [class.opacity-less]="currentStep > 0 ? false : true" />
             }
-
-
             <span class="font-bold text-2xl">
                 @if(selectedMenu){
                 {{ selectedMenu.name }}
                 }@else{
-                {{ selectedSection?.name || menu.title}}
+                {{ selectedSection?.name || toggle.name}}
                 }
             </span>
         </div>
@@ -89,9 +87,9 @@
     </ng-template>
 
     <div class="stepper-container">
-        <!-- Etapa 1: Seções -->
+        <!-- Etapa 0: Seções -->
         <div *ngIf="currentStep === 0" class="step-content">
-            @for ( section of menu.section; track section; let i = $index) {
+            @for ( section of toggle.section; track section; let i = $index) {
             <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToSection(section)">
                 <div class="col-11 m-0 p-0">
                     <div class="grid m-0">
@@ -112,7 +110,7 @@
             }
         </div>
 
-        <!-- Etapa 2: Menus -->
+        <!-- Etapa 1: Menus -->
         <div *ngIf="currentStep === 1" class="step-content">
             @for ( menu of selectedSection.menu; track $index) {
             <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToMenu(menu)">
@@ -139,11 +137,35 @@
             </div>
             }
         </div>
-
-        <div [hidden]="currentStep !== 2 && selectedMenu?.component" class="step-content">
+        <!-- Etapa 2: Conteudo Dinâmico Componente, Link ou Texto -->
+        <div [hidden]="!(currentStep == 2) && selectedSection?.component" class="step-content">
             <div #dynamicComponent></div>
         </div>
-
+        <div *ngIf="currentStep === 2 && selectedSection?.text" class="step-content">
+            {{ selectedSection.text }}
+        </div>
+        <div *ngIf="currentStep === 2 && selectedSection?.routerLink" class="step-content">
+            <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
+                (click)="linkClick(selectedSection.routerLink, $event)">
+                <div class="col-11 m-0 p-0">
+                    <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
+                        {{ selectedSection.routerLink.label }}
+                    </div>
+                </div>
+                <div class="col-1 m-0 p-0">
+                    <div class="flex justify-content-center align-items-center p-0 h-full">
+                        <span class="outlined-icon text-3xl">arrow_outward</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div [hidden]="!(currentStep == 2) && selectedMenu?.component" class="step-content">
+            <div #dynamicComponent></div>
+        </div>
+        <div *ngIf="currentStep === 2 && selectedMenu?.text" class="step-content">
+            {{ selectedMenu.text }}
+        </div>
         <div *ngIf="currentStep === 2 && selectedMenu?.routerLink" class="step-content">
             <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
                 (click)="linkClick(selectedMenu.routerLink, $event)">
@@ -159,18 +181,27 @@
                 </div>
             </div>
         </div>
-
-
-        <div *ngIf="currentStep === 3 && this.selectedSection?.component" class="step-content">
+        <!-- Etapa 3: Conteudo Dinâmico Componente, Link ou Texto -->
+        <div [hidden]="!(currentStep == -1) && toggle?.component" class="step-content">
             <div #dynamicComponent></div>
         </div>
-
-        <div *ngIf="currentStep === 3 && this.selectedSection?.routerLink" class="step-content">
-            <h1>links</h1>
+        <div *ngIf="currentStep === -1 && toggle?.text" class="step-content">
+            {{ toggle.text }}
         </div>
-
-        <div [hidden]="currentStep !== 4" class="step-content">
-            <div #dynamicComponent></div>
+        <div *ngIf="currentStep === -1 && toggle?.routerLink" class="step-content">
+            <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
+                (click)="linkClick(toggle.routerLink, $event)">
+                <div class="col-11 m-0 p-0">
+                    <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
+                        {{ toggle.routerLink.label }}
+                    </div>
+                </div>
+                <div class="col-1 m-0 p-0">
+                    <div class="flex justify-content-center align-items-center p-0 h-full">
+                        <span class="outlined-icon text-3xl">arrow_outward</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </p-drawer>

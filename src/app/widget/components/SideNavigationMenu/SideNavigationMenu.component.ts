@@ -28,12 +28,11 @@ export class SideNavigationMenuComponent implements OnInit {
   texty = '@mcchelsom98268'
   isMobileMode = false;
   visible: boolean = false;
-  menu: any = [];
+  toggle: any = [];
   currentStep = 0;
   selectedSection: any = null;
   selectedMenu: any = null;
 
-  public componentRef: ComponentRef<any> | null = null;
   @ViewChild('dynamicComponent', { read: ViewContainerRef, static: false })
   public container!: ViewContainerRef;
   @ViewChild('drawerRef') drawerRef!: Drawer;
@@ -48,18 +47,20 @@ export class SideNavigationMenuComponent implements OnInit {
 
   closeCallback(e: any): void {
     this.drawerRef.close(e);
-    this.menu = [];
+    this.toggle = [];
     this.currentStep = 0;
     this.selectedSection = null;
     this.selectedMenu = null;
+    this.container.clear();
   }
 
   aoClicarFora() {
     this.isMobileMode = !this.isMobileMode;
-    this.menu = [];
+    this.toggle = [];
     this.currentStep = 0;
     this.selectedSection = null;
     this.selectedMenu = null;
+    this.container.clear();
 
   }
 
@@ -73,15 +74,18 @@ export class SideNavigationMenuComponent implements OnInit {
 
   steep = [
     {
-      title: 'Mais',
+      name: 'Mais',
       key: 'plus-preferences',
       component: null,
+      text: null,
+      routerLink: null,
       section: [
         {
           name: 'Configurações e Preferências',
           description: 'Personalize suas preferências e configurações de conta',
           routerLink: null,
           component: null,
+          text: null,
           menu: [
             {
               icon: 'admin_panel_settings',
@@ -89,13 +93,15 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Veja as informações da sua conta, como seu número de telefone e endereço de e-mail.',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'brightness_4',
               name: 'Modo Escuro',
               description: 'Alterar o modo de exibição do site para escuro ou claro',
               routerLink: null,
-              component: LightDarkToggleComponent
+              component: LightDarkToggleComponent,
+              text: null
             },
             {
               icon: 'translate',
@@ -103,6 +109,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Alterar o idioma do site para português ou inglês',
               routerLink: null,
               component: LanguageToggleComponent,
+              text: null
             },
             {
               icon: 'gpp_bad',
@@ -110,6 +117,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Descubra como você pode desativar sua conta',
               routerLink: null,
               component: null,
+              text: null
             }
           ]
         },
@@ -118,6 +126,7 @@ export class SideNavigationMenuComponent implements OnInit {
           description: 'Centralize os controles de proteção da sua conta, gerenciamento de senha e dispositivos conectados',
           routerLink: null,
           component: null,
+          text: null,
           menu: [
             {
               icon: 'notification_settings',
@@ -125,6 +134,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Escolher quais tipos de notificações deseja receber (e-mail, push etc.) e com que frequência',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'shield_lock',
@@ -132,6 +142,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Altere sua senha de forma segura sempre que necessario',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'do_not_disturb_on',
@@ -139,6 +150,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Encerre sessões ativas em outros dispositivos',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'shield',
@@ -146,6 +158,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Permite ajustar suas preferências sobre coleta e uso de dados pela plataforma',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'download',
@@ -153,6 +166,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Solicite um arquivo com todas as informações armazenadas sobre sua conta',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'multimodal_hand_eye',
@@ -160,6 +174,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Gerencie quem pode ver suas ações, como candidaturas, interações e atualizações no perfil',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'history',
@@ -167,6 +182,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Apague registros de visualizações, candidaturas ou buscas feitas na plataforma',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'delete',
@@ -174,6 +190,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Remova sua conta permanentemente. Essa ação excluirá seus dados e histórico da plataforma',
               routerLink: null,
               component: null,
+              text: null
             },
           ]
         },
@@ -181,6 +198,7 @@ export class SideNavigationMenuComponent implements OnInit {
           name: 'Feedback, Ajuda e Sobre',
           description: 'Coletar sugestões e opiniões, acessar a central de ajuda e obter informações sobre a empresa',
           routerLink: null,
+          text: null,
           component: null,
           menu: [
             {
@@ -189,6 +207,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Compartilhe suas ideias, sugestões ou reporte problemas diretamente à nossa equipe de produto',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'contact_support',
@@ -196,6 +215,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Acesse artigos e tutoriais detalhados sobre funcionalidades, fluxos e melhores práticas',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'support_agent',
@@ -203,6 +223,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Abra um chamado ou inicie um chat ao vivo para resolver dúvidas específicas ou reportar incidentes',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'contract',
@@ -210,6 +231,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Leia nossos Termos de Uso, Política de Privacidade e outras diretrizes legais',
               routerLink: null,
               component: null,
+              text: null
             },
             {
               icon: 'sdk',
@@ -222,6 +244,7 @@ export class SideNavigationMenuComponent implements OnInit {
                 closeMenu: false
               },
               component: null,
+              text: null
             },
             {
               icon: 'sentiment_satisfied',
@@ -229,6 +252,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Saiba mais sobre a empresa, equipe e história por trás do azjob.info',
               routerLink: null,
               component: null,
+              text: null
             },
           ]
         },
@@ -242,15 +266,18 @@ export class SideNavigationMenuComponent implements OnInit {
             closeMenu: false
           },
           component: null,
-          menu: null
+          menu: null,
+          text: null
         }
       ]
     },
     {
-      title: 'Pesquisar',
+      name: 'Pesquisar',
       key: 'search',
       component: InputSearchComponent,
       section: null,
+      text: null,
+      routerLink: null,
     }
   ];
 
@@ -260,33 +287,64 @@ export class SideNavigationMenuComponent implements OnInit {
       this.visible = !this.visible;
     }, 300);
 
-    this.menu = this.steep.find(
+    this.toggle = this.steep.find(
       (item) => item.key === toggle
     );
+    console.log('Toggle', this.toggle);
 
-    if (this.menu.component !== null) {
-      this.renderComponent(this.menu.component);
-      this.currentStep = 4;
+    if (this.toggle.component !== null) {
+      this.renderComponent(this.toggle.component);
+      this.currentStep = -1;
       return
+    }
+
+    const isText = this.toggle.text !== null;
+    if (isText) {
+      this.currentStep = -1;
+      return;
+    }
+
+    const isLink = this.toggle.routerLink !== null;
+    if (isLink) {
+      this.currentStep = -1;
+      return;
     }
   }
 
+  /**
+   * @description 
+   * Na Seção temos a posibilidade de exibir apenas um conteudo, são eles: menu, componente ou link
+   */
   goToSection(section: any) {
     this.selectedSection = section;
-
-    if (section.menu !== null) {
-      this.currentStep = 1;
+    console.log('Section', section);
+    const isMenu = section.menu !== null;
+    if (isMenu) {
+      /**
+       * Deve fechar a seção e abrir o menu
+       * o step 0 é a seção
+       * o step 1 é o menu
+       */
+      this.currentStep = 1;// abrir o menu de itens
       return
     }
 
-    if (section.component !== null) {
+    const isComponent = section.component !== null;
+    if (isComponent) {
       this.currentStep = 2;
       this.renderComponent(section.component);
       return
     }
 
-    if (section.routerLink !== null) {
-      this.currentStep = 3;
+    const isLink = section.routerLink !== null;
+    if (isLink) {
+      this.currentStep = 2;
+      return
+    }
+
+    const isText = section.text !== null;
+    if (isText) {
+      this.currentStep = 2;
       return
     }
   }
@@ -294,21 +352,15 @@ export class SideNavigationMenuComponent implements OnInit {
   goToMenu(menu: any) {
     this.selectedMenu = menu;
     this.currentStep = 2;
+    console.log('Menu', menu);
     if (menu.component !== null) {
       this.renderComponent(menu.component);
-      return;
-    }
-
-    if (menu.routerLink !== null) {
       return;
     }
   }
 
   goBack() {
-    if (this.currentStep === 3) {
-      this.currentStep = 0;
-      return
-    }
+    this.container.clear();
 
     const estou_no_primeiro_node = this.selectedMenu === null;
     if (this.currentStep === 2 && estou_no_primeiro_node) {
@@ -327,17 +379,7 @@ export class SideNavigationMenuComponent implements OnInit {
 
   public renderComponent(component: Type<any>) {
     this.container.clear();
-    const componentRef = this.createComponent(component);
-    this.componentRef = componentRef;
-
-    return componentRef;
-  }
-
-  public createComponent<T>(component: Type<T>): ComponentRef<T> {
-    const componentRef: any = this.container.createComponent(component);
-
-    componentRef.changeDetectorRef.detectChanges();
-    return componentRef;
+    this.container.createComponent(component);
   }
 
   public linkClick(link: any, event: Event) {
