@@ -18,6 +18,8 @@ body {
   flex-direction: column;
   transition: all 0.4s ease;
   width: 260px;
+  z-index: 9999 !important;
+  background: var(--p-background-color) !important;
 }
 
 .sidebar .sidebar-header {
@@ -56,7 +58,6 @@ body {
   padding: 0px 0px 0px 6px;
   margin: 0px 7px 7px 7px;
   text-decoration: none;
-
   color: var(--p-background-color-inverse);
 }
 
@@ -226,6 +227,10 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  .sidebar-links li a:hover {
+    background: transparent !important;
   }
 }
 
