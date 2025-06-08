@@ -83,23 +83,23 @@ export class SideNavigationMenuComponent implements OnInit {
       section: [
         {
           name: 'Configurações e Preferências',
-          description: 'Personalize suas preferências e configurações de conta',
+          description: 'Altere sua senha, defina o idioma e o tema (claro ou escuro), além de visualizar as informações da sua conta.',
           routerLink: null,
           component: null,
           text: null,
           menu: [
             {
-              icon: 'admin_panel_settings',
+              icon: 'account_circle',
               name: 'Informações da conta',
-              description: 'Veja as informações da sua conta, como seu número de telefone e endereço de e-mail.',
+              description: 'Atualize as informações da sua conta, como seu número de telefone, endereço de e-mail e mais.',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível',
             },
             {
               icon: 'brightness_4',
               name: 'Modo Escuro',
-              description: 'Alterar o modo de exibição do site para escuro ou claro',
+              description: 'Alterar o modo de exibição para escuro ou claro',
               routerLink: null,
               component: LightDarkToggleComponent,
               text: null
@@ -107,18 +107,18 @@ export class SideNavigationMenuComponent implements OnInit {
             {
               icon: 'translate',
               name: 'Idioma',
-              description: 'Alterar o idioma do site para português ou inglês',
+              description: 'Alterar o idioma da plataforma',
               routerLink: null,
               component: LanguageToggleComponent,
               text: null
             },
             {
-              icon: 'gpp_bad',
-              name: 'Desative sua conta',
-              description: 'Descubra como você pode desativar sua conta',
+              icon: 'lock',
+              name: 'Alterar senha',
+              description: 'Altere sua senha',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             }
           ]
         },
@@ -135,15 +135,15 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Escolher quais tipos de notificações deseja receber (e-mail, push etc.) e com que frequência',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
-              icon: 'shield_lock',
-              name: 'Alterar senha',
-              description: 'Altere sua senha de forma segura sempre que necessario',
+              icon: 'laptop_chromebook',
+              name: 'Gerenciar dispositivos conectados',
+              description: 'Veja e gerencia todos os dispositivos que acessaram sua conta',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'do_not_disturb_on',
@@ -151,7 +151,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Encerre sessões ativas em outros dispositivos',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'shield',
@@ -159,7 +159,15 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Permite ajustar suas preferências sobre coleta e uso de dados pela plataforma',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
+            },
+            {
+              icon: 'gpp_bad',
+              name: 'Desative sua conta',
+              description: 'Descubra como você pode desativar sua conta',
+              routerLink: null,
+              component: null,
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'download',
@@ -167,7 +175,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Solicite um arquivo com todas as informações armazenadas sobre sua conta',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'multimodal_hand_eye',
@@ -175,7 +183,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Gerencie quem pode ver suas ações, como candidaturas, interações e atualizações no perfil',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'history',
@@ -183,7 +191,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Apague registros de visualizações, candidaturas ou buscas feitas na plataforma',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'delete',
@@ -191,7 +199,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Remova sua conta permanentemente. Essa ação excluirá seus dados e histórico da plataforma',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
           ]
         },
@@ -208,7 +216,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Compartilhe suas ideias, sugestões ou reporte problemas diretamente à nossa equipe de produto',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'contact_support',
@@ -216,7 +224,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Acesse artigos e tutoriais detalhados sobre funcionalidades, fluxos e melhores práticas',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'support_agent',
@@ -224,7 +232,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Abra um chamado ou inicie um chat ao vivo para resolver dúvidas específicas ou reportar incidentes',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'contract',
@@ -232,7 +240,7 @@ export class SideNavigationMenuComponent implements OnInit {
               description: 'Leia nossos Termos de Uso, Política de Privacidade e outras diretrizes legais',
               routerLink: null,
               component: null,
-              text: null
+              text: 'Desculpas, ainda não está disponível'
             },
             {
               icon: 'sdk',

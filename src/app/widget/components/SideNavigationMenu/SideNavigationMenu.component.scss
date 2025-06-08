@@ -8,6 +8,10 @@ body {
   min-height: 100vh;
 }
 
+.z-full {
+  z-index: 9000 !important;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -18,7 +22,6 @@ body {
   flex-direction: column;
   transition: all 0.4s ease;
   width: 260px;
-  z-index: 9999 !important;
   background: var(--p-background-color) !important;
 }
 
@@ -203,6 +206,10 @@ body {
 
 .opacity-less {
   opacity: 0.3;
+}
+
+::ng-deep .p-popover-flipped {
+  z-index: 9001 !important;
 }
 
 // Mobile (até 640px)

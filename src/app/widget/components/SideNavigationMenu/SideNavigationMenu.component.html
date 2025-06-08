@@ -1,5 +1,5 @@
 <div [class.mobile-mode]="isMobileMode">
-    <aside class="sidebar">
+    <aside class="sidebar z-full">
         <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="['/']">
             <img src="image/az-logo.png" alt="logo" />
             <span class="text-4xl font-bold lilita-one-regular">Job</span>
@@ -53,8 +53,8 @@
                 </div>
             </div>
         </div>
-        <p-popover #op>
-            <ul class="sidebar-links">
+        <p-popover #op class="  z-full2">
+            <ul class="sidebar-links z-full2">
                 <li class="cursor-pointer" (click)="selectMember()">
                     <a class="p-3">Informações da conta</a>
                 </li>
