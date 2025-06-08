@@ -101,7 +101,6 @@ body {
   justify-content: center;
   line-height: 1.2;
   max-width: 170px;
-
 }
 
 .header-detail {
@@ -189,20 +188,74 @@ body {
   border: 0;
   border-right: 1px solid var(--p-secondary-bold-color);
   box-shadow: none;
+  width: 600px;
 }
 
 .opacity-less {
-  opacity: 0.9;
+  opacity: 0.3;
 }
-
 
 // Mobile (até 640px)
 @media (max-width: $mobile) {
   @include mobile-sidebar;
+
+  ::ng-deep .p-drawer {
+    width: calc(100% - 55px);
+  }
+
+  ::ng-deep .p-drawer-header {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  ::ng-deep .p-drawer-content {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .title-header {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 375px) {
+  .title-header {
+    width: 210px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 410px) {
+  .title-header {
+    width: 240px;
+  }
+}
+
+@media (min-width: 411px) and (max-width: 420px) {
+  .title-header {
+    width: 260px;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 450px) {
+  .title-header {
+    width: 280px;
+  }
+}
+
+@media (min-width: 451px) and (max-width: $mobile) {
+  .title-header {
+    width: 100%;
+  }
 }
 
 // Tablet (641px até 1024px)
-@media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.001em)) {}
+@media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.001em)) {
+  ::ng-deep .p-drawer {
+    width: calc(100% - 55px);
+  }
+}
 
 // Desktop (1025px até 1440px)
 @media (min-width: $desktop) and (max-width: calc(#{$television} - 0.001em)) {}
