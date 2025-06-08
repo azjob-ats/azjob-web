@@ -5,35 +5,39 @@
             <span class="text-4xl font-bold lilita-one-regular">Job</span>
         </div>
         <ul class="sidebar-links">
-            <li class="cursor-pointer">
+            <li [class.active-link]="'search' == toggle.key" class="cursor-pointer">
                 <a class="search-icon" (click)="goToToggle('search')">
                     <span class=" text-3xl">
-                        <i class="pi pi-search black text-2xl font-bold"
-                            style="margin-left: 2px; color: var(--p-background-color-inverse)">
+                        <i class="pi pi-search black text-2xl font-bold" style="margin-left: 2px;">
                         </i>
                     </span>
                     Pesquisar
                 </a>
             </li>
-            <li>
-                <a class="active">
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+                [class.inactive-link]="activeDrawer">
+                <a [routerLink]="'/'">
                     <span class="active rounded-icon text-3xl ">home</span>
                     <span class="active font-bold">Para Você </span>
                 </a>
             </li>
-            <li>
-                <a><span class="outlined-icon text-3xl">add_box</span>Candidaturas</a>
+            <li routerLinkActive="active-link" class="cursor-pointer" [routerLinkActiveOptions]="{ exact: true }"
+                [class.inactive-link]="activeDrawer">
+                <a [routerLink]="'/showcase'"><span class="outlined-icon text-3xl">add_box</span>Candidaturas</a>
             </li>
-            <li>
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+                [class.inactive-link]="activeDrawer">
                 <a><span class="outlined-icon text-3xl">rocket_launch</span>Minha Empresa</a>
             </li>
-            <li>
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+                [class.inactive-link]="activeDrawer">
                 <a><span class="outlined-icon text-3xl">rewarded_ads</span>Currículo</a>
             </li>
-            <li>
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+                [class.inactive-link]="activeDrawer">
                 <a><span class="outlined-icon text-3xl">notifications</span>Notificações</a>
             </li>
-            <li class="cursor-pointer">
+            <li [class.active-link]="'plus-preferences' == toggle.key" class="cursor-pointer">
                 <a (click)="goToToggle('plus-preferences')"><span
                         class="outlined-icon text-3xl">more_horiz</span>Mais</a>
             </li>

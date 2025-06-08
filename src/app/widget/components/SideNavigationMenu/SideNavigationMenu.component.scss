@@ -111,8 +111,13 @@ body {
   margin-left: 5px;
 }
 
-.active {
-  color: var(--p-accent-color);
+.active-link a {
+  color: var(--p-accent-color) !important;
+}
+
+.inactive-link a {
+  color: var(--p-background-color-inverse) !important;
+  ;
 }
 
 .fade-in-delayed {

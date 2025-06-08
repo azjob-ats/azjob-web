@@ -32,7 +32,7 @@ export class SideNavigationMenuComponent implements OnInit {
   currentStep = 0;
   selectedSection: any = null;
   selectedMenu: any = null;
-
+  public activeDrawer: boolean = false;
   @ViewChild('dynamicComponent', { read: ViewContainerRef, static: false })
   public container!: ViewContainerRef;
   @ViewChild('drawerRef') drawerRef!: Drawer;
@@ -52,6 +52,7 @@ export class SideNavigationMenuComponent implements OnInit {
     this.selectedSection = null;
     this.selectedMenu = null;
     this.container.clear();
+    this.activeDrawer = false;
   }
 
   aoClicarFora() {
@@ -61,7 +62,7 @@ export class SideNavigationMenuComponent implements OnInit {
     this.selectedSection = null;
     this.selectedMenu = null;
     this.container.clear();
-
+    this.activeDrawer = false;
   }
 
   ngOnInit(): void { }
@@ -282,6 +283,7 @@ export class SideNavigationMenuComponent implements OnInit {
   ];
 
   goToToggle(toggle: string) {
+    this.activeDrawer = true;
     this.isMobileMode = !this.isMobileMode;
     setTimeout(() => {
       this.visible = !this.visible;
@@ -290,7 +292,6 @@ export class SideNavigationMenuComponent implements OnInit {
     this.toggle = this.steep.find(
       (item) => item.key === toggle
     );
-    console.log('Toggle', this.toggle);
 
     if (this.toggle.component !== null) {
       this.renderComponent(this.toggle.component);
