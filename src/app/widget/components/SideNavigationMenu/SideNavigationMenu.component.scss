@@ -1,5 +1,9 @@
 @use '../../../../../public/style/breakpoints.scss' as *;
 
+* {
+  user-select: none;
+}
+
 body {
   min-height: 100vh;
 }
