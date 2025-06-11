@@ -9,6 +9,7 @@ import { Popover } from 'primeng/popover';
 import { LightDarkToggleComponent } from '../light-dark-toggle/light-dark-toggle.component';
 import { LanguageToggleComponent } from '../language-toggle/language-toggle.component';
 import { InputSearchComponent } from '../input-search/input-search.component';
+import { ISideNavigationMenu } from './interfaces';
 
 @Component({
   selector: 'app-side-navigation-menu',
@@ -75,7 +76,7 @@ export class SideNavigationMenuComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  steep = [
+  public steep: ISideNavigationMenu[] = [
     {
       name: 'Mais',
       key: 'plus-preferences',
