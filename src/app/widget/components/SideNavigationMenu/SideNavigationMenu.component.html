@@ -1,6 +1,7 @@
 <div [class.mobile-mode]="isMobileMode">
     <aside class="sidebar z-full">
-        <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="['/']">
+        <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="['/']"
+            (click)="goToToggle('empyty')">
             <img src="image/az-logo.png" alt="logo" />
             <span class="text-4xl font-bold lilita-one-regular">Job</span>
         </div>
@@ -16,26 +17,29 @@
             </li>
             <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
                 [class.inactive-link]="activeDrawer">
-                <a [routerLink]="'/'">
+                <a [routerLink]="'/'" (click)="goToToggle('empyty')">
                     <span class="active rounded-icon text-3xl ">home</span>
                     <span class="active font-bold">Para Você </span>
                 </a>
             </li>
             <li routerLinkActive="active-link" class="cursor-pointer" [routerLinkActiveOptions]="{ exact: true }"
                 [class.inactive-link]="activeDrawer">
-                <a [routerLink]="'/showcase'"><span class="outlined-icon text-3xl">add_box</span>Candidaturas</a>
+                <a [routerLink]="'/showcase'" (click)="goToToggle('empyty')"><span
+                        class="outlined-icon text-3xl">radio_button_checked</span>Candidaturas</a>
             </li>
             <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
                 [class.inactive-link]="activeDrawer">
-                <a><span class="outlined-icon text-3xl">rocket_launch</span>Minha Empresa</a>
+                <a (click)="goToToggle('empyty')"><span class="outlined-icon text-3xl">rocket_launch</span>Minha
+                    Empresa</a>
             </li>
             <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
                 [class.inactive-link]="activeDrawer">
-                <a><span class="outlined-icon text-3xl">rewarded_ads</span>Currículo</a>
+                <a (click)="goToToggle('empyty')"><span class="outlined-icon text-3xl">rewarded_ads</span>Currículo</a>
             </li>
             <li routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
                 [class.inactive-link]="activeDrawer">
-                <a><span class="outlined-icon text-3xl">notifications</span>Notificações</a>
+                <a (click)="goToToggle('empyty')"><span
+                        class="outlined-icon text-3xl">notifications</span>Notificações</a>
             </li>
             <li [class.active-link]="'plus-preferences' == toggle.key" class="cursor-pointer">
                 <a (click)="goToToggle('plus-preferences')"><span
@@ -71,8 +75,8 @@
     <ng-template #header>
 
         <div class="flex items-center align-items-center gap-2">
-            @if(currentStep
-            < 4){ <p-button [disabled]="currentStep > 0 ? false : true" (click)="goBack()" icon="pi pi-arrow-left"
+            @if(toggle?.section !== null){
+            <p-button [disabled]="currentStep > 0 ? false : true" (click)="goBack()" icon="pi pi-arrow-left"
                 [rounded]="true" [text]="true" severity="primary" styleClass="button-arrow-primary "
                 [class.opacity-less]="currentStep > 0 ? false : true" />
             }

@@ -125,7 +125,6 @@ body {
 
 .inactive-link a {
   color: var(--p-background-color-inverse) !important;
-  ;
 }
 
 .fade-in-delayed {
@@ -234,10 +233,6 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-  }
-
-  .sidebar-links li a:hover {
-    background: transparent !important;
   }
 }
 

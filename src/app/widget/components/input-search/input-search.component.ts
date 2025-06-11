@@ -9,7 +9,8 @@ import { ImportsModule } from '@core/imports';
   styles: [
     `
       input {
-        height: 40px;
+        height: 42px;
+        margin-top: 6px;
       }
     `,
   ],

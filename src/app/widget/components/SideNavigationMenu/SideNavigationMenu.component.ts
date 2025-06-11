@@ -45,24 +45,26 @@ export class SideNavigationMenuComponent implements OnInit {
     }, 300);
   }
 
-  closeCallback(e: any): void {
-    this.drawerRef.close(e);
+  reset() {
     this.toggle = [];
     this.currentStep = 0;
     this.selectedSection = null;
     this.selectedMenu = null;
     this.container.clear();
     this.activeDrawer = false;
+
+  }
+
+  closeCallback(e: any): void {
+    this.drawerRef.close(e);
+    this.reset()
+    console.log('close');
   }
 
   aoClicarFora() {
+    this.reset()
     this.isMobileMode = !this.isMobileMode;
-    this.toggle = [];
-    this.currentStep = 0;
-    this.selectedSection = null;
-    this.selectedMenu = null;
-    this.container.clear();
-    this.activeDrawer = false;
+    console.log('Clicou fora');
   }
 
   ngOnInit(): void { }
@@ -291,16 +293,33 @@ export class SideNavigationMenuComponent implements OnInit {
   ];
 
   goToToggle(toggle: string) {
+    console.log('toggle');
+    this.reset();
+    if (toggle == "empyty") {
+      this.isMobileMode = false;
+      this.visible = false;
+      this.activeDrawer = false;
+      return;
+    }
     this.activeDrawer = true;
-    this.isMobileMode = !this.isMobileMode;
     setTimeout(() => {
+      if (this.visible) {
+        return
+      }
       this.visible = !this.visible;
     }, 300);
+
+    setTimeout(() => {
+      if (this.isMobileMode) {
+        return
+      }
+      this.isMobileMode = !this.isMobileMode;
+    });
 
     this.toggle = this.steep.find(
       (item) => item.key === toggle
     );
-
+    console.log(this.toggle);
     if (this.toggle.component !== null) {
       this.renderComponent(this.toggle.component);
       this.currentStep = -1;

@@ -54,6 +54,11 @@ export class HomeComponent {
         url: 'https://azjob-ats.github.io/azjob-web/',
         target: '_blank',
       },
+      {
+        label: 'Icons',
+        url: 'https://fonts.google.com/icons',
+        target: '_blank',
+      },
     ];
   }
 }
