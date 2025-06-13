@@ -17,6 +17,21 @@ export const environment = {
   },
   ROUTES: {
     ROOT: '',
+    FOR_YOU: {
+      ROOT: 'for-you',
+    },
+    MY_COMPANY: {
+      ROOT: 'my-company',
+    },
+    APPLICATION: {
+      ROOT: 'application',
+    },
+    NOTIFICATION: {
+      ROOT: 'notification',
+    },
+    RESUME: {
+      ROOT: 'resume',
+    },
     SHOWCASE: {
       ROOT: 'showcase',
       LOGIN: 'login',

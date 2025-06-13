@@ -223,8 +223,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
                 routerLink: {
                   label: 'help.aboutApp',
                   link: '/showcase',
-                  target: '_blank',
-                  closeMenu: false
+                  target: undefined,
+                  closeMenu: true
                 },
                 component: null,
                 text: null
@@ -243,7 +243,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
             name: 'logout.title',
             description: 'logout.description',
             routerLink: {
-              label: 'banner.logout',
+              label: this.translate.instant('banner.logout', { nameId: '@mcchelsom98268' }),
               link: '/logout',
               target: '_blank',
               closeMenu: false
@@ -308,7 +308,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
     this.sidebarLinks = [
       {
         label: 'sidebar.forYou',
-        routerLink: '/',
+        routerLink: '/for-you',
         icon: 'home',
         iconClass: 'rounded-icon text-3xl',
         liClass: '',
@@ -316,7 +316,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.applications',
-        routerLink: '/showcase',
+        routerLink: '/application',
         icon: 'radio_button_checked',
         iconClass: 'outlined-icon text-3xl',
         liClass: 'cursor-pointer',
@@ -324,7 +324,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.myCompany',
-        routerLink: '/empresa',
+        routerLink: '/my-company',
         icon: 'rocket_launch',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
@@ -332,7 +332,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.resume',
-        routerLink: '/apl',
+        routerLink: '/resume',
         icon: 'rewarded_ads',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
@@ -340,7 +340,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.notifications',
-        routerLink: '/showcase/InputPrimaryComponent',
+        routerLink: '/notification',
         icon: 'notifications',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
