@@ -1,0 +1,275 @@
+@use '../../../../../../public/style/breakpoints.scss' as *;
+
+* {
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.z-full {
+  z-index: 9000 !important;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  flex-direction: column;
+  transition: all 0.4s ease;
+  width: 260px;
+  background: var(--p-background-color) !important;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  justify-content: left;
+  height: 40px;
+  margin-top: 23px;
+  margin-bottom: 19px;
+  margin-left: 8px;
+}
+
+.sidebar .sidebar-header img {
+  width: 40px;
+}
+
+.sidebar-links {
+  list-style: none;
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 0;
+
+}
+
+.sidebar-links::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-links li a {
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0px 0px 0px 6px;
+  margin: 0px 7px 7px 7px;
+  text-decoration: none;
+  color: var(--p-background-color-inverse);
+}
+
+.search-icon {
+  color: var(--p-background-color-inverse);
+  background: var(--p-secondary-color);
+  border-radius: 4px;
+}
+
+.sidebar-links li a:hover {
+  color: var(--p-background-color-inverse);
+  background: var(--p-secondary-color);
+  border-radius: 4px;
+}
+
+.header-menu {
+  margin-top: auto;
+  padding: 1px 10px;
+  margin-left: -10px;
+}
+
+.header-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-name,
+.user-role {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-detail div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+  max-width: 170px;
+}
+
+.header-detail {
+  div {
+    font-weight: 600;
+  }
+
+  margin-left: 5px;
+}
+
+.active-link a {
+  color: var(--p-accent-color) !important;
+}
+
+.inactive-link a {
+  color: var(--p-background-color-inverse) !important;
+}
+
+.fade-in-delayed {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 500ms;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.mobile {
+  display: initial !important;
+}
+
+.desktop {
+  display: initial !important;
+}
+
+.hidden {
+  display: initial !important;
+  @extend .fade-in-delayed
+}
+
+@mixin mobile-sidebar {
+  .sidebar {
+    width: 55px;
+    border-right: 1px solid var(--p-secondary-bold-color);
+  }
+
+  .sidebar-links li a {
+    font-size: 0;
+  }
+
+  .lilita-one-regular {
+    color: #ffffff00;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+}
+
+.mobile-mode {
+  @include mobile-sidebar;
+}
+
+::ng-deep .p-drawer-mask {
+  background-color: transparent !important;
+}
+
+::ng-deep .p-drawer-left {
+  left: 55px;
+}
+
+::ng-deep .p-drawer {
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  transform: translate3d(0px, 0px, 0px);
+  position: fixed;
+  transition: transform 0.12s;
+  background: var(--p-background-color);
+  color: var(--p-primary-color);
+  border: 0;
+  border-right: 1px solid var(--p-secondary-bold-color);
+  box-shadow: none;
+  width: 600px;
+}
+
+.opacity-less {
+  opacity: 0.3;
+}
+
+::ng-deep .p-popover-flipped {
+  z-index: 9001 !important;
+}
+
+// Mobile (até 640px)
+@media (max-width: $mobile) {
+  @include mobile-sidebar;
+
+  ::ng-deep .p-drawer {
+    width: calc(100% - 55px);
+  }
+
+  ::ng-deep .p-drawer-header {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  ::ng-deep .p-drawer-content {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .title-header {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 375px) {
+  .title-header {
+    width: 210px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 410px) {
+  .title-header {
+    width: 240px;
+  }
+}
+
+@media (min-width: 411px) and (max-width: 420px) {
+  .title-header {
+    width: 260px;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 450px) {
+  .title-header {
+    width: 280px;
+  }
+}
+
+@media (min-width: 451px) and (max-width: $mobile) {
+  .title-header {
+    width: 100%;
+  }
+}
+
+// Tablet (641px até 1024px)
+@media (min-width: $tablet) and (max-width: calc(#{$desktop} - 0.001em)) {
+  ::ng-deep .p-drawer {
+    width: calc(100% - 55px);
+  }
+}
+
+// Desktop (1025px até 1440px)
+@media (min-width: $desktop) and (max-width: calc(#{$television} - 0.001em)) {}
+
+// Television (1441px+)
+@media (min-width: $television) {}

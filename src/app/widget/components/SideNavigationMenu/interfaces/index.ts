@@ -31,3 +31,36 @@ export interface ISideNavigationMenu {
     routerLink: IRouterLink | null;
     section: ISection[] | null;
 }
+
+
+export interface ISidebarSearch {
+    value: string;
+    placeholder: string;
+}
+
+export interface ISidebarLinks {
+    label: string;
+    routerLink: string;
+    icon: string;
+    iconClass: string;
+    liClass: string;
+    toggle: string;
+}
+
+export interface ISidebarExtraLinks {
+    label: string;
+    icon: string;
+    iconClass: string;
+    liClass: string;
+    activeKey: string;
+    toggle: string;
+}
+
+export interface ISidebarBanner {
+    nameId: string;
+    nameUser: string;
+    avatar: string;
+    alt: string;
+    show: boolean,
+    menu: IMenu[]
+}
