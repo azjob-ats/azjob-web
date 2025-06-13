@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Observable, switchMap, take, tap } from 'rxjs';
+import { delay, last, Observable, switchMap, take, tap } from 'rxjs';
 import { LanguageApiMockservice } from '@domain/change-language/mocks/language.api.mock';
 import { Language } from '@domain/change-language/interfaces/language.interface';
 import { LanguageCacheService } from '@domain/change-language/caches/language.cache';
@@ -22,6 +22,20 @@ export class LanguageService {
         return this.api.getLanguage();
       }),
       take(1)
+    );
+  }
+
+  public getStreamOnLanguage(): Observable<Language> {
+    return this.cache.results().pipe(
+      switchMap(lang => {
+        if (lang.length > 0) {
+          return lang;
+        }
+        return this.api.getLanguage().pipe(
+          delay(500),
+          last()
+        );
+      }),
     );
   }
 
