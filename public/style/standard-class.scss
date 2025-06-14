@@ -18,6 +18,10 @@ body {
   font-size: var(--body-font-size-default);
   font-weight: var(--body-font-weight-300);
   line-height: var(--body-line-height);
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 li {
@@ -26,14 +30,151 @@ li {
   user-select: none;
 }
 
-* {
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
+*:focus {
+  outline: none !important;
 }
 
+/* Desativa o efeito de highlight azul claro em dispositivos mobile */
+button,
+a,
+li,
+div,
+span,
+input,
+textarea,
+select,
+label,
+summary,
+details,
+option,
+optgroup,
+fieldset,
+legend,
+iframe,
+img,
+nav,
+section,
+article,
+aside,
+header,
+footer,
+main,
+form,
+output,
+canvas,
+figure,
+figcaption,
+table,
+th,
+td,
+tr,
+thead,
+tbody,
+tfoot,
+video,
+audio {
+  -webkit-tap-highlight-color: transparent;
+  /* Remove efeito de "tap" azul no Chrome Android */
+  -webkit-focus-ring-color: transparent;
+  /* Remove o anel de foco do WebKit */
+  outline: none !important;
+  /* Remove a borda de foco */
+  -moz-outline: none !important;
+  /* Compatibilidade com Firefox */
+  box-shadow: none !important;
+  /* Remove qualquer sombra de foco (opcional) */
+}
 
+/* Opcional: se quiser garantir que o toque também não produza seleção visual */
+button,
+a,
+li,
+div,
+span,
+input,
+textarea,
+select,
+label,
+summary,
+details,
+option,
+optgroup,
+fieldset,
+legend,
+iframe,
+img,
+nav,
+section,
+article,
+aside,
+header,
+footer,
+main,
+form,
+output,
+canvas,
+figure,
+figcaption,
+table,
+th,
+td,
+tr,
+thead,
+tbody,
+tfoot,
+video,
+audio {
+  user-select: none;
+  /* Impede seleção de texto em interações */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Aplique apenas para dispositivos touch, se quiser preservar acessibilidade em desktops */
+@media (hover: none) and (pointer: coarse) {
+
+  button,
+  a,
+  li,
+  div,
+  span,
+  input,
+  textarea,
+  select,
+  label,
+  summary,
+  details,
+  option,
+  optgroup,
+  fieldset,
+  legend,
+  iframe,
+  img,
+  nav,
+  section,
+  article,
+  aside,
+  header,
+  footer,
+  main,
+  form,
+  output,
+  canvas,
+  figure,
+  figcaption,
+  table,
+  th,
+  td,
+  tr,
+  thead,
+  tbody,
+  tfoot,
+  video,
+  audio {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
 
 label {
   font-weight: bold;
