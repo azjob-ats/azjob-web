@@ -25,8 +25,8 @@ body {
   display: flex;
   justify-content: left;
   height: 40px;
-  margin-top: 23px;
-  margin-bottom: 19px;
+  margin-top: 19px;
+  margin-bottom: 23px;
   margin-left: 8px;
 }
 
@@ -227,7 +227,19 @@ body {
   }
 }
 
-@media (min-width: 0px) and (max-width: 375px) {
+@media (min-width: 0px) and (max-width: 320px) {
+  .title-header {
+    width: 170px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 344px) {
+  .title-header {
+    width: 190px;
+  }
+}
+
+@media (min-width: 345px) and (max-width: 375px) {
   .title-header {
     width: 210px;
   }
