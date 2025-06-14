@@ -9,12 +9,12 @@ import { SideNavigationMenuMainContainerComponent } from '@widget/components/Sid
   selector: 'app-root',
   template: `
     <div class="grid nested-grid">
-        <div class=" m-0 p-0 menu-app">
+        <div class="m-0 p-0 menu-app">
             <div class="p-0 h-full">
                <app-side-navigation-menu-main-container/>
             </div>
         </div>
-        <div class=" m-0 p-0 router-app">
+        <div class="m-0 p-0 router-app">
             <div class="p-0">
               <router-outlet></router-outlet>
             </div>

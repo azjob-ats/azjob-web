@@ -1,9 +1,9 @@
 import { StorageStrategy } from '@core/infra/storage/enums/storage.enum';
 
 export const environment = {
-  apiBaseUrl: 'https://api-dev.example.com',
+  API_BASE_URL: 'https://api-dev.example.com',
   APP_NAME: import.meta.env.NG_APP_NAME,
-  payloadStorage: {
+  PAY_LOAD_STORAGE: {
     systemLanguage: {
       encryptionKey: import.meta.env.NG_APP_SYSTEM_LANGUAGE_ENCRYPTION_KEY,
       tableName: import.meta.env.NG_APP_SYSTEM_LANGUAGE_TABLE_NAME,
@@ -14,6 +14,11 @@ export const environment = {
     JOBS: 'jobs',
     USERS: 'users',
     APPLICATIONS: 'applications',
+  },
+  SIDEBAR: {
+    banner: {
+      avatar: 'image/user-default.png'
+    }
   },
   ROUTES: {
     ROOT: '',

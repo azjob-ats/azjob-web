@@ -6,9 +6,9 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageApiService {
-  private readonly baseUrl = `${environment.apiBaseUrl}/${environment.API.JOBS}`;
+  private readonly baseUrl = `${environment.API_BASE_URL}/${environment.API.JOBS}`;
 
-  public constructor(private http: HttpClient) {}
+  public constructor(private http: HttpClient) { }
 
   public getAllLanguage(): Observable<Language[]> {
     throw new Error('Method not implemented.');

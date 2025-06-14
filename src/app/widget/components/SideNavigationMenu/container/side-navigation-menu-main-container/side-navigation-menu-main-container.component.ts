@@ -4,7 +4,7 @@ import { InputSearchComponent } from '@widget/components/input-search/input-sear
 import { LanguageToggleComponent } from '@widget/components/language-toggle/language-toggle.component';
 import { LightDarkToggleComponent } from '@widget/components/light-dark-toggle/light-dark-toggle.component';
 import { SideNavigationMenuComponent } from '@widget/components/SideNavigationMenu/component/SideNavigationMenu.component';
-import { ISidebarBanner, ISidebarExtraLinks, ISidebarLinks, ISidebarSearch, ISideNavigationMenu } from '../../interfaces';
+import { ISidebarBanner, ISidebarExtraLinks, ISidebarLinks, ISidebarSearch, ISideNavigationMenu, ISidevarLogo } from '../../interfaces';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LanguageTranslatorService } from '@domain/change-language/services/language-translator.service';
@@ -28,6 +28,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
   public banner!: ISidebarBanner;
   public sidebarLinks: ISidebarLinks[] = [];
   public extraLinks: ISidebarExtraLinks[] = [];
+  public sidebarLogo!: ISidevarLogo;
 
   public ngOnInit(): void {
     this.languageChanged();
@@ -273,7 +274,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
     this.banner = {
       nameId: '@mcchelsom272033',
       nameUser: 'Saulo McChelsom',
-      avatar: 'image/user-default.png',
+      avatar: environment.SIDEBAR.banner.avatar,
       alt: 'sidebar.banner.alt',
       show: true,
       menu: [
@@ -373,5 +374,9 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         toggle: 'plus-preferences'
       }
     ];
+
+    this.sidebarLogo = {
+      routerLink: environment.ROUTES.FOR_YOU.ROOT,
+    }
   }
 }

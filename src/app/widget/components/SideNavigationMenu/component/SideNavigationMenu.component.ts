@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { Drawer, DrawerModule } from 'primeng/drawer';
 import { Popover } from 'primeng/popover';
 import { TooltipModule } from 'primeng/tooltip';
-import { ISidebarBanner, ISidebarExtraLinks, ISidebarLinks, ISidebarSearch, ISideNavigationMenu } from '../interfaces';
+import { ISidebarBanner, ISidebarExtraLinks, ISidebarLinks, ISidebarSearch, ISideNavigationMenu, ISidevarLogo } from '../interfaces';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -40,6 +40,7 @@ export class SideNavigationMenuComponent {
   @Input() steep: ISideNavigationMenu[] = [];
   @Input() sidebarLinks: ISidebarLinks[] = [];
   @Input() extraLinks: ISidebarExtraLinks[] = [];
+  @Input() sidebarLogo!: ISidevarLogo;
   toggleMobile() {
     this.isMobileMode = !this.isMobileMode;
     setTimeout(() => {

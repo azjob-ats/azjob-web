@@ -25,9 +25,9 @@ export class LanguageCacheService {
       items: [],
       callState: LoadingState.INIT,
       storage: {
-        encryptionKey: environment.payloadStorage.systemLanguage.encryptionKey,
-        tableName: environment.payloadStorage.systemLanguage.tableName,
-        storageStrategy: environment.payloadStorage.systemLanguage.storageStrategy,
+        encryptionKey: environment.PAY_LOAD_STORAGE.systemLanguage.encryptionKey,
+        tableName: environment.PAY_LOAD_STORAGE.systemLanguage.tableName,
+        storageStrategy: environment.PAY_LOAD_STORAGE.systemLanguage.storageStrategy,
       },
     });
   }

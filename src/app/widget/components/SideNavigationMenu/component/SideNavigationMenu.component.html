@@ -1,6 +1,6 @@
 <div [class.mobile-mode]="isMobileMode">
     <aside class="sidebar z-full">
-        <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="['/']"
+        <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="sidebarLogo.routerLink"
             (click)="goToToggle('empyty')">
             <img src="image/az-logo.png" alt="logo" />
             <span class="text-4xl font-bold lilita-one-regular">Job</span>
@@ -37,7 +37,7 @@
         <div *ngIf="banner?.show" class="header-menu hidden hover:bg-gray-100 border-round p-2 m-2 cursor-pointer"
             (click)="op.toggle($event)">
             <div class="header-detail">
-                <img src="image/user-default.png" alt="Avatar do usuário" class="avatar" />
+                <img [src]="banner.avatar" alt="Avatar do usuário" class="avatar" />
 
                 <div>
                     <div class="user-name">{{ banner.nameUser | translate }}</div>

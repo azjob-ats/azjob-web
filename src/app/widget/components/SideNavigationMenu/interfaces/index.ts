@@ -65,3 +65,7 @@ export interface ISidebarBanner {
     show: boolean,
     menu: IMenu[]
 }
+
+export interface ISidevarLogo {
+    routerLink: string;
+}
