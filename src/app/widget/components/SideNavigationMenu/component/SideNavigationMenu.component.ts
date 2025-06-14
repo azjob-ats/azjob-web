@@ -32,6 +32,14 @@ import { TranslateModule } from '@ngx-translate/core';
 export class SideNavigationMenuComponent {
   @Input() public search!: ISidebarSearch;
   @Input() public banner!: ISidebarBanner;
+  @Input() public steep: ISideNavigationMenu[] = [];
+  @Input() public sidebarLinks: ISidebarLinks[] = [];
+  @Input() public extraLinks: ISidebarExtraLinks[] = [];
+  @Input() public sidebarLogo!: ISidevarLogo;
+  @ViewChild('dynamicComponent', { read: ViewContainerRef, static: false })
+  public container!: ViewContainerRef;
+  @ViewChild('drawerRef') public drawerRef!: Drawer;
+  @ViewChild('op') public op!: Popover;
   public isMobileMode = false;
   public visible: boolean = false;
   public toggle: any = [];
@@ -39,14 +47,9 @@ export class SideNavigationMenuComponent {
   public selectedSection: any = null;
   public selectedMenu: any = null;
   public activeDrawer: boolean = false;
-  @ViewChild('dynamicComponent', { read: ViewContainerRef, static: false })
-  public container!: ViewContainerRef;
-  @ViewChild('drawerRef') public drawerRef!: Drawer;
-  @ViewChild('op') public op!: Popover;
-  @Input() public steep: ISideNavigationMenu[] = [];
-  @Input() public sidebarLinks: ISidebarLinks[] = [];
-  @Input() public extraLinks: ISidebarExtraLinks[] = [];
-  @Input() public sidebarLogo!: ISidevarLogo;
+
+  public constructor(private router: Router) { }
+
   public toggleMobile() {
     this.isMobileMode = !this.isMobileMode;
     setTimeout(() => {
@@ -76,8 +79,6 @@ export class SideNavigationMenuComponent {
   public selectMember() {
     this.op.hide();
   }
-
-  public constructor(private router: Router) {}
 
   public goToToggle(toggle: string) {
     this.reset();
