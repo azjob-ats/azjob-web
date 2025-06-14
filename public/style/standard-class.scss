@@ -20,6 +20,20 @@ body {
   line-height: var(--body-line-height);
 }
 
+li {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+* {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
 
 label {
   font-weight: bold;
