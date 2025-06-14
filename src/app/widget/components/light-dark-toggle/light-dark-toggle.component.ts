@@ -10,7 +10,7 @@ import { Component, type OnInit } from '@angular/core';
 export class LightDarkToggleComponent implements OnInit {
   public modo: string = 'light';
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const element: any = document.querySelector('html');
     if (element.classList[0]) {
       if (element.classList[0] === 'my-app-dark') {

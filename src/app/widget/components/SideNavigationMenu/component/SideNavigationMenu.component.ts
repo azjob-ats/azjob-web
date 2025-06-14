@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Type, ViewChild, ViewContainerRef, type OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Input, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { Drawer, DrawerModule } from 'primeng/drawer';
@@ -31,31 +30,31 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './SideNavigationMenu.component.scss',
 })
 export class SideNavigationMenuComponent {
-  @Input() search!: ISidebarSearch;
-  @Input() banner!: ISidebarBanner;
-  isMobileMode = false;
-  visible: boolean = false;
-  toggle: any = [];
-  currentStep = 0;
-  selectedSection: any = null;
-  selectedMenu: any = null;
+  @Input() public search!: ISidebarSearch;
+  @Input() public banner!: ISidebarBanner;
+  public isMobileMode = false;
+  public visible: boolean = false;
+  public toggle: any = [];
+  public currentStep = 0;
+  public selectedSection: any = null;
+  public selectedMenu: any = null;
   public activeDrawer: boolean = false;
   @ViewChild('dynamicComponent', { read: ViewContainerRef, static: false })
   public container!: ViewContainerRef;
-  @ViewChild('drawerRef') drawerRef!: Drawer;
-  @ViewChild('op') op!: Popover;
-  @Input() steep: ISideNavigationMenu[] = [];
-  @Input() sidebarLinks: ISidebarLinks[] = [];
-  @Input() extraLinks: ISidebarExtraLinks[] = [];
-  @Input() sidebarLogo!: ISidevarLogo;
-  toggleMobile() {
+  @ViewChild('drawerRef') public drawerRef!: Drawer;
+  @ViewChild('op') public op!: Popover;
+  @Input() public steep: ISideNavigationMenu[] = [];
+  @Input() public sidebarLinks: ISidebarLinks[] = [];
+  @Input() public extraLinks: ISidebarExtraLinks[] = [];
+  @Input() public sidebarLogo!: ISidevarLogo;
+  public toggleMobile() {
     this.isMobileMode = !this.isMobileMode;
     setTimeout(() => {
       this.visible = !this.visible;
     }, 300);
   }
 
-  reset() {
+  public reset() {
     this.toggle = [];
     this.currentStep = 0;
     this.selectedSection = null;
@@ -64,23 +63,23 @@ export class SideNavigationMenuComponent {
     this.activeDrawer = false;
   }
 
-  closeCallback(e: any): void {
+  public closeCallback(e: any): void {
     this.drawerRef.close(e);
     this.reset();
   }
 
-  handleClickOutside() {
+  public handleClickOutside() {
     this.reset();
     this.isMobileMode = !this.isMobileMode;
   }
 
-  selectMember(event: any) {
+  public selectMember() {
     this.op.hide();
   }
 
-  constructor(private router: Router) {}
+  public constructor(private router: Router) {}
 
-  goToToggle(toggle: string) {
+  public goToToggle(toggle: string) {
     this.reset();
     if (toggle == 'empyty') {
       this.isMobileMode = false;
@@ -128,7 +127,7 @@ export class SideNavigationMenuComponent {
    * @description
    * Na Seção temos a posibilidade de exibir apenas um conteudo, são eles: menu, componente ou link
    */
-  goToSection(section: any) {
+  public goToSection(section: any) {
     this.selectedSection = section;
 
     const isMenu = section.menu !== null;
@@ -162,7 +161,7 @@ export class SideNavigationMenuComponent {
     }
   }
 
-  goToMenu(menu: any) {
+  public goToMenu(menu: any) {
     this.selectedMenu = menu;
     this.currentStep = 2;
     if (menu.component !== null) {
@@ -171,7 +170,7 @@ export class SideNavigationMenuComponent {
     }
   }
 
-  goBack() {
+  public goBack() {
     this.container.clear();
 
     const estou_no_primeiro_node = this.selectedMenu === null;
