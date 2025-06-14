@@ -17,6 +17,11 @@
         "build": {
           "builder": "@ngx-env/builder:application",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "public/style"
+              ]
+            },
             "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",

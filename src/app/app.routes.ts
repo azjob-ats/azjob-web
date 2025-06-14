@@ -83,6 +83,17 @@ export const routes: Routes = [
     data: { title: 'AZJOB.TEST.HOME' },
   },
   {
+    path: ROUTES.AUTH.LOGIN,
+    loadComponent: () => import('./domain/auth/pages/app.component').then(m => m.AppComponent),
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./domain/auth/index.routes').then(m => m.INDEX_ROUTES),
+      },
+    ],
+    data: { title: 'sidebar.forYou' },
+  },
+  {
     path: '**',
     redirectTo: ROUTES.ERROR.NOT_FOUND,
   },

@@ -45,6 +45,7 @@ export interface ISidebarLinks {
     iconClass: string;
     liClass: string;
     toggle: string;
+    active: boolean;
 }
 
 export interface ISidebarExtraLinks {

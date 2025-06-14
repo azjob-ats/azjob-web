@@ -19,7 +19,7 @@
                     }
                 </a>
             </li>
-            <li *ngFor="let item of sidebarLinks" routerLinkActive="active-link"
+            <li *ngFor="let item of sidebarLinks" [routerLinkActive]=" item.active ? 'active-link' : ''"
                 [routerLinkActiveOptions]="{ exact: true }" [class]="item.liClass" [class.inactive-link]="activeDrawer">
                 <a [routerLink]="item.routerLink" (click)="goToToggle(item.toggle)">
                     <span [class]="item.iconClass">{{ item.icon }}</span>

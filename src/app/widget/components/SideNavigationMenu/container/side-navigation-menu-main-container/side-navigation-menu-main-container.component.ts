@@ -312,7 +312,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         icon: 'home',
         iconClass: 'rounded-icon text-3xl',
         liClass: '',
-        toggle: 'empyty'
+        toggle: 'empyty',
+        active: true
       },
       {
         label: 'sidebar.applications',
@@ -320,7 +321,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         icon: 'radio_button_checked',
         iconClass: 'outlined-icon text-3xl',
         liClass: 'cursor-pointer',
-        toggle: 'empyty'
+        toggle: 'empyty',
+        active: true
       },
       {
         label: 'sidebar.myCompany',
@@ -328,7 +330,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         icon: 'rocket_launch',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
-        toggle: 'empyty'
+        toggle: 'empyty',
+        active: true
       },
       {
         label: 'sidebar.resume',
@@ -336,7 +339,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         icon: 'rewarded_ads',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
-        toggle: 'empyty'
+        toggle: 'empyty',
+        active: true
       },
       {
         label: 'sidebar.notifications',
@@ -344,7 +348,17 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         icon: 'notifications',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
-        toggle: 'empyty'
+        toggle: 'empyty',
+        active: true
+      },
+      {
+        label: 'sidebar.login',
+        routerLink: '/auth/sign-in',
+        icon: 'lock',
+        iconClass: 'outlined-icon',
+        liClass: 'bg-login-sidebar',
+        toggle: 'empyty',
+        active: false
       }
     ];
 

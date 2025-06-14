@@ -46,7 +46,7 @@ export const environment = {
     },
     AUTH: {
       ROOT: 'auth',
-      LOGIN: 'login',
+      LOGIN: 'auth/sign-in',
       REGISTER: 'register',
       FORGOT: 'forgot-password',
     },
