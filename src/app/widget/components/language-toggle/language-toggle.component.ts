@@ -16,7 +16,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './language-toggle.component.scss',
 })
 export class LanguageToggleComponent implements OnInit {
-
   public formControl = new FormControl('');
   public selectEmpy = '';
   public default = '';
@@ -49,5 +48,4 @@ export class LanguageToggleComponent implements OnInit {
     const value = (event.target as HTMLSelectElement).value;
     this.selected(value);
   }
-
 }

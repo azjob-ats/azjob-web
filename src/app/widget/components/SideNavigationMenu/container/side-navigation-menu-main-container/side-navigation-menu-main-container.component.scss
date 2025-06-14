@@ -1,54 +1,52 @@
 @use 'breakpoints.scss' as *;
 
 ::ng-deep .bg-login-sidebar {
-    a {
-        background-color: var(--p-accent-color);
-        color: #fff !important;
-        height: 42px;
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        span {
-            color: transparent;
-            font-size: 0rem !important;
-        }
-    }
-
-
-}
-
-::ng-deep .mobile-mode {
-    .sidebar {
-        .bg-login-sidebar {
-            a {
-                span {
-                    color: #fff;
-                    font-size: 1.75rem !important;
-                }
-            }
-        }
-    }
-}
-
-::ng-deep .bg-login-sidebar a:hover {
-    background-color: var(--p-accent-color) !important;
+  a {
+    background-color: var(--p-accent-color);
     color: #fff !important;
     height: 42px;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    span {
+      color: transparent;
+      font-size: 0rem !important;
+    }
+  }
+}
+
+::ng-deep .mobile-mode {
+  .sidebar {
+    .bg-login-sidebar {
+      a {
+        span {
+          color: #fff;
+          font-size: 1.75rem !important;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .bg-login-sidebar a:hover {
+  background-color: var(--p-accent-color) !important;
+  color: #fff !important;
+  height: 42px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: $mobile) {
-    ::ng-deep .bg-login-sidebar {
-        a {
-            span {
-                color: #fff;
-                font-size: 1.75rem !important;
-            }
-        }
+  ::ng-deep .bg-login-sidebar {
+    a {
+      span {
+        color: #fff;
+        font-size: 1.75rem !important;
+      }
     }
+  }
 }

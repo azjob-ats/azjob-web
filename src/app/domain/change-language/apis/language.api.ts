@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class LanguageApiService {
   private readonly baseUrl = `${environment.API_BASE_URL}/${environment.API.JOBS}`;
 
-  public constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) {}
 
   public getAllLanguage(): Observable<Language[]> {
     throw new Error('Method not implemented.');

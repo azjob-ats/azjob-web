@@ -17,8 +17,8 @@ export const environment = {
   },
   SIDEBAR: {
     banner: {
-      avatar: 'image/user-default.png'
-    }
+      avatar: 'image/user-default.png',
+    },
   },
   ROUTES: {
     ROOT: '',

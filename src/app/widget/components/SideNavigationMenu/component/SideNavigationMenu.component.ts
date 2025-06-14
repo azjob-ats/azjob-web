@@ -6,7 +6,14 @@ import { ButtonModule } from 'primeng/button';
 import { Drawer, DrawerModule } from 'primeng/drawer';
 import { Popover } from 'primeng/popover';
 import { TooltipModule } from 'primeng/tooltip';
-import { ISidebarBanner, ISidebarExtraLinks, ISidebarLinks, ISidebarSearch, ISideNavigationMenu, ISidevarLogo } from '../interfaces';
+import {
+  ISidebarBanner,
+  ISidebarExtraLinks,
+  ISidebarLinks,
+  ISidebarSearch,
+  ISideNavigationMenu,
+  ISidevarLogo,
+} from '../interfaces';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -18,7 +25,7 @@ import { TranslateModule } from '@ngx-translate/core';
     DrawerModule,
     ButtonModule,
     Popover,
-    TranslateModule
+    TranslateModule,
   ],
   templateUrl: './SideNavigationMenu.component.html',
   styleUrl: './SideNavigationMenu.component.scss',
@@ -59,11 +66,11 @@ export class SideNavigationMenuComponent {
 
   closeCallback(e: any): void {
     this.drawerRef.close(e);
-    this.reset()
+    this.reset();
   }
 
   handleClickOutside() {
-    this.reset()
+    this.reset();
     this.isMobileMode = !this.isMobileMode;
   }
 
@@ -71,11 +78,11 @@ export class SideNavigationMenuComponent {
     this.op.hide();
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   goToToggle(toggle: string) {
     this.reset();
-    if (toggle == "empyty") {
+    if (toggle == 'empyty') {
       this.isMobileMode = false;
       this.visible = false;
       this.activeDrawer = false;
@@ -84,26 +91,24 @@ export class SideNavigationMenuComponent {
     this.activeDrawer = true;
     setTimeout(() => {
       if (this.visible) {
-        return
+        return;
       }
       this.visible = !this.visible;
     }, 300);
 
     setTimeout(() => {
       if (this.isMobileMode) {
-        return
+        return;
       }
       this.isMobileMode = !this.isMobileMode;
     });
 
-    this.toggle = this.steep.find(
-      (item) => item.key === toggle
-    );
+    this.toggle = this.steep.find(item => item.key === toggle);
 
     if (this.toggle.component !== null) {
       this.renderComponent(this.toggle.component);
       this.currentStep = -1;
-      return
+      return;
     }
 
     const isText = this.toggle.text !== null;
@@ -120,7 +125,7 @@ export class SideNavigationMenuComponent {
   }
 
   /**
-   * @description 
+   * @description
    * Na Seção temos a posibilidade de exibir apenas um conteudo, são eles: menu, componente ou link
    */
   goToSection(section: any) {
@@ -133,27 +138,27 @@ export class SideNavigationMenuComponent {
        * o step 0 é a seção
        * o step 1 é o menu
        */
-      this.currentStep = 1;// abrir o menu de itens
-      return
+      this.currentStep = 1; // abrir o menu de itens
+      return;
     }
 
     const isComponent = section.component !== null;
     if (isComponent) {
       this.currentStep = 2;
       this.renderComponent(section.component);
-      return
+      return;
     }
 
     const isLink = section.routerLink !== null;
     if (isLink) {
       this.currentStep = 2;
-      return
+      return;
     }
 
     const isText = section.text !== null;
     if (isText) {
       this.currentStep = 2;
-      return
+      return;
     }
   }
 
@@ -172,7 +177,7 @@ export class SideNavigationMenuComponent {
     const estou_no_primeiro_node = this.selectedMenu === null;
     if (this.currentStep === 2 && estou_no_primeiro_node) {
       this.currentStep = 0;
-      return
+      return;
     }
 
     if (this.currentStep === 2) {
@@ -190,7 +195,6 @@ export class SideNavigationMenuComponent {
   }
 
   public linkClick(link: any, event: Event) {
-
     if (link.closeMenu) {
       this.drawerRef.close(event);
     }

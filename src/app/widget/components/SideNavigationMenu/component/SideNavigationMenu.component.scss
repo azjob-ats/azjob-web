@@ -41,7 +41,6 @@ body {
   overflow-y: auto;
   scrollbar-width: none;
   padding: 0;
-
 }
 
 .sidebar-links::-webkit-scrollbar {
@@ -145,7 +144,7 @@ body {
 
 .hidden {
   display: initial !important;
-  @extend .fade-in-delayed
+  @extend .fade-in-delayed;
 }
 
 @mixin mobile-sidebar {
@@ -277,7 +276,9 @@ body {
 }
 
 // Desktop (1025px até 1440px)
-@media (min-width: $desktop) and (max-width: calc(#{$television} - 0.001em)) {}
+@media (min-width: $desktop) and (max-width: calc(#{$television} - 0.001em)) {
+}
 
 // Television (1441px+)
-@media (min-width: $television) {}
+@media (min-width: $television) {
+}

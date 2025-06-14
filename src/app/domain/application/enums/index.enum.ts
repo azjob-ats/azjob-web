@@ -1,3 +1,3 @@
 export enum eIndex {
-    INDEX = 'index',
+  INDEX = 'index',
 }

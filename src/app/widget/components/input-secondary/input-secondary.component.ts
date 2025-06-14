@@ -5,16 +5,29 @@ import { ImportsModule } from '@core/imports';
 @Component({
   selector: 'app-input-secondary',
   template: `
-      <p-iconfield class="w-full">
-        <input type="text" pInputText id="firstname" placeholder="Nome" pSize="large" class="w-full" #firstname />
-        <p-inputicon *ngIf="firstname.value" styleClass="inputIconTop">
-          <p-button (click)="firstname.value = ''" [rounded]="true" severity="primary" styleClass="p-0"
-            [disabled]="isDisabled">
-            <i class="pi pi-times" style="font-size: 10px; padding: 5px"></i>
-          </p-button>
-        </p-inputicon>
-      </p-iconfield>
-   
+    <p-iconfield class="w-full">
+      <input
+        type="text"
+        pInputText
+        id="firstname"
+        placeholder="Nome"
+        pSize="large"
+        class="w-full"
+        #firstname
+      />
+      <p-inputicon *ngIf="firstname.value" styleClass="inputIconTop">
+        <p-button
+          (click)="firstname.value = ''"
+          [rounded]="true"
+          severity="primary"
+          styleClass="p-0"
+          [disabled]="isDisabled"
+        >
+          <i class="pi pi-times" style="font-size: 10px; padding: 5px"></i>
+        </p-button>
+      </p-inputicon>
+    </p-iconfield>
+
     <small class="err-small" *ngIf="formControl.hasError('required') && formControl.touched">
       {{ erroRequired }}
     </small>

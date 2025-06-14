@@ -1,5 +1,5 @@
-import { eIndex } from "../enums/index.enum";
+import { eIndex } from '../enums/index.enum';
 
 export interface iIndex {
-    index: eIndex;
+  index: eIndex;
 }

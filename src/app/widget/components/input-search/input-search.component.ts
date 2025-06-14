@@ -4,7 +4,14 @@ import { ImportsModule } from '@core/imports';
 @Component({
   selector: 'app-input-search',
   template: `
-  <input type="text" pInputText id="firstname" placeholder="Procurar" pSize="large" class="w-full" />
+    <input
+      type="text"
+      pInputText
+      id="firstname"
+      placeholder="Procurar"
+      pSize="large"
+      class="w-full"
+    />
   `,
   styles: [
     `
@@ -17,4 +24,4 @@ import { ImportsModule } from '@core/imports';
   standalone: true,
   imports: [ImportsModule],
 })
-export class InputSearchComponent { }
+export class InputSearchComponent {}

@@ -31,11 +31,8 @@ export class LanguageService {
         if (lang.length > 0) {
           return lang;
         }
-        return this.api.getLanguage().pipe(
-          delay(500),
-          last()
-        );
-      }),
+        return this.api.getLanguage().pipe(delay(500), last());
+      })
     );
   }
 

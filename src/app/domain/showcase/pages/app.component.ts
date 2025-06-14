@@ -54,4 +54,4 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [RouterModule],
 })
-export class AppComponent { }
+export class AppComponent {}

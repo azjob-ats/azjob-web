@@ -1,35 +1,45 @@
 <div class="stepper-container">
-    <div class="step-content">
-        <div [class.bg-gray-50]="modo == 'dark'" class="flex hover:bg-gray-100 border-round p-2 cursor-pointer  mb-2"
-            (click)="toggleDarkMode('dark')">
-            <div class="col-11 m-0 p-0">
-                <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
-                    Escuro
-                </div>
-            </div>
-            <div class="col-1 m-0 p-0">
-                @if(modo == 'dark'){
-                <div class="flex justify-content-center align-items-center p-0 h-full">
-                    <i class="pi pi-check" style="font-size: 1rem"></i>
-                </div>
-                }
-            </div>
+  <div class="step-content">
+    <div
+      [class.bg-gray-50]="modo == 'dark'"
+      class="flex hover:bg-gray-100 border-round p-2 cursor-pointer mb-2"
+      (click)="toggleDarkMode('dark')"
+    >
+      <div class="col-11 m-0 p-0">
+        <div
+          class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full"
+        >
+          Escuro
         </div>
-
-        <div [class.bg-gray-50]="modo == 'light'" class="flex hover:bg-gray-100 border-round p-2 cursor-pointer  mb-2"
-            (click)="toggleDarkMode('light')">
-            <div class="col-11 m-0 p-0">
-                <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
-                    Claro
-                </div>
-            </div>
-            <div class="col-1 m-0 p-0">
-                @if(modo == 'light'){
-                <div class="flex justify-content-center align-items-center p-0 h-full">
-                    <i class="pi pi-check" style="font-size: 1rem"></i>
-                </div>
-                }
-            </div>
-        </div>
+      </div>
+      <div class="col-1 m-0 p-0">
+        @if (modo == 'dark') {
+          <div class="flex justify-content-center align-items-center p-0 h-full">
+            <i class="pi pi-check" style="font-size: 1rem"></i>
+          </div>
+        }
+      </div>
     </div>
+
+    <div
+      [class.bg-gray-50]="modo == 'light'"
+      class="flex hover:bg-gray-100 border-round p-2 cursor-pointer mb-2"
+      (click)="toggleDarkMode('light')"
+    >
+      <div class="col-11 m-0 p-0">
+        <div
+          class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full"
+        >
+          Claro
+        </div>
+      </div>
+      <div class="col-1 m-0 p-0">
+        @if (modo == 'light') {
+          <div class="flex justify-content-center align-items-center p-0 h-full">
+            <i class="pi pi-check" style="font-size: 1rem"></i>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
 </div>

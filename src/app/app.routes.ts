@@ -16,7 +16,8 @@ export const routes: Routes = [
   },
   {
     path: ROUTES.APPLICATION.ROOT,
-    loadComponent: () => import('./domain/application/pages/app.component').then(m => m.AppComponent),
+    loadComponent: () =>
+      import('./domain/application/pages/app.component').then(m => m.AppComponent),
     children: [
       {
         path: '',
@@ -27,7 +28,8 @@ export const routes: Routes = [
   },
   {
     path: ROUTES.MY_COMPANY.ROOT,
-    loadComponent: () => import('./domain/my-company/pages/app.component').then(m => m.AppComponent),
+    loadComponent: () =>
+      import('./domain/my-company/pages/app.component').then(m => m.AppComponent),
     children: [
       {
         path: '',
@@ -38,7 +40,8 @@ export const routes: Routes = [
   },
   {
     path: ROUTES.NOTIFICATION.ROOT,
-    loadComponent: () => import('./domain/notification/pages/app.component').then(m => m.AppComponent),
+    loadComponent: () =>
+      import('./domain/notification/pages/app.component').then(m => m.AppComponent),
     children: [
       {
         path: '',
