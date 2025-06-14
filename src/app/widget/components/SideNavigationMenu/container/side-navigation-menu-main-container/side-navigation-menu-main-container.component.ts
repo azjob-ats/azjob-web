@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { LanguageTranslatorService } from '@domain/change-language/services/language-translator.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '@domain/change-language/services/language.service';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-side-navigation-menu-main-container',
@@ -56,40 +57,40 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         routerLink: null,
         section: [
           {
-            name: 'settings.title',
-            description: 'settings.description',
+            name: 'sidebar.MORE.settings.title',
+            description: 'sidebar.MORE.settings.description',
             routerLink: null,
             component: null,
             text: null,
             menu: [
               {
                 icon: 'account_circle',
-                name: 'settings.accountInfo',
-                description: 'settings.accountInfoDesc',
+                name: 'sidebar.MORE.settings.accountInfo',
+                description: 'sidebar.MORE.settings.accountInfoDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'brightness_4',
-                name: 'settings.darkMode',
-                description: 'settings.darkModeDesc',
+                name: 'sidebar.MORE.settings.darkMode',
+                description: 'sidebar.MORE.settings.darkModeDesc',
                 routerLink: null,
                 component: LightDarkToggleComponent,
                 text: null
               },
               {
                 icon: 'translate',
-                name: 'settings.language',
-                description: 'settings.languageDesc',
+                name: 'sidebar.MORE.settings.language',
+                description: 'sidebar.MORE.settings.languageDesc',
                 routerLink: null,
                 component: LanguageToggleComponent,
                 text: null
               },
               {
                 icon: 'lock',
-                name: 'settings.changePassword',
-                description: 'settings.changePasswordDesc',
+                name: 'sidebar.MORE.settings.changePassword',
+                description: 'sidebar.MORE.settings.changePasswordDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
@@ -97,80 +98,80 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
             ]
           },
           {
-            name: 'security.title',
-            description: 'security.description',
+            name: 'sidebar.MORE.security.title',
+            description: 'sidebar.MORE.security.description',
             routerLink: null,
             component: null,
             text: null,
             menu: [
               {
                 icon: 'notification_settings',
-                name: 'security.notifications',
-                description: 'security.notificationsDesc',
+                name: 'sidebar.MORE.security.notifications',
+                description: 'sidebar.MORE.security.notificationsDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'laptop_chromebook',
-                name: 'security.devices',
-                description: 'security.devicesDesc',
+                name: 'sidebar.MORE.security.devices',
+                description: 'sidebar.MORE.security.devicesDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'do_not_disturb_on',
-                name: 'security.endSessions',
-                description: 'security.endSessionsDesc',
+                name: 'sidebar.MORE.security.endSessions',
+                description: 'sidebar.MORE.security.endSessionsDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'shield',
-                name: 'security.consent',
-                description: 'security.consentDesc',
+                name: 'sidebar.MORE.security.consent',
+                description: 'sidebar.MORE.security.consentDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'gpp_bad',
-                name: 'security.deactivate',
-                description: 'security.deactivateDesc',
+                name: 'sidebar.MORE.security.deactivate',
+                description: 'sidebar.MORE.security.deactivateDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'download',
-                name: 'security.downloadData',
-                description: 'security.downloadDataDesc',
+                name: 'sidebar.MORE.security.downloadData',
+                description: 'sidebar.MORE.security.downloadDataDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'multimodal_hand_eye',
-                name: 'security.visibility',
-                description: 'security.visibilityDesc',
+                name: 'sidebar.MORE.security.visibility',
+                description: 'sidebar.MORE.security.visibilityDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'history',
-                name: 'security.clearHistory',
-                description: 'security.clearHistoryDesc',
+                name: 'sidebar.MORE.security.clearHistory',
+                description: 'sidebar.MORE.security.clearHistoryDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'delete',
-                name: 'security.deleteAccount',
-                description: 'security.deleteAccountDesc',
+                name: 'sidebar.MORE.security.deleteAccount',
+                description: 'sidebar.MORE.security.deleteAccountDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
@@ -178,51 +179,51 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
             ]
           },
           {
-            name: 'help.title',
-            description: 'help.description',
+            name: 'sidebar.MORE.help.title',
+            description: 'sidebar.MORE.help.description',
             routerLink: null,
             text: null,
             component: null,
             menu: [
               {
                 icon: 'comment',
-                name: 'help.feedback',
-                description: 'help.feedbackDesc',
+                name: 'sidebar.MORE.help.feedback',
+                description: 'sidebar.MORE.help.feedbackDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'contact_support',
-                name: 'help.supportCenter',
-                description: 'help.supportCenterDesc',
+                name: 'sidebar.MORE.help.supportCenter',
+                description: 'sidebar.MORE.help.supportCenterDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'support_agent',
-                name: 'help.contactSupport',
-                description: 'help.contactSupportDesc',
+                name: 'sidebar.MORE.help.contactSupport',
+                description: 'sidebar.MORE.help.contactSupportDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'contract',
-                name: 'help.terms',
-                description: 'help.termsDesc',
+                name: 'sidebar.MORE.help.terms',
+                description: 'sidebar.MORE.help.termsDesc',
                 routerLink: null,
                 component: null,
                 text: 'Sorry, this is not available yet'
               },
               {
                 icon: 'sdk',
-                name: 'help.aboutApp',
-                description: 'help.aboutAppDesc',
+                name: 'sidebar.MORE.help.aboutApp',
+                description: 'sidebar.MORE.help.aboutAppDesc',
                 routerLink: {
-                  label: 'help.aboutApp',
-                  link: '/showcase',
+                  label: 'sidebar.MORE.help.aboutApp',
+                  link: environment.ROUTES.SHOWCASE.ROOT,
                   target: undefined,
                   closeMenu: true
                 },
@@ -231,8 +232,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
               },
               {
                 icon: 'sentiment_satisfied',
-                name: 'help.aboutAzjob',
-                description: 'help.aboutAzjobDesc',
+                name: 'sidebar.MORE.help.aboutAzjob',
+                description: 'sidebar.MORE.help.aboutAzjobDesc',
                 routerLink: null,
                 component: null,
                 text: null
@@ -240,10 +241,10 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
             ]
           },
           {
-            name: 'logout.title',
-            description: 'logout.description',
+            name: 'sidebar.MORE.logout.title',
+            description: 'sidebar.MORE.logout.description',
             routerLink: {
-              label: this.translate.instant('banner.logout', { nameId: '@mcchelsom98268' }),
+              label: this.translate.instant('sidebar.banner.logout', { nameId: '@mcchelsom98268' }),
               link: '/logout',
               target: '_blank',
               closeMenu: false
@@ -255,7 +256,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         ]
       },
       {
-        name: 'search.title',
+        name: 'sidebar.search.title',
         key: 'search',
         component: InputSearchComponent,
         section: null,
@@ -266,19 +267,19 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
 
     this.search = {
       value: '',
-      placeholder: 'search.placeholder'
+      placeholder: 'sidebar.search.placeholder'
     }
 
     this.banner = {
       nameId: '@mcchelsom272033',
       nameUser: 'Saulo McChelsom',
       avatar: 'image/user-default.png',
-      alt: 'banner.alt',
+      alt: 'sidebar.banner.alt',
       show: true,
       menu: [
         {
           icon: '',
-          name: this.translate.instant('banner.accountInfo'),
+          name: this.translate.instant('sidebar.banner.accountInfo'),
           description: '',
           routerLink: {
             label: '',
@@ -291,7 +292,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         },
         {
           icon: '',
-          name: this.translate.instant('banner.logout', { nameId: '@mcchelsom98268' }),
+          name: this.translate.instant('sidebar.banner.logout', { nameId: '@mcchelsom98268' }),
           description: '',
           routerLink: {
             label: '',
@@ -308,7 +309,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
     this.sidebarLinks = [
       {
         label: 'sidebar.forYou',
-        routerLink: '/for-you',
+        routerLink: environment.ROUTES.FOR_YOU.ROOT,
         icon: 'home',
         iconClass: 'rounded-icon text-3xl',
         liClass: '',
@@ -317,7 +318,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.applications',
-        routerLink: '/application',
+        routerLink: environment.ROUTES.APPLICATION.ROOT,
         icon: 'radio_button_checked',
         iconClass: 'outlined-icon text-3xl',
         liClass: 'cursor-pointer',
@@ -326,7 +327,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.myCompany',
-        routerLink: '/my-company',
+        routerLink: environment.ROUTES.MY_COMPANY.ROOT,
         icon: 'rocket_launch',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
@@ -335,7 +336,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.resume',
-        routerLink: '/resume',
+        routerLink: environment.ROUTES.RESUME.ROOT,
         icon: 'rewarded_ads',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
@@ -344,7 +345,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.notifications',
-        routerLink: '/notification',
+        routerLink: environment.ROUTES.NOTIFICATION.ROOT,
         icon: 'notifications',
         iconClass: 'outlined-icon text-3xl',
         liClass: '',
@@ -353,9 +354,9 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.login',
-        routerLink: '/auth/sign-in',
+        routerLink: environment.ROUTES.AUTH.LOGIN,
         icon: 'lock',
-        iconClass: 'outlined-icon',
+        iconClass: 'rounded-icon',
         liClass: 'bg-login-sidebar',
         toggle: 'empyty',
         active: false

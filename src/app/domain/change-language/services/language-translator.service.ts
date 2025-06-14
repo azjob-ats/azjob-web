@@ -23,7 +23,7 @@ export class LanguageTranslatorService {
           catchError(() => {
             this.translateService.setDefaultLang(this.defaultLang);
             this.translateService.use(this.defaultLang);
-            return throwError(() => new Error('AZJOB.TEST.NOT_DEFAULT_LANGUAGE'));
+            return throwError(() => new Error('app.notDefaultLanguage'));
           })
         )
         .pipe(

@@ -26,7 +26,7 @@ export class LanguageToggleComponent implements OnInit {
   private lang: LanguageService = inject(LanguageService);
 
   public ngOnInit(): void {
-    this.selectEmpy = this.translate.instant('AZJOB.TEST.OPTION_EMPY');
+    this.selectEmpy = this.translate.instant('app.optionEmpy');
     this.default = this.translationService.getDefaultLang();
 
     this.formControl.setValue(this.default);

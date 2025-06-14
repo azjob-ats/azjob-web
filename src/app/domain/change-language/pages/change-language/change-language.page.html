@@ -1,15 +1,7 @@
 <a [routerLink]="['/',routes.SHOWCASE.ROOT]" class="btn btn-primary btn-lg">showcase</a>
 
-<p
-  class="flex flex align-items-center justify-content-center text-large primary-300 mb-default mt-default"
->
-  {{ 'AZJOB.TEST.HOME' | translate }}
-</p>
-
-<p
-  class="flex flex align-items-center justify-content-center text-medium primary-400 mb-default theme-dark-color-black-100"
->
-  {{ 'AZJOB.TEST.HOME.SUBTITLE' | translate:{ NUM_FOLDER: num_folder, NUM_NOTE: 0 } }}
+<p class="flex flex align-items-center justify-content-center text-large primary-300 mb-default mt-default">
+  {{ 'app.welcome' | translate }}
 </p>
 
 <select [formControl]="formControl" (change)="onSelectionChange($event)">

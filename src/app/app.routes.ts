@@ -67,7 +67,7 @@ export const routes: Routes = [
         loadChildren: () => import('./domain/showcase/index.routes').then(m => m.INDEX_ROUTES),
       },
     ],
-    data: { title: 'AZJOB.TEST.HOME' },
+    data: { title: 'app.welcome' },
   },
   {
     path: ROUTES.CHANGE_LANGUAGE.ROOT,
@@ -80,7 +80,7 @@ export const routes: Routes = [
           import('./domain/change-language/index.routes').then(m => m.INDEX_ROUTES),
       },
     ],
-    data: { title: 'AZJOB.TEST.HOME' },
+    data: { title: 'app.welcome' },
   },
   {
     path: ROUTES.AUTH.LOGIN,
