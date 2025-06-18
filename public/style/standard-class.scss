@@ -230,6 +230,11 @@ input {
   background-color: var(--p-accent-color);
 }
 
+.txt-accent {
+  color: var(--p-accent-color) !important;
+}
+
+
 .lilita-one-regular {
   font-family: "Lilita One", sans-serif;
   font-weight: 700;

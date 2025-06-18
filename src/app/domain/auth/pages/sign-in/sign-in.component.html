@@ -1,1 +1,44 @@
-<p>sign-in works!</p>
+<div class="flex align-items-center justify-content-center min-h-screen">
+    <div>
+        <div class="bg-gray-100 p-4 shadow-2 border-round w-full sm:w-30rem">
+            <div class="text-center mb-5">
+                <div class="text-900 text-4xl font-medium mb-2">Que bom que você voltou</div>
+            </div>
+            <form>
+                <div class="field mb-4">
+                    <app-input-primary [formControl]="emailFormControl" [title]="emailFormOption.title"
+                        [erroFill]="emailFormOption.erroFill" [erroRequired]="emailFormOption.erroRequired"
+                        [isRequired]="emailFormOption.isRequired" [isDisabled]="emailFormOption.isDisabled"
+                        [minLength]="emailFormOption.minLength"
+                        [maxLength]="emailFormOption.maxLength"></app-input-primary>
+                </div>
+                <div class="field mb-4">
+                    <app-input-primary [formControl]="senhaFormControl" [title]="senhaFormOption.title"
+                        [erroFill]="senhaFormOption.erroFill" [erroRequired]="senhaFormOption.erroRequired"
+                        [isRequired]="senhaFormOption.isRequired" [isDisabled]="senhaFormOption.isDisabled"
+                        [minLength]="senhaFormOption.minLength"
+                        [maxLength]="senhaFormOption.maxLength"></app-input-primary>
+                </div>
+                <p-button label="Entrar na sua conta" severity="primary" styleClass="w-full custom-h-full " />
+            </form>
+            <div class="mt-5">
+                <label for="remember">Esqueceu a senha?</label>
+            </div>
+
+            <div class="mt-6">
+                <div class="w-full">
+                    <p-button variant="text" severity="info" styleClass="w-full custom-h-full border-blue-500">
+                        <img width="25px" src="https://signin.pipefy.com/resources/wuk6r/login/pipefy/img/google.svg">
+                        <span class="text-blue-500">Faça login com o Google</span>
+                    </p-button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-100 p-4 shadow-2 border-round w-full mt-4">
+            <div class="text-center">
+                <div class="text-900 text-1xl font-medium"> Não tem uma conta? <span
+                        class="txt-accent font-bold">Inscreva-se</span></div>
+            </div>
+        </div>
+    </div>
+</div>
