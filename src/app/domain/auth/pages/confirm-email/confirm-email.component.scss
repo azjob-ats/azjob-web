@@ -16,3 +16,7 @@
 .sidebar .sidebar-header img {
     width: 40px;
 }
+
+::ng-deep .p-inputotp {
+    gap: 3rem !important;
+}

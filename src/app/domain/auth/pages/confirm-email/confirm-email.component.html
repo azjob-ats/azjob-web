@@ -10,11 +10,12 @@
         <div class="bg-gray-0 p-4 mt-7 shadow-0 border-round w-full sm:w-30rem">
             <div class="text-center mb-5">
                 <div class="text-900 text-4xl font-medium mb-2">Confirmar e-mail</div>
-                <div class="text-1xl mb-2">Digite o código de 6 dígitos enviado para seu e-mail</div>
+                <div class="text-1xl mb-2">Digite o código de 4 dígitos enviado para seu e-mail</div>
             </div>
             <form>
                 <div class="field mb-4">
-                    <p-inputotp [formControl]="pin" [integerOnly]="true" styleClass="w-full custom-h-full " />
+                    <p-inputotp [formControl]="pin" [integerOnly]="true" [length]="4"
+                        styleClass="w-full custom-h-full " />
                 </div>
                 <p-button label="Confirmar" severity="primary" styleClass="w-full custom-h-full " />
             </form>
