@@ -352,4 +352,12 @@
     font-size: 14px;
     font-weight: bold;
   }
+
+  .border-black {
+    border-color: var(--p-gray-200) !important;
+  }
+
+  .bg-black {
+    background-color: var(--p-text-color) !important;
+  }
 }

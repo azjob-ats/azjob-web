@@ -368,7 +368,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.login',
-        routerLink: `/${environment.ROUTES.AUTH.LOGIN}`,
+        routerLink: `/${environment.ROUTES.AUTH.ROOT}`,
         icon: 'lock',
         iconClass: 'rounded-icon',
         liClass: 'bg-login-sidebar',

@@ -15,7 +15,7 @@ export const routes: Routes = [
     data: { title: 'sidebar.forYou' },
   },
   {
-    path: ROUTES.AUTH.LOGIN,
+    path: ROUTES.AUTH.ROOT,
     loadComponent: () => import('@domain/auth/pages/app.component').then(m => m.AppComponent),
     children: [
       {
