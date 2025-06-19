@@ -237,7 +237,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
                 description: 'sidebar.MORE.help.aboutAppDesc',
                 routerLink: {
                   label: 'sidebar.MORE.help.aboutApp',
-                  link: environment.ROUTES.SHOWCASE.ROOT,
+                  link: `/${environment.ROUTES.SHOWCASE.ROOT}`,
                   target: undefined,
                   closeMenu: true,
                 },
@@ -368,7 +368,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       },
       {
         label: 'sidebar.login',
-        routerLink: environment.ROUTES.AUTH.LOGIN,
+        routerLink: `/${environment.ROUTES.AUTH.LOGIN}`,
         icon: 'lock',
         iconClass: 'rounded-icon',
         liClass: 'bg-login-sidebar',

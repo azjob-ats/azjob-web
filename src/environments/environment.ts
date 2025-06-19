@@ -22,6 +22,9 @@ export const environment = {
   },
   ROUTES: {
     ROOT: '',
+    HOME: {
+      ROOT: 'home',
+    },
     FOR_YOU: {
       ROOT: 'for-you',
     },
