@@ -69,7 +69,7 @@ export const INDEX_ROUTES: Routes = [
             },
 
             {
-                path: ROUTES.AUTH.LOGIN,
+                path: ROUTES.AUTH.SIGN_IN,
                 loadComponent: () => import('@domain/auth/pages/app.component').then(m => m.AppComponent),
                 children: [
                     {

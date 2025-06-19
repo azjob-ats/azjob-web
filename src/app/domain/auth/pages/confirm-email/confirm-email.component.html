@@ -1,0 +1,43 @@
+<aside class="sidebar z-full">
+    <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="sidebarLogoRouterLink">
+        <img src="image/az-logo.png" alt="logo" />
+        <span class="text-4xl font-bold lilita-one-regular">Job</span>
+    </div>
+</aside>
+
+<div class="flex align-content-between flex-wrap min-h-screen">
+    <div class="flex align-items-center justify-content-center w-full">
+        <div class="bg-gray-0 p-4 mt-7 shadow-0 border-round w-full sm:w-30rem">
+            <div class="text-center mb-5">
+                <div class="text-900 text-4xl font-medium mb-2">Confirmar e-mail</div>
+                <div class="text-1xl mb-2">Digite o código de 6 dígitos enviado para seu e-mail</div>
+            </div>
+            <form>
+                <div class="field mb-4">
+                    <p-inputotp [formControl]="pin" [integerOnly]="true" styleClass="w-full custom-h-full " />
+                </div>
+                <p-button label="Confirmar" severity="primary" styleClass="w-full custom-h-full " />
+            </form>
+            <div class="mt-5">
+                <p-button label="Não recebeu o código?" variant="text" severity="secondary"
+                    styleClass="w-full custom-h-full button-link-option" />
+
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full">
+        <div class="col-12  border-top-1 text-200 p-3 bg-gray-50">
+            <div class="text-center">
+                <div class="text-900 text-1xl font-medium">
+                    Não tem uma conta?
+                    <span class="txt-accent font-bold cursor-pointer" [routerLink]="signUpRouterLink">
+                        Inscreva-se
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-12 bg-black p-5"></div>-->
+    </div>
+
+</div>

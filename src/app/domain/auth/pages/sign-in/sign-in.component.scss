@@ -1,42 +1,18 @@
-@use 'breakpoints.scss' as *;
-
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@media (max-width: $tablet) {
-
-  .card-size {
-    width: 100%;
-  }
-
-  .sign-in {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-}
-
-.background-blur::before {
-  content: '';
-  position: absolute;
+.sidebar {
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #fad0c4);
-  background-size: 400% 400%;
-  filter: blur(80px);
-  animation: gradient-animation 25s ease infinite;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  justify-content: left;
+  height: 40px;
+  margin-top: 19px;
+  margin-bottom: 23px;
+  margin-left: 8px;
+}
+
+.sidebar .sidebar-header img {
+  width: 40px;
 }
