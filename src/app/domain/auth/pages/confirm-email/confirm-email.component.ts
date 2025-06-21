@@ -5,7 +5,10 @@ import { InputPrimaryComponent } from
   '@widget/components/input-primary/input-primary.component';
 import { ButtonModule } from 'primeng/button';
 import { InputOtpModule } from 'primeng/inputotp';
-
+import { environment } from '@env/environment';
+import { HeaderComponent } from '@domain/auth/components/header/header.component';
+import { FooterComponent } from '@domain/auth/components/footer/footer.component';
+const { ROUTES } = environment;
 @Component({
   selector: 'app-confirm-email',
   imports: [
@@ -13,13 +16,14 @@ import { InputOtpModule } from 'primeng/inputotp';
     ButtonModule,
     InputOtpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderComponent,
+    FooterComponent
   ],
   templateUrl: './confirm-email.component.html',
   styleUrl: './confirm-email.component.scss',
 })
 export class ConfirmEmailComponent {
-  protected sidebarLogoRouterLink = '/'
-  protected signUpRouterLink = '/auth/panel-sign-in'
+  protected signInRouterLink = `/${ROUTES.AUTH.ROOT}/${ROUTES.AUTH.PANEL_SIGN_IN}`;
   public pin = new FormControl('');
 }

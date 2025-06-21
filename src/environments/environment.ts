@@ -21,7 +21,7 @@ export const environment = {
     },
   },
   ROUTES: {
-    ROOT: '',
+    ROOT: '/',
     HOME: {
       ROOT: 'home',
     },

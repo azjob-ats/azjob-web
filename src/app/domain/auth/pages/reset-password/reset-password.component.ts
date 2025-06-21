@@ -5,6 +5,10 @@ import { InputPrimaryComponent } from
   '@widget/components/input-primary/input-primary.component';
 import { ButtonModule } from 'primeng/button';
 import { InputOtpModule } from 'primeng/inputotp';
+import { FooterComponent } from '@domain/auth/components/footer/footer.component';
+import { HeaderComponent } from '@domain/auth/components/header/header.component';
+import { environment } from 'src/environments/environment';
+const { ROUTES } = environment;
 
 @Component({
   selector: 'app-reset-password',
@@ -14,16 +18,16 @@ import { InputOtpModule } from 'primeng/inputotp';
     InputOtpModule,
     FormsModule,
     ReactiveFormsModule,
-    InputPrimaryComponent
+    InputPrimaryComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   templateUrl: './reset-password.component.html',
   styleUrl: './reset-password.component.scss',
 })
 export class ResetPasswordComponent {
-  protected sidebarLogoRouterLink = '/'
-  protected signUpRouterLink = '/auth/panel-sign-in'
+  protected signUpRouterLink = `/${ROUTES.AUTH.ROOT}/${ROUTES.AUTH.PANEL_SIGN_UP}`;
   public pin = new FormControl('');
-
   public emailFormControl = new FormControl('');
   public senhaFormControl = new FormControl('');
   public emailFormOption = {

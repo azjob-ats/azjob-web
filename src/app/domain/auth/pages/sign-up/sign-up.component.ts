@@ -3,22 +3,28 @@ import { FormControl } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { InputPrimaryComponent } from '@widget/components/input-primary/input-primary.component';
 import { ButtonModule } from 'primeng/button';
+import { environment } from '@env/environment';
+import { HeaderComponent } from '@domain/auth/components/header/header.component';
+import { FooterComponent } from '@domain/auth/components/footer/footer.component';
+const { ROUTES } = environment;
 
 @Component({
   selector: 'app-sign-up',
   imports: [
     InputPrimaryComponent,
     RouterModule,
-    ButtonModule
+    ButtonModule,
+    HeaderComponent,
+    FooterComponent,
   ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignUpComponent implements OnInit {
-  protected sidebarLogoRouterLink = '/'
-  protected signUpRouterLink = '/auth/panel-sign-up'
-  protected confirmSignUpRouterLink = '/auth/confirm-email'
+  protected signInRouterLink = `/${ROUTES.AUTH.ROOT}/${ROUTES.AUTH.PANEL_SIGN_IN}`;
+  protected signUpRouterLink = `/${ROUTES.AUTH.ROOT}/${ROUTES.AUTH.SIGN_UP}`;
+  protected confirmSignUpRouterLink = `/${ROUTES.AUTH.ROOT}/${ROUTES.AUTH.CONFIRM_EMAIL}`;
   public emailFormControl = new FormControl('');
   public nomeFormControl = new FormControl('');
   public senhaFormControl = new FormControl('');

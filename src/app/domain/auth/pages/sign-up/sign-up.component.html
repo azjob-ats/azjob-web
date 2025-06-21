@@ -1,10 +1,4 @@
-<aside class="sidebar z-full">
-    <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="sidebarLogoRouterLink">
-        <img src="image/az-logo.png" alt="logo" />
-        <span class="text-4xl font-bold lilita-one-regular">Job</span>
-    </div>
-</aside>
-
+<app-header></app-header>
 <div class="flex align-content-between flex-wrap min-h-screen">
     <div class="flex align-items-center justify-content-center w-full">
         <div class="bg-gray-0 p-4 mt-7 shadow-0 border-round w-full sm:w-30rem">
@@ -46,18 +40,7 @@
         </div>
     </div>
 
-    <div class="w-full">
-        <div class="col-12  border-top-1 text-200 p-3 bg-gray-50">
-            <div class="text-center">
-                <div class="text-900 text-1xl font-medium">
-                    Não tem uma conta?
-                    <span class="txt-accent font-bold cursor-pointer" [routerLink]="signUpRouterLink">
-                        Inscreva-se
-                    </span>
-                </div>
-            </div>
-        </div>
-        <!--<div class="col-12 bg-black p-5"></div>-->
+    <div class="col-12 p-0 m-0">
+        <app-footer [link]="signInRouterLink" text="Já sou cadastrado," redirectText="quero entrar!"></app-footer>
     </div>
-
 </div>
