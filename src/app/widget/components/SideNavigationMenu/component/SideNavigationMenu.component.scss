@@ -4,10 +4,6 @@ body {
   min-height: 100vh;
 }
 
-.z-full {
-  z-index: 9000 !important;
-}
-
 .sidebar {
   position: fixed;
   top: 0;
@@ -276,9 +272,7 @@ body {
 }
 
 // Desktop (1025px até 1440px)
-@media (min-width: $desktop) and (max-width: calc(#{$television} - 0.001em)) {
-}
+@media (min-width: $desktop) and (max-width: calc(#{$television} - 0.001em)) {}
 
 // Television (1441px+)
-@media (min-width: $television) {
-}
+@media (min-width: $television) {}

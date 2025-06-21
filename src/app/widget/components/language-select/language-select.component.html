@@ -1,0 +1,16 @@
+<div class="card flex justify-center">
+    <p-select [options]="selections" [formControl]="formControl" optionValue="cod" optionLabel="description"
+        [filter]="true" filterBy="description" [showClear]="true" placeholder="Select your language"
+        class="w-full md:w-56" (onChange)="onSelectionChange($event)">
+        <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2">
+                <div>{{ selectedOption.description }}</div>
+            </div>
+        </ng-template>
+        <ng-template let-country #item>
+            <div class="flex items-center gap-2">
+                <div>{{ country.description }}</div>
+            </div>
+        </ng-template>
+    </p-select>
+</div>

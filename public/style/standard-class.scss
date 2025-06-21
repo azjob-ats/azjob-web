@@ -234,6 +234,9 @@ input {
   color: var(--p-accent-color) !important;
 }
 
+.txt-secondary {
+  color: var(--p-secondary-color) !important;
+}
 
 .lilita-one-regular {
   font-family: "Lilita One", sans-serif;
@@ -243,4 +246,8 @@ input {
 
 .cl-secondary-bold {
   color: var(--p-secondary-bold-color);
+}
+
+.z-full {
+  z-index: 9000 !important;
 }

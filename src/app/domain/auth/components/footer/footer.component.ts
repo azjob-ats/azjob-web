@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, type OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LanguageSelectComponent } from '@widget/components/language-select/language-select.component';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterModule],
+  imports: [RouterModule, LanguageSelectComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
@@ -11,4 +12,5 @@ export class FooterComponent {
   @Input() link!: string;
   @Input() text!: string;
   @Input() redirectText!: string;
+  protected year: number = new Date().getFullYear();
 }
