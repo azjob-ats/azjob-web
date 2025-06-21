@@ -1,6 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { ImportsModule } from '@core/imports';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-input-secondary',
@@ -37,7 +41,15 @@ import { ImportsModule } from '@core/imports';
   `,
   styles: [''],
   standalone: true,
-  imports: [ImportsModule],
+  imports: [
+    CommonModule,
+    InputTextModule,
+    ButtonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    InputIconModule,
+    IconFieldModule
+  ],
 })
 export class InputSecondaryComponent {
   @Input() public formControl!: FormControl<any>;

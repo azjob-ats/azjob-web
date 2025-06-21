@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ImportsModule } from '@core/imports';
-
 @Component({
   selector: 'app-input-search',
   template: `
@@ -22,6 +20,6 @@ import { ImportsModule } from '@core/imports';
     `,
   ],
   standalone: true,
-  imports: [ImportsModule],
+  imports: [],
 })
-export class InputSearchComponent {}
+export class InputSearchComponent { }
