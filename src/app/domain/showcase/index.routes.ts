@@ -4,6 +4,8 @@ import { Template } from './interfaces/index.interface';
 import { HomeComponent } from './pages/home/home.component';
 import { RenderingComponent } from './pages/rendering/rendering.component';
 import { TemplateComponent } from './pages/template/template.component';
+import { environment } from 'src/environments/environment';
+const { ROUTES } = environment;
 
 const generateRoutes = (templates: Template[]): Routes => {
   return templates.map(template => ({
@@ -21,5 +23,9 @@ export const INDEX_ROUTES: Routes = [
       { path: 'template', component: TemplateComponent },
       ...generateRoutes(componentMap),
     ],
+  },
+  {
+    path: '**',
+    redirectTo: ROUTES.REDIRECT.ROOT,
   },
 ];

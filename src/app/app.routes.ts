@@ -37,12 +37,23 @@ export const routes: Routes = [
     data: { title: 'app.welcome' },
   },
   {
+    path: ROUTES.REDIRECT.ROOT,
+    loadComponent: () => import('@domain/error/pages/app.component').then(m => m.AppComponent),
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('@domain/error/index.routes').then(m => m.INDEX_ROUTES),
+      },
+    ],
+    data: { title: 'app.welcome' },
+  },
+  {
     path: '',
     redirectTo: ROUTES.HOME.ROOT,
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: ROUTES.ERROR.NOT_FOUND,
+    redirectTo: ROUTES.REDIRECT.ROOT,
   },
 ];

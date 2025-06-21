@@ -1,0 +1,9 @@
+<div
+    class="not-found-container flex flex-column align-items-center justify-content-center h-screen text-center lg:p-8 ">
+    <h1 class="text-4xl font-bold mt-4 txt-accent mb-0">{{ 'REDIRECT.notFound.title' | translate }}</h1>
+    <p class="text-2xl mt-0 mb-0">{{ 'REDIRECT.notFound.description' | translate }}</p>
+    <p class="text-2xl mt-0 mb-6">{{ 'REDIRECT.notFound.subdescription' | translate }}</p>
+    <p-button [label]="'REDIRECT.notFound.button' | translate" routerLink="/" severity="info"
+        styleClass="w-full custom-h-full" />
+    <img src="image/404-page.png" alt="404" class="mt-4">
+</div>

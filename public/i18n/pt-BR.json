@@ -77,6 +77,14 @@
       "accountInfo": "Informações da conta",
       "logout": "Sair {{nameId}}"
     }
+  },
+  "REDIRECT": {
+    "notFound": {
+      "title": "Perdemos esta página",
+      "description": "Procuramos muito, mas não conseguimos encontrar o que você procura.",
+      "subdescription": "Vamos encontrar um lugar melhor para você ir.",
+      "button": "IR PARA A PÁGINA INICIAL"
+    }
   }
 }
 

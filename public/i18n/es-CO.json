@@ -77,5 +77,13 @@
       "accountInfo": "Información de la cuenta",
       "logout": "Cerrar sesión {{nameId}}"
     }
+  },
+  "REDIRECT": {
+    "notFound": {
+      "title": "Perdimos esta página",
+      "description": "Hemos buscado por todas partes, pero no encontramos lo que buscas.",
+      "subdescription": "Busquemos un mejor lugar para ti.",
+      "button": "IR A LA PÁGINA DE INICIO"
+    }
   }
 }

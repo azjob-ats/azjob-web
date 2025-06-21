@@ -77,5 +77,13 @@
       "accountInfo": "Account Information",
       "logout": "Logout {{nameId}}"
     }
+  },
+  "REDIRECT": {
+    "notFound": {
+      "title": "We lost this page",
+      "description": "We searched high and low but couldn’t find what you’re looking for.",
+      "subdescription": "Let’s find a better place for you to go.",
+      "button": "GO TO HOMEPAGE"
+    }
   }
 }

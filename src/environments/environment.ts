@@ -74,7 +74,8 @@ export const environment = {
       USERS: 'users',
       SETTINGS: 'settings',
     },
-    ERROR: {
+    REDIRECT: {
+      ROOT: 'redirect',
       NOT_FOUND: 'not-found',
       UNAUTHORIZED: 'unauthorized',
     },

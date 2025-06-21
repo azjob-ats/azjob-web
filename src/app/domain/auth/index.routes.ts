@@ -50,7 +50,7 @@ export const INDEX_ROUTES: Routes = [
       },
       {
         path: '**',
-        redirectTo: ROUTES.ERROR.NOT_FOUND,
+        redirectTo: ROUTES.REDIRECT.ROOT,
       },
     ],
   },
