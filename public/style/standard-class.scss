@@ -1,3 +1,4 @@
+@use 'breakpoints.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 $font-family-Roboto: "Roboto", sans-serif;
 
@@ -250,4 +251,16 @@ input {
 
 .z-full {
   z-index: 9000 !important;
+}
+
+.w-full-vw {
+  width: 100vw !important;
+}
+
+.min-h-screen {
+  min-height: 100svh !important;
+}
+
+.p-inputotp {
+  gap: 2.5rem !important;
 }
