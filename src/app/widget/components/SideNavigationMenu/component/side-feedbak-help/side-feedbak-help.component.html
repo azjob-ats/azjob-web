@@ -1,4 +1,4 @@
-<div class="w-full flex flex-row justify-content-between">
+<div class="w-full flex flex-row justify-content-between ">
     <div class="flex items-center align-items-center gap-2">
         @if (toggle?.section !== null) {
         <p-button [disabled]="currentStep > 0 ? false : true" (click)="goBack()" icon="pi pi-arrow-left"
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Etapa 1: Menus -->
-    <div *ngIf="currentStep === 1" class="step-content">
+    <div *ngIf="currentStep === 1" class="step-content" style="height: 500px !important">
         @for (menu of selectedSection.menu; track $index) {
         <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToMenu(menu)">
             <div class="col-1 m-0 p-0">

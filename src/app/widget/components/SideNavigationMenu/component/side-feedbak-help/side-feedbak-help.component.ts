@@ -40,27 +40,17 @@ export class SideFeedbakHelpComponent implements OnInit {
     this.goToToggle("plus-preferences")
   }
 
-  public reset() {
-    this.toggle = [];
-    this.currentStep = 0;
-    this.selectedSection = null;
-    this.selectedMenu = null;
-    this.activeDrawer = false;
-  }
 
   public closeCallback(e: any): void {
     this.onClose.emit(true);
-    this.reset();
   }
 
   public handleClickOutside() {
-    this.reset();
     this.isMobileMode = !this.isMobileMode;
   }
 
   public goToToggle(toggle: string) {
     console.log('toggle', toggle);
-    this.reset();
     if (toggle == 'empyty') {
       this.isMobileMode = false;
       this.visible = false;

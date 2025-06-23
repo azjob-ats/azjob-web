@@ -13,12 +13,9 @@
 
 </aside>
 
-<p-dialog [modal]="true" maskStyleClass="backdrop-blur-sm" [(visible)]="visible" styleClass="!border-0 !bg-transparent"
-    [style]="{ width: '50rem' }">
-
-    <ng-template #headless>
-        <div class="m-4">
-            <app-side-feedbak-help-container (onClose)="closeDialog($event)"></app-side-feedbak-help-container>
-        </div>
-    </ng-template>
+<p-dialog [modal]="true" [(visible)]="visible" [style]="{ width: '50rem', height: '100vh' }" showHeader="false">
+    <div class="pt-3">
+        <app-side-feedbak-help-container (onClose)="closeDialog($event)"></app-side-feedbak-help-container>
+    </div>
+    <ng-template #footer></ng-template>
 </p-dialog>
