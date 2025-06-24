@@ -6,7 +6,7 @@
     "start": "npm run start:production",
     "dev": "npm run start:development",
     "start:production": "NODE_ENV=production ng serve",
-    "start:development": "NODE_ENV=development ng serve",
+    "start:development": "NODE_ENV=development ng serve --host 0.0.0.0",
     "build": "NODE_ENV=production ng build",
     "test": "npx jest",
     "test:coverage": "npx jest --coverage",
