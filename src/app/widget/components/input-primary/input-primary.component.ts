@@ -18,7 +18,6 @@ import { InputTextModule } from 'primeng/inputtext';
         pSize="large"
         class="w-full"
         [formControl]="formControl"
-        [disabled]="isDisabled"
         #nome
       />
       <p-inputicon *ngIf="nome.value" styleClass="inputIconTop">
@@ -78,10 +77,12 @@ export class InputPrimaryComponent {
     this.initialDisabledState = this.isDisabled;
     this.initialValidator = this.isRequired ? Validators.required : null;
 
-    this.applyDisabledState(this.isDisabled);
+
     this.applyMinLength(this.minLength);
-    this.applyMaxLength(this.maxLength);
+    this.applyMaxLength(this.maxLength)
     this.applyRequiredValidator(this.isRequired);
+    this.applyDisabledState(this.isDisabled);
+    this.formControl.updateValueAndValidity();
   }
 
   private applyMinLength(min: number) {

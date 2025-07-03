@@ -50,7 +50,6 @@ export class SideFeedbakHelpComponent implements OnInit {
   }
 
   public goToToggle(toggle: string) {
-    console.log('toggle', toggle);
     if (toggle == 'empyty') {
       this.isMobileMode = false;
       this.visible = false;
