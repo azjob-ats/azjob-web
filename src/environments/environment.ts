@@ -9,6 +9,16 @@ export const environment = {
       tableName: import.meta.env.NG_APP_SYSTEM_LANGUAGE_TABLE_NAME,
       storageStrategy: StorageStrategy.LOCAL_STORAGE,
     },
+    token: {
+      encryptionKey: '',
+      tableName: 'token',
+      storageStrategy: StorageStrategy.LOCAL_STORAGE,
+    },
+    user: {
+      encryptionKey: '',
+      tableName: 'user',
+      storageStrategy: StorageStrategy.LOCAL_STORAGE,
+    },
   },
   API: {
     JOBS: 'jobs',
@@ -62,6 +72,7 @@ export const environment = {
       RESET_PASSWORD: 'reset-password',
       REGISTER: 'register',
       FORGOT: 'forgot-password',
+      LOGOUT: 'logout',
     },
     DASHBOARD: {
       ROOT: 'dashboard',

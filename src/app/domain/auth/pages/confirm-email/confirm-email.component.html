@@ -9,13 +9,14 @@
                 </div>
                 <div class="mb-3">
                     <div class="w-full">
-                        <p-inputotp [formControl]="pin" [integerOnly]="true" [length]="4"
-                            styleClass="w-full custom-h-full " />
+                        <app-input-pin [formControl]="pinControl" [erroRequired]="pinOption.erroRequired"
+                            [hasErrorResponse]="pinOption.hasErrorResponse"></app-input-pin>
                     </div>
                 </div>
                 <div class="mb-3">
                     <div class="w-full">
-                        <p-button label="Confirmar" severity="primary" styleClass="w-full custom-h-full " />
+                        <p-button label="Confirmar" severity="primary" styleClass="w-full custom-h-full "
+                            (onClick)="validatePin()" [appLoadingSpinner]="isLoadingValidatePin" />
                     </div>
                 </div>
                 <div class="mb-3">
@@ -28,7 +29,7 @@
         </div>
     </div>
     <div class="col-12 p-0 m-0">
-        <app-footer [showTextPrivacyAndPolicy]="false" [link]="signInRouterLink" text="Já sou cadastrado,"
+        <app-footer [showTextPrivacyAndPolicy]="false" [link]="panelSignInRouterLink" text="Já sou cadastrado,"
             redirectText="quero entrar!"></app-footer>
     </div>
 </div>

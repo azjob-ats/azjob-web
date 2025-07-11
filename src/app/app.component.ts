@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavigationTabTitleService } from '@domain/change-language/services/navigation-tab-title.service';
 import { TranslateModule } from '@ngx-translate/core';

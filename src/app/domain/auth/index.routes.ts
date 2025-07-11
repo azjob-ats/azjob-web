@@ -44,6 +44,11 @@ export const INDEX_ROUTES: Routes = [
           import('./pages/reset-password/reset-password.component').then(m => m.ResetPasswordComponent),
       },
       {
+        path: ROUTES.AUTH.LOGOUT,
+        loadComponent: () =>
+          import('./pages/logout/logout.component').then(m => m.LogoutComponent),
+      },
+      {
         path: '',
         redirectTo: ROUTES.AUTH.PANEL_SIGN_IN,
         pathMatch: 'full'

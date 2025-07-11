@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { IndexService } from '@domain/auth/services/index.service';
 import { NavigationTabTitleService } from '@domain/change-language/services/navigation-tab-title.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { SideNavigationMenuMainContainerComponent } from '@widget/components/SideNavigationMenu/container/side-navigation-menu-main-container/side-navigation-menu-main-container.component';
@@ -10,6 +12,7 @@ import { SideNavigationMenuMainContainerComponent } from '@widget/components/Sid
     TranslateModule,
     SideNavigationMenuMainContainerComponent,
     TranslateModule,
+    CommonModule
   ],
   selector: 'app-index',
   template: `

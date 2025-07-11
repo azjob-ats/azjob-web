@@ -7,43 +7,43 @@
                     <div class="text-4xl font-medium mb-2">Criar uma nova conta</div>
                 </div>
                 <div class="mb-3">
-                    <app-input-primary [formControl]="nomeFormControl" [title]="nomeFormOption.title"
-                        [erroFill]="nomeFormOption.erroFill" [erroRequired]="nomeFormOption.erroRequired"
-                        [isRequired]="nomeFormOption.isRequired" [isDisabled]="nomeFormOption.isDisabled"
-                        [minLength]="nomeFormOption.minLength"
-                        [maxLength]="nomeFormOption.maxLength"></app-input-primary>
+                    <app-input-primary [formControl]="nameControl" [title]="nameOption.title"
+                        [erroFill]="nameOption.erroFill" [erroRequired]="nameOption.erroRequired"
+                        [isRequired]="nameOption.isRequired" [isDisabled]="nameOption.isDisabled"
+                        [minLength]="nameOption.minLength" [maxLength]="nameOption.maxLength"></app-input-primary>
                 </div>
                 <div class="mb-3">
-                    <app-input-primary [formControl]="emailFormControl" [title]="emailFormOption.title"
-                        [erroFill]="emailFormOption.erroFill" [erroRequired]="emailFormOption.erroRequired"
-                        [isRequired]="emailFormOption.isRequired" [isDisabled]="emailFormOption.isDisabled"
-                        [minLength]="emailFormOption.minLength"
-                        [maxLength]="emailFormOption.maxLength"></app-input-primary>
+                    <app-input-email [formControl]="emailControl" [title]="emailOption.title"
+                        [erroFill]="emailOption.erroFill" [erroRequired]="emailOption.erroRequired"
+                        [isRequired]="emailOption.isRequired" [isDisabled]="emailOption.isDisabled"
+                        [minLength]="emailOption.minLength" [maxLength]="emailOption.maxLength"
+                        [hasErrorResponse]="emailOption.hasErrorResponse"></app-input-email>
                 </div>
                 <div class="mb-4">
-                    <app-input-primary [formControl]="senhaFormControl" [title]="senhaFormOption.title"
-                        [erroFill]="senhaFormOption.erroFill" [erroRequired]="senhaFormOption.erroRequired"
-                        [isRequired]="senhaFormOption.isRequired" [isDisabled]="senhaFormOption.isDisabled"
-                        [minLength]="senhaFormOption.minLength"
-                        [maxLength]="senhaFormOption.maxLength"></app-input-primary>
+                    <app-input-password [formControl]="passwordControl" [title]="passwordOption.title"
+                        [erroFill]="passwordOption.erroFill" [erroRequired]="passwordOption.erroRequired"
+                        [isRequired]="passwordOption.isRequired" [isDisabled]="passwordOption.isDisabled"
+                        [minLength]="passwordOption.minLength" [maxLength]="passwordOption.maxLength"
+                        [hasErrorResponse]="passwordOption.hasErrorResponse"></app-input-password>
                 </div>
                 <div class="mb-4">
-                    <app-input-primary [formControl]="senhaFormControl" [title]="senhaFormOption.title"
-                        [erroFill]="senhaFormOption.erroFill" [erroRequired]="senhaFormOption.erroRequired"
-                        [isRequired]="senhaFormOption.isRequired" [isDisabled]="senhaFormOption.isDisabled"
-                        [minLength]="senhaFormOption.minLength"
-                        [maxLength]="senhaFormOption.maxLength"></app-input-primary>
+                    <app-input-password [formControl]="confirmPasswordControl" [title]="passwordOption.title"
+                        [erroFill]="passwordOption.erroFill" [erroRequired]="passwordOption.erroRequired"
+                        [isRequired]="passwordOption.isRequired" [isDisabled]="passwordOption.isDisabled"
+                        [minLength]="passwordOption.minLength" [maxLength]="passwordOption.maxLength"
+                        [hasErrorResponse]="passwordOption.hasErrorResponse" [matchTo]="passwordControl"
+                        idReference="confirmPassword"></app-input-password>
                 </div>
                 <div class="mb-3">
                     <div class="w-full">
-                        <p-button label="Cadastre-se" severity="primary" styleClass="w-full custom-h-full "
-                            [routerLink]="confirmSignUpRouterLink"></p-button>
+                        <p-button [disabled]="isDisabled" [appLoadingSpinner]="isLoading" label="Cadastre-se"
+                            severity="primary" styleClass="w-full custom-h-full " (onClick)="validarForm()"></p-button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-12 p-0 m-0">
-        <app-footer [link]="signInRouterLink" text="Já sou cadastrado," redirectText="quero entrar!"></app-footer>
+        <app-footer [link]="panelSignInRouterLink" text="Já sou cadastrado," redirectText="quero entrar!"></app-footer>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormControl,
   FormsModule,
   ReactiveFormsModule,
@@ -11,6 +12,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { passwordStrongValidator } from './password-strength.validator';
+import { passwordMatchValidator } from './password-match.validator';
 
 @Component({
   selector: 'app-input-password',
@@ -29,7 +31,7 @@ import { passwordStrongValidator } from './password-strength.validator';
     <p-iconfield class="w-full">
       <input
         pInputText
-        id="password"
+        [id]="idReference"
         pSize="large"
         class="w-full"
         [attr.type]="showPassword ? 'text' : 'password'"
@@ -69,11 +71,16 @@ import { passwordStrongValidator } from './password-strength.validator';
       <div><small class="err-small" *ngIf="!hasSymbol">Contém símbolo (!#$...)</small></div>
       <div><small class="err-small" *ngIf="!isLongEnough">{{ erroFill }}</small></div>
     </small>
+    <small
+      class="err-small"
+      *ngIf="formControl.hasError('passwordMismatch') && formControl.touched"
+    >
+      As senhas não coincidem.
+    </small>
   `,
   styles: [''],
 })
 export class InputPasswordComponent implements OnInit {
-  /* === Inputs configuráveis === */
   @Input() formControl!: FormControl<any>;
   @Input() title: string = 'Senha';
   @Input() erroRequired: string = 'Campo obrigatório.';
@@ -83,6 +90,8 @@ export class InputPasswordComponent implements OnInit {
   @Input() isDisabled = false;
   @Input() minLength?: number;
   @Input() maxLength?: number;
+  @Input() idReference: string = "password";
+  @Input() matchTo?: AbstractControl;
 
   showPassword = false;
   hasUpperCase = false;
@@ -94,6 +103,11 @@ export class InputPasswordComponent implements OnInit {
   private initialDisabledState!: boolean;
 
   ngOnInit(): void {
+    if (this.matchTo) {
+      this.matchTo.valueChanges.subscribe(() =>
+        this.formControl.updateValueAndValidity({ onlySelf: true })
+      );
+    }
     this.formControl.valueChanges.subscribe(value => {
       this.checkStrength(value);
     });
@@ -102,7 +116,9 @@ export class InputPasswordComponent implements OnInit {
 
     const validators = [
       ...(this.isRequired ? [Validators.required] : []),
-      passwordStrongValidator()
+      passwordStrongValidator(),
+      ...(this.matchTo ? [passwordMatchValidator(this.matchTo)] : []),
+      // min/maxLength mantidos abaixo
     ];
 
     if (this.minLength && this.minLength > 0) {

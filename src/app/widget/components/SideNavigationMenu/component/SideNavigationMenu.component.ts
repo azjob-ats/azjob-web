@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Input, SimpleChanges, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { Drawer, DrawerModule } from 'primeng/drawer';
@@ -76,7 +76,12 @@ export class SideNavigationMenuComponent {
     this.isMobileMode = !this.isMobileMode;
   }
 
-  public selectMember() {
+  public selectMember(link: string, target: string) {
+    if (target === '_blank') {
+      window.open(link, target);
+    } else {
+      this.router.navigate([link]);
+    }
     this.op.hide();
   }
 

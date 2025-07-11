@@ -13,11 +13,10 @@ type AppStateLang = AppState<Language>;
   providedIn: 'root',
 })
 export class LanguageCacheService {
-  public constructor(private store: StoreService<Language>) {
+  private store: StoreService<any> = new StoreService<Language>();
+
+  public constructor() {
     this.app();
-    setTimeout(() => {
-      this.app();
-    }, TIME_1_SECOND);
   }
 
   private app() {

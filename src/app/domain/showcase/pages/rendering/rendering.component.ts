@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PageDocumentComponent } from '@domain/showcase/components/page-document/page-document.component';
 import { Template } from '@domain/showcase/interfaces/index.interface';
 import { componentMap } from '@domain/showcase/configs/component-map.configs';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-rendering',
@@ -14,13 +15,19 @@ import { componentMap } from '@domain/showcase/configs/component-map.configs';
 export class RenderingComponent implements OnInit {
   public templateRouterComponent: string = '';
   public templeted: Template[] = componentMap;
+  private destroy$ = new Subject<void>();
 
-  public constructor(private router: ActivatedRoute) {}
+  public constructor(private router: ActivatedRoute) { }
   public ngOnInit(): void {
     this.router.url
-      .subscribe(params => {
+      .pipe(
+        takeUntil(this.destroy$)
+      ).subscribe(params => {
         this.templateRouterComponent = params[0].path;
       })
-      .unsubscribe();
+  }
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

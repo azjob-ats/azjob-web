@@ -46,7 +46,7 @@
     </div>
     <p-popover #op>
       <ul *ngFor="let item of banner.menu" class="sidebar-links">
-        <li class="cursor-pointer" (click)="selectMember()">
+        <li class="cursor-pointer" (click)="selectMember(item.routerLink?.link!, item.routerLink?.target!)">
           <a class="p-3">{{ item.name }}</a>
         </li>
       </ul>

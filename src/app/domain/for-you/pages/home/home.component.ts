@@ -8,4 +8,4 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.scss',
   imports: [CommonModule, RouterModule],
 })
-export class HomeComponent {}
+export class HomeComponent { }

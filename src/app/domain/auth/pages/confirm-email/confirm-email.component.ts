@@ -1,29 +1,62 @@
-import { Component } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { InputPrimaryComponent } from
-  '@widget/components/input-primary/input-primary.component';
-import { ButtonModule } from 'primeng/button';
-import { InputOtpModule } from 'primeng/inputotp';
-import { environment } from '@env/environment';
-import { HeaderComponent } from '@domain/auth/components/header/header.component';
+import { Component, computed, inject } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FooterComponent } from '@domain/auth/components/footer/footer.component';
-const { ROUTES } = environment;
+import { HeaderComponent } from '@domain/auth/components/header/header.component';
+import { BaseAuthModel } from '@domain/auth/models/base-auth.model';
+import { ApiResponse } from '@shared/interfaces/api-response';
+import { InputPinComponent } from '@widget/components/input-pin/input-pin.component';
+import { LoadingSpinnerDirective } from '@widget/directives/loading-spinner.directive';
+import { ButtonModule } from 'primeng/button';
+
 @Component({
   selector: 'app-confirm-email',
   imports: [
     RouterModule,
     ButtonModule,
-    InputOtpModule,
+    InputPinComponent,
     FormsModule,
     ReactiveFormsModule,
     HeaderComponent,
+    LoadingSpinnerDirective,
     FooterComponent
   ],
   templateUrl: './confirm-email.component.html',
   styleUrl: './confirm-email.component.scss',
 })
-export class ConfirmEmailComponent {
-  protected signInRouterLink = `/${ROUTES.AUTH.ROOT}/${ROUTES.AUTH.PANEL_SIGN_IN}`;
-  public pin = new FormControl('');
+export class ConfirmEmailComponent extends BaseAuthModel {
+  private route = inject(ActivatedRoute);
+  email = computed(() => this.route.snapshot.queryParamMap.get('email') ?? '');
+
+  validatePin() {
+    if (this.pinControl.status == 'INVALID') {
+      this.pinControl.markAsTouched();
+      return;
+    }
+
+    this.isLoadingValidatePin = true;
+
+    this.authService.confirmEmailByCode(this.pinControl.value!, this.email()).subscribe({
+      next: (res: ApiResponse<any>) => {
+        this.isLoadingValidatePin = false;
+        if (res.statusCode === 200) {
+          this.router.navigate([this.signInRouterLink]);
+          return;
+        }
+      },
+      error: (err) => {
+        console.log('err: ', err);
+        if (err.errors![0].code === 'auth/wrong-email') {
+          this.pinOption.hasErrorResponse = err.errors![0].message;
+          this.pinControl.setErrors({ hasErrorResponse: true });
+        }
+
+        if (err.errors![0].code === 'auth/wrong-pin-not-found') {
+          this.pinOption.hasErrorResponse = err.errors![0].message;
+          this.pinControl.setErrors({ hasErrorResponse: true });
+        }
+        this.isLoadingValidatePin = false;
+      }
+    })
+  }
 }

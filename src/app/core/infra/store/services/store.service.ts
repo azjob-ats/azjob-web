@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { StorageStrategy } from '@core/infra/storage/enums/storage.enum';
 import { BehaviorSubject, filter, map, Observable, of, startWith, switchMap, tap } from 'rxjs';
 import { AppState } from '@core/infra/store/interfaces/state.model';
@@ -6,10 +6,6 @@ import { StorageLocalService } from '@core/infra/storage/services/storage-local.
 import { StorageSessionService } from '@core/infra/storage/services/storage-session.service';
 import { TypeObjectUtil } from '@shared/utils/type-object.util';
 import { CryptoService } from '@core/infra/crypto/crypto-discontinued.service';
-
-@Injectable({
-  providedIn: 'root',
-})
 export class StoreService<T> {
   /*Ele armazena o estado atual e permite a atualização do estado ao chamar .next(value).
     Mantém o último valor armazenado.
@@ -23,11 +19,15 @@ export class StoreService<T> {
     Qualquer componente pode assinar(subscribe) para obter o estado atualizado.*/
   private state$ = this.stateStore.asObservable();
 
-  public constructor(
-    private storage: StorageLocalService<AppState<T>>,
-    private session: StorageSessionService<AppState<T>>,
-    private crypto: CryptoService<AppState<T>>
-  ) {}
+  constructor() {
+    setTimeout(() => {
+      console.log('instanciando', this.stateStore.value?.storage.tableName);
+    }, 3000);
+  }
+
+  public storage: StorageLocalService<AppState<T>> = inject(StorageLocalService);
+  public session: StorageSessionService<AppState<T>> = inject(StorageSessionService);
+  public crypto: CryptoService<AppState<T>> = inject(CryptoService);
 
   public initialState(initialState: AppState<T>): Observable<AppState<T> | null> {
     this.stateStore.next(initialState);

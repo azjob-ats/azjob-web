@@ -22,7 +22,7 @@ import { InputTextModule } from 'primeng/inputtext';
       />
       <p-inputicon *ngIf="nome.value" styleClass="inputIconTop">
         <p-button
-          (click)="nome.value = ''"
+          (click)="cleanValueFormControl()"
           [rounded]="true"
           severity="primary"
           styleClass="p-0"
@@ -83,6 +83,11 @@ export class InputPrimaryComponent {
     this.applyRequiredValidator(this.isRequired);
     this.applyDisabledState(this.isDisabled);
     this.formControl.updateValueAndValidity();
+  }
+
+  public cleanValueFormControl() {
+    this.formControl.setValue('');
+    this.formControl.markAsUntouched();
   }
 
   private applyMinLength(min: number) {
