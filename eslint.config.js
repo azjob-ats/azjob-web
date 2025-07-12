@@ -53,7 +53,12 @@ module.exports = [
       // ======================
       '@typescript-eslint/no-unused-vars': [
         'error',
-        { vars: 'all', args: 'after-used', ignoreRestSiblings: false }
+        {
+          vars: 'all',
+          args: 'after-used',
+          ignoreRestSiblings: false,
+          argsIgnorePattern: '^_',
+        },
       ], // Error on unused variables
       '@typescript-eslint/explicit-member-accessibility': [
         'error', 

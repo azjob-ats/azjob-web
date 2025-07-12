@@ -12,7 +12,7 @@ export class LoadingSpinnerDirective implements OnChanges, AfterViewInit {
     private renderer: Renderer2
   ) {}
 
-  public ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     // Encontrar o <button> dentro do <p-button>
     this.buttonElement = this.el.nativeElement.querySelector('button');
 
@@ -21,7 +21,7 @@ export class LoadingSpinnerDirective implements OnChanges, AfterViewInit {
     }
   }
 
-  public ngOnChanges() {
+  public ngOnChanges(): void {
     if (this.buttonElement) {
       if (this.loading) {
         this.addSpinner();
@@ -31,7 +31,7 @@ export class LoadingSpinnerDirective implements OnChanges, AfterViewInit {
     }
   }
 
-  private addSpinner() {
+  private addSpinner(): void {
     if (!this.buttonElement) return;
 
     this.renderer.setAttribute(this.buttonElement, 'disabled', 'true');
@@ -52,7 +52,7 @@ export class LoadingSpinnerDirective implements OnChanges, AfterViewInit {
     }
   }
 
-  private removeSpinner() {
+  private removeSpinner(): void {
     if (!this.buttonElement) return;
 
     this.renderer.removeAttribute(this.buttonElement, 'disabled');

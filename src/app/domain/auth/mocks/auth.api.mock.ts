@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiResponse } from '@shared/interfaces/api-response';
 import { BehaviorSubject, delay, Observable, of, throwError } from 'rxjs';
 import { eProvider, eRole } from '../enums/index.enum';
-import { UserRegisterWithEmailAndPassword } from '../interfaces/index.interface';
+import { User, UserRegisterWithEmailAndPassword } from '../interfaces/index.interface';
 import { AuthRepository } from '../repositories/auth.repository';
 
 @Injectable({ providedIn: 'root' })
@@ -10,7 +10,7 @@ export class AuthApiMockService implements AuthRepository {
   private access_token: string =
     '.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
   private refresh_token: string = '3f5e2fc4-bbc2-4f85-b73a-b112f3f447ae';
-  private user$!: BehaviorSubject<any[]>;
+  private user$!: BehaviorSubject<User[]>;
   private pin: string[] = ['1263'];
   private payload!: { token: string; expiresIn: string };
 
@@ -24,7 +24,7 @@ export class AuthApiMockService implements AuthRepository {
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
 
-    const newUser = {
+    const newUser: User = {
       id: 1,
       ...user,
       lastname: '',
@@ -53,7 +53,7 @@ export class AuthApiMockService implements AuthRepository {
     this.user$ = new BehaviorSubject([newUser]);
   }
 
-  public signInWithGoogle() {
+  public signInWithGoogle(): Observable<ApiResponse> {
     return of();
   }
 
@@ -134,7 +134,9 @@ export class AuthApiMockService implements AuthRepository {
     return throwError(() => response).pipe(delay(500));
   }
 
-  public signUpWithEmailAndPassword(user: UserRegisterWithEmailAndPassword) {
+  public signUpWithEmailAndPassword(
+    user: UserRegisterWithEmailAndPassword
+  ): Observable<ApiResponse> {
     const findEmail = this.user$.value.find(find => find.email === user.email);
 
     if (findEmail) {
@@ -153,7 +155,7 @@ export class AuthApiMockService implements AuthRepository {
       return throwError(() => response).pipe(delay(2000));
     }
 
-    const newUser = {
+    const newUser: User = {
       id: this.user$.value.length + 1,
       ...user,
       phone: '',
@@ -166,6 +168,7 @@ export class AuthApiMockService implements AuthRepository {
       zipcode: '',
       avatar: 'image/user-default.png',
       bio: null,
+      lastname: '',
       username: this.generateUsernameFromEmail(user.email),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -279,7 +282,7 @@ export class AuthApiMockService implements AuthRepository {
     return throwError(() => response).pipe(delay(2000));
   }
 
-  public confirmEmailByCode(pin: string, email: string) {
+  public confirmEmailByCode(pin: string, email: string): Observable<ApiResponse> {
     const findEmail = this.user$.value.find(user => user.email === email);
 
     if (!findEmail) {
@@ -345,7 +348,11 @@ export class AuthApiMockService implements AuthRepository {
     }).pipe(delay(2000));
   }
 
-  public updatePasswordByToken(email: string, token: string, newPassword: string) {
+  public updatePasswordByToken(
+    email: string,
+    token: string,
+    newPassword: string
+  ): Observable<ApiResponse> {
     const datePayload = new Date(this.payload.expiresIn);
     const payloadExpires = datePayload < new Date();
     if (payloadExpires) {
@@ -382,18 +389,18 @@ export class AuthApiMockService implements AuthRepository {
     }).pipe(delay(2000));
   }
 
-  public getCurrentUserById(idUser: number): Observable<any> {
+  public getCurrentUserById(idUser: number): Observable<User | undefined> {
     const user = this.user$.value.find(user => user.id === idUser);
     return of(user).pipe(delay(2000));
   }
 
-  public logout(idUser: number) {
-    const user = this.user$.value.find(user => user.id === idUser);
+  public logout(idUser: number): void {
+    const user: User = this.user$.value.find(user => user.id === idUser)!;
     user.isLoggedIn = false;
     this.updateUser(user);
   }
 
-  private updateUser(user: any) {
+  private updateUser(user: User): void {
     const index = this.user$.value.findIndex(user => user.id === user.id);
     this.user$.value[index] = user;
     this.user$.next(this.user$.value);

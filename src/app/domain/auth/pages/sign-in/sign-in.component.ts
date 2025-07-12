@@ -24,7 +24,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent extends BaseAuthModel {
-  public override validarForm() {
+  public override validarForm(): void {
     if (this.emailControl.status == 'INVALID') {
       this.emailControl.markAsTouched();
       return;
@@ -44,7 +44,7 @@ export class SignInComponent extends BaseAuthModel {
     this.isLoading = true;
 
     this.signIn(this.emailControl.value!, this.passwordControl.value!).subscribe({
-      next: (res: ApiResponse<any>) => {
+      next: (res: ApiResponse<unknown>) => {
         this.isLoading = false;
         this.isDisabled = false;
         this.passwordControl.enable();

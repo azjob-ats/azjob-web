@@ -1,6 +1,6 @@
 export class IndexMap {
-  public static toEntity(dto: any[]): any[] {
-    return <any[]>dto.map(value => {
+  public static toEntity(dto: LanguageDTO[]): Language[] {
+    return dto.map(value => {
       return {
         language: value.description,
         prefix: value.cod,
@@ -8,8 +8,8 @@ export class IndexMap {
     });
   }
 
-  public static toDTO(entity: any[]): any[] {
-    return <any[]>entity.map(value => {
+  public static toDTO(entity: Language[]): LanguageDTO[] {
+    return entity.map(value => {
       return {
         description: value.language,
         cod: value.prefix,

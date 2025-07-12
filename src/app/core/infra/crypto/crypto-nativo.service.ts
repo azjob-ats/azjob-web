@@ -25,7 +25,7 @@ export class CryptoService<T> {
     );
   }
 
-  public async encrypt(value: T | any, secretKey: string): Promise<string> {
+  public async encrypt(value: T, secretKey: string): Promise<string> {
     const iv = crypto.getRandomValues(new Uint8Array(this.ivLength));
     const key = await this.getKey(secretKey);
     const data = this.encode(JSON.stringify(value));
@@ -40,7 +40,7 @@ export class CryptoService<T> {
     return btoa(String.fromCharCode(...fullData));
   }
 
-  public async decrypt(ciphertext: string, secretKey: string): Promise<any> {
+  public async decrypt(ciphertext: string, secretKey: string): Promise<T> {
     ciphertext = ciphertext.replace(/['"]/g, '');
 
     const data = Uint8Array.from(atob(ciphertext), c => c.charCodeAt(0));
@@ -50,6 +50,6 @@ export class CryptoService<T> {
 
     const decrypted = await crypto.subtle.decrypt({ ...this.algorithm, iv }, key, encryptedData);
 
-    return TypeObjectUtil.setValue(this.decode(decrypted));
+    return TypeObjectUtil.setValue(this.decode(decrypted)) as T;
   }
 }

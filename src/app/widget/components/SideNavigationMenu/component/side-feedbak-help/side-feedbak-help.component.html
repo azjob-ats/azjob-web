@@ -1,87 +1,72 @@
 <div class="w-full flex flex-row justify-content-between">
   <div class="flex items-center align-items-center gap-2">
     @if (toggle?.section !== null) {
-      <p-button
-        [disabled]="currentStep > 0 ? false : true"
-        (click)="goBack()"
-        icon="pi pi-arrow-left"
-        [rounded]="true"
-        [text]="true"
-        severity="primary"
-        styleClass="button-arrow-primary "
-        [class.opacity-less]="currentStep > 0 ? false : true"
-      />
+    <p-button [disabled]="currentStep > 0 ? false : true" (click)="goBack()" icon="pi pi-arrow-left" [rounded]="true"
+      [text]="true" severity="primary" styleClass="button-arrow-primary "
+      [class.opacity-less]="currentStep > 0 ? false : true" />
     }
     <span class="font-bold text-2xl title-header">
       @if (selectedMenu) {
-        {{ selectedMenu.name | translate }}
+      {{ selectedMenu.name | translate }}
       } @else {
-        {{ selectedSection?.name || toggle.name | translate }}
+      {{ selectedSection?.name || toggle!.name | translate }}
       }
     </span>
   </div>
-  <p-button
-    (click)="closeCallback($event)"
-    icon="pi pi-times"
-    [rounded]="true"
-    severity="primary"
-    styleClass="custom-size-small"
-  >
+  <p-button (click)="closeCallback($event)" icon="pi pi-times" [rounded]="true" severity="primary"
+    styleClass="custom-size-small">
   </p-button>
 </div>
 
 <div class="stepper-container">
   <!-- Etapa 0: Seções -->
   <div *ngIf="currentStep === 0" class="step-content">
-    @for (section of toggle.section; track section; let i = $index) {
-      <div
-        class="flex hover:bg-gray-100 border-round p-2 cursor-pointer"
-        (click)="goToSection(section)"
-      >
-        <div class="col-11 m-0 p-0">
-          <div class="grid m-0">
-            <div class="col-12 m-0 p-0">
-              <div class="text-left pt-1 font-bold">{{ section.name | translate }}</div>
-            </div>
-            <div class="col-12 m-0 p-0">
-              <div class="text-left p-0">{{ section.description | translate }}</div>
-            </div>
+    @for (section of toggle!.section; track section; let i = $index) {
+    <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToSection(section)">
+      <div class="col-11 m-0 p-0">
+        <div class="grid m-0">
+          <div class="col-12 m-0 p-0">
+            <div class="text-left pt-1 font-bold">{{ section.name | translate }}</div>
           </div>
-        </div>
-        <div class="col-1 m-0 p-0">
-          <div class="flex justify-content-end align-items-center p-0 h-full">
-            <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+          <div class="col-12 m-0 p-0">
+            <div class="text-left p-0">{{ section.description | translate }}</div>
           </div>
         </div>
       </div>
+      <div class="col-1 m-0 p-0">
+        <div class="flex justify-content-end align-items-center p-0 h-full">
+          <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+        </div>
+      </div>
+    </div>
     }
   </div>
 
   <!-- Etapa 1: Menus -->
   <div *ngIf="currentStep === 1" class="step-content" style="height: 500px !important">
-    @for (menu of selectedSection.menu; track $index) {
-      <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToMenu(menu)">
-        <div class="col-1 m-0 p-0">
-          <div class="flex justify-content-start align-items-center p-0 h-full">
-            <span class="outlined-icon text-2xl">{{ menu.icon }}</span>
-          </div>
+    @for (menu of selectedSection!.menu; track $index) {
+    <div class="flex hover:bg-gray-100 border-round p-2 cursor-pointer" (click)="goToMenu(menu)">
+      <div class="col-1 m-0 p-0">
+        <div class="flex justify-content-start align-items-center p-0 h-full">
+          <span class="outlined-icon text-2xl">{{ menu.icon }}</span>
         </div>
-        <div class="col-10 m-0 xl:p-0 lg:p-0 md:p-0 sm:p-2">
-          <div class="grid m-0">
-            <div class="col-12 m-0 p-0">
-              <div class="text-left pt-1 font-bold">{{ menu.name | translate }}</div>
-            </div>
-            <div class="col-12 m-0 p-0">
-              <div class="text-left p-0">{{ menu.description | translate }}</div>
-            </div>
+      </div>
+      <div class="col-10 m-0 xl:p-0 lg:p-0 md:p-0 sm:p-2">
+        <div class="grid m-0">
+          <div class="col-12 m-0 p-0">
+            <div class="text-left pt-1 font-bold">{{ menu.name | translate }}</div>
           </div>
-        </div>
-        <div class="col-1 m-0 p-0">
-          <div class="flex justify-content-end align-items-center p-0 h-full">
-            <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+          <div class="col-12 m-0 p-0">
+            <div class="text-left p-0">{{ menu.description | translate }}</div>
           </div>
         </div>
       </div>
+      <div class="col-1 m-0 p-0">
+        <div class="flex justify-content-end align-items-center p-0 h-full">
+          <i class="pi pi-chevron-right" style="font-size: 1rem"></i>
+        </div>
+      </div>
+    </div>
     }
   </div>
   <!-- Etapa 2: Conteudo Dinâmico Componente, Link ou Texto -->
@@ -89,18 +74,14 @@
     <div #dynamicComponent></div>
   </div>
   <div *ngIf="currentStep === 2 && selectedSection?.text" class="step-content">
-    {{ selectedSection.text }}
+    {{ selectedSection!.text }}
   </div>
   <div *ngIf="currentStep === 2 && selectedSection?.routerLink" class="step-content">
-    <div
-      class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
-      (click)="linkClick(selectedSection.routerLink, $event)"
-    >
+    <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
+      (click)="linkClick(selectedSection!.routerLink!, $event)">
       <div class="col-11 m-0 p-0">
-        <div
-          class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full"
-        >
-          {{ selectedSection.routerLink.label | translate }}
+        <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
+          {{ selectedSection!.routerLink!.label | translate }}
         </div>
       </div>
       <div class="col-1 m-0 p-0">
@@ -115,18 +96,14 @@
     <div #dynamicComponent></div>
   </div>
   <div *ngIf="currentStep === 2 && selectedMenu?.text" class="step-content">
-    {{ selectedMenu.text }}
+    {{ selectedMenu!.text }}
   </div>
   <div *ngIf="currentStep === 2 && selectedMenu?.routerLink" class="step-content">
-    <div
-      class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
-      (click)="linkClick(selectedMenu.routerLink, $event)"
-    >
+    <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
+      (click)="linkClick(selectedMenu!.routerLink!, $event)">
       <div class="col-11 m-0 p-0">
-        <div
-          class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full"
-        >
-          {{ selectedMenu.routerLink.label | translate }}
+        <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
+          {{ selectedMenu!.routerLink!.label | translate }}
         </div>
       </div>
       <div class="col-1 m-0 p-0">
@@ -141,18 +118,14 @@
     <div #dynamicComponent></div>
   </div>
   <div *ngIf="currentStep === -1 && toggle?.text" class="step-content">
-    {{ toggle.text }}
+    {{ toggle?.text }}
   </div>
   <div *ngIf="currentStep === -1 && toggle?.routerLink" class="step-content">
-    <div
-      class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
-      (click)="linkClick(toggle.routerLink, $event)"
-    >
+    <div class="flex hover:bg-gray-100 bg-gray-50 border-round p-2 cursor-pointer"
+      (click)="linkClick(toggle!.routerLink!, $event)">
       <div class="col-11 m-0 p-0">
-        <div
-          class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full"
-        >
-          {{ toggle.routerLink.label | translate }}
+        <div class="m-0 p-0 pl-2 flex justify-content-start align-items-center pt-1 font-bold h-full">
+          {{ toggle!.routerLink!.label | translate }}
         </div>
       </div>
       <div class="col-1 m-0 p-0">

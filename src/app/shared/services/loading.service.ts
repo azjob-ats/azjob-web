@@ -6,11 +6,11 @@ import { Injectable, signal } from '@angular/core';
 export class LoadingService {
   private loading = signal(false);
 
-  public start() {
+  public start(): void {
     this.loading.set(true);
   }
 
-  public stop() {
+  public stop(): void {
     this.loading.set(false);
   }
 }

@@ -28,7 +28,7 @@ export class ConfirmEmailComponent extends BaseAuthModel {
   private route = inject(ActivatedRoute);
   public email = computed(() => this.route.snapshot.queryParamMap.get('email') ?? '');
 
-  public validatePin() {
+  public validatePin(): void {
     if (this.pinControl.status == 'INVALID') {
       this.pinControl.markAsTouched();
       return;
@@ -37,7 +37,7 @@ export class ConfirmEmailComponent extends BaseAuthModel {
     this.isLoadingValidatePin = true;
 
     this.authService.confirmEmailByCode(this.pinControl.value!, this.email()).subscribe({
-      next: (res: ApiResponse<any>) => {
+      next: (res: ApiResponse<unknown>) => {
         this.isLoadingValidatePin = false;
         if (res.statusCode === 200) {
           this.router.navigate([this.signInRouterLink]);

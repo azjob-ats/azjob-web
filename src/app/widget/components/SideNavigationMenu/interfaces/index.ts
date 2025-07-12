@@ -1,24 +1,26 @@
-interface IRouterLink {
+import { Type } from '@angular/core';
+
+export interface IRouterLink {
   label: string;
   link: string;
   target?: string;
   closeMenu?: boolean;
 }
 
-interface IMenu {
+export interface IMenu {
   icon: string;
   name: string;
   description: string;
   routerLink: IRouterLink | null;
-  component: any | null;
+  component: Type<unknown> | null;
   text: string | null;
 }
 
-interface ISection {
+export interface ISection {
   name: string;
   description: string;
   routerLink: IRouterLink | null;
-  component: any | null;
+  component: Type<unknown> | null;
   text: string | null;
   menu: IMenu[] | null;
 }
@@ -26,7 +28,7 @@ interface ISection {
 export interface ISideNavigationMenu {
   name: string;
   key: string;
-  component: any | null;
+  component: Type<unknown> | null;
   text: string | null;
   routerLink: IRouterLink | null;
   section: ISection[] | null;

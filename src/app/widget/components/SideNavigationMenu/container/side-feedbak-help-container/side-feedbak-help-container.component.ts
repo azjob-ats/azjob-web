@@ -24,7 +24,7 @@ export class SideFeedbakHelpContainerComponent implements OnInit {
   @Output() public onClose = new EventEmitter<boolean>();
   public constructor(private router: Router) {}
 
-  public close($event: any) {
+  public close(_$event: boolean): void {
     this.onClose.emit(true);
   }
 

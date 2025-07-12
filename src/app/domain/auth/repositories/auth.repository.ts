@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { UserRegisterWithEmailAndPassword } from '../interfaces/index.interface';
+import { User, UserRegisterWithEmailAndPassword } from '../interfaces/index.interface';
 import { ApiResponse } from '@shared/interfaces/api-response';
 
 export abstract class AuthRepository {
@@ -26,7 +26,7 @@ export abstract class AuthRepository {
     newPassword: string
   ): Observable<ApiResponse>;
 
-  public abstract getCurrentUserById(idUser: number): Observable<any>;
+  public abstract getCurrentUserById(idUser: number): Observable<User | undefined>;
 
   public abstract logout(idUser: number): void;
 }

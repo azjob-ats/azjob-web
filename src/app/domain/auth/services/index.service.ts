@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { ApiResponse } from '@shared/interfaces/api-response';
 import { BehaviorSubject, delay, map, Observable, of, switchMap, take, tap } from 'rxjs';
 import { TokenCacheService } from '../caches/token.cache';
-import { UserCacheService } from '../caches/user.cachhe';
+import { UserCacheService } from '../caches/user.cache';
 import { UserRegisterWithEmailAndPassword } from '../interfaces/index.interface';
 import { AuthApiMockService } from '../mocks/auth.api.mock';
 
@@ -15,7 +15,7 @@ export class IndexService {
   private userCache: UserCacheService = inject(UserCacheService);
   private api: AuthApiMockService = inject(AuthApiMockService);
 
-  public signInWithGoogle() { }
+  public signInWithGoogle() {}
 
   public signInWithEmailAndPassword(email: string, password: string): Observable<ApiResponse> {
     return this.api.signInWithEmailAndPassword(email, password).pipe(
@@ -24,12 +24,12 @@ export class IndexService {
           this.setToken(res.data);
         }
       }),
-      switchMap(res =>
+      switchMap((res: any) =>
         res.success
           ? this.api.getCurrentUserById(res.data.refresh_token.user_id).pipe(
-            tap(user => this.setUser(user)),
-            map(() => res)
-          )
+              tap(user => this.setUser(user)),
+              map(() => res)
+            )
           : of(res)
       )
     );
@@ -159,7 +159,7 @@ export class IndexService {
   public validateToken(): Observable<boolean> {
     return this.tokenCache.results().pipe(
       take(1),
-      switchMap(token => {
+      switchMap((token: any) => {
         if (token && token.length > 0) {
           if (new Date() >= new Date(token[0].refresh_token.expiresIn)) {
             this.tokenCache.delete();

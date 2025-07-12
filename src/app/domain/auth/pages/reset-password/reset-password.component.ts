@@ -35,7 +35,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
   public isLoadingResetPassword: boolean = false;
   private payload!: { token: string; expiresIn: string };
 
-  public sendCodeToEmail() {
+  public sendCodeToEmail(): void {
     if (this.emailControl.status == 'INVALID') {
       this.emailControl.markAsTouched();
       return;
@@ -66,7 +66,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
     });
   }
 
-  public resetPassword() {
+  public resetPassword(): void {
     if (this.passwordControl.status == 'VALID') {
       this.pinControl.markAsTouched();
 
@@ -92,14 +92,14 @@ export class ResetPasswordComponent extends BaseAuthModel {
     }
   }
 
-  private resetPayloadPin() {
+  private resetPayloadPin(): void {
     this.payload = {
       token: '',
       expiresIn: '',
     };
   }
 
-  public validatePin() {
+  public validatePin(): void {
     if (this.pinControl.status == 'INVALID') {
       this.pinControl.markAsTouched();
       return;

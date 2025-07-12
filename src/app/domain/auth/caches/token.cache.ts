@@ -5,19 +5,23 @@ import { LoadingState } from '@core/infra/store/enums/state.enum';
 import { StoreService } from '@core/infra/store/services/store.service';
 import { environment } from '@env/environment';
 
-type AppStateLang = AppState<any>;
+interface Token {
+  prefix: string;
+}
+
+type AppStateToken = AppState<Token>;
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenCacheService {
-  private store: StoreService<any> = new StoreService<any>();
+  private store: StoreService<Token> = new StoreService<Token>();
 
   public constructor() {
     this.app();
   }
 
-  private app() {
+  private app(): void {
     this.store.initialState({
       items: [],
       callState: LoadingState.INIT,
@@ -29,20 +33,20 @@ export class TokenCacheService {
     });
   }
 
-  public results(): Observable<any[]> {
-    return this.store.results((state: AppStateLang) => state.items as any);
+  public results(): Observable<Token[]> {
+    return this.store.results((state: AppStateToken) => state.items as Token[]);
   }
 
-  public save(content: any): Observable<boolean> {
-    this.store.save((state: AppStateLang) => ({
+  public save(content: Token): Observable<boolean> {
+    this.store.save((state: AppStateToken) => ({
       ...state,
       items: [...state.items, content],
     }));
     return of(true);
   }
 
-  public update(content: any): Observable<boolean> {
-    this.store.update((state: AppStateLang) => ({
+  public update(content: Token): Observable<boolean> {
+    this.store.update((state: AppStateToken) => ({
       ...state,
       items: state.items.map(item => (item.prefix === content.prefix ? content : item)),
     }));
@@ -50,7 +54,7 @@ export class TokenCacheService {
   }
 
   public deletById(prefix: string): Observable<boolean> {
-    this.store.deletById((state: AppStateLang) => ({
+    this.store.deletById((state: AppStateToken) => ({
       ...state,
       items: state.items.filter(item => item.prefix !== prefix),
     }));

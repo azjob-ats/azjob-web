@@ -13,6 +13,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { passwordStrongValidator } from './password-strength.validator';
 import { passwordMatchValidator } from './password-match.validator';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-input-password',
@@ -88,7 +89,7 @@ import { passwordMatchValidator } from './password-match.validator';
   styles: [''],
 })
 export class InputPasswordComponent implements OnInit {
-  @Input() public formControl!: FormControl<any>;
+  @Input() public formControl!: FormControl<string | null>;
   @Input() public title: string = 'Senha';
   @Input() public erroRequired: string = 'Campo obrigatório.';
   @Input() public erroFill: string = 'Senha muito curta.';
@@ -99,6 +100,7 @@ export class InputPasswordComponent implements OnInit {
   @Input() public maxLength?: number;
   @Input() public idReference: string = 'password';
   @Input() public matchTo?: AbstractControl;
+  private destroy$ = new Subject<void>();
 
   public showPassword = false;
   public hasUpperCase = false;
@@ -106,7 +108,7 @@ export class InputPasswordComponent implements OnInit {
   public hasNumber = false;
   public hasSymbol = false;
   public isLongEnough = false;
-  private initialControlValue!: any;
+  private initialControlValue!: string | null;
   private initialDisabledState!: boolean;
 
   public ngOnInit(): void {
@@ -115,9 +117,11 @@ export class InputPasswordComponent implements OnInit {
         this.formControl.updateValueAndValidity({ onlySelf: true })
       );
     }
-    this.formControl.valueChanges.subscribe(value => {
-      this.checkStrength(value);
-    });
+    this.formControl.valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((value: string | null) => {
+        this.checkStrength(value);
+      });
     this.initialControlValue = this.formControl.value;
     this.initialDisabledState = this.isDisabled;
 
@@ -141,7 +145,7 @@ export class InputPasswordComponent implements OnInit {
     this.formControl.updateValueAndValidity();
   }
 
-  public checkStrength(value: string): void {
+  public checkStrength(value: string | null): void {
     if (!value) {
       this.hasUpperCase = false;
       this.hasLowerCase = false;
@@ -185,5 +189,10 @@ export class InputPasswordComponent implements OnInit {
 
   private applyDisabledState(shouldDisable: boolean): void {
     shouldDisable ? this.disable() : this.enable();
+  }
+
+  private ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

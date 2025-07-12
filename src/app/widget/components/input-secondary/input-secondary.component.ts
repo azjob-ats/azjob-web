@@ -52,7 +52,7 @@ import { InputTextModule } from 'primeng/inputtext';
   ],
 })
 export class InputSecondaryComponent {
-  @Input() public formControl!: FormControl<any>;
+  @Input() public formControl!: FormControl<unknown>;
   @Input() public title!: string;
   @Input() public erroFill!: string;
   @Input() public erroRequired!: string;
@@ -62,15 +62,15 @@ export class InputSecondaryComponent {
   @Input() public maxLength!: number;
   public isReady = false;
 
-  public ngOnChanges() {
+  public ngOnChanges(): void {
     setTimeout(() => {
       this.isReady = true;
     });
   }
 
-  private initialControlValue: any;
+  private initialControlValue: unknown;
   private initialDisabledState!: boolean;
-  private initialValidator: any;
+  private initialValidator: unknown;
 
   public ngOnInit(): void {
     this.initialControlValue = this.formControl.value;
@@ -83,7 +83,7 @@ export class InputSecondaryComponent {
     this.applyRequiredValidator(this.isRequired);
   }
 
-  private applyMinLength(min: number) {
+  private applyMinLength(min: number): void {
     if (min == null || min <= 0) {
       return;
     }
@@ -93,7 +93,7 @@ export class InputSecondaryComponent {
     this.formControl.updateValueAndValidity();
   }
 
-  private applyMaxLength(max: number) {
+  private applyMaxLength(max: number): void {
     if (max == null || max <= 0) {
       return;
     }

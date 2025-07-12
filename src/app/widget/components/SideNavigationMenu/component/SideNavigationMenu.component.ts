@@ -6,12 +6,15 @@ import { Drawer, DrawerModule } from 'primeng/drawer';
 import { Popover } from 'primeng/popover';
 import { TooltipModule } from 'primeng/tooltip';
 import {
+  IMenu,
+  ISection,
   ISidebarBanner,
   ISidebarExtraLinks,
   ISidebarLinks,
   ISidebarSearch,
   ISideNavigationMenu,
   ISidevarLogo,
+  IRouterLink,
 } from '../interfaces';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -42,23 +45,23 @@ export class SideNavigationMenuComponent {
   @ViewChild('op') public op!: Popover;
   public isMobileMode = false;
   public visible: boolean = false;
-  public toggle: any = [];
+  public toggle: ISideNavigationMenu | null = null;
   public currentStep = 0;
-  public selectedSection: any = null;
-  public selectedMenu: any = null;
+  public selectedSection: ISection | null = null;
+  public selectedMenu: IMenu | null = null;
   public activeDrawer: boolean = false;
 
   public constructor(private router: Router) {}
 
-  public toggleMobile() {
+  public toggleMobile(): void {
     this.isMobileMode = !this.isMobileMode;
     setTimeout(() => {
       this.visible = !this.visible;
     }, 300);
   }
 
-  public reset() {
-    this.toggle = [];
+  public reset(): void {
+    this.toggle = null;
     this.currentStep = 0;
     this.selectedSection = null;
     this.selectedMenu = null;
@@ -66,17 +69,17 @@ export class SideNavigationMenuComponent {
     this.activeDrawer = false;
   }
 
-  public closeCallback(e: any): void {
+  public closeCallback(e: Event): void {
     this.drawerRef.close(e);
     this.reset();
   }
 
-  public handleClickOutside() {
+  public handleClickOutside(): void {
     this.reset();
     this.isMobileMode = !this.isMobileMode;
   }
 
-  public selectMember(link: string, target: string) {
+  public selectMember(link: string, target: string): void {
     if (target === '_blank') {
       window.open(link, target);
     } else {
@@ -85,7 +88,7 @@ export class SideNavigationMenuComponent {
     this.op.hide();
   }
 
-  public goToToggle(toggle: string) {
+  public goToToggle(toggle: string): void {
     this.reset();
     if (toggle == 'empyty') {
       this.isMobileMode = false;
@@ -108,7 +111,7 @@ export class SideNavigationMenuComponent {
       this.isMobileMode = !this.isMobileMode;
     });
 
-    this.toggle = this.steep.find(item => item.key === toggle);
+    this.toggle = this.steep.find(item => item.key === toggle)!;
 
     if (this.toggle.component !== null) {
       this.renderComponent(this.toggle.component);
@@ -133,7 +136,7 @@ export class SideNavigationMenuComponent {
    * @description
    * Na Seção temos a posibilidade de exibir apenas um conteudo, são eles: menu, componente ou link
    */
-  public goToSection(section: any) {
+  public goToSection(section: ISection): void {
     this.selectedSection = section;
 
     const isMenu = section.menu !== null;
@@ -150,7 +153,7 @@ export class SideNavigationMenuComponent {
     const isComponent = section.component !== null;
     if (isComponent) {
       this.currentStep = 2;
-      this.renderComponent(section.component);
+      this.renderComponent(section.component as Type<unknown>);
       return;
     }
 
@@ -167,7 +170,7 @@ export class SideNavigationMenuComponent {
     }
   }
 
-  public goToMenu(menu: any) {
+  public goToMenu(menu: IMenu): void {
     this.selectedMenu = menu;
     this.currentStep = 2;
     if (menu.component !== null) {
@@ -176,7 +179,7 @@ export class SideNavigationMenuComponent {
     }
   }
 
-  public goBack() {
+  public goBack(): void {
     this.container.clear();
 
     const estou_no_primeiro_node = this.selectedMenu === null;
@@ -194,12 +197,12 @@ export class SideNavigationMenuComponent {
     }
   }
 
-  public renderComponent(component: Type<any>) {
+  public renderComponent(component: Type<unknown>): void {
     this.container.clear();
     this.container.createComponent(component);
   }
 
-  public linkClick(link: any, event: Event) {
+  public linkClick(link: IRouterLink, event: Event): void {
     if (link.closeMenu) {
       this.drawerRef.close(event);
     }

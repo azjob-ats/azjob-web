@@ -74,7 +74,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       });
   }
 
-  private languageChanged() {
+  private languageChanged(): void {
     this.lang
       .getStreamOnLanguage()
       .pipe(takeUntil(this.destroy$))
@@ -84,7 +84,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       });
   }
 
-  private startTranslation() {
+  private startTranslation(): void {
     this.translate
       .get('app')
       .pipe(takeUntil(this.destroy$))
@@ -93,7 +93,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       });
   }
 
-  private setDate() {
+  private setDate(): void {
     this.auth
       .isLogged()
       .pipe(takeUntil(this.destroy$))
@@ -106,7 +106,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
       });
   }
 
-  private setDateIsNotLogged() {
+  private setDateIsNotLogged(): void {
     this.steep = [
       {
         name: 'sidebar.more',
@@ -265,7 +265,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
     };
   }
 
-  private setDateIsLogged() {
+  private setDateIsLogged(): void {
     this.steep = [
       {
         name: 'sidebar.more',
@@ -592,7 +592,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
     };
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

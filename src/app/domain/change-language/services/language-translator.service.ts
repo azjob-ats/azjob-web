@@ -13,7 +13,7 @@ export class LanguageTranslatorService {
 
   public constructor(
     private translateService: TranslateService,
-    @Inject(PLATFORM_ID) private platformId: any,
+    @Inject(PLATFORM_ID) private platformId: object,
     private lang: LanguageService
   ) {
     if (isPlatformBrowser(this.platformId)) {
@@ -39,7 +39,7 @@ export class LanguageTranslatorService {
     }
   }
 
-  public changeLang(lang: string) {
+  public changeLang(lang: string): void {
     this.translateService.use(lang);
     if (isPlatformBrowser(this.platformId)) {
       this.lang.addLanguage(lang).subscribe({});

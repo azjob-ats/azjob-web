@@ -6,7 +6,10 @@ import { Observable } from 'rxjs';
 export class AuthInterceptor<T> implements HttpInterceptor {
   private cache: T | null = null;
 
-  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  public intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     const token = this.cache;
     if (token) {
       request = request.clone({

@@ -11,8 +11,8 @@ export class LightDarkToggleComponent implements OnInit {
   public modo: string = 'light';
 
   public ngOnInit(): void {
-    const element: any = document.querySelector('html');
-    if (element.classList[0]) {
+    const element: HTMLElement | null = document.querySelector('html');
+    if (element?.classList[0]) {
       if (element.classList[0] === 'my-app-dark') {
         this.modo = 'dark';
       } else {
@@ -27,7 +27,7 @@ export class LightDarkToggleComponent implements OnInit {
     }
 
     this.modo = modo;
-    const element: any = document.querySelector('html');
-    element.classList.toggle('my-app-dark');
+    const element: HTMLElement | null = document.querySelector('html');
+    element?.classList.toggle('my-app-dark');
   }
 }

@@ -74,7 +74,7 @@ import { InputTextModule } from 'primeng/inputtext';
   styles: [''],
 })
 export class InputEmailComponent implements OnInit {
-  @Input() public formControl!: FormControl<any>;
+  @Input() public formControl!: FormControl<unknown>;
   @Input() public title: string = 'E‑mail';
   @Input() public erroRequired: string = 'Campo obrigatório.';
   @Input() public erroInvalid: string = 'E‑mail inválido.';
@@ -85,7 +85,7 @@ export class InputEmailComponent implements OnInit {
   @Input() public minLength?: number;
   @Input() public maxLength?: number;
 
-  private initialControlValue!: any;
+  private initialControlValue!: unknown;
   private initialDisabledState!: boolean;
 
   public ngOnInit(): void {

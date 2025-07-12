@@ -39,12 +39,12 @@ export class LanguageToggleComponent implements OnInit {
     });
   }
 
-  public selected($event: string) {
+  public selected($event: string): void {
     this.default = $event;
     this.translationService.changeLang($event);
   }
 
-  public onSelectionChange(event: Event) {
+  public onSelectionChange(event: Event): void {
     const value = (event.target as HTMLSelectElement).value;
     this.selected(value);
   }

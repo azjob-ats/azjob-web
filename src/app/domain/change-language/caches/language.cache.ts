@@ -12,13 +12,13 @@ type AppStateLang = AppState<Language>;
   providedIn: 'root',
 })
 export class LanguageCacheService {
-  private store: StoreService<any> = new StoreService<Language>();
+  private store: StoreService<Language> = new StoreService<Language>();
 
   public constructor() {
     this.app();
   }
 
-  private app() {
+  private app(): void {
     this.store.initialState({
       items: [],
       callState: LoadingState.INIT,
@@ -31,7 +31,7 @@ export class LanguageCacheService {
   }
 
   public results(): Observable<Language[]> {
-    return this.store.results((state: AppStateLang) => state.items as any);
+    return this.store.results((state: AppStateLang) => state.items);
   }
 
   public save(content: Language): Observable<boolean> {

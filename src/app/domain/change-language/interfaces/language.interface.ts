@@ -11,7 +11,7 @@ export interface Selection {
 }
 
 export interface SelectOption {
-  formControl: FormControl<any>;
+  formControl: FormControl<unknown>;
   selectEmpy: string;
   requiredField: boolean;
   disableField: boolean;

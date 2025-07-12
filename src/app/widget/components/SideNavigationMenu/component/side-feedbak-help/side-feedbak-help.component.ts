@@ -15,7 +15,14 @@ import { Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
-import { ISidebarExtraLinks, ISidebarLinks, ISideNavigationMenu } from '../../interfaces';
+import {
+  ISidebarExtraLinks,
+  ISidebarLinks,
+  ISideNavigationMenu,
+  ISection,
+  IMenu,
+  IRouterLink,
+} from '../../interfaces';
 
 @Component({
   selector: 'app-side-feedbak-help',
@@ -33,27 +40,27 @@ export class SideFeedbakHelpComponent implements OnInit {
   @Output() public onClose = new EventEmitter<boolean>();
   public isMobileMode = false;
   public visible: boolean = false;
-  public toggle: any = [];
+  public toggle: ISideNavigationMenu | null = null;
   public currentStep = 0;
-  public selectedSection: any = null;
-  public selectedMenu: any = null;
+  public selectedSection: ISection | null = null;
+  public selectedMenu: IMenu | null = null;
   public activeDrawer: boolean = false;
 
   public constructor(private router: Router) {}
   private translate: TranslateService = inject(TranslateService);
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.goToToggle('plus-preferences');
   }
 
-  public closeCallback(e: any): void {
+  public closeCallback(_e: Event): void {
     this.onClose.emit(true);
   }
 
-  public handleClickOutside() {
+  public handleClickOutside(): void {
     this.isMobileMode = !this.isMobileMode;
   }
 
-  public goToToggle(toggle: string) {
+  public goToToggle(toggle: string): void {
     if (toggle == 'empyty') {
       this.isMobileMode = false;
       this.visible = false;
@@ -75,25 +82,27 @@ export class SideFeedbakHelpComponent implements OnInit {
       this.isMobileMode = !this.isMobileMode;
     });
 
-    this.toggle = this.steep.find(item => item.key === toggle);
-    const help = this.toggle.section.find((item: any) => item.name === 'sidebar.MORE.help.title');
+    this.toggle = this.steep.find(item => item.key === toggle)!;
+    const help = this.toggle?.section?.find(
+      (item: ISection) => item.name === 'sidebar.MORE.help.title'
+    );
 
-    this.toggle.section = [];
-    this.toggle.section = [help];
+    this.toggle!.section = [];
+    this.toggle!.section = [help!];
 
-    if (this.toggle.component !== null) {
-      this.renderComponent(this.toggle.component);
+    if (this.toggle?.component !== null) {
+      this.renderComponent(this.toggle?.component as Type<unknown>);
       this.currentStep = -1;
       return;
     }
 
-    const isText = this.toggle.text !== null;
+    const isText = this.toggle?.text !== null;
     if (isText) {
       this.currentStep = -1;
       return;
     }
 
-    const isLink = this.toggle.routerLink !== null;
+    const isLink = this.toggle?.routerLink !== null;
     if (isLink) {
       this.currentStep = -1;
       return;
@@ -104,7 +113,7 @@ export class SideFeedbakHelpComponent implements OnInit {
    * @description
    * Na Seção temos a posibilidade de exibir apenas um conteudo, são eles: menu, componente ou link
    */
-  public goToSection(section: any) {
+  public goToSection(section: ISection): void {
     this.selectedSection = section;
 
     const isMenu = section.menu !== null;
@@ -121,7 +130,7 @@ export class SideFeedbakHelpComponent implements OnInit {
     const isComponent = section.component !== null;
     if (isComponent) {
       this.currentStep = 2;
-      this.renderComponent(section.component);
+      this.renderComponent(section.component as Type<unknown>);
       return;
     }
 
@@ -138,7 +147,7 @@ export class SideFeedbakHelpComponent implements OnInit {
     }
   }
 
-  public goToMenu(menu: any) {
+  public goToMenu(menu: IMenu): void {
     this.selectedMenu = menu;
     this.currentStep = 2;
     if (menu.component !== null) {
@@ -147,7 +156,7 @@ export class SideFeedbakHelpComponent implements OnInit {
     }
   }
 
-  public goBack() {
+  public goBack(): void {
     this.container.clear();
 
     const estou_no_primeiro_node = this.selectedMenu === null;
@@ -165,12 +174,12 @@ export class SideFeedbakHelpComponent implements OnInit {
     }
   }
 
-  public renderComponent(component: Type<any>) {
+  public renderComponent(component: Type<unknown>): void {
     this.container.clear();
     this.container.createComponent(component);
   }
 
-  public linkClick(link: any, event: Event) {
+  public linkClick(link: IRouterLink, _event: Event): void {
     if (link.target === '_blank') {
       window.open(link.link, link.target);
     } else {

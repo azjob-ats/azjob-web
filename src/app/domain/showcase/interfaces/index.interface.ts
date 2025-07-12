@@ -9,7 +9,7 @@ export interface CodeBlock {
 
 export interface ComponentConfig {
   name: string;
-  componentRef: Type<any>;
+  componentRef: Type<unknown>;
   formControl: FormControl;
   option: Object;
 }

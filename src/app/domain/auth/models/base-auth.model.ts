@@ -67,5 +67,5 @@ export class BaseAuthModel {
   public authService: IndexService = inject(IndexService);
   public router: Router = inject(Router);
 
-  public validarForm() {}
+  public validarForm(): void {}
 }

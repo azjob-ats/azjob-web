@@ -149,6 +149,15 @@ ng build --configuration debug
 npx jest src/app/meu.component.spec.ts --watch
 ```
 
+#### Instalar IA Gemini CLI
+```sh
+npm install -g @google/gemini-cli
+```
+
+```sh
+gemini
+```
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.

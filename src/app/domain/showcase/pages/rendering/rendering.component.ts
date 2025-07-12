@@ -25,7 +25,7 @@ export class RenderingComponent implements OnInit {
     });
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

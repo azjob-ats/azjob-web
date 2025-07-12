@@ -48,11 +48,11 @@ export class LanguageSelectComponent implements OnInit {
     });
   }
 
-  public selected($event: string) {
+  public selected($event: string): void {
     this.translationService.changeLang($event);
   }
 
-  public onSelectionChange(event: any) {
+  public onSelectionChange(event: { value: string }): void {
     this.selected(event.value);
   }
 }

@@ -25,7 +25,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, PinCodeComponent, ReactiveFormsModule, FormsModule],
 })
 export class InputPinComponent {
-  @Input() public formControl: FormControl<any> = new FormControl('');
+  @Input() public formControl: FormControl<unknown> = new FormControl('');
   @Input() public erroRequired: string = 'Campo obrigatório.';
   @Input() public hasErrorResponse: string = 'Hover um error :(';
 }

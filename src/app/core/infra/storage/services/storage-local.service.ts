@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class StorageLocalService<T> {
-  public save(key: string, value: any | T): boolean {
+  public save(key: string, value: T): boolean {
     localStorage.removeItem(key);
     localStorage.setItem(key, JSON.stringify(value));
     return true;
@@ -13,7 +13,7 @@ export class StorageLocalService<T> {
     return true;
   }
 
-  public fetch(key: string): Promise<any | T> {
-    return JSON.parse(localStorage.getItem(key)!);
+  public fetch(key: string): Promise<T> {
+    return JSON.parse(localStorage.getItem(key)!) as Promise<T>;
   }
 }

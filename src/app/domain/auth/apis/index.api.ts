@@ -10,28 +10,34 @@ export class ApiService implements AuthRepository {
   public signInWithGoogle(): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
-  public signInWithEmailAndPassword(email: string, password: string): Observable<ApiResponse> {
+  public signInWithEmailAndPassword(_email: string, _password: string): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
-  public isEmailAlreadyExists(email: string): Observable<ApiResponse> {
+  public isEmailAlreadyExists(_email: string): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
-  public validatePin(pin: string): Observable<any> {
+  public validatePin(_pin: string): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
-  public updatePasswordByToken(email: string, code: string, newPassword: string): Observable<any> {
+  public updatePasswordByToken(
+    _email: string,
+    _code: string,
+    _newPassword: string
+  ): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
-  public signUpWithEmailAndPassword(user: UserRegisterWithEmailAndPassword): Observable<any> {
+  public signUpWithEmailAndPassword(
+    _user: UserRegisterWithEmailAndPassword
+  ): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
-  public confirmEmailByCode(code: string, email: string): Observable<any> {
+  public confirmEmailByCode(_code: string, _email: string): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
-  public logout(idUser: number): void {
+  public logout(_idUser: number): void {
     throw new Error('Method not implemented.');
   }
-  public getCurrentUserById(idUser: number): Observable<any> {
+  public getCurrentUserById(_idUser: number): Observable<ApiResponse> {
     throw new Error('Method not implemented.');
   }
 }

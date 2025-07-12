@@ -17,11 +17,11 @@ export class HeaderComponent {
 
   public visible: boolean = false;
 
-  public showDialog() {
+  public showDialog(): void {
     this.visible = true;
   }
 
-  public closeDialog($event: any) {
+  public closeDialog(_$event: boolean): void {
     this.visible = false;
   }
 }

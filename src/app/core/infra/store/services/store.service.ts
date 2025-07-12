@@ -94,10 +94,10 @@ export class StoreService<T> {
     }
 
     if (state.storage.storageStrategy === StorageStrategy.LOCAL_STORAGE) {
-      this.storage.save(state.storage.tableName, dataToStore);
+      this.storage.save(state.storage.tableName, dataToStore as AppState<T>);
       return of(true);
     } else if (state.storage.storageStrategy === StorageStrategy.SESSION_STORAGE) {
-      this.session.save(state.storage.tableName, dataToStore);
+      this.session.save(state.storage.tableName, dataToStore as AppState<T>);
       return of(true);
     }
 

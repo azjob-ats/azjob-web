@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class StorageSessionService<T> {
-  public save(key: string, value: any | T): boolean {
+  public save(key: string, value: T): boolean {
     sessionStorage.removeItem(key);
     sessionStorage.setItem(key, JSON.stringify(value));
     return true;
@@ -13,7 +13,7 @@ export class StorageSessionService<T> {
     return true;
   }
 
-  public fetch(key: string): any | T {
-    return JSON.parse(sessionStorage.getItem(key)!);
+  public fetch(key: string): T {
+    return JSON.parse(sessionStorage.getItem(key)!) as T;
   }
 }

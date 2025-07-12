@@ -22,7 +22,7 @@ export class LanguageApiService {
     throw new Error('Method not implemented.' + prefix);
   }
 
-  public getById(id: string) {
+  public getById(id: string): Observable<Language> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Language>(url);
   }

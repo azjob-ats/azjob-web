@@ -28,7 +28,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './sign-up.component.scss',
 })
 export class SignUpComponent extends BaseAuthModel {
-  public override validarForm() {
+  public override validarForm(): void {
     if (this.nameControl.status == 'INVALID') {
       this.nameControl.markAsTouched();
       return;

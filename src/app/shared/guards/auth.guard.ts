@@ -7,7 +7,7 @@ import { catchError, Observable, of, switchMap } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
   private router: Router = inject(Router);
-  private isAuth: any;
+  private isAuth: IndexService = inject(IndexService);
 
   public canActivate(): Observable<boolean> {
     return this.isAuth

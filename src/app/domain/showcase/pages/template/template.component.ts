@@ -22,8 +22,8 @@ export class TemplateComponent implements OnInit {
   public isLoading = false;
   public isLoading2 = false;
   public toggleDarkMode(): void {
-    const element: any = document.querySelector('html');
-    element.classList.toggle('my-app-dark');
+    const element: HTMLElement | null = document.querySelector('html');
+    element?.classList.toggle('my-app-dark');
   }
 
   public ngOnInit(): void {
@@ -34,20 +34,20 @@ export class TemplateComponent implements OnInit {
 
   public formGroup!: FormGroup;
 
-  public stateOptions: any[] = [
+  public stateOptions: { label: string; value: string }[] = [
     { label: 'Off', value: 'off' },
     { label: 'On', value: 'on' },
   ];
 
-  public value!: any;
+  public value!: unknown;
 
-  public paymentOptions: any[] = [
+  public paymentOptions: { name: string; value: number }[] = [
     { name: 'Option 1', value: 1 },
     { name: 'Option 2', value: 2 },
     { name: 'Option 3', value: 3 },
   ];
 
-  public setLoad() {
+  public setLoad(): void {
     this.isLoading2 = !this.isLoading2;
 
     setTimeout(() => {
