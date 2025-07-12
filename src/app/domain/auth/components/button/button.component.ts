@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, type OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 
@@ -9,6 +9,6 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-  @Input() label: string = '';
-  @Input() link: string = '';
+  @Input() public label: string = '';
+  @Input() public link: string = '';
 }

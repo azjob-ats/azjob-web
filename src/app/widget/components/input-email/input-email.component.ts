@@ -74,21 +74,21 @@ import { InputTextModule } from 'primeng/inputtext';
   styles: [''],
 })
 export class InputEmailComponent implements OnInit {
-  @Input() formControl!: FormControl<any>;
-  @Input() title: string = 'E‑mail';
-  @Input() erroRequired: string = 'Campo obrigatório.';
-  @Input() erroInvalid: string = 'E‑mail inválido.';
-  @Input() erroFill: string = 'Tamanho mínimo não atingido.';
-  @Input() hasErrorResponse: string = 'Hover um error :(';
-  @Input() isRequired = false;
-  @Input() isDisabled = false;
-  @Input() minLength?: number;
-  @Input() maxLength?: number;
+  @Input() public formControl!: FormControl<any>;
+  @Input() public title: string = 'E‑mail';
+  @Input() public erroRequired: string = 'Campo obrigatório.';
+  @Input() public erroInvalid: string = 'E‑mail inválido.';
+  @Input() public erroFill: string = 'Tamanho mínimo não atingido.';
+  @Input() public hasErrorResponse: string = 'Hover um error :(';
+  @Input() public isRequired = false;
+  @Input() public isDisabled = false;
+  @Input() public minLength?: number;
+  @Input() public maxLength?: number;
 
   private initialControlValue!: any;
   private initialDisabledState!: boolean;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initialControlValue = this.formControl.value;
     this.initialDisabledState = this.isDisabled;
 
@@ -106,18 +106,18 @@ export class InputEmailComponent implements OnInit {
     this.formControl.updateValueAndValidity();
   }
 
-  resetToInitialState(): void {
+  public resetToInitialState(): void {
     this.formControl.patchValue(this.initialControlValue);
     this.applyDisabledState(this.initialDisabledState);
     this.formControl.markAsUntouched();
     this.formControl.updateValueAndValidity();
   }
 
-  enable(): void {
+  public enable(): void {
     this.formControl.enable();
   }
 
-  disable(): void {
+  public disable(): void {
     this.formControl.disable();
   }
 
@@ -125,7 +125,7 @@ export class InputEmailComponent implements OnInit {
     shouldDisable ? this.disable() : this.enable();
   }
 
-  clear(input: HTMLInputElement): void {
+  public clear(input: HTMLInputElement): void {
     input.value = '';
     this.formControl.setValue(null);
     this.formControl.markAsDirty();

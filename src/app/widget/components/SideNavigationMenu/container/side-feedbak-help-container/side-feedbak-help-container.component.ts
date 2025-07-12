@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  inject,
-  Output,
-  type OnInit,
-} from '@angular/core';
+import { Component, EventEmitter, inject, Output, type OnInit } from '@angular/core';
 import { SideFeedbakHelpComponent } from '../../component/side-feedbak-help/side-feedbak-help.component';
 import { InputSearchComponent } from '@widget/components/input-search/input-search.component';
 import { ISideNavigationMenu } from '../../interfaces';
@@ -31,11 +24,11 @@ export class SideFeedbakHelpContainerComponent implements OnInit {
   @Output() public onClose = new EventEmitter<boolean>();
   public constructor(private router: Router) {}
 
-  close($event: any) {
+  public close($event: any) {
     this.onClose.emit(true);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.steep = [
       {
         name: 'sidebar.more',

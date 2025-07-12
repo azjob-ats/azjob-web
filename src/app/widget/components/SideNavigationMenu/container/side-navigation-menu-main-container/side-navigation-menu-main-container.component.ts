@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, NgModule, type OnInit } from '@angular/core';
+import { Component, inject, type OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IndexService as AuthService } from '@domain/auth/services/index.service';
@@ -592,7 +592,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
     };
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
   }

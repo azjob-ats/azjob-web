@@ -15,7 +15,7 @@ export class IndexService {
   private userCache: UserCacheService = inject(UserCacheService);
   private api: AuthApiMockService = inject(AuthApiMockService);
 
-  public signInWithGoogle() {}
+  public signInWithGoogle() { }
 
   public signInWithEmailAndPassword(email: string, password: string): Observable<ApiResponse> {
     return this.api.signInWithEmailAndPassword(email, password).pipe(
@@ -27,9 +27,9 @@ export class IndexService {
       switchMap(res =>
         res.success
           ? this.api.getCurrentUserById(res.data.refresh_token.user_id).pipe(
-              tap(user => this.setUser(user)),
-              map(() => res)
-            )
+            tap(user => this.setUser(user)),
+            map(() => res)
+          )
           : of(res)
       )
     );
@@ -73,7 +73,7 @@ export class IndexService {
   }
 
   public isLogged(): Observable<boolean> {
-    let token = this.token$.value;
+    const token = this.token$.value;
 
     if (token) {
       return of(true);
@@ -110,7 +110,7 @@ export class IndexService {
           return of({});
         }
         // 1 - Verifica memória local
-        let userInMemory = this.userValue$.value;
+        const userInMemory = this.userValue$.value;
 
         if (userInMemory) {
           return of(userInMemory);
@@ -126,10 +126,9 @@ export class IndexService {
             }
 
             // 3 - Busca da API
-            let userId = this.token$.value?.refresh_token.user_id;
+            const userId = this.token$.value?.refresh_token.user_id;
             return this.api.getCurrentUserById(userId).pipe(
               tap(user => {
-                console.log('Busca da API', user);
                 this.setUser(user); // Atualiza cache em memória
               })
             );
@@ -140,7 +139,7 @@ export class IndexService {
   }
 
   public getToken(): Observable<any> {
-    let token = this.token$.value;
+    const token = this.token$.value;
 
     if (token) {
       return of(token);

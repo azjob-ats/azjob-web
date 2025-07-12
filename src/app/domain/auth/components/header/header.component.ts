@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, type OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Dialog, DialogModule } from 'primeng/dialog';
+import { Dialog } from 'primeng/dialog';
 import { environment } from '@env/environment';
 import { ButtonModule } from 'primeng/button';
 import { SideFeedbakHelpContainerComponent } from '@widget/components/SideNavigationMenu/container/side-feedbak-help-container/side-feedbak-help-container.component';
@@ -15,13 +15,13 @@ const { ROUTES } = environment;
 export class HeaderComponent {
   protected sidebarLogoRouterLink = ROUTES.ROOT;
 
-  visible: boolean = false;
+  public visible: boolean = false;
 
-  showDialog() {
+  public showDialog() {
     this.visible = true;
   }
 
-  closeDialog($event: any) {
+  public closeDialog($event: any) {
     this.visible = false;
   }
 }

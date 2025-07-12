@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject } from '@angular/core';
 import { StorageStrategy } from '@core/infra/storage/enums/storage.enum';
 import { BehaviorSubject, filter, map, Observable, of, startWith, switchMap, tap } from 'rxjs';
 import { AppState } from '@core/infra/store/interfaces/state.model';
@@ -19,11 +19,7 @@ export class StoreService<T> {
     Qualquer componente pode assinar(subscribe) para obter o estado atualizado.*/
   private state$ = this.stateStore.asObservable();
 
-  constructor() {
-    setTimeout(() => {
-      console.log('instanciando', this.stateStore.value?.storage.tableName);
-    }, 3000);
-  }
+  public constructor() {}
 
   public storage: StorageLocalService<AppState<T>> = inject(StorageLocalService);
   public session: StorageSessionService<AppState<T>> = inject(StorageSessionService);

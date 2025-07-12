@@ -88,28 +88,28 @@ import { passwordMatchValidator } from './password-match.validator';
   styles: [''],
 })
 export class InputPasswordComponent implements OnInit {
-  @Input() formControl!: FormControl<any>;
-  @Input() title: string = 'Senha';
-  @Input() erroRequired: string = 'Campo obrigatório.';
-  @Input() erroFill: string = 'Senha muito curta.';
-  @Input() hasErrorResponse: string = 'Hover um error :(';
-  @Input() isRequired = false;
-  @Input() isDisabled = false;
-  @Input() minLength?: number;
-  @Input() maxLength?: number;
-  @Input() idReference: string = 'password';
-  @Input() matchTo?: AbstractControl;
+  @Input() public formControl!: FormControl<any>;
+  @Input() public title: string = 'Senha';
+  @Input() public erroRequired: string = 'Campo obrigatório.';
+  @Input() public erroFill: string = 'Senha muito curta.';
+  @Input() public hasErrorResponse: string = 'Hover um error :(';
+  @Input() public isRequired = false;
+  @Input() public isDisabled = false;
+  @Input() public minLength?: number;
+  @Input() public maxLength?: number;
+  @Input() public idReference: string = 'password';
+  @Input() public matchTo?: AbstractControl;
 
-  showPassword = false;
-  hasUpperCase = false;
-  hasLowerCase = false;
-  hasNumber = false;
-  hasSymbol = false;
-  isLongEnough = false;
+  public showPassword = false;
+  public hasUpperCase = false;
+  public hasLowerCase = false;
+  public hasNumber = false;
+  public hasSymbol = false;
+  public isLongEnough = false;
   private initialControlValue!: any;
   private initialDisabledState!: boolean;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.matchTo) {
       this.matchTo.valueChanges.subscribe(() =>
         this.formControl.updateValueAndValidity({ onlySelf: true })
@@ -141,7 +141,7 @@ export class InputPasswordComponent implements OnInit {
     this.formControl.updateValueAndValidity();
   }
 
-  checkStrength(value: string): void {
+  public checkStrength(value: string): void {
     if (!value) {
       this.hasUpperCase = false;
       this.hasLowerCase = false;
@@ -158,28 +158,28 @@ export class InputPasswordComponent implements OnInit {
     this.isLongEnough = value.length >= this.minLength!;
   }
 
-  togglePassword(): void {
+  public togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
 
-  clear(input: HTMLInputElement): void {
+  public clear(input: HTMLInputElement): void {
     input.value = '';
     this.formControl.setValue(null);
     this.formControl.markAsDirty();
   }
 
-  resetToInitialState(): void {
+  public resetToInitialState(): void {
     this.formControl.patchValue(this.initialControlValue);
     this.applyDisabledState(this.initialDisabledState);
     this.formControl.markAsUntouched();
     this.formControl.updateValueAndValidity();
   }
 
-  enable(): void {
+  public enable(): void {
     this.formControl.enable();
   }
 
-  disable(): void {
+  public disable(): void {
     this.formControl.disable();
   }
 

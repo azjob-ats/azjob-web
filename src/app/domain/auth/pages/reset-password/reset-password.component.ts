@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '@domain/auth/components/footer/footer.component';
 import { HeaderComponent } from '@domain/auth/components/header/header.component';
@@ -79,11 +78,10 @@ export class ResetPasswordComponent extends BaseAuthModel {
           this.passwordControl.value!
         )
         .subscribe({
-          next: (res: ApiResponse<any>) => {
+          next: () => {
             this.router.navigate([this.signInRouterLink]);
           },
           error: err => {
-            console.log('err: ', err);
             if (err.errors![0].code === 'auth/wrong-pin-expired') {
               this.pinOption.hasErrorResponse = err.errors![0].message;
               this.passwordControl.setErrors({ hasErrorResponse: true });
@@ -101,7 +99,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
     };
   }
 
-  validatePin() {
+  public validatePin() {
     if (this.pinControl.status == 'INVALID') {
       this.pinControl.markAsTouched();
       return;
@@ -115,7 +113,6 @@ export class ResetPasswordComponent extends BaseAuthModel {
         this.isLoadingValidatePin = false;
         if (this.pinControl.status == 'VALID') {
           this.pinControl.markAsTouched();
-          console.log('email: ', this.pinControl.value);
           this.activeStep = 3;
           this.payload = {
             token: res.data.token,
@@ -125,7 +122,6 @@ export class ResetPasswordComponent extends BaseAuthModel {
         }
       },
       error: err => {
-        console.log('err: ', err);
         if (err.errors![0].code === 'auth/wrong-pin') {
           this.pinOption.hasErrorResponse = err.errors![0].message;
           this.pinControl.setErrors({ hasErrorResponse: true });

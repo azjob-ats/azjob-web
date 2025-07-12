@@ -18,12 +18,14 @@ export class RenderingComponent implements OnInit {
   private destroy$ = new Subject<void>();
 
   public constructor(private router: ActivatedRoute) {}
+
   public ngOnInit(): void {
     this.router.url.pipe(takeUntil(this.destroy$)).subscribe(params => {
       this.templateRouterComponent = params[0].path;
     });
   }
-  ngOnDestroy() {
+
+  public ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
   }

@@ -26,9 +26,9 @@ import { ButtonModule } from 'primeng/button';
 })
 export class ConfirmEmailComponent extends BaseAuthModel {
   private route = inject(ActivatedRoute);
-  email = computed(() => this.route.snapshot.queryParamMap.get('email') ?? '');
+  public email = computed(() => this.route.snapshot.queryParamMap.get('email') ?? '');
 
-  validatePin() {
+  public validatePin() {
     if (this.pinControl.status == 'INVALID') {
       this.pinControl.markAsTouched();
       return;
@@ -45,7 +45,6 @@ export class ConfirmEmailComponent extends BaseAuthModel {
         }
       },
       error: err => {
-        console.log('err: ', err);
         if (err.errors![0].code === 'auth/wrong-email') {
           this.pinOption.hasErrorResponse = err.errors![0].message;
           this.pinControl.setErrors({ hasErrorResponse: true });

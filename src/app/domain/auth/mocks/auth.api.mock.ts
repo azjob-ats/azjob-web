@@ -80,7 +80,7 @@ export class AuthApiMockService implements AuthRepository {
     }
 
     if (user) {
-      let token = {
+      const token = {
         access_token: this.access_token,
         refresh_token: {
           token: this.refresh_token,
@@ -180,7 +180,7 @@ export class AuthApiMockService implements AuthRepository {
 
     this.user$ = new BehaviorSubject([...this.user$.value, newUser]);
 
-    let token = {
+    const token = {
       access_token: this.access_token,
       refresh_token: {
         token: this.refresh_token,
@@ -326,7 +326,7 @@ export class AuthApiMockService implements AuthRepository {
       this.user$.next(users);
     }
 
-    let token = {
+    const token = {
       access_token: this.access_token,
       refresh_token: {
         token: this.refresh_token,

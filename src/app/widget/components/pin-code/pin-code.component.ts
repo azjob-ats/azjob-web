@@ -17,5 +17,5 @@ import { InputOtpModule } from 'primeng/inputotp';
   styleUrl: './pin-code.component.scss',
 })
 export class PinCodeComponent {
-  @Input() formControl!: FormControl<any>;
+  @Input() public formControl!: FormControl<any>;
 }

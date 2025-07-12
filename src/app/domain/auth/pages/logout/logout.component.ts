@@ -17,7 +17,7 @@ import { take } from 'rxjs';
   styles: [],
 })
 export class LogoutComponent extends BaseAuthModel {
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.authService
       .logout()
       .pipe(take(1))

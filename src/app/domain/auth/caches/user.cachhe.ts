@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AppState } from '@core/infra/store/interfaces/state.model';
 import { Observable, of } from 'rxjs';
 import { LoadingState } from '@core/infra/store/enums/state.enum';
-import { TIME_1_SECOND } from '@shared/constants/time.constant';
 import { StoreService } from '@core/infra/store/services/store.service';
 import { environment } from '@env/environment';
 
