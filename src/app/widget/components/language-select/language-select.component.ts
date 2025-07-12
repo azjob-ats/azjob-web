@@ -12,11 +12,17 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-language-select',
-  imports: [FormsModule, SelectModule,
-    CommonModule, TranslateModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    FormsModule,
+    SelectModule,
+    CommonModule,
+    TranslateModule,
+    ReactiveFormsModule,
+    RouterModule,
+  ],
   providers: [LanguageApiMockservice, LanguageService, LanguageTranslatorService, TranslateService],
   templateUrl: './language-select.component.html',
-  styleUrl: './language-select.component.scss'
+  styleUrl: './language-select.component.scss',
 })
 export class LanguageSelectComponent implements OnInit {
   public formControl = new FormControl('');

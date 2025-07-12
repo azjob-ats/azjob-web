@@ -36,22 +36,25 @@ export const INDEX_ROUTES: Routes = [
       {
         path: ROUTES.AUTH.CONFIRM_EMAIL,
         loadComponent: () =>
-          import('./pages/confirm-email/confirm-email.component').then(m => m.ConfirmEmailComponent),
+          import('./pages/confirm-email/confirm-email.component').then(
+            m => m.ConfirmEmailComponent
+          ),
       },
       {
         path: ROUTES.AUTH.RESET_PASSWORD,
         loadComponent: () =>
-          import('./pages/reset-password/reset-password.component').then(m => m.ResetPasswordComponent),
+          import('./pages/reset-password/reset-password.component').then(
+            m => m.ResetPasswordComponent
+          ),
       },
       {
         path: ROUTES.AUTH.LOGOUT,
-        loadComponent: () =>
-          import('./pages/logout/logout.component').then(m => m.LogoutComponent),
+        loadComponent: () => import('./pages/logout/logout.component').then(m => m.LogoutComponent),
       },
       {
         path: '',
         redirectTo: ROUTES.AUTH.PANEL_SIGN_IN,
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: '**',

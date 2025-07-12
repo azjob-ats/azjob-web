@@ -1,35 +1,51 @@
 <div class="flex align-content-between flex-wrap min-h-screen">
-    <app-header></app-header>
-    <div class="flex align-items-center justify-content-center w-full">
-        <div>
-            <div class="pl-4 pr-4 w-full sm:w-30rem">
-                <div class="text-center mb-5">
-                    <div class="text-4xl font-medium mb-2">Confirmar e-mail</div>
-                    <div class="text-1xl mb-2">Digite o código de 4 dígitos enviado para seu e-mail</div>
-                </div>
-                <div class="mb-3">
-                    <div class="w-full">
-                        <app-input-pin [formControl]="pinControl" [erroRequired]="pinOption.erroRequired"
-                            [hasErrorResponse]="pinOption.hasErrorResponse"></app-input-pin>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="w-full">
-                        <p-button label="Confirmar" severity="primary" styleClass="w-full custom-h-full "
-                            (onClick)="validatePin()" [appLoadingSpinner]="isLoadingValidatePin" />
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="w-full">
-                        <p-button label="Não recebeu o código?" variant="text" severity="secondary"
-                            styleClass="w-full custom-h-full button-link-option" />
-                    </div>
-                </div>
-            </div>
+  <app-header></app-header>
+  <div class="flex align-items-center justify-content-center w-full">
+    <div>
+      <div class="pl-4 pr-4 w-full sm:w-30rem">
+        <div class="text-center mb-5">
+          <div class="text-4xl font-medium mb-2">Confirmar e-mail</div>
+          <div class="text-1xl mb-2">Digite o código de 4 dígitos enviado para seu e-mail</div>
         </div>
+        <div class="mb-3">
+          <div class="w-full">
+            <app-input-pin
+              [formControl]="pinControl"
+              [erroRequired]="pinOption.erroRequired"
+              [hasErrorResponse]="pinOption.hasErrorResponse"
+            ></app-input-pin>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="w-full">
+            <p-button
+              label="Confirmar"
+              severity="primary"
+              styleClass="w-full custom-h-full "
+              (onClick)="validatePin()"
+              [appLoadingSpinner]="isLoadingValidatePin"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="w-full">
+            <p-button
+              label="Não recebeu o código?"
+              variant="text"
+              severity="secondary"
+              styleClass="w-full custom-h-full button-link-option"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-12 p-0 m-0">
-        <app-footer [showTextPrivacyAndPolicy]="false" [link]="panelSignInRouterLink" text="Já sou cadastrado,"
-            redirectText="quero entrar!"></app-footer>
-    </div>
+  </div>
+  <div class="col-12 p-0 m-0">
+    <app-footer
+      [showTextPrivacyAndPolicy]="false"
+      [link]="panelSignInRouterLink"
+      text="Já sou cadastrado,"
+      redirectText="quero entrar!"
+    ></app-footer>
+  </div>
 </div>

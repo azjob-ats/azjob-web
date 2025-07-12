@@ -1,4 +1,4 @@
-import { environment } from "@env/environment";
+import { environment } from '@env/environment';
 const { ROUTES } = environment;
 
 export const rootRouterLink = `/${ROUTES.ROOT}`;

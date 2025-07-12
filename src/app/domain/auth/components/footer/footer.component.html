@@ -1,20 +1,20 @@
-@if(showTextPrivacyAndPolicy){
-<div class="flex align-items-center justify-content-center w-full">
-    <div class="w-full sm:w-20rem pl-5 pr-4 ">
-        <div class="text-center text-600 text-xs mb-2">
-            Ao continuar com uma conta registrada no Brasil, você concorda com os nossos Termos de Serviço e
-            confirma que leu e compreendeu nossa Política de Privacidade.
-        </div>
+@if (showTextPrivacyAndPolicy) {
+  <div class="flex align-items-center justify-content-center w-full">
+    <div class="w-full sm:w-20rem pl-5 pr-4">
+      <div class="text-center text-600 text-xs mb-2">
+        Ao continuar com uma conta registrada no Brasil, você concorda com os nossos Termos de
+        Serviço e confirma que leu e compreendeu nossa Política de Privacidade.
+      </div>
     </div>
-</div>
+  </div>
 }
 <div class="border-top-1 text-200 p-3 bg-gray-50">
-    <div class="text-center">
-        <div class="text-primary text-1xl font-medium">
-            {{ text }}
-            <span class="txt-accent font-bold cursor-pointer" [routerLink]="link">
-                {{ redirectText }}
-            </span>
-        </div>
+  <div class="text-center">
+    <div class="text-primary text-1xl font-medium">
+      {{ text }}
+      <span class="txt-accent font-bold cursor-pointer" [routerLink]="link">
+        {{ redirectText }}
+      </span>
     </div>
+  </div>
 </div>

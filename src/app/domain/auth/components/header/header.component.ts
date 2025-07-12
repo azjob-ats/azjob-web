@@ -10,11 +10,10 @@ const { ROUTES } = environment;
   selector: 'app-header',
   imports: [RouterModule, Dialog, ButtonModule, SideFeedbakHelpContainerComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-
-  protected sidebarLogoRouterLink = ROUTES.ROOT
+  protected sidebarLogoRouterLink = ROUTES.ROOT;
 
   visible: boolean = false;
 

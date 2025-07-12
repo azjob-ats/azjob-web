@@ -5,14 +5,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SideNavigationMenuMainContainerComponent } from '@widget/components/SideNavigationMenu/container/side-navigation-menu-main-container/side-navigation-menu-main-container.component';
 
 @Component({
-  imports: [
-    RouterModule,
-    TranslateModule,
-    TranslateModule,
-  ],
+  imports: [RouterModule, TranslateModule, TranslateModule],
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`,
-  styles: ` `,
+  styles: ``,
 })
 export class AppComponent {
   private titleService: NavigationTabTitleService = inject(NavigationTabTitleService);

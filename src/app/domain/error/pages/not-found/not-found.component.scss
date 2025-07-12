@@ -1,11 +1,11 @@
 @use 'breakpoints.scss' as *;
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 @media (min-width: $desktop) {
-    img {
-        width: 80%;
-    }
+  img {
+    width: 80%;
+  }
 }

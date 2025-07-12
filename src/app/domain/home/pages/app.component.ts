@@ -12,7 +12,7 @@ import { SideNavigationMenuMainContainerComponent } from '@widget/components/Sid
     TranslateModule,
     SideNavigationMenuMainContainerComponent,
     TranslateModule,
-    CommonModule
+    CommonModule,
   ],
   selector: 'app-index',
   template: `

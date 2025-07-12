@@ -31,10 +31,7 @@ const { ROUTES } = environment;
     ReactiveFormsModule,
     RouterModule,
   ],
-  providers: [
-    LanguageTranslatorService,
-    TranslateService
-  ],
+  providers: [LanguageTranslatorService, TranslateService],
   templateUrl: './side-navigation-menu-main-container.component.html',
   styleUrl: './side-navigation-menu-main-container.component.scss',
 })
@@ -56,15 +53,16 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
     username: '',
     name: '',
     avatar: '',
-  }
+  };
 
   public ngOnInit(): void {
     this.languageChanged();
     this.startTranslation();
 
-    this.auth.getCurrentUser()
+    this.auth
+      .getCurrentUser()
       .pipe(takeUntil(this.destroy$))
-      .subscribe((res) => {
+      .subscribe(res => {
         if (!res) {
           return;
         }
@@ -73,11 +71,12 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         this.currentUser.name = res.name;
         this.currentUser.avatar = res.avatar;
         this.setDate();
-      })
+      });
   }
 
   private languageChanged() {
-    this.lang.getStreamOnLanguage()
+    this.lang
+      .getStreamOnLanguage()
       .pipe(takeUntil(this.destroy$))
       .subscribe(lang => {
         this.translate.setDefaultLang(lang.prefix);
@@ -86,7 +85,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
   }
 
   private startTranslation() {
-    this.translate.get('app')
+    this.translate
+      .get('app')
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         this.setDate();
@@ -94,7 +94,8 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
   }
 
   private setDate() {
-    this.auth.isLogged()
+    this.auth
+      .isLogged()
       .pipe(takeUntil(this.destroy$))
       .subscribe(res => {
         if (res) {
@@ -200,7 +201,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
                 text: null,
               },
             ],
-          }
+          },
         ],
       },
       {
@@ -461,7 +462,9 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
             name: 'sidebar.MORE.logout.title',
             description: 'sidebar.MORE.logout.description',
             routerLink: {
-              label: this.translate.instant('sidebar.banner.logout', { nameId: `@${this.currentUser.username}` }),
+              label: this.translate.instant('sidebar.banner.logout', {
+                nameId: `@${this.currentUser.username}`,
+              }),
               link: `/${ROUTES.AUTH.ROOT}/${ROUTES.AUTH.LOGOUT}`,
               target: '',
               closeMenu: false,
@@ -509,7 +512,9 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         },
         {
           icon: '',
-          name: this.translate.instant('sidebar.banner.logout', { nameId: `@${this.currentUser.username}` }),
+          name: this.translate.instant('sidebar.banner.logout', {
+            nameId: `@${this.currentUser.username}`,
+          }),
           description: '',
           routerLink: {
             label: '',
@@ -568,7 +573,7 @@ export class SideNavigationMenuMainContainerComponent implements OnInit {
         liClass: '',
         toggle: 'empyty',
         active: true,
-      }
+      },
     ];
 
     this.extraLinks = [

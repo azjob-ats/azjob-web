@@ -5,14 +5,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-    selector: 'app-not-found',
-    templateUrl: './not-found.component.html',
-    styleUrls: ['./not-found.component.scss'],
-    imports: [
-        CommonModule,
-        ButtonModule,
-        RouterModule,
-        TranslateModule
-    ]
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.scss'],
+  imports: [CommonModule, ButtonModule, RouterModule, TranslateModule],
 })
-export class NotFoundComponent { }
+export class NotFoundComponent {}

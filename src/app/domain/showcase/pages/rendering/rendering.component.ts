@@ -17,14 +17,11 @@ export class RenderingComponent implements OnInit {
   public templeted: Template[] = componentMap;
   private destroy$ = new Subject<void>();
 
-  public constructor(private router: ActivatedRoute) { }
+  public constructor(private router: ActivatedRoute) {}
   public ngOnInit(): void {
-    this.router.url
-      .pipe(
-        takeUntil(this.destroy$)
-      ).subscribe(params => {
-        this.templateRouterComponent = params[0].path;
-      })
+    this.router.url.pipe(takeUntil(this.destroy$)).subscribe(params => {
+      this.templateRouterComponent = params[0].path;
+    });
   }
   ngOnDestroy() {
     this.destroy$.next();

@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output, type OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  inject,
+  Output,
+  type OnInit,
+} from '@angular/core';
 import { SideFeedbakHelpComponent } from '../../component/side-feedbak-help/side-feedbak-help.component';
 import { InputSearchComponent } from '@widget/components/input-search/input-search.component';
 import { ISideNavigationMenu } from '../../interfaces';
@@ -14,7 +21,7 @@ import { environment } from '@env/environment';
   selector: 'app-side-feedbak-help-container',
   imports: [SideFeedbakHelpComponent],
   templateUrl: './side-feedbak-help-container.component.html',
-  styleUrl: './side-feedbak-help-container.component.scss'
+  styleUrl: './side-feedbak-help-container.component.scss',
 })
 export class SideFeedbakHelpContainerComponent implements OnInit {
   private translationService: LanguageTranslatorService = inject(LanguageTranslatorService);
@@ -22,14 +29,13 @@ export class SideFeedbakHelpContainerComponent implements OnInit {
   private lang: LanguageService = inject(LanguageService);
   public steep: ISideNavigationMenu[] = [];
   @Output() public onClose = new EventEmitter<boolean>();
-  public constructor(private router: Router) { }
+  public constructor(private router: Router) {}
 
   close($event: any) {
     this.onClose.emit(true);
   }
 
   ngOnInit(): void {
-
     this.steep = [
       {
         name: 'sidebar.more',

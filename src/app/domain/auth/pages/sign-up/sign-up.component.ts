@@ -22,13 +22,12 @@ import { ButtonModule } from 'primeng/button';
     FooterComponent,
     InputPasswordComponent,
     InputEmailComponent,
-    LoadingSpinnerDirective
+    LoadingSpinnerDirective,
   ],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.scss'
+  styleUrl: './sign-up.component.scss',
 })
 export class SignUpComponent extends BaseAuthModel {
-
   public override validarForm() {
     if (this.nameControl.status == 'INVALID') {
       this.nameControl.markAsTouched();
@@ -66,7 +65,7 @@ export class SignUpComponent extends BaseAuthModel {
       password: this.passwordControl.value!,
       providers: eProvider.AZJOB,
       role: eRole.USER,
-      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     }).subscribe({
       next: (res: ApiResponse<any>) => {
         this.isLoading = false;
@@ -81,12 +80,12 @@ export class SignUpComponent extends BaseAuthModel {
 
         if (res.statusCode === 200) {
           this.router.navigate([this.confirmSignUpRouterLink], {
-            queryParams: { email: this.emailControl.value }
+            queryParams: { email: this.emailControl.value },
           });
           return;
         }
       },
-      error: (err) => {
+      error: err => {
         this.isLoading = false;
         this.isDisabled = false;
         this.nameControl.enable();
@@ -101,7 +100,7 @@ export class SignUpComponent extends BaseAuthModel {
           this.emailOption.hasErrorResponse = err.errors![0].message;
           this.emailControl.setErrors({ hasErrorResponse: true });
         }
-      }
+      },
     });
   }
 

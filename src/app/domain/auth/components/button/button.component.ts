@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
   selector: 'app-button',
   imports: [ButtonModule, RouterModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+  styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
   @Input() label: string = '';

@@ -19,7 +19,7 @@ import { ButtonModule } from 'primeng/button';
     ReactiveFormsModule,
     HeaderComponent,
     LoadingSpinnerDirective,
-    FooterComponent
+    FooterComponent,
   ],
   templateUrl: './confirm-email.component.html',
   styleUrl: './confirm-email.component.scss',
@@ -44,7 +44,7 @@ export class ConfirmEmailComponent extends BaseAuthModel {
           return;
         }
       },
-      error: (err) => {
+      error: err => {
         console.log('err: ', err);
         if (err.errors![0].code === 'auth/wrong-email') {
           this.pinOption.hasErrorResponse = err.errors![0].message;
@@ -56,7 +56,7 @@ export class ConfirmEmailComponent extends BaseAuthModel {
           this.pinControl.setErrors({ hasErrorResponse: true });
         }
         this.isLoadingValidatePin = false;
-      }
-    })
+      },
+    });
   }
 }

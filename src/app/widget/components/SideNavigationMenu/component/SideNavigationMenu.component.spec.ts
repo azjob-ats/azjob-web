@@ -10,48 +10,48 @@ import { PopoverModule } from 'primeng/popover';
 import { CommonModule } from '@angular/common';
 
 describe('SideNavigationMenuComponent', () => {
-    let component: SideNavigationMenuComponent;
-    let fixture: ComponentFixture<SideNavigationMenuComponent>;
+  let component: SideNavigationMenuComponent;
+  let fixture: ComponentFixture<SideNavigationMenuComponent>;
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            imports: [
-                CommonModule,
-                RouterTestingModule,
-                TranslateModule.forRoot(),
-                DrawerModule,
-                ButtonModule,
-                TooltipModule,
-                PopoverModule,
-                NoopAnimationsModule
-            ],
-            declarations: [SideNavigationMenuComponent],
-        }).compileComponents();
-    });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        CommonModule,
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+        DrawerModule,
+        ButtonModule,
+        TooltipModule,
+        PopoverModule,
+        NoopAnimationsModule,
+      ],
+      declarations: [SideNavigationMenuComponent],
+    }).compileComponents();
+  });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SideNavigationMenuComponent);
-        component = fixture.componentInstance;
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SideNavigationMenuComponent);
+    component = fixture.componentInstance;
 
-        // Mocks mínimos obrigatórios
-        component.steep = [];
-        component.sidebarLinks = [];
-        component.extraLinks = [];
-        component.sidebarLogo = { routerLink: '' };
-        component.search = { value: '', placeholder: '' };
-        component.banner = {
-            show: false,
-            nameUser: '',
-            nameId: '',
-            avatar: '',
-            menu: [],
-            alt: ''
-        };
+    // Mocks mínimos obrigatórios
+    component.steep = [];
+    component.sidebarLinks = [];
+    component.extraLinks = [];
+    component.sidebarLogo = { routerLink: '' };
+    component.search = { value: '', placeholder: '' };
+    component.banner = {
+      show: false,
+      nameUser: '',
+      nameId: '',
+      avatar: '',
+      menu: [],
+      alt: '',
+    };
 
-        fixture.detectChanges();
-    });
+    fixture.detectChanges();
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

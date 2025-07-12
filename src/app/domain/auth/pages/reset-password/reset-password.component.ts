@@ -25,7 +25,7 @@ import { StepperModule } from 'primeng/stepper';
     InputPasswordComponent,
     StepperModule,
     LoadingSpinnerDirective,
-    InputPinComponent
+    InputPinComponent,
   ],
   templateUrl: './reset-password.component.html',
   styleUrl: './reset-password.component.scss',
@@ -34,7 +34,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
   public activeStep: number = 1;
   public isLoadingSendCodeToEmail: boolean = false;
   public isLoadingResetPassword: boolean = false;
-  private payload!: { token: string, expiresIn: string };
+  private payload!: { token: string; expiresIn: string };
 
   public sendCodeToEmail() {
     if (this.emailControl.status == 'INVALID') {
@@ -52,19 +52,19 @@ export class ResetPasswordComponent extends BaseAuthModel {
           this.activeStep = 2;
           this.payload = {
             token: res.data.token,
-            expiresIn: res.data.expiresIn
-          }
+            expiresIn: res.data.expiresIn,
+          };
           return;
         }
       },
-      error: (err) => {
+      error: err => {
         if (err.errors![0].code === 'auth/wrong-email') {
           this.emailOption.hasErrorResponse = err.errors![0].message;
           this.emailControl.setErrors({ hasErrorResponse: true });
         }
         this.isLoadingSendCodeToEmail = false;
-      }
-    })
+      },
+    });
   }
 
   public resetPassword() {
@@ -72,31 +72,33 @@ export class ResetPasswordComponent extends BaseAuthModel {
       this.pinControl.markAsTouched();
 
       this.isLoadingResetPassword = true;
-      this.authService.updatePasswordByToken(
-        this.emailControl.value!,
-        this.payload.token,
-        this.passwordControl.value!
-      ).subscribe({
-        next: (res: ApiResponse<any>) => {
-          this.router.navigate([this.signInRouterLink]);
-        },
-        error: (err) => {
-          console.log('err: ', err);
-          if (err.errors![0].code === 'auth/wrong-pin-expired') {
-            this.pinOption.hasErrorResponse = err.errors![0].message;
-            this.passwordControl.setErrors({ hasErrorResponse: true });
-          }
-          this.isLoadingResetPassword = false;
-        }
-      })
+      this.authService
+        .updatePasswordByToken(
+          this.emailControl.value!,
+          this.payload.token,
+          this.passwordControl.value!
+        )
+        .subscribe({
+          next: (res: ApiResponse<any>) => {
+            this.router.navigate([this.signInRouterLink]);
+          },
+          error: err => {
+            console.log('err: ', err);
+            if (err.errors![0].code === 'auth/wrong-pin-expired') {
+              this.pinOption.hasErrorResponse = err.errors![0].message;
+              this.passwordControl.setErrors({ hasErrorResponse: true });
+            }
+            this.isLoadingResetPassword = false;
+          },
+        });
     }
   }
 
   private resetPayloadPin() {
     this.payload = {
       token: '',
-      expiresIn: ''
-    }
+      expiresIn: '',
+    };
   }
 
   validatePin() {
@@ -117,12 +119,12 @@ export class ResetPasswordComponent extends BaseAuthModel {
           this.activeStep = 3;
           this.payload = {
             token: res.data.token,
-            expiresIn: res.data.expiresIn
-          }
+            expiresIn: res.data.expiresIn,
+          };
           return;
         }
       },
-      error: (err) => {
+      error: err => {
         console.log('err: ', err);
         if (err.errors![0].code === 'auth/wrong-pin') {
           this.pinOption.hasErrorResponse = err.errors![0].message;
@@ -134,7 +136,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
           this.pinControl.setErrors({ hasErrorResponse: true });
         }
         this.isLoadingValidatePin = false;
-      }
-    })
+      },
+    });
   }
 }

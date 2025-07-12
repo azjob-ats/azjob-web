@@ -48,7 +48,7 @@ export class SideNavigationMenuComponent {
   public selectedMenu: any = null;
   public activeDrawer: boolean = false;
 
-  public constructor(private router: Router) { }
+  public constructor(private router: Router) {}
 
   public toggleMobile() {
     this.isMobileMode = !this.isMobileMode;

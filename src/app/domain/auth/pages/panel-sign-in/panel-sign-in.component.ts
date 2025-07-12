@@ -8,14 +8,8 @@ import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-panel-sign-in',
-  imports: [
-    RouterModule,
-    ButtonModule,
-    HeaderComponent,
-    FooterComponent,
-    ButtonComponent
-  ],
+  imports: [RouterModule, ButtonModule, HeaderComponent, FooterComponent, ButtonComponent],
   templateUrl: './panel-sign-in.component.html',
-  styleUrl: './panel-sign-in.component.scss'
+  styleUrl: './panel-sign-in.component.scss',
 })
-export class PanelSignInComponent extends BaseAuthModel { }
+export class PanelSignInComponent extends BaseAuthModel {}

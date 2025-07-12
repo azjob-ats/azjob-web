@@ -42,7 +42,7 @@ import { passwordMatchValidator } from './password-match.validator';
       <p-inputicon styleClass="inputIconTop">
         <div class="flex justify-end">
           <p-button
-            *ngIf="passwordInput.value" 
+            *ngIf="passwordInput.value"
             (click)="togglePassword()"
             [rounded]="true"
             severity="primary"
@@ -61,15 +61,22 @@ import { passwordMatchValidator } from './password-match.validator';
     <small class="err-small" *ngIf="formControl.hasError('required') && formControl.touched">
       {{ erroRequired }}
     </small>
-    <div><small class="err-small" *ngIf="formControl.hasError('hasErrorResponse') && formControl.touched">
-      {{ hasErrorResponse }}
-    </small></div>
+    <div>
+      <small
+        class="err-small"
+        *ngIf="formControl.hasError('hasErrorResponse') && formControl.touched"
+      >
+        {{ hasErrorResponse }}
+      </small>
+    </div>
     <small *ngIf="formControl.hasError('passwordWeak') && formControl.touched">
       <div><small class="err-small" *ngIf="!hasUpperCase">Contém letra maiúscula (A-Z)</small></div>
       <div><small class="err-small" *ngIf="!hasLowerCase">Contém letra minúscula (a-z)</small></div>
       <div><small class="err-small" *ngIf="!hasNumber">Contém número (0-9)</small></div>
       <div><small class="err-small" *ngIf="!hasSymbol">Contém símbolo (!#$...)</small></div>
-      <div><small class="err-small" *ngIf="!isLongEnough">{{ erroFill }}</small></div>
+      <div>
+        <small class="err-small" *ngIf="!isLongEnough">{{ erroFill }}</small>
+      </div>
     </small>
     <small
       class="err-small"
@@ -90,7 +97,7 @@ export class InputPasswordComponent implements OnInit {
   @Input() isDisabled = false;
   @Input() minLength?: number;
   @Input() maxLength?: number;
-  @Input() idReference: string = "password";
+  @Input() idReference: string = 'password';
   @Input() matchTo?: AbstractControl;
 
   showPassword = false;

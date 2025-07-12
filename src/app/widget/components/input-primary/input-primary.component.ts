@@ -48,7 +48,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     FormsModule,
     InputIconModule,
-    IconFieldModule
+    IconFieldModule,
   ],
 })
 export class InputPrimaryComponent {
@@ -77,9 +77,8 @@ export class InputPrimaryComponent {
     this.initialDisabledState = this.isDisabled;
     this.initialValidator = this.isRequired ? Validators.required : null;
 
-
     this.applyMinLength(this.minLength);
-    this.applyMaxLength(this.maxLength)
+    this.applyMaxLength(this.maxLength);
     this.applyRequiredValidator(this.isRequired);
     this.applyDisabledState(this.isDisabled);
     this.formControl.updateValueAndValidity();

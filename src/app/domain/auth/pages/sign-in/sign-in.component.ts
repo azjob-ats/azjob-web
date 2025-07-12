@@ -18,13 +18,12 @@ import { ButtonModule } from 'primeng/button';
     FooterComponent,
     InputEmailComponent,
     InputPasswordComponent,
-    LoadingSpinnerDirective
+    LoadingSpinnerDirective,
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent extends BaseAuthModel {
-
   public override validarForm() {
     if (this.emailControl.status == 'INVALID') {
       this.emailControl.markAsTouched();
@@ -44,7 +43,6 @@ export class SignInComponent extends BaseAuthModel {
     this.isDisabled = true;
     this.isLoading = true;
 
-
     this.signIn(this.emailControl.value!, this.passwordControl.value!).subscribe({
       next: (res: ApiResponse<any>) => {
         this.isLoading = false;
@@ -59,7 +57,7 @@ export class SignInComponent extends BaseAuthModel {
           return;
         }
       },
-      error: (err) => {
+      error: err => {
         this.isLoading = false;
         this.isDisabled = false;
         this.passwordControl.enable();
@@ -79,10 +77,10 @@ export class SignInComponent extends BaseAuthModel {
 
         if (err.errors![0].code === 'auth/wrong-email-not-verified') {
           this.router.navigate([this.confirmSignUpRouterLink], {
-            queryParams: { email: this.emailControl.value }
+            queryParams: { email: this.emailControl.value },
           });
         }
-      }
+      },
     });
   }
 

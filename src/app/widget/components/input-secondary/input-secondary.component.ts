@@ -48,7 +48,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     FormsModule,
     InputIconModule,
-    IconFieldModule
+    IconFieldModule,
   ],
 })
 export class InputSecondaryComponent {

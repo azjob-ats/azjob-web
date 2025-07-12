@@ -11,5 +11,5 @@ export enum eRole {
   ADMIN = 'admin',
   CHIEFEDITOR = 'chiefeditor',
   EDITOR = 'editor',
-  USER = 'user'
+  USER = 'user',
 }

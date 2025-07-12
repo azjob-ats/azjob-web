@@ -7,7 +7,7 @@ import { LanguageSelectComponent } from '@widget/components/language-select/lang
   selector: 'app-footer',
   imports: [RouterModule, CommonModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
   @Input() link!: string;

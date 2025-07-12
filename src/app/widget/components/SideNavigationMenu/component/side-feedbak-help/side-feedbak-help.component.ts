@@ -1,5 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output, Type, ViewChild, ViewContainerRef, type OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+  Type,
+  ViewChild,
+  ViewContainerRef,
+  type OnInit,
+} from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
@@ -8,13 +19,7 @@ import { ISidebarExtraLinks, ISidebarLinks, ISideNavigationMenu } from '../../in
 
 @Component({
   selector: 'app-side-feedbak-help',
-  imports: [
-    CommonModule,
-    RouterModule,
-    TooltipModule,
-    ButtonModule,
-    TranslateModule
-  ],
+  imports: [CommonModule, RouterModule, TooltipModule, ButtonModule, TranslateModule],
   templateUrl: './side-feedbak-help.component.html',
   styleUrl: './side-feedbak-help.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,12 +39,11 @@ export class SideFeedbakHelpComponent implements OnInit {
   public selectedMenu: any = null;
   public activeDrawer: boolean = false;
 
-  public constructor(private router: Router) { }
+  public constructor(private router: Router) {}
   private translate: TranslateService = inject(TranslateService);
   ngOnInit(): void {
-    this.goToToggle("plus-preferences")
+    this.goToToggle('plus-preferences');
   }
-
 
   public closeCallback(e: any): void {
     this.onClose.emit(true);

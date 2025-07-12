@@ -50,7 +50,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: ROUTES.HOME.ROOT,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '**',

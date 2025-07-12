@@ -34,7 +34,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     FormsModule,
     InputIconModule,
-    IconFieldModule
+    IconFieldModule,
   ],
 })
-export class InputSearchComponent { }
+export class InputSearchComponent {}

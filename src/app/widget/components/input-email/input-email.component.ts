@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
@@ -52,18 +47,29 @@ import { InputTextModule } from 'primeng/inputtext';
     </p-iconfield>
 
     <!-- Mensagens de erro -->
-    <div><small class="err-small" *ngIf="formControl.hasError('required') && formControl.touched">
-      {{ erroRequired }}
-    </small></div>
-    <div><small class="err-small" *ngIf="formControl.hasError('email') && formControl.touched">
-      {{ erroInvalid }}
-    </small></div>
-    <div><small class="err-small" *ngIf="formControl.hasError('minlength') && formControl.touched">
-      {{ erroFill }}
-    </small></div>
-    <div><small class="err-small" *ngIf="formControl.hasError('hasErrorResponse') && formControl.touched">
-  {{ hasErrorResponse }}
-</small></div>
+    <div>
+      <small class="err-small" *ngIf="formControl.hasError('required') && formControl.touched">
+        {{ erroRequired }}
+      </small>
+    </div>
+    <div>
+      <small class="err-small" *ngIf="formControl.hasError('email') && formControl.touched">
+        {{ erroInvalid }}
+      </small>
+    </div>
+    <div>
+      <small class="err-small" *ngIf="formControl.hasError('minlength') && formControl.touched">
+        {{ erroFill }}
+      </small>
+    </div>
+    <div>
+      <small
+        class="err-small"
+        *ngIf="formControl.hasError('hasErrorResponse') && formControl.touched"
+      >
+        {{ hasErrorResponse }}
+      </small>
+    </div>
   `,
   styles: [''],
 })
@@ -82,16 +88,11 @@ export class InputEmailComponent implements OnInit {
   private initialControlValue!: any;
   private initialDisabledState!: boolean;
 
-
-
   ngOnInit(): void {
     this.initialControlValue = this.formControl.value;
     this.initialDisabledState = this.isDisabled;
 
-    const validators = [
-      ...(this.isRequired ? [Validators.required] : []),
-      Validators.email,
-    ];
+    const validators = [...(this.isRequired ? [Validators.required] : []), Validators.email];
 
     if (this.minLength && this.minLength > 0) {
       validators.push(Validators.minLength(this.minLength));
