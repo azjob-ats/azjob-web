@@ -2,17 +2,22 @@ import { Injectable } from '@angular/core';
 import { ApiResponse } from '@shared/interfaces/api-response';
 import { BehaviorSubject, delay, Observable, of, throwError } from 'rxjs';
 import { eProvider, eRole } from '../enums/index.enum';
-import { User, UserRegisterWithEmailAndPassword } from '../interfaces/index.interface';
+import {
+  PayloadToken,
+  User,
+  UserRegisterWithEmailAndPassword,
+  UserToken,
+} from '../interfaces/index.interface';
 import { AuthRepository } from '../repositories/auth.repository';
 
 @Injectable({ providedIn: 'root' })
 export class AuthApiMockService implements AuthRepository {
-  private access_token: string =
+  private accessToken: string =
     '.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
-  private refresh_token: string = '3f5e2fc4-bbc2-4f85-b73a-b112f3f447ae';
+  private refreshToken: string = '3f5e2fc4-bbc2-4f85-b73a-b112f3f447ae';
   private user$!: BehaviorSubject<User[]>;
   private pin: string[] = ['1263'];
-  private payload!: { token: string; expiresIn: string };
+  private payload!: PayloadToken;
 
   public constructor() {
     const user: UserRegisterWithEmailAndPassword = {
@@ -57,7 +62,10 @@ export class AuthApiMockService implements AuthRepository {
     return of();
   }
 
-  public signInWithEmailAndPassword(email: string, password: string): Observable<ApiResponse> {
+  public signInWithEmailAndPassword(
+    email: string,
+    password: string
+  ): Observable<ApiResponse<UserToken>> {
     const user = this.user$.value.find(user => user.email === email && user.password === password);
 
     if (user) {
@@ -80,13 +88,13 @@ export class AuthApiMockService implements AuthRepository {
     }
 
     if (user) {
-      const token = {
-        access_token: this.access_token,
-        refresh_token: {
-          token: this.refresh_token,
+      const token: UserToken = {
+        accessToken: this.accessToken,
+        refreshToken: {
+          token: this.refreshToken,
           timestamp: new Date().toISOString(),
           expiresIn: new Date(Date.now() + 30 * 60000).toISOString(),
-          user_id: user.id,
+          userId: user.id,
         },
       };
 
@@ -136,7 +144,7 @@ export class AuthApiMockService implements AuthRepository {
 
   public signUpWithEmailAndPassword(
     user: UserRegisterWithEmailAndPassword
-  ): Observable<ApiResponse> {
+  ): Observable<ApiResponse<UserToken>> {
     const findEmail = this.user$.value.find(find => find.email === user.email);
 
     if (findEmail) {
@@ -183,13 +191,13 @@ export class AuthApiMockService implements AuthRepository {
 
     this.user$ = new BehaviorSubject([...this.user$.value, newUser]);
 
-    const token = {
-      access_token: this.access_token,
-      refresh_token: {
-        token: this.refresh_token,
+    const token: UserToken = {
+      accessToken: this.accessToken,
+      refreshToken: {
+        token: this.refreshToken,
         timestamp: new Date().toISOString(),
         expiresIn: new Date(Date.now() + 5 * 60000).toISOString(),
-        user_id: newUser.id,
+        userId: newUser.id,
       },
     };
 
@@ -202,7 +210,7 @@ export class AuthApiMockService implements AuthRepository {
     }).pipe(delay(2000));
   }
 
-  public isEmailAlreadyExists(email: string): Observable<ApiResponse> {
+  public isEmailAlreadyExists(email: string): Observable<ApiResponse<PayloadToken>> {
     const findEmail = this.user$.value.find(user => user.email === email);
     this.payload = {
       token: '3f5e2fc4-ccbb-4f85-b73a-b112f3f447ae',
@@ -234,7 +242,7 @@ export class AuthApiMockService implements AuthRepository {
     return throwError(() => response).pipe(delay(2000));
   }
 
-  public validatePin(pin: string): Observable<ApiResponse> {
+  public validatePin(pin: string): Observable<ApiResponse<PayloadToken>> {
     const datePayload = new Date(this.payload.expiresIn);
     const tokenExpires = datePayload < new Date();
     if (tokenExpires) {
@@ -282,7 +290,7 @@ export class AuthApiMockService implements AuthRepository {
     return throwError(() => response).pipe(delay(2000));
   }
 
-  public confirmEmailByCode(pin: string, email: string): Observable<ApiResponse> {
+  public confirmEmailByCode(pin: string, email: string): Observable<ApiResponse<UserToken>> {
     const findEmail = this.user$.value.find(user => user.email === email);
 
     if (!findEmail) {
@@ -330,12 +338,12 @@ export class AuthApiMockService implements AuthRepository {
     }
 
     const token = {
-      access_token: this.access_token,
-      refresh_token: {
-        token: this.refresh_token,
+      accessToken: this.accessToken,
+      refreshToken: {
+        token: this.refreshToken,
         timestamp: new Date().toISOString(),
         expiresIn: new Date(Date.now() + 5 * 60000).toISOString(),
-        user_id: users[index].id,
+        userId: users[index].id,
       },
     };
 
@@ -352,7 +360,7 @@ export class AuthApiMockService implements AuthRepository {
     email: string,
     token: string,
     newPassword: string
-  ): Observable<ApiResponse> {
+  ): Observable<ApiResponse<boolean>> {
     const datePayload = new Date(this.payload.expiresIn);
     const payloadExpires = datePayload < new Date();
     if (payloadExpires) {
@@ -384,14 +392,20 @@ export class AuthApiMockService implements AuthRepository {
       success: true,
       message: 'password updated',
       statusCode: 200,
-      data: [],
+      data: true,
       timestamp: new Date().toISOString(),
     }).pipe(delay(2000));
   }
 
-  public getCurrentUserById(idUser: number): Observable<User | undefined> {
-    const user = this.user$.value.find(user => user.id === idUser);
-    return of(user).pipe(delay(2000));
+  public getCurrentUserById(idUser: number): Observable<ApiResponse<User>> {
+    const user: User = this.user$.value.find(user => user.id === idUser)!;
+    return of({
+      success: true,
+      message: 'user found',
+      statusCode: 200,
+      data: user,
+      timestamp: new Date().toISOString(),
+    }).pipe(delay(2000));
   }
 
   public logout(idUser: number): void {

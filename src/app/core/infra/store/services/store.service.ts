@@ -135,6 +135,6 @@ export class StoreService<T> {
     const decryptedData: any = encryptionKey
       ? this.crypto.decrypt(storedData, encryptionKey)
       : storedData;
-    return TypeObjectUtil.setValue(decryptedData);
+    return TypeObjectUtil.setValue(decryptedData) as any;
   }
 }

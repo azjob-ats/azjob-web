@@ -4,10 +4,7 @@ import { Observable, of } from 'rxjs';
 import { LoadingState } from '@core/infra/store/enums/state.enum';
 import { StoreService } from '@core/infra/store/services/store.service';
 import { environment } from '@env/environment';
-
-interface User {
-  prefix: string;
-}
+import { User } from '../interfaces/index.interface';
 
 type AppStateUser = AppState<User>;
 
@@ -48,15 +45,15 @@ export class UserCacheService {
   public update(content: User): Observable<boolean> {
     this.store.update((state: AppStateUser) => ({
       ...state,
-      items: state.items.map(item => (item.prefix === content.prefix ? content : item)),
+      items: state.items.map(item => (item.id === content.id ? content : item)),
     }));
     return of(true);
   }
 
-  public deletById(prefix: string): Observable<boolean> {
+  public deletById(prefix: number): Observable<boolean> {
     this.store.deletById((state: AppStateUser) => ({
       ...state,
-      items: state.items.filter(item => item.prefix !== prefix),
+      items: state.items.filter(item => item.id !== prefix),
     }));
     return of(true);
   }

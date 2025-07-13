@@ -22,15 +22,20 @@ export interface CreateUserGoogleProvider {
 }
 
 export interface UserToken {
-  access_token: string;
-  refresh_token: RefreshToken;
+  accessToken: string;
+  refreshToken: RefreshToken;
+}
+
+export interface PayloadToken {
+  token: string;
+  expiresIn: string;
 }
 
 export interface RefreshToken {
   token: string;
-  expires_in: string;
+  expiresIn: string;
   timestamp: string;
-  user_id: number;
+  userId: number;
 }
 
 export interface User {

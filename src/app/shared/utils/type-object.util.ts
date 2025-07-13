@@ -1,5 +1,7 @@
 export class TypeObjectUtil {
-  public static setValue(value: any) {
+  public static setValue(
+    value: string
+  ): object | boolean | number | string | null | Array<number> | Array<string> | Date | Function {
     try {
       // Tentativa de converter JSON válido para objeto, array ou número
       const parsed = JSON.parse(value);
@@ -17,7 +19,7 @@ export class TypeObjectUtil {
     }
 
     // Tenta converter para número se não foi possível com JSON.parse
-    if (!isNaN(value)) return Number(value);
+    if (!isNaN(parseInt(value))) return Number(value);
 
     // Tenta converter para função
     try {
@@ -35,7 +37,18 @@ export class TypeObjectUtil {
     return value;
   }
 
-  public static getType(value: any): string {
+  public static getType(
+    value:
+      | object
+      | boolean
+      | number
+      | string
+      | null
+      | Array<number>
+      | Array<string>
+      | Date
+      | Function
+  ): string {
     if (value === null) return 'null';
     if (Array.isArray(value)) return 'array';
     if (value instanceof Date) return 'date';

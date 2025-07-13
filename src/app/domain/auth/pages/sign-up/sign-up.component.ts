@@ -3,7 +3,10 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from '@domain/auth/components/footer/footer.component';
 import { HeaderComponent } from '@domain/auth/components/header/header.component';
 import { eProvider, eRole } from '@domain/auth/enums/index.enum';
-import { UserRegisterWithEmailAndPassword } from '@domain/auth/interfaces/index.interface';
+import {
+  UserRegisterWithEmailAndPassword,
+  UserToken,
+} from '@domain/auth/interfaces/index.interface';
 import { BaseAuthModel } from '@domain/auth/models/base-auth.model';
 import { ApiResponse } from '@shared/interfaces/api-response';
 import { InputEmailComponent } from '@widget/components/input-email/input-email.component';
@@ -11,6 +14,7 @@ import { InputPasswordComponent } from '@widget/components/input-passworld/input
 import { InputPrimaryComponent } from '@widget/components/input-primary/input-primary.component';
 import { LoadingSpinnerDirective } from '@widget/directives/loading-spinner.directive';
 import { ButtonModule } from 'primeng/button';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -67,7 +71,7 @@ export class SignUpComponent extends BaseAuthModel {
       role: eRole.USER,
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     }).subscribe({
-      next: (res: ApiResponse<any>) => {
+      next: () => {
         this.isLoading = false;
         this.isDisabled = false;
         this.nameControl.enable();
@@ -78,14 +82,11 @@ export class SignUpComponent extends BaseAuthModel {
         this.passwordOption.isDisabled = false;
         this.emailOption.isDisabled = false;
 
-        if (res.statusCode === 200) {
-          this.router.navigate([this.confirmSignUpRouterLink], {
-            queryParams: { email: this.emailControl.value },
-          });
-          return;
-        }
+        this.router.navigate([this.confirmSignUpRouterLink], {
+          queryParams: { email: this.emailControl.value },
+        });
       },
-      error: err => {
+      error: (err: ApiResponse) => {
         this.isLoading = false;
         this.isDisabled = false;
         this.nameControl.enable();
@@ -96,15 +97,15 @@ export class SignUpComponent extends BaseAuthModel {
         this.passwordOption.isDisabled = false;
         this.emailOption.isDisabled = false;
 
-        if (err.errors![0].code === 'auth/wrong-email-exists') {
-          this.emailOption.hasErrorResponse = err.errors![0].message;
+        if (err.errors!.code === 'auth/wrong-email-exists') {
+          this.emailOption.hasErrorResponse = err.message;
           this.emailControl.setErrors({ hasErrorResponse: true });
         }
       },
     });
   }
 
-  public signUp(user: UserRegisterWithEmailAndPassword) {
+  public signUp(user: UserRegisterWithEmailAndPassword): Observable<ApiResponse<UserToken>> {
     return this.authService.signUpWithEmailAndPassword(user);
   }
 }

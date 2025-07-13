@@ -129,7 +129,6 @@ export class InputPasswordComponent implements OnInit {
       ...(this.isRequired ? [Validators.required] : []),
       passwordStrongValidator(),
       ...(this.matchTo ? [passwordMatchValidator(this.matchTo)] : []),
-      // min/maxLength mantidos abaixo
     ];
 
     if (this.minLength && this.minLength > 0) {
@@ -191,7 +190,7 @@ export class InputPasswordComponent implements OnInit {
     shouldDisable ? this.disable() : this.enable();
   }
 
-  private ngOnDestroy() {
+  private ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

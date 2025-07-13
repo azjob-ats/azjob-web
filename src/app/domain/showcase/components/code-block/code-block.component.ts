@@ -25,7 +25,7 @@ export class CodeBlockComponent implements OnChanges {
     }
   }
 
-  private async formatCode() {
+  private async formatCode(): Promise<void> {
     try {
       let parser = 'html';
       if (this.language === 'html') parser = 'html';

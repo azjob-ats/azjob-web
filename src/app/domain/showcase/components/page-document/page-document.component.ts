@@ -40,7 +40,7 @@ export class PageDocumentComponent {
   @Input() public showProperties: boolean = true;
   @Input() public showEmitters: boolean = true;
   @Input() public showPanelStateComponent: boolean = true;
-  @Input() public dynamicComponent!: Type<any>;
+  @Input() public dynamicComponent!: Type<unknown>;
   @ViewChild('dynamicComponent', { read: ViewContainerRef, static: true })
   public container!: ViewContainerRef;
   @Input() public properties: Properties[] = [];
@@ -72,7 +72,7 @@ export class PageDocumentComponent {
     ];
   }
 
-  public renderComponent(component: Type<any>) {
+  public renderComponent(component: Type<unknown>): ComponentRef<unknown> {
     this.container.clear();
     const componentRef = this.createComponent(component, {
       ...{ formControl: this.componentFormControl },
@@ -98,16 +98,16 @@ export class PageDocumentComponent {
     return componentRef;
   }
 
-  public reset() {
+  public reset(): void {
     this.componentRef.instance.formControl.reset();
   }
 
-  public toggleDisable() {
+  public toggleDisable(): void {
     this.componentRef.instance.isDisabled = !this.componentRef.instance.isDisabled;
     this.componentRef.instance.ngOnInit();
   }
 
-  public toggleRequired() {
+  public toggleRequired(): void {
     this.componentRef.instance.isRequired = !this.componentRef.instance.isRequired;
     this.componentRef.instance.ngOnInit();
   }

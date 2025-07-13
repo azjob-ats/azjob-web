@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '@domain/auth/components/footer/footer.component';
 import { HeaderComponent } from '@domain/auth/components/header/header.component';
+import { UserToken } from '@domain/auth/interfaces/index.interface';
 import { BaseAuthModel } from '@domain/auth/models/base-auth.model';
 import { ApiResponse } from '@shared/interfaces/api-response';
 import { InputEmailComponent } from '@widget/components/input-email/input-email.component';
 import { InputPasswordComponent } from '@widget/components/input-passworld/input-passworld.component';
 import { LoadingSpinnerDirective } from '@widget/directives/loading-spinner.directive';
 import { ButtonModule } from 'primeng/button';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -44,20 +46,16 @@ export class SignInComponent extends BaseAuthModel {
     this.isLoading = true;
 
     this.signIn(this.emailControl.value!, this.passwordControl.value!).subscribe({
-      next: (res: ApiResponse<unknown>) => {
+      next: () => {
         this.isLoading = false;
         this.isDisabled = false;
         this.passwordControl.enable();
         this.emailControl.enable();
         this.passwordOption.isDisabled = false;
         this.emailOption.isDisabled = false;
-
-        if (res.statusCode === 200) {
-          this.router.navigate([this.rootRouterLink]);
-          return;
-        }
+        this.router.navigate([this.rootRouterLink]);
       },
-      error: err => {
+      error: (err: ApiResponse) => {
         this.isLoading = false;
         this.isDisabled = false;
         this.passwordControl.enable();
@@ -65,17 +63,17 @@ export class SignInComponent extends BaseAuthModel {
         this.passwordOption.isDisabled = false;
         this.emailOption.isDisabled = false;
 
-        if (err.errors![0].code === 'auth/wrong-password') {
-          this.passwordOption.hasErrorResponse = err.errors![0].message;
+        if (err.errors!.code === 'auth/wrong-password') {
+          this.passwordOption.hasErrorResponse = err.errors!.message;
           this.passwordControl.setErrors({ hasErrorResponse: true });
         }
 
-        if (err.errors![0].code === 'auth/wrong-email') {
-          this.emailOption.hasErrorResponse = err.errors![0].message;
+        if (err.errors!.code === 'auth/wrong-email') {
+          this.emailOption.hasErrorResponse = err.errors!.message;
           this.emailControl.setErrors({ hasErrorResponse: true });
         }
 
-        if (err.errors![0].code === 'auth/wrong-email-not-verified') {
+        if (err.errors!.code === 'auth/wrong-email-not-verified') {
           this.router.navigate([this.confirmSignUpRouterLink], {
             queryParams: { email: this.emailControl.value },
           });
@@ -84,7 +82,7 @@ export class SignInComponent extends BaseAuthModel {
     });
   }
 
-  public signIn(email: string, password: string) {
+  public signIn(email: string, password: string): Observable<ApiResponse<UserToken>> {
     return this.authService.signInWithEmailAndPassword(email, password);
   }
 }
