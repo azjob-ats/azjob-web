@@ -13,6 +13,7 @@ import {
 } from '@domain/auth/constants/routes.constant';
 
 export class BaseAuthModel {
+  public imageIconGoogle = 'image/google.svg';
   public panelSignInRouterLink = panelSignInRouterLink;
   public confirmSignUpRouterLink = confirmSignUpRouterLink;
   public panelSignUpRouterLink = panelSignUpRouterLink;

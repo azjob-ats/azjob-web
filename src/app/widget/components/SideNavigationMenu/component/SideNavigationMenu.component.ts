@@ -17,6 +17,7 @@ import {
   IRouterLink,
 } from '../interfaces';
 import { TranslateModule } from '@ngx-translate/core';
+import { ICON_AZJOB } from '@shared/constants/app.constant';
 
 @Component({
   selector: 'app-side-navigation-menu',
@@ -50,8 +51,9 @@ export class SideNavigationMenuComponent {
   public selectedSection: ISection | null = null;
   public selectedMenu: IMenu | null = null;
   public activeDrawer: boolean = false;
+  protected ICON_AZJOB = ICON_AZJOB;
 
-  public constructor(private router: Router) {}
+  public constructor(private router: Router) { }
 
   public toggleMobile(): void {
     this.isMobileMode = !this.isMobileMode;

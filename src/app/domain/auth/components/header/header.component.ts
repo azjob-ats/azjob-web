@@ -4,6 +4,7 @@ import { Dialog } from 'primeng/dialog';
 import { environment } from '@env/environment';
 import { ButtonModule } from 'primeng/button';
 import { SideFeedbakHelpContainerComponent } from '@widget/components/SideNavigationMenu/container/side-feedbak-help-container/side-feedbak-help-container.component';
+import { ICON_AZJOB } from '@shared/constants/app.constant';
 const { ROUTES } = environment;
 
 @Component({
@@ -14,6 +15,7 @@ const { ROUTES } = environment;
 })
 export class HeaderComponent {
   protected sidebarLogoRouterLink = ROUTES.ROOT;
+  protected ICON_AZJOB = ICON_AZJOB;
 
   public visible: boolean = false;
 

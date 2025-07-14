@@ -1,0 +1,1 @@
+export const ICON_AZJOB = 'image/az-logo.png';

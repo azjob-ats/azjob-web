@@ -1,35 +1,20 @@
 <aside class="sidebar w-full-vw flex flex-row justify-content-between">
-  <div
-    class="sidebar-header flex align-items-center cursor-pointer"
-    [routerLink]="sidebarLogoRouterLink"
-  >
-    <img src="image/az-logo.png" alt="logo" />
+  <div class="sidebar-header flex align-items-center cursor-pointer" [routerLink]="sidebarLogoRouterLink">
+    <img [src]="ICON_AZJOB" alt="logo" />
     <span class="text-4xl font-bold lilita-one-regular">Job</span>
   </div>
 
   <div class="mt-3 mr-1">
-    <p-button
-      (click)="showDialog()"
-      label="Feedback and help"
-      [text]="true"
-      severity="primary"
-      styleClass="button-arrow-primary w-full border-noround"
-    >
+    <p-button (click)="showDialog()" label="Feedback and help" [text]="true" severity="primary"
+      styleClass="button-arrow-primary w-full border-noround">
       <i class="pi pi-question-circle black text-1xl font-bold"></i>
     </p-button>
   </div>
 </aside>
 
-<p-dialog
-  [modal]="true"
-  [(visible)]="visible"
-  [style]="{ width: '50rem', height: '100vh' }"
-  showHeader="false"
->
+<p-dialog [modal]="true" [(visible)]="visible" [style]="{ width: '50rem', height: '100vh' }" showHeader="false">
   <div class="pt-3">
-    <app-side-feedbak-help-container
-      (onClose)="closeDialog($event)"
-    ></app-side-feedbak-help-container>
+    <app-side-feedbak-help-container (onClose)="closeDialog($event)"></app-side-feedbak-help-container>
   </div>
   <ng-template #footer></ng-template>
 </p-dialog>

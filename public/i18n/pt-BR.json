@@ -2,7 +2,20 @@
   "app": {
     "welcome": "Bem-vindo",
     "notDefaultLanguage": "Não possui idioma padrão",
-    "optionEmpy": "Nenhum Índice Selecionado"
+    "optionEmpy": "Nenhum Índice Selecionado",
+    "component": {
+      "inputPassworld": {
+        "hasUpperCase": "Deve ter letra maiúscula (A-Z)",
+        "hasLowerCase": "Deve ter letra minúscula (a-z)",
+        "hasNumber": "Deve ter número (0-9)",
+        "hasSymbol": "Deve ter símbolo (!#$...)",
+        "passwordMismatch": "As senhas não coincidem"
+      },
+      "lightDarkToggle": {
+        "light": "Claro",
+        "dark": "Escuro"
+      }
+    }
   },
   "sidebar": {
     "forYou": "Para Você",
@@ -85,6 +98,80 @@
       "subdescription": "Vamos encontrar um lugar melhor para você ir.",
       "button": "IR PARA A PÁGINA INICIAL"
     }
+  },
+  "auth": {
+    "header": {
+      "btnDialogFeedback": "Feedback e ajuda"
+    },
+    "footer": {
+      "notHaveAccount": "Não tem uma conta?",
+      "signUp": "Inscreva-se",
+      "term": "Ao continuar com uma conta registrada no Brasil, você concorda com os nossos Termos de Serviço e confirma que leu e compreendeu nossa Política de Privacidade."
+    },
+    "signPanel": {
+      "title": "Quem bom que você voltou",
+      "btnQR": "Faça login com QR code",
+      "btnEmailAndPassword": "Faça login com E-mail e senha",
+      "btnEmailAndGoogle": "Faça login com Google"
+    },
+    "sign": {
+      "title": "Entrar",
+      "labelEmail": "E-mail",
+      "labelPassword": "Senha",
+      "erroFillEmail": "O e-mail deve ter no mínimo 5 caracteres.",
+      "erroRequiredEmail": "e-mail é obrigatório.",
+      "erroFillPassword": "A password deve ter no mínimo 5 caracteres.",
+      "erroRequiredPassword": "password é obrigatório.",
+      "ForgotYourPassword": "Esqueceu a senha?",
+      "btnSign": "Entrar na sua conta"
+    },
+    "ForgotYourPassword": {
+      "title": "Redefinir senha",
+      "btnBack": "Voltar",
+      "step1": {
+        "labelEmail": "E-mail",
+        "btnSendCode": "Enviar código de verificação"
+      },
+      "step2": {
+        "labelCode": "Digite o código de 4 dígitos enviado para seu e-mail",
+        "erroRequiredPinCode": "Informe o código pin enviado para o seu e-mail.",
+        "hasErrorResponsePinCode": "Hover um error",
+        "btnVerify": "Validar codigo pin"
+      },
+      "step3": {
+        "labelPassword": "Nova senha",
+        "erroFillPassword": "A password deve ter no mínimo 5 caracteres.",
+        "erroRequiredPassword": "password é obrigatório.",
+        "btnResetPassword": "Redefinir senha"
+      }
+    },
+    "signupPanel": {
+      "title": "Cadastra-se no",
+      "name": "AZJob",
+      "btnEmailAndPassword": "E-mail e senha",
+      "btnEmailAndGoogle": "Google"
+    },
+    "signup": {
+      "title": "Criar uma nova conta",
+      "labelName": "Nome completo",
+      "labelEmail": "E-mail",
+      "labelPassword": "Senha",
+      "labelConfirmPassword": "Confirmar senha",
+      "erroFillEmail": "O e-mail deve ter no mínimo 5 caracteres.",
+      "erroRequiredEmail": "e-mail é obrigatório.",
+      "erroFillPassword": "A password deve ter no mínimo 5 caracteres.",
+      "erroRequiredPassword": "password é obrigatório.",
+      "erroFillName": "O nome deve ter no mínimo 5 caracteres.",
+      "erroRequiredName": "nome é obrigatório.",
+      "btnSign": "Cadastra-se"
+    },
+    "ConfirmEmailValidateAccount": {
+      "title": "Confirmar e-mail",
+      "labelCode": "Digite o código de 4 dígitos enviado para seu e-mail",
+      "erroRequiredPinCode": "Informe o código pin enviado para o seu e-mail.",
+      "hasErrorResponsePinCode": "Hover um error",
+      "btnVerify": "Confirmar",
+      "btnNotReceivedCode": "Não recebeu o código?"
+    }
   }
 }
-

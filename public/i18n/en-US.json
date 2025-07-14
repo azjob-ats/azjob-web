@@ -2,7 +2,20 @@
   "app": {
     "welcome": "Welcome",
     "notDefaultLanguage": "No default language set",
-    "optionEmpy": "No index selected"
+    "optionEmpy": "No index selected",
+    "component": {
+      "inputPassworld": {
+        "hasUpperCase": "Must contain an uppercase letter (A-Z)",
+        "hasLowerCase": "Must contain a lowercase letter (a-z)",
+        "hasNumber": "Must contain a number (0-9)",
+        "hasSymbol": "Must contain a symbol (!#$...)",
+        "passwordMismatch": "Passwords do not match"
+      },
+      "lightDarkToggle": {
+        "light": "Light",
+        "dark": "Dark"
+      }
+    }
   },
   "sidebar": {
     "forYou": "For You",
@@ -84,6 +97,81 @@
       "description": "We searched high and low but couldn’t find what you’re looking for.",
       "subdescription": "Let’s find a better place for you to go.",
       "button": "GO TO HOMEPAGE"
+    }
+  },
+  "auth": {
+    "header": {
+      "btnDialogFeedback": "Feedback and help"
+    },
+    "footer": {
+      "notHaveAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "term": "By continuing with an account registered in Brazil, you agree to our Terms of Service and confirm that you have read and understood our Privacy Policy."
+    },
+    "signPanel": {
+      "title": "Glad to have you back",
+      "btnQR": "Log in with QR code",
+      "btnEmailAndPassword": "Log in with Email and Password",
+      "btnEmailAndGoogle": "Log in with Google"
+    },
+    "sign": {
+      "title": "Sign In",
+      "labelEmail": "Email",
+      "labelPassword": "Password",
+      "erroFillEmail": "Email must be at least 5 characters.",
+      "erroRequiredEmail": "Email is required.",
+      "erroFillPassword": "Password must be at least 5 characters.",
+      "erroRequiredPassword": "Password is required.",
+      "ForgotYourPassword": "Forgot your password?",
+      "btnSign": "Sign in to your account"
+    },
+    "ForgotYourPassword": {
+      "title": "Reset Password",
+      "btnBack": "Back",
+      "step1": {
+        "labelEmail": "Email",
+        "btnSendCode": "Send verification code"
+      },
+      "step2": {
+        "labelCode": "Enter the 4-digit code sent to your email",
+        "erroRequiredPinCode": "Please enter the pin code sent to your email.",
+        "hasErrorResponsePinCode": "There was an error",
+        "btnVerify": "Verify pin code"
+      },
+      "step3": {
+        "labelPassword": "New Password",
+        "erroFillPassword": "Password must be at least 5 characters.",
+        "erroRequiredPassword": "Password is required.",
+        "btnResetPassword": "Reset password"
+      }
+    },
+    "signupPanel": {
+      "title": "Sign up at",
+      "name": "AZJob",
+      "btnEmailAndPassword": "Email and Password",
+      "btnEmailAndGoogle": "Google"
+    },
+    "signup": {
+      "title": "Create a new account",
+      "labelName": "Full Name",
+      "labelEmail": "Email",
+      "labelPassword": "Password",
+      "labelConfirmPassword": "Confirm Password",
+      "erroFillEmail": "Email must be at least 5 characters.",
+      "erroRequiredEmail": "Email is required.",
+      "erroFillPassword": "Password must be at least 5 characters.",
+      "erroRequiredPassword": "Password is required.",
+      "erroFillName": "Name must be at least 5 characters.",
+      "erroRequiredName": "Name is required.",
+      "btnSign": "Sign up"
+    },
+    "ConfirmEmailValidateAccount": {
+      "title": "Confirm Email",
+      "labelCode": "Enter the 4-digit code sent to your email",
+      "erroRequiredPinCode": "Please enter the pin code sent to your email.",
+      "hasErrorResponsePinCode": "There was an error",
+      "btnVerify": "Confirm",
+      "btnNotReceivedCode": "Didn't receive the code?"
     }
   }
 }
