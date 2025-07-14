@@ -75,12 +75,11 @@ export class AuthApiMockService implements AuthRepository {
           success: false,
           message: 'E-mail não verificado',
           statusCode: 400,
-          errors: [
-            {
-              code: 'auth/wrong-email-not-verified',
-              message: 'E-mail não verificado',
-            },
-          ],
+          errors: {
+            code: 'auth/wrong-email-not-verified',
+            message: 'E-mail não verificado',
+          },
+
           timestamp: new Date().toISOString(),
         };
         return throwError(() => response).pipe(delay(500));
@@ -116,12 +115,12 @@ export class AuthApiMockService implements AuthRepository {
         success: false,
         message: 'Erro de validação',
         statusCode: 400,
-        errors: [
-          {
-            code: 'auth/wrong-password',
-            message: 'Senha não confere',
-          },
-        ],
+        errors:
+        {
+          code: 'auth/wrong-password',
+          message: 'Senha não confere',
+        },
+
         timestamp: new Date().toISOString(),
       };
       return throwError(() => response).pipe(delay(500));
@@ -131,12 +130,12 @@ export class AuthApiMockService implements AuthRepository {
       success: false,
       message: 'Erro de validação',
       statusCode: 400,
-      errors: [
-        {
-          code: 'auth/wrong-email',
-          message: 'E-mail não encontrado',
-        },
-      ],
+      errors:
+      {
+        code: 'auth/wrong-email',
+        message: 'E-mail não encontrado',
+      },
+
       timestamp: new Date().toISOString(),
     };
     return throwError(() => response).pipe(delay(500));
@@ -152,12 +151,12 @@ export class AuthApiMockService implements AuthRepository {
         success: false,
         message: 'Email já existe',
         statusCode: 404,
-        errors: [
-          {
-            code: 'auth/wrong-email-exists',
-            message: 'E-mail já existe',
-          },
-        ],
+        errors:
+        {
+          code: 'auth/wrong-email-exists',
+          message: 'E-mail já existe',
+        },
+
         timestamp: new Date().toISOString(),
       };
       return throwError(() => response).pipe(delay(2000));
@@ -210,11 +209,11 @@ export class AuthApiMockService implements AuthRepository {
     }).pipe(delay(2000));
   }
 
-  public isEmailAlreadyExists(email: string): Observable<ApiResponse<PayloadToken>> {
+  public sendCodePinByEmailForUpdatePassword(email: string): Observable<ApiResponse<PayloadToken>> {
     const findEmail = this.user$.value.find(user => user.email === email);
     this.payload = {
       token: '3f5e2fc4-ccbb-4f85-b73a-b112f3f447ae',
-      expiresIn: new Date(Date.now() + 5 * 60000).toISOString(),
+      expiresIn: new Date(Date.now() + 1 * 60000).toISOString(),
     };
 
     if (findEmail) {
@@ -231,18 +230,18 @@ export class AuthApiMockService implements AuthRepository {
       success: false,
       message: 'Email não existe',
       statusCode: 404,
-      errors: [
-        {
-          code: 'auth/wrong-email',
-          message: 'E-mail não encontrado',
-        },
-      ],
+      errors:
+      {
+        code: 'auth/wrong-email',
+        message: 'E-mail não encontrado',
+      },
+
       timestamp: new Date().toISOString(),
     };
     return throwError(() => response).pipe(delay(2000));
   }
 
-  public validatePin(pin: string): Observable<ApiResponse<PayloadToken>> {
+  public validatePinForUpdatePassword(pin: string, email: string): Observable<ApiResponse<PayloadToken>> {
     const datePayload = new Date(this.payload.expiresIn);
     const tokenExpires = datePayload < new Date();
     if (tokenExpires) {
@@ -250,12 +249,12 @@ export class AuthApiMockService implements AuthRepository {
         success: false,
         message: 'PIN expirado',
         statusCode: 400,
-        errors: [
-          {
-            code: 'auth/wrong-pin-expired',
-            message: 'PIN expirado',
-          },
-        ],
+        errors:
+        {
+          code: 'auth/wrong-pin-expired',
+          message: 'PIN expirado',
+        },
+
         timestamp: new Date().toISOString(),
       };
 
@@ -278,19 +277,19 @@ export class AuthApiMockService implements AuthRepository {
       success: false,
       message: 'Código inválido',
       statusCode: 404,
-      errors: [
-        {
-          code: 'auth/wrong-pin',
-          message: 'O código expirou, Volte para tentar um novo código.',
-        },
-      ],
+      errors:
+      {
+        code: 'auth/wrong-pin',
+        message: 'O código expirou, Volte para tentar um novo código.',
+      },
+
       timestamp: new Date().toISOString(),
     };
 
     return throwError(() => response).pipe(delay(2000));
   }
 
-  public confirmEmailByCode(pin: string, email: string): Observable<ApiResponse<UserToken>> {
+  public validatePinSendByEmailForConfirmTheAccount(pin: string, email: string): Observable<ApiResponse<UserToken>> {
     const findEmail = this.user$.value.find(user => user.email === email);
 
     if (!findEmail) {
@@ -298,12 +297,12 @@ export class AuthApiMockService implements AuthRepository {
         success: false,
         message: 'Email não existe',
         statusCode: 404,
-        errors: [
-          {
-            code: 'auth/wrong-email',
-            message: 'E-mail não encontrado',
-          },
-        ],
+        errors:
+        {
+          code: 'auth/wrong-email',
+          message: 'E-mail não encontrado',
+        },
+
         timestamp: new Date().toISOString(),
       };
       return throwError(() => response).pipe(delay(2000));
@@ -316,13 +315,13 @@ export class AuthApiMockService implements AuthRepository {
         success: false,
         message: 'Código inválido',
         statusCode: 404,
-        errors: [
-          {
-            code: 'auth/wrong-pin-not-found',
-            message:
-              'PIN Não confere com o enviado para o email, verifique o email e tente novamente.',
-          },
-        ],
+        errors:
+        {
+          code: 'auth/wrong-pin-not-found',
+          message:
+            'PIN Não confere com o enviado para o email, verifique o email e tente novamente.',
+        },
+
         timestamp: new Date().toISOString(),
       };
 
@@ -368,12 +367,12 @@ export class AuthApiMockService implements AuthRepository {
         success: false,
         message: 'PIN expirado',
         statusCode: 400,
-        errors: [
-          {
-            code: 'auth/wrong-pin-expired',
-            message: 'PIN expirado',
-          },
-        ],
+        errors:
+        {
+          code: 'auth/wrong-pin-expired',
+          message: 'PIN expirado',
+        },
+
         timestamp: new Date().toISOString(),
       };
 

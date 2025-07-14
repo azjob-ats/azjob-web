@@ -36,7 +36,7 @@ export class ConfirmEmailComponent extends BaseAuthModel {
 
     this.isLoadingValidatePin = true;
 
-    this.authService.confirmEmailByCode(this.pinControl.value!, this.email()).subscribe({
+    this.authService.validatePinSendByEmailForConfirmTheAccount(this.pinControl.value!, this.email()).subscribe({
       next: (res: ApiResponse<unknown>) => {
         this.isLoadingValidatePin = false;
         if (res.statusCode === 200) {

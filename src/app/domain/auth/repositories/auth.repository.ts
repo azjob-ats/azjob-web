@@ -10,29 +10,17 @@ import { ApiResponse } from '@shared/interfaces/api-response';
 export abstract class AuthRepository {
   public abstract signInWithGoogle(): Observable<ApiResponse>;
 
-  public abstract signInWithEmailAndPassword(
-    email: string,
-    password: string
-  ): Observable<ApiResponse<UserToken>>;
+  public abstract signInWithEmailAndPassword(email: string, password: string): Observable<ApiResponse<UserToken>>;
 
-  public abstract signUpWithEmailAndPassword(
-    user: UserRegisterWithEmailAndPassword
-  ): Observable<ApiResponse<UserToken>>;
+  public abstract signUpWithEmailAndPassword(user: UserRegisterWithEmailAndPassword): Observable<ApiResponse<UserToken>>;
 
-  public abstract isEmailAlreadyExists(email: string): Observable<ApiResponse<PayloadToken>>;
+  public abstract sendCodePinByEmailForUpdatePassword(email: string): Observable<ApiResponse<PayloadToken>>;
 
-  public abstract validatePin(pin: string): Observable<ApiResponse<PayloadToken>>;
+  public abstract validatePinSendByEmailForConfirmTheAccount(pin: string, email: string): Observable<ApiResponse<UserToken>>;
 
-  public abstract confirmEmailByCode(
-    pin: string,
-    email: string
-  ): Observable<ApiResponse<UserToken>>;
+  public abstract validatePinForUpdatePassword(pin: string, email: string): Observable<ApiResponse<PayloadToken>>;
 
-  public abstract updatePasswordByToken(
-    email: string,
-    token: string,
-    newPassword: string
-  ): Observable<ApiResponse<boolean>>;
+  public abstract updatePasswordByToken(email: string, token: string, newPassword: string): Observable<ApiResponse<boolean>>;
 
   public abstract getCurrentUserById(idUser: number): Observable<ApiResponse<User>>;
 

@@ -66,11 +66,13 @@ export class SignInComponent extends BaseAuthModel {
         if (err.errors!.code === 'auth/wrong-password') {
           this.passwordOption.hasErrorResponse = err.errors!.message;
           this.passwordControl.setErrors({ hasErrorResponse: true });
+          this.passwordControl.markAsTouched();
         }
 
         if (err.errors!.code === 'auth/wrong-email') {
           this.emailOption.hasErrorResponse = err.errors!.message;
           this.emailControl.setErrors({ hasErrorResponse: true });
+          this.emailControl.markAsTouched();
         }
 
         if (err.errors!.code === 'auth/wrong-email-not-verified') {

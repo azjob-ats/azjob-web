@@ -20,7 +20,7 @@ export class IndexService {
   private userCache: UserCacheService = inject(UserCacheService);
   private api: AuthApiMockService = inject(AuthApiMockService);
 
-  public signInWithGoogle(): void {}
+  public signInWithGoogle(): void { }
 
   public signInWithEmailAndPassword(
     email: string,
@@ -35,20 +35,20 @@ export class IndexService {
       switchMap((res: ApiResponse<UserToken>) =>
         res.success
           ? this.api.getCurrentUserById(res.data!.refreshToken.userId).pipe(
-              tap(user => this.setUser(user.data!)),
-              map(() => res)
-            )
+            tap(user => this.setUser(user.data!)),
+            map(() => res)
+          )
           : of(res)
       )
     );
   }
 
-  public isEmailAlreadyExists(email: string): Observable<ApiResponse<PayloadToken>> {
-    return this.api.isEmailAlreadyExists(email);
+  public sendCodePinByEmailForUpdatePassword(email: string): Observable<ApiResponse<PayloadToken>> {
+    return this.api.sendCodePinByEmailForUpdatePassword(email);
   }
 
-  public validatePin(pin: string): Observable<ApiResponse<PayloadToken>> {
-    return this.api.validatePin(pin);
+  public validatePinForUpdatePassword(pin: string, email: string): Observable<ApiResponse<PayloadToken>> {
+    return this.api.validatePinForUpdatePassword(pin, email);
   }
 
   public updatePasswordByToken(
@@ -65,8 +65,8 @@ export class IndexService {
     return this.api.signUpWithEmailAndPassword(user);
   }
 
-  public confirmEmailByCode(code: string, email: string): Observable<ApiResponse<UserToken>> {
-    return this.api.confirmEmailByCode(code, email).pipe(
+  public validatePinSendByEmailForConfirmTheAccount(code: string, email: string): Observable<ApiResponse<UserToken>> {
+    return this.api.validatePinSendByEmailForConfirmTheAccount(code, email).pipe(
       switchMap(response => {
         if (response.success) {
         }

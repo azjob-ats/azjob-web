@@ -100,6 +100,7 @@ export class SignUpComponent extends BaseAuthModel {
         if (err.errors!.code === 'auth/wrong-email-exists') {
           this.emailOption.hasErrorResponse = err.message;
           this.emailControl.setErrors({ hasErrorResponse: true });
+          this.emailControl.markAsTouched();
         }
       },
     });

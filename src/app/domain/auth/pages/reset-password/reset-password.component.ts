@@ -44,7 +44,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
 
     this.isLoadingSendCodeToEmail = true;
 
-    this.authService.isEmailAlreadyExists(this.emailControl.value!).subscribe({
+    this.authService.sendCodePinByEmailForUpdatePassword(this.emailControl.value!).subscribe({
       next: (res: ApiResponse<PayloadToken>) => {
         this.isLoadingSendCodeToEmail = false;
         if (this.emailControl.status == 'VALID') {
@@ -61,6 +61,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
         if (err.errors!.code === 'auth/wrong-email') {
           this.emailOption.hasErrorResponse = err.errors!.message;
           this.emailControl.setErrors({ hasErrorResponse: true });
+          this.emailControl.markAsTouched();
         }
         this.isLoadingSendCodeToEmail = false;
       },
@@ -86,6 +87,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
             if (err.errors!.code === 'auth/wrong-pin-expired') {
               this.pinOption.hasErrorResponse = err.errors!.message;
               this.passwordControl.setErrors({ hasErrorResponse: true });
+              this.passwordControl.markAsTouched();
             }
             this.isLoadingResetPassword = false;
           },
@@ -109,7 +111,7 @@ export class ResetPasswordComponent extends BaseAuthModel {
     this.resetPayloadPin();
     this.isLoadingValidatePin = true;
 
-    this.authService.validatePin(this.pinControl.value!).subscribe({
+    this.authService.validatePinForUpdatePassword(this.pinControl.value!, this.emailControl.value!).subscribe({
       next: (res: ApiResponse<PayloadToken>) => {
         this.isLoadingValidatePin = false;
         if (this.pinControl.status == 'VALID') {
